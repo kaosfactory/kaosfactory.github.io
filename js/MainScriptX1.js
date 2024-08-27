@@ -225,7 +225,7 @@ function executePage(pageIndex, subPageIndex){
     animateDialFill('cc-dial-color', currentTemperature, 2500);
 
     setTimeout(startRadar, 9500);
-    setTimeout(startZoomedRadar, 18000);
+    setTimeout(startZoomedRadar, 17500);
 
   }
   else if(currentSubPageName == 'radar-page'){
