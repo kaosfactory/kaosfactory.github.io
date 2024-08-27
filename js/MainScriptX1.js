@@ -81,7 +81,7 @@ function setInformation(){
   setCurrentConditions();
   setTimelineEvents();
   hideSettings();
-  setTimeout(startAnimation, 5000);
+  setTimeout(startAnimation, 3000);
 }
 
 //function setMainBackground(){
@@ -225,7 +225,7 @@ function executePage(pageIndex, subPageIndex){
     animateDialFill('cc-dial-color', currentTemperature, 2500);
 
     setTimeout(startRadar, 9500);
-    setTimeout(startZoomedRadar, 17000);
+    setTimeout(startZoomedRadar, 18000);
 
   }
   else if(currentSubPageName == 'radar-page'){
