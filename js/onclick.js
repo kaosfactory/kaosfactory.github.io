@@ -27,7 +27,7 @@ function radaralerts() {
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
   
-  window.parent.location.href= 'MobileTrimble.html';
+  window.parent.location.href= 'trimble.html';
 
 }
 
@@ -39,7 +39,7 @@ function radarfull() {
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
   
-  window.parent.location.href= 'MobileMapBox.html';
+  window.parent.location.href= 'mapbox.html';
 
 }
 

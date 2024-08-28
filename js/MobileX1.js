@@ -202,10 +202,7 @@ function fetchRadarImages(){
     getElement('radar-container').style.display = 'none';
   }
 
-  mapSettings = btoa(JSON.stringify({
-    "agenda": {
-    }
-  }));
+
   radarImage.setAttribute("src", "alkurl.html?lng=" + longitude + "&lat=" + latitude + "&zoom=8");
   radarImage.style.width = "1230px"
   radarImage.style.height = "740px"
@@ -223,10 +220,6 @@ function fetchRadarImages(){
       getElement('zoomed-radar-container').style.display = 'none';
     }
   
-    mapSettings = btoa(JSON.stringify({
-      "agenda": {
-      }
-    }));
     zoomedRadarImage.setAttribute("src", "alkurl.html?lng=" + longitude + "&lat=" + latitude + "&zoom=11");
     zoomedRadarImage.style.width = "1230px"
     zoomedRadarImage.style.height = "740px"
@@ -239,8 +232,6 @@ function fetchRadarImages(){
   //setTimeout(startRadar, 8000);
   //startZoomedRadar();
   //setTimeout(startZoomedRadar, 9000);
-
-
 
 
 }

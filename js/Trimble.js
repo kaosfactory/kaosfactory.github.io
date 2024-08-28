@@ -72,71 +72,49 @@ function fetchCurrentWeather(){
 function fetchRadarImages(){
 
 scheduleTimeline();
+  //window.location.href = "https://radar.weather.gov/?settings=v1_"+mapSettings;
 
-      // set up API credentials
-      mapboxgl.accessToken = "pk.eyJ1IjoiYmxhcmsiLCJhIjoiY2plaGZmaGR1MGZ3cTJ3bzZ6OHp5OGZzYyJ9.5dVrsWJk208YPShD-0HLsQ";
-      const twcApiKey = "e1f10a1e78da46f5b10a1e78da96f525";
-
-      // set up a promise for The Weather Company product metadata
-      const timeSlices = fetch(
-        "https://api.weather.com/v3/TileServer/series/productSet/PPAcore?apiKey=" +
-          twcApiKey
-      );
-
-
-
-      // set up map
-      const map = new mapboxgl.Map({
-        container: "map", // container id
-        style: "mapbox://styles/mapbox/bright-v9", // style URL
-        center: [longitude, latitude], // starting position [lng, lat]
-        zoom: 9, // starting zoom
-      });
+ 
+            TrimbleMaps.APIKey = '17CA0885B03A6B4FADBDC3D1A51DC0BD';
+            const map = new TrimbleMaps.Map({
+                container: 'map', // container id
+                style: TrimbleMaps.Common.Style.TRANSPORTATION, // hosted style id
+                center: [longitude, latitude], // starting position
+                zoom: 6 // starting zoom
+            });
+            const ctrlClick = new TrimbleMaps.WeatherAlertClickControl();
+            map.addControl(ctrlClick);
 
 
 
-      // this function resolves the metadata promise,
-      // extracts the most recent publish time for radar data,
-      // and adds the radar layer to the map
-      const addRadarLayer = () => {
-        timeSlices
-          .then((res) => res.json())
-          .then((res) => {
-            const radarTimeSlices = res.seriesInfo.radar.series;
-            const latestTimeSlice = radarTimeSlices[0].ts;
 
-            // insert the latest time for radar into the source data URL
-            map.addSource("twcRadar", {
-              type: "raster",
-              tiles: [
-                "https://api.weather.com/v3/TileServer/tile/radar?ts=" +
-                  latestTimeSlice +
-                  "&xyz={x}:{y}:{z}&apiKey=" +
-                  twcApiKey,
-              ],
-              tileSize: 256,
+
+
+            const ctrlFilter = new TrimbleMaps.WeatherAlertFilterControl();
+            map.addControl(ctrlFilter, 'top-right');
+			
+			
+            map.on('load', function() {
+                map.setWeatherAlertVisibility(true);
+				map.setWeatherRadarVisibility(true);
             });
 
-            // place the layer before the "aeroway-line" layer
-            map.addLayer(
-              {
-                id: "radar",
-                type: "raster",
-                source: "twcRadar",
-                paint: {
-                  "raster-opacity": 0.5,
-                },
-              },
-              //"aeroway-line"
-            );
-          });
-      };
+ 
 
-      map.on("load", () => {
-        addRadarLayer();
-      });
 
 
 }
+
+
+
+//////////////////////////////////////
+
+
+
+
+
+
+
+
 
 
