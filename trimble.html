@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="css/geosettings.css">
-  <link rel="stylesheet" type="text/css" href="css/geotext.css">
-  <link rel="stylesheet" type="text/css" href="css/geobuttons.css">
-  <script src="js/StaticConfig.js"></script>
-  <script src="js/StaticMainScript.js"></script>
-  <script src="js/StaticRadarX.js"></script>
-  <script src="js/StaticConditions.js"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="shortcut icon" type="image/png" href="assets/logos/favicon.png"/>
+ <link rel="stylesheet" type="text/css" href="css/geosettings.css">
+ <link rel="stylesheet" type="text/css" href="css/geotext.css">
+ <link rel="stylesheet" type="text/css" href="css/geobuttons.css">
+ <script src="js/StaticConfig.js"></script>
+ <script src="js/StaticMainScript.js"></script>
+ <script src="js/Trimble.js"></script>
+ <script src="js/StaticConditions.js"></script>
 
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
-  <script defer src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
- 
-  <title>Radar</title>
+ <link rel="stylesheet" href="map_css/trimblemaps-3.17.0.css" />
+ <script src="map_css/trimblemaps-3.17.0.js"></script>
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
+ <title>IntelliSTAR Emulator</title>
 
- </style>
+        <style>
+            body { margin: 0; padding: 0; }
+
+            #map {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+            }
+
+        </style>
 
 </head>
+	
+<body bgcolor="black">
 
-<body bgcolor="black">	
 
     <div id="map"> 
 
 
-  <input type="button" value="IntelliSTAR" class="button0" onclick="location.href='mobileX1.html';" />
+  <input type="button" value="IntelliSTAR" class="button3" onclick="location.href='mobileX1.html';" />
 
-  <input type="button" value="Radar Loop" class="button1" onclick="location.href='mapbox.html';" />
 
     </div>
-
-
+ 
   <div id="render-frame"></div>
     <!-- Alert message -->
   <div  class="regular-text"></div>

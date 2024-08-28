@@ -3,53 +3,59 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="assets/logos/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="css/geosettings.css">
   <link rel="stylesheet" type="text/css" href="css/geotext.css">
   <link rel="stylesheet" type="text/css" href="css/geobuttons.css">
   <script src="js/StaticConfig.js"></script>
   <script src="js/StaticMainScript.js"></script>
-  <script src="js/StaticRadarX.js"></script>
+  <script src="js/MapBox.js"></script>
   <script src="js/StaticConditions.js"></script>
 
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
-  <script defer src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
- 
-  <title>Radar</title>
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
+<script defer src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+
+    <title>IntelliSTAR Radar</title>
 
     <style>
-      body {
+    body, html {
         margin: 0;
         padding: 0;
-      }
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
+    }
+    #map {
+        height: 100vh;
         width: 100%;
-      }
-
- </style>
+    }
+    </style>
 
 </head>
-
-<body bgcolor="black">	
+	
+<body bgcolor="black">
 
     <div id="map"> 
 
-
   <input type="button" value="IntelliSTAR" class="button0" onclick="location.href='mobileX1.html';" />
 
-  <input type="button" value="Radar Loop" class="button1" onclick="location.href='mapbox.html';" />
-
     </div>
-
-
-  <div id="render-frame"></div>
+ 
+  <div id="render-frame">
+    <div id="background-image" class="below-screen">  
+    </div>
+      <div id="infobar-container">
+      <div  class="infobar-item-container">
+        <div id="infobar-time-text"  ></div>
+      </div>
+    </div>
+      <div id="timeline">
+    </div>
     <!-- Alert message -->
-  <div  class="regular-text"></div>
+    <div  class="regular-text"></div>
+  </div>
 
   <!-- Settings Prompt -->
+
   <div id="settings-container" style="display: none;">
     <div id="settings-prompt">
       <table style="width:350px">
