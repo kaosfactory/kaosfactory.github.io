@@ -233,6 +233,9 @@ function fetchRadarImages(){
   //startZoomedRadar();
   //setTimeout(startZoomedRadar, 9000);
 
+    localStorage.setItem('loop', 'y');
+    CONFIG.loop = true;
+
 
 }
 
