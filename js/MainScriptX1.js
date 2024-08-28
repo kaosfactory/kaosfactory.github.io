@@ -28,16 +28,13 @@ window.onload = function () {
   CONFIG.load();
   preLoadMusic();
   setMainBackground();
-  resizeWindow();
+  setTimeout(resizeWindow, 5000);
   setClockTime();
   if (!CONFIG.loop) {
     getElement("settings-container").style.display = 'block';
     guessZipCode();
   }
 }
-
-
-
 
 function preLoadMusic(){
   var index = Math.floor(Math.random() * 12) + 1;
