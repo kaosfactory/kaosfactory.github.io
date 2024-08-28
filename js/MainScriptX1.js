@@ -28,7 +28,7 @@ window.onload = function () {
   CONFIG.load();
   preLoadMusic();
   setMainBackground();
-  setTimeout(resizeWindow, 5000);
+
   setClockTime();
   if (!CONFIG.loop) {
     getElement("settings-container").style.display = 'block';
@@ -78,6 +78,7 @@ function setInformation(){
   setCurrentConditions();
   setTimelineEvents();
   hideSettings();
+  setTimeout(resizeWindow, 4500);
   setTimeout(startAnimation, 5000);
 }
 
