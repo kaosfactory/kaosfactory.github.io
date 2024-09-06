@@ -39,9 +39,15 @@
 <script>
 
 
-		alk.defaults.setApiKey('17CA0885B03A6B4FADBDC3D1A51DC0BD');
+alk.defaults.setApiKey('17CA0885B03A6B4FADBDC3D1A51DC0BD');
 
-		var base = new alk.layer.BaseMapLayer();
+var base = new alk.layer.BaseMapLayer({
+  sourceOptions: {
+    serviceOptions: {
+      style: alk.val.Style.Transportation
+    }
+  }
+});
 
 		var radar = new alk.layer.WeatherRadarLayer({
 		  opacity: 0.75
