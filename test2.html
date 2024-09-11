@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MapsGL SDK - Animation Controls</title>
+    <link rel="stylesheet" type="text/css" href="css/attrib.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+ 
+    <link href="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.css" rel="stylesheet" />
+    <script defer src="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.js"></script>
+ 
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100vh;
+        width: 100%;
+    }
+    #controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        font-size: 12px;
+    }
+    #controls h3 {
+        margin: 0 0 6px;
+        font-size: 14px;
+    }
+    #controls a {
+        color: #333;
+        display: block;
+        margin: 0 4px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #controls a:hover {
+        text-decoration: underline;
+    }
+    #controls .divider {
+        margin: 0 4px;
+        background: #ccc;
+        width: 1px;
+        height: 16px;
+    }
+    #controls .time {
+        font-weight: normal;
+    }
+    #controls .loader {
+        display: none;
+        height: 20px;
+    }
+    .loader .ring {
+        display: inline-block;
+        position: relative;
+        width: 20px;
+        height: 20px;
+    }
+    .loader .ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        margin: 1px;
+        border: 2px solid #333;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #333 transparent transparent transparent;
+    }
+    .loader .ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    .loader .ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    .loader .ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+ 
+</head>
+<body>
+    <div id="map"></div>
+    <div id="controls">
+        <input type="button" value="Reload" class="button0" onclick="window.location.reload();" />
+
+        <button class="btn-play">Play</button>
+        <button class="btn-pause">Pause</button>
+        <div class="divider"></div>
+        <input id="timeline-slider" type="range" min="0" max="1" value="1" step="0.01">
+        <div class="time">0.0</div>
+        <div class="loader">
+            <div class="ring">
+                <div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+
+    </script>
+
+
+ 
+    <script>
+        function formatDate(date) {
+            return `${date.toLocaleDateString('en', { weekday: 'short' })} ${date.toLocaleTimeString('en')}`;
+        }
+ 
+        window.addEventListener('load', () => {
+ 
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw';
+        const map = new mapboxgl.Map({
+            container: document.getElementById('map'),
+            style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+            center: [-96.33207, 37.40621],
+            zoom: 4
+        });
+ 
+            const account = new aerisweather.mapsgl.Account('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+            const controller = new aerisweather.mapsgl.MapboxMapController(map, { account });
+
+
+
+
+
+            // Set up animation controls
+            const controls = {
+                time: document.querySelector('#controls .time'),
+                play: document.querySelector('#controls .btn-play'),
+                pause: document.querySelector('#controls .btn-pause'),
+                slider: document.getElementById('timeline-slider'),
+                loader: document.querySelector('#controls .loader')
+            };
+ 
+            function updateTimelineLabel() {
+                controls.slider.value = controller.timeline.position;
+                controls.time.innerHTML = `${formatDate(controller.timeline.currentDate)}`;
+            }
+ 
+            // Hide/show the loading indicator when any map layer is loading data
+            controller.on('load:start', () => {
+                controls.loader.style.display = 'block';
+            });
+            controller.on('load:complete', () => {
+                controls.loader.style.display = 'none';
+            });
+ 
+            // Set up timeline controls
+            controls.pause.disabled = true;
+            controller.timeline.on('play', () => {
+                controls.play.textContent = 'Stop';
+                controls.pause.textContent = 'Pause';
+                controls.pause.disabled = false;
+            }).on('stop', () => {
+                controls.play.textContent = 'Play';
+                controls.pause.textContent = 'Pause';
+                controls.pause.disabled = true;
+            }).on('pause', () => {
+                controls.pause.textContent = 'Resume';
+            }).on('resume', () => {
+                controls.pause.textContent = 'Pause';
+            });
+            controls.play.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (controller.timeline.isActive) {
+                    controller.timeline.stop();
+                } else {
+                    controller.timeline.play();
+                }
+            });
+            controls.pause.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (controller.timeline.isPaused) {
+                    controller.timeline.resume();
+                } else {
+                    controller.timeline.pause();
+                }
+            });
+            controls.slider.addEventListener('input', (e) => {
+                controller.timeline.goTo(controls.slider.value);
+            });
+ 
+            // Set up the timeline slider and time display
+            controller.timeline.on('advance', ({ position, date }) => {
+                controls.slider.value = position;
+                controls.time.innerHTML = `${formatDate(date)}`;
+            });
+            controller.timeline.on('range:change', () => {
+                updateTimelineLabel();
+            });
+            controls.slider.addEventListener('input', (e) => {
+                controller.timeline.pause();
+                controller.timeline.goTo(controls.slider.value);
+            });
+ 
+            updateTimelineLabel();
+ 
+            controller.on('load', () => {
+                let beforeLayerId;
+                
+                // Find the Mapbox layer id to insert the weather layer before by matching against a
+                // particular Mapbox layer id value and type. Here we look for the first admin boundary
+                // layer to insert weather layers below.
+                const mapboxLayers = controller.map.getStyle().layers;
+                mapboxLayers.forEach((layer) => {
+                    if (!beforeLayerId && layer.type === 'line') {
+                        if (/^admin-1/.test(layer.id)) {
+                            beforeLayerId = layer.id;
+                        }
+                    }
+                });
+
+		
+                const radarLayer = controller.addWeatherLayer('radar', null, beforeLayerId);
+
+		
+
+                controller.addWeatherLayer('alerts', null, radarLayer.id, {
+                    paint: {
+                        opacity: 0.15
+                    }
+                });
+                controller.addWeatherLayer('radar', {
+                    paint: {
+                        opacity: 0.15
+                    }
+                });
+
+
+
+            });
+
+  	    controller.addDataInspectorControl({ event: 'move'});
+
+
+        });
+    </script>
+ 
+</body>
+</html>
