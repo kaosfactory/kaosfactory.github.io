@@ -102,8 +102,11 @@
     }
     </style>
  
+
 </head>
+
 <body>
+
     <div id="map"></div>
     <div id="controls">
         <input type="button" value="Reload" class="button0" onclick="window.location.reload();" />
@@ -120,38 +123,26 @@
         </div>
     </div>
 
-    <script>
-
-
-
-
-
-    </script>
-
-
  
+
     <script>
+
         function formatDate(date) {
             return `${date.toLocaleDateString('en', { weekday: 'short' })} ${date.toLocaleTimeString('en')}`;
         }
  
-        window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
  
-            // Create the Mapbox map instance
-            mapboxgl.accessToken = 'pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw';
-            const map = new mapboxgl.Map({
-                container: 'map',
-                style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
-                center: [-96.5, 39],
-                zoom: 4,
-                projection: 'mercator'
-            });
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw';
+        const map = new mapboxgl.Map({
+            container: document.getElementById('map'),
+            style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+            center: [-96.33207, 37.40621],
+            zoom: 4
+        });
  
-            const account = new aerisweather.mapsgl.Account('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
-            const controller = new aerisweather.mapsgl.MapboxMapController(map, { account });
-
-
-
+        const account = new aerisweather.mapsgl.Account('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+        const controller = new aerisweather.mapsgl.MapboxMapController(map, { account });
 
 
             // Set up animation controls
@@ -226,45 +217,52 @@
  
             updateTimelineLabel();
  
-            controller.on('load', () => {
-                let beforeLayerId;
-                
-                // Find the Mapbox layer id to insert the weather layer before by matching against a
-                // particular Mapbox layer id value and type. Here we look for the first admin boundary
-                // layer to insert weather layers below.
-                const mapboxLayers = controller.map.getStyle().layers;
-                mapboxLayers.forEach((layer) => {
-                    if (!beforeLayerId && layer.type === 'line') {
-                        if (/^admin-1/.test(layer.id)) {
-                            beforeLayerId = layer.id;
-                        }
+
+        // Set alert color based on severity/level
+        const determineAlertColor = (data) => {
+            const title = data.ADVISORY;
+ 
+            if (/warning|extreme/i.test(title)) return '#df1616';
+            if (/watch|severe/i.test(title)) return '#ff9600';
+            if (/advisory|moderate/i.test(title)) return '#009ac8';
+            if (/statement|alert|minor/i.test(title)) return '#808080';
+ 
+            return data.COLOR || '#000';
+        };
+ 
+        controller.on('load', () => {
+
+            controller.addWeatherLayer('alerts', {
+                paint: {
+                    fill: {
+                        color: (data) => {
+                            return determineAlertColor(data);
+                        },
+                        opacity: 0.47
+                    },
+                    stroke: {
+                        color: (data) => {
+                            return determineAlertColor(data);
+                        },
+                        opacity: 0.30
                     }
-                });
-
-
-                const radarLayer = controller.addWeatherLayer('radar', null, beforeLayerId);
-
-
-
-                controller.addWeatherLayer('alerts', null, radarLayer.id, {
-                    paint: {
-                        opacity: 0.45
-                    }
-                });
-                controller.addWeatherLayer('radar', {
-                    paint: {
-                        opacity: 0.75
-                    }
-                });
-
-
+                },
 
             });
 
-  	    controller.addDataInspectorControl({ event: 'move'});
+                  controller.addWeatherLayer('radar', {
+                    paint: {
+                        opacity: 0.73
+                    }
+                });
 
         });
+
+  	    controller.addDataInspectorControl({ event: 'move'});
+
+    });
     </script>
+ 
  
 </body>
 </html>
