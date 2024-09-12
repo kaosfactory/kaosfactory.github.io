@@ -74,7 +74,7 @@ function fetchRadarImages(){
 scheduleTimeline();
 
       // set up API credentials
-      mapboxgl.accessToken = "pk.eyJ1IjoiYmxhcmsiLCJhIjoiY2plaGZmaGR1MGZ3cTJ3bzZ6OHp5OGZzYyJ9.5dVrsWJk208YPShD-0HLsQ";
+      mapboxgl.accessToken = "pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw";
       const twcApiKey = "e1f10a1e78da46f5b10a1e78da96f525";
 
       // set up a promise for The Weather Company product metadata
@@ -88,10 +88,11 @@ scheduleTimeline();
       // set up map
       const map = new mapboxgl.Map({
         container: "map", // container id
-        style: "mapbox://styles/mapbox/bright-v9", // style URL
+        style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
         center: [longitude, latitude], // starting position [lng, lat]
         zoom: 9, // starting zoom
       });
+
 
 
 
@@ -117,6 +118,8 @@ scheduleTimeline();
               tileSize: 256,
             });
 
+
+
             // place the layer before the "aeroway-line" layer
             map.addLayer(
               {
@@ -126,8 +129,10 @@ scheduleTimeline();
                 paint: {
                   "raster-opacity": 0.5,
                 },
+ 
               },
-              //"aeroway-line"
+              "aeroway-line"
+
             );
           });
       };
