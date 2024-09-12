@@ -1,0 +1,22 @@
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
+
+
+.mapboxgl-ctrl-attrib .mapbox-improve-map  {
+    display: none !important;
+}
+
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+    display: none !important;
+}
+
+
+.mapboxgl-ctrl-icon {
+    display: none !important;
+}
+
+
+.mapboxgl-ctrl button{
+    display: none !important;
+}
