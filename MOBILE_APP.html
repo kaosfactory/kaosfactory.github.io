@@ -12,7 +12,8 @@
  
     <link href="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.css" rel="stylesheet" />
     <script defer src="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/attrib.css"> 
+
+
     <style>
     body, html {
         margin: 0;
@@ -22,22 +23,8 @@
         height: 100vh;
         width: 100%;
     }
-    #controls {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        z-index: 1;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 6px;
-        border-radius: 5px;
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-        font-size: 12px;
-    }
+
+
     #controls h3 {
         margin: 0 0 0px;
         font-size: 12px;
@@ -54,8 +41,6 @@
     }
 
 
-
-
     #controls .time {
         font-weight: normal;
 		display: flex;
@@ -65,16 +50,14 @@
         gap: 8px;
         position: absolute;
         bottom: 40px;
-        left: 1px;
+        right: 1px;
         z-index: 1;
         background: rgba(255, 255, 255, 0.8);
         padding: 6px;
         border-radius: 5px;
         font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-        font-size: 12px;	
-		
-		
-		
+        font-size: 12px;
+		font-weight: 600;
 		
     }
 	
@@ -83,10 +66,13 @@
     #controls .loader {
         display: none;
         height: 20px;
+
     }
     .loader .ring {
         display: inline-block;
         position: relative;
+
+
         width: 20px;
         height: 20px;
     }
@@ -94,7 +80,8 @@
         box-sizing: border-box;
         display: block;
         position: absolute;
-        width: 18px;
+
+	width: 18px;
         height: 18px;
         margin: 1px;
         border: 2px solid #333;
@@ -119,6 +106,59 @@
             transform: rotate(360deg);
         }
     }
+
+
+
+
+	.btn-play {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+    }
+	.btn-pause {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+		}
+
+
+    #controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+
+    }
+	
+
+    #controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 8px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+    }
+
+
     </style>
  
 
@@ -127,19 +167,25 @@
 <body>
 
     <div id="map"></div>
-    <div id="controls">
-        <input type="button" value="Reload" class="button0" onclick="window.location.reload();" />
 
-        <button class="btn-play">Play</button>
-        <button class="btn-pause">Pause</button>
-        <div class="divider"></div>
-        <input id="timeline-slider" type="range" min="0" max="1" value="1" step="0.01">
-        <div class="time">0.0</div>
+    <div id="controls2">
+		<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
+        <button class="btn-play" onclick="location.href='mobileX1.html';">NWS Alerts</button>		
+        <button class="btn-play" onclick="location.href='mobileX1.html';">Reload</button>
+    </div>
+
+
+   <div id="controls">
         <div class="loader">
             <div class="ring">
                 <div></div><div></div><div></div><div></div>
             </div>
         </div>
+        <button class="btn-play">Play</button>
+        <button class="btn-pause">Pause</button>
+        <div class="divider"></div>
+        <input id="timeline-slider" type="range" min="0" max="1" value="1" step="0.01">
+        <div class="time">0.0</div>
     </div>
 
  
@@ -152,11 +198,6 @@
  
     window.addEventListener('load', () => {
  
-
-
-
-
-
         mapboxgl.accessToken = 'pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw';
         const map = new mapboxgl.Map({
             container: document.getElementById('map'),
@@ -166,8 +207,6 @@
 
 
         });
-
-
 
  
         const account = new aerisweather.mapsgl.Account('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
@@ -182,9 +221,7 @@
                     resumeOnMoveEnd: false
                 }
 
-
 	 });
-
 
             // Set up animation controls
             const controls = {
@@ -260,76 +297,39 @@
 
 
  
-	controller.timeline.setStartDateUsingOffset(-6 * 3600 * 1000);    
-	controller.timeline.duration = 7;
-	controller.timeline.endDelay = 2;
-
-
-
-
-        // Set alert color based on severity/level
-        const determineAlertColor = (data) => {
-            const title = data.ADVISORY;
- 
-            if (/warning|extreme/i.test(title)) return '#df1616';
-            if (/watch|severe/i.test(title)) return '#ff9600';
-            if (/advisory|moderate/i.test(title)) return '#009ac8';
-            if (/statement|alert|minor/i.test(title)) return '#808080';
- 
-            return data.COLOR || '#000';
-        };
- 
-        controller.on('load', () => {
-
-
-
-            controller.addWeatherLayer('alerts', {
-                paint: {
-                    fill: {
-                        color: (data) => {
-                            return determineAlertColor(data);
-                        },
-                        opacity: 0
-                    },
-                    stroke: {
-                        color: (data) => {
-                            return determineAlertColor(data);
-                        },
-                        opacity: 0
-                    }
-                },
-
-            },
-
-             "aeroway-line"
-
-	    );
+			controller.timeline.setStartDateUsingOffset(-6 * 3600 * 1000);    
+			controller.timeline.duration = 7;
+			controller.timeline.endDelay = 2;
 
 
 
 
 
-                  controller.addWeatherLayer('radar', {
-                    paint: {
-                        opacity: 0.85
-                    }
-                }, "aeroway-line");
-				
-				
-				
+			controller.on('load', () => {
 
-				
-				
-				
+
+					  controller.addWeatherLayer('radar', {
+						paint: {
+							opacity: 0.75
+						}
+					}, 
+					
+					"aeroway-line"
+					
+			);
+
+					  controller.addWeatherLayer('alerts', {
+						paint: {
+							opacity: 0.0
+						}
+					}, 
+					
+					//"aeroway-line"
+					
+			);
 				
 
         });
-
-
-
-
-
-
 
 
   	    controller.addDataInspectorControl({ event: 'move'});
