@@ -127,7 +127,7 @@ scheduleTimeline();
                 type: "raster",
                 source: "twcRadar",
                 paint: {
-                  "raster-opacity": 0.5,
+                  "raster-opacity": 0.70,
                 },
  
               },
