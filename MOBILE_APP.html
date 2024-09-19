@@ -218,6 +218,12 @@ input[type="range" i] {
 
         });
 
+			// disable map rotation using right click + drag
+			map.dragRotate.disable();
+
+			// disable map rotation using touch rotation gesture
+			map.touchZoomRotate.disableRotation();
+
  
         const account = new aerisweather.mapsgl.Account('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
         const controller = new aerisweather.mapsgl.MapboxMapController(map, { account,
