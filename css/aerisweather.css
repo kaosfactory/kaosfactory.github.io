@@ -33,7 +33,7 @@
   border-radius: 9999px;
   left: 50%;
   position: absolute;
-  top: 35%;
+  top: 50%;
   transform: rotate(-90deg);
 }
 .awxjs__loader > svg .awxjs__fill-path {
@@ -353,7 +353,7 @@
   position: relative;
 }
 .awxjs__ia-map .awxjs__loader {
-  top: 8px;
+  top: 4px;
 }
 .awxjs__ia-map .awxjs__loader > svg {
   transform: rotate(-90deg);
@@ -584,6 +584,8 @@
   width: 40px;
   z-index: 1;
 }
+
+
 .awxjs__app__ui-panel .awxjs__app__ui-panel-toggle svg {
   fill: #fff;
   height: 24px;
@@ -593,19 +595,46 @@
   top: 50%;
   width: 24px;
 }
+
+
+
+
+
+
+
+
 .awxjs__app__ui-panel .awxjs__app__ui-panel-close {
   background: transparent;
   border: 0;
   padding: 0;
   position: absolute;
-  right: 2px;
+  right: 5.5px;
   top: 2px;
 }
+
+
+
+
+
+
+
+
+
+
 .awxjs__app__ui-panel .awxjs__app__ui-panel-close svg {
   fill: #999;
-  height: 20px;
-  width: 20px;
+  height: 17px;
+  width: 17px;
 }
+
+
+
+
+
+
+
+
+
 .awxjs__app__ui-panel .awxjs__app__ui-panel-close:hover {
   cursor: pointer;
 }
@@ -650,21 +679,51 @@
     max-width 0.4s cubic-bezier(0.4, 0, 0.23, 1);
   overflow: hidden;
 }
+
+
+
+
+
+
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-toolbar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  height: 28px;
+
+  height: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-title {
   color: #fff;
   font-size: 10px;
   font-weight: bold;
-  line-height: 30px;
+  line-height: 23px;
   letter-spacing: 0.1em;
-  padding: 0 8px;
+  padding: 0 10px;
   text-transform: uppercase;
+
 }
+
+
+
+
+
+
+
+
+
+
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-content {
   opacity: 0;
@@ -697,9 +756,9 @@
   color: #ccc;
   cursor: pointer;
   display: inline-block;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: bold;
-  padding: 4px 4px;
+  padding: 5px 4px;
   position: relative;
   text-align: left;
   white-space: nowrap;
@@ -763,10 +822,14 @@
 .awxjs__app__ui-panel-layers .awxjs__app__ui-panel-content {
   overflow: auto;
 }
+
+
 .awxjs__app__ui-panel-layers .awxjs__app__ui-panel-buttons {
-  padding: 6px;
-  width: 120px;
+  padding: 4px;
+  width: 135px;
 }
+
+
 .awxjs__app__ui-panel-layers .awxjs__ui-btn-group {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -823,12 +886,21 @@
 .awxjs__app__ui-panel-timeline .awxjs__ui-cols > div {
   position: relative;
 }
+
+
 .awxjs__app__ui-panel-timeline-left {
-  margin-right: 20px;
+  margin-right: 0px;
   min-width: 90px;
 }
+
+
+
+
+
+
+
 .awxjs__app__ui-panel-timeline-right {
-  margin-left: 5px;
+  margin-left: 0px;
 }
 .awxjs__app__ui-panel-timeline-daytime {
   color: #fff;
@@ -902,6 +974,20 @@
   right: 0;
   z-index: 11;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .awxjs__app__ui-panel-timeline .awxjs__ui-slider .awxjs__ui-slider-span {
   border-bottom: #bbb 2px solid;
 }
@@ -1004,7 +1090,7 @@
 }
 .awxjs__app__ui-panel-info-container {
   max-height: inherit;
-  min-height: 100px;
+  min-height: 110px;
   overflow: auto;
   position: relative;
 }
@@ -1013,7 +1099,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   left: 0;
-  padding: 0px 0px 0px;
+  padding: 20px 10px 15px;
   position: absolute;
   right: 0;
   top: 0;
@@ -1110,6 +1196,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
+  visibility: hidden;
 }
 .awxjs__app__ui-panel-info-container .awxjs__loader > svg {
   background: #e6e5e5;
