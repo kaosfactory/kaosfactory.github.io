@@ -179,9 +179,9 @@ input[type="range" i] {
     <div id="map"></div>
 
     <div id="controls2">
-	<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
-        <button class="btn-play" onclick="location.href='trimble.html';">NWS Alerts</button>		
-        <button class="btn-play" onclick="location.href='MOBILE_APP.html';">Reload</button>
+		<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
+        <button class="btn-play" onclick="location.href='mobileX1.html';">NWS Alerts</button>		
+        <button class="btn-play" onclick="location.href='mobileX1.html';">Reload</button>
     </div>
 
 
@@ -214,7 +214,7 @@ input[type="range" i] {
             style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
             center: [-96.33207, 37.40621],
             zoom: 3,
-			MaxPitch: 0,
+			maxPitch: 0,
 			hash: true
 			
         });
@@ -225,6 +225,8 @@ input[type="range" i] {
 			// disable map rotation using touch rotation gesture
 			map.touchZoomRotate.disableRotation();
 
+            map.dragRotate._pitchWithRotate = false;
+ 
  
         const account = new aerisweather.mapsgl.Account('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
         const controller = new aerisweather.mapsgl.MapboxMapController(map, { account,
