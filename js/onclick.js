@@ -69,13 +69,21 @@ function mapbox() {
 
 
 
+function app() {
+
+  localStorage.setItem('loop', 'y');
+  CONFIG.loop = true;
+  location.href = "MOBILE_APP_INTELLISTAR.html";
+}
+
+
+
 function twc() {
 
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
   location.href = "staticradarX.html";
 }
-
 
 
 
