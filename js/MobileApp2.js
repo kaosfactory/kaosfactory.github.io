@@ -85,7 +85,7 @@ scheduleTimeline();
                 container: 'map', // container id
                 style: TrimbleMaps.Common.Style.BASIC, // hosted style id
                 center: [longitude, latitude], // starting position
-                zoom: 7 // starting zoom
+                zoom: 9 // starting zoom
             });
             const ctrlClick = new TrimbleMaps.WeatherAlertClickControl();
             map.addControl(ctrlClick);

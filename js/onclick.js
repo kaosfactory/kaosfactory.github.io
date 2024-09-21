@@ -27,7 +27,7 @@ function radaralerts() {
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
   
-  window.parent.location.href= 'trimble.html';
+  window.parent.location.href= 'MOBILE_APP_INTELLISTAR2.html';
 
 }
 

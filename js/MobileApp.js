@@ -75,7 +75,7 @@ scheduleTimeline();
  //window.location.href = "https://radar.weather.gov/?settings=v1_"+mapSettings;
  //window.location.href = "https://google.com";
 
-window.location.href = "MOBILE_APP.html#6/" + latitude + "/" + longitude; //Comment out to use script below
+window.location.href = "MOBILE_APP.html#9/" + latitude + "/" + longitude; //Comment out to use script below
 
 
 
