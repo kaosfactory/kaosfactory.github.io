@@ -39,7 +39,7 @@ function radarfull() {
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
   
-  window.parent.location.href= 'mapbox.html';
+  window.parent.location.href= 'staticradarX.html';
 
 }
 
