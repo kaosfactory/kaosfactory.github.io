@@ -50,58 +50,23 @@ window.addEventListener('load', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             },
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-
-            panels: {
+          panels: {
                 layers: {
                     buttons: [
 					
 					
-					
-					
-						{
+			{
                             title: "Dark Base Map",
                             value: "flat-dk"
 
                         },					
 					
-					
-					
-					
-					
-					
-					
-					],
+			     ],
+
+
                     enabled: true,
                     toggleable: true,
                     position: {
@@ -125,8 +90,9 @@ window.addEventListener('load', () => {
                         }
                     }
                 },
+
                 search: {
-                    enabled: false,
+                    enabled: true,
                     toggleable: false,
                     position: {
                         pin: "top",
@@ -136,6 +102,7 @@ window.addEventListener('load', () => {
                         }
                     }
                 },
+
                 legends: {
                     enabled: false,
                     toggleable: true,
@@ -147,6 +114,7 @@ window.addEventListener('load', () => {
                         }
                     }
                 },
+
                 info: {
                     enabled: true,
                     position: {
@@ -162,19 +130,6 @@ window.addEventListener('load', () => {
         });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -199,7 +154,8 @@ window.addEventListener('load', () => {
 						}
 											
 						] },
-						
+
+			
 
                      { title: 'Radar', value: 'Radar', segments: [
 	
@@ -219,26 +175,23 @@ window.addEventListener('load', () => {
 								paint: {
 									opacity: .75
 								}
+
 							},
-	
+
 						},
 						
 					
-
-						
-
                      { title: 'Temp Change', value: 'temp-change', segments: [
-						{
+			{
                         title: "Past 24 hours",
                         value: "temperatures-24hr-change"
-						},
+			},
 						
-						{
+			{
                         title: "Past 1 hour",
                         value: "temperatures-1hr-change"
-						},
+			},
 					
-						
 
 						],
 
@@ -251,24 +204,6 @@ window.addEventListener('load', () => {
 						},
 
 
-						
-                        { title: 'Winds', value: 'winds', segments: [
-                            { title: 'Arrows', value: 'wind-dir' },						
-                            { title: 'Barbs', value: 'wind-barbs' }
-                        ] },
-
-
-
-						{
-						title: 'Wind Chill', 
-						value: 'wind-chill', 
-						options: {
-							paint: {
-								opacity: .1
-								}
-							}			
-						},
-
 						{
 						title: 'Heat Index', 
 						value: 'heat-index', 
@@ -278,6 +213,28 @@ window.addEventListener('load', () => {
 								}
 							}			
 						},
+
+
+						{
+						title: 'Wind Chill', 
+						value: 'wind-chill', 
+						options: {
+							paint: {
+								opacity: .1
+								}
+							},
+						
+		
+						},
+
+
+						
+                        { title: 'Winds', value: 'winds', segments: [
+                            { title: 'Arrows', value: 'wind-dir' },						
+                            { title: 'Barbs', value: 'wind-barbs' }
+                        ] },
+
+
 
 						{
 						title: 'Visibility', 
@@ -289,6 +246,7 @@ window.addEventListener('load', () => {
 							}			
 						},
 						
+
 						{
 						title: 'Drought Monitor', 
 						value: 'drought-monitor', 
@@ -297,7 +255,9 @@ window.addEventListener('load', () => {
 								opacity: .4
 								}
 							}			
-						},		
+						},	
+
+
 
 						{ title: 'Oceanic Data', value: 'ocean-currents', segments: [,
 
@@ -330,15 +290,11 @@ window.addEventListener('load', () => {
 						},
 
 						
-				
-						
-
 					]
 					
 					
 				})
 			
-
 
 			.then(({controller, mapsgl }) => {
 			
@@ -359,31 +315,17 @@ window.addEventListener('load', () => {
 					app.showInfoAtCoord(e.data.coord, 'localweather', 'Local Weather');
 				});		
 
-		        //add the MapsGL legend control
-             		    //controller.addLegendControl(app.$el, { width: 200 });
+		        	//add the MapsGL legend control
+             		   	 //controller.addLegendControl(app.$el, { width: 200 });
 
 
 				// add the MapsGL data inspector control*********************
-					   //controller.addDataInspectorControl({ event: 'move'}); //must be here
+
 
 
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
 
-						
-						//controller.addWeatherLayer('heat-index');
-						
-						
-
-
-						controller.addDataInspectorControl({ event: 'move'}); //must be here
-
-						
-						//controller.addWeatherLayer('heat-index');
-
-
-
-
-
+					
 
 						controller.addWeatherLayer('temperatures', {
 							"paint" : {
@@ -405,13 +347,6 @@ window.addEventListener('load', () => {
 						);
 
 
-
-
-
-
-
-
-
 						controller.addWeatherLayer('wind-speeds', {
 							"paint" : {
 								"opacity" : 0
@@ -420,10 +355,6 @@ window.addEventListener('load', () => {
 						 //"aeroway-line"			
 					
 						);
-
-
-
-
 
 						controller.addWeatherLayer('dew-points', {
 							"paint" : {
@@ -442,7 +373,6 @@ window.addEventListener('load', () => {
 						 //"aeroway-line"			
 
 						);
-
 
 						
 						controller.addWeatherLayer('tide-heights', {
@@ -465,8 +395,6 @@ window.addEventListener('load', () => {
 						);
 
 
-
-						
 						controller.addWeatherLayer('convective-outline', {
 							"paint" : {
 								"opacity" : .50
@@ -476,9 +404,6 @@ window.addEventListener('load', () => {
 						
 						);
 						
-			
-						
-						
 
 						controller.addWeatherLayer('convective', {
 							"paint" : {
@@ -487,7 +412,8 @@ window.addEventListener('load', () => {
 						},
 						 "aeroway-line"			
 
-						);		
+						);
+		
 
 						controller.addWeatherLayer('fires-outlook', {
 							"paint" : {
@@ -496,7 +422,9 @@ window.addEventListener('load', () => {
 						},
 						 "aeroway-line"			
 
-						);		
+						);
+
+		
 						controller.addWeatherLayer('earthquakes', {
 							"paint" : {
 								"opacity" : 0
@@ -505,6 +433,7 @@ window.addEventListener('load', () => {
 						 //"aeroway-line"			
 
 						);
+
 
 						controller.addWeatherLayer('earthquakes-heat', {
 							"paint" : {
@@ -515,26 +444,19 @@ window.addEventListener('load', () => {
 
 						);		
 
-
-
-
-
-
-
-
 						
 						app.map.addLayers(['alerts:52']);
 
 
-		        //add the MapsGL legend control
-             		    //controller.addLegendControl(app.$el, { width: 200 });
+		        		//add the MapsGL legend control
+             		    		//controller.addLegendControl(app.$el, { width: 200 });
 
 
-				// add the MapsGL data inspector control*********************
-					   //controller.addDataInspectorControl({ event: 'move'}); //must be here
+					// add the MapsGL data inspector control*********************
+					//controller.addDataInspectorControl({ event: 'move'}); //must be here
 
 
-                // add Tropical module from the Javascript SDK
+                			// add Tropical module from the Javascript SDK
 						aeris.modules().then((modules) => {
 							const layerModules = [{
 								name: "groups.Tropical",
@@ -592,17 +514,12 @@ window.addEventListener('load', () => {
                         value: "lightning-flash"
                     },				
 					
-
 					
 					{
                         title: "Lightning All",
                         value: "lightning-all"
                     },
 										
-					
-			
-					
-	
 													
                     ] },
 
@@ -611,14 +528,9 @@ window.addEventListener('load', () => {
                         value: "stormcells"
                     },
 
-
-
-					
+			
 	
 				]
-
-
-
 
 
 			})
