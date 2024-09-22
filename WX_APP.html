@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script defer src="https://cdn.aerisapi.com/sdk/js/1.8.0/aerisweather.min.js"></script>
+	<link rel="stylesheet" href="css/aerisweather.css">
+	<link rel="stylesheet" href="css/attrib.css">
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>		
+	
+<div id="map"></div>	
+
+<script>	 
+window.addEventListener('load', () => { 
+		
+	const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');	
+	const utils = aeris.utils;
+
+	aeris.apps().then((apps) => {
+		const app = new apps.InteractiveMapApp(document.getElementById('map'), {
+            map: {
+                strategy: "mapbox",
+                accessToken: "pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw",
+                zoom: 5,
+				style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+				
+				layers: 'radar, alerts, temperatures-24hr-change',
+				
+                center: {
+                    lat: 44.8,
+                    lon: -93.47
+                },
+
+
+
+                timeline: {
+
+
+            	    bufferIntervals: 3,
+            	    showLoadingIntervals: false,
+		    //bufferIntervals: -1,
+		    //showLoading: false,
+                    from: -7200,
+                    to: 0
+                },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            },
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+            panels: {
+                layers: {
+                    buttons: [
+					
+					
+					
+					
+						{
+                            title: "Dark Base Map",
+                            value: "flat-dk"
+
+                        },					
+					
+					
+					
+					
+					
+					
+					
+					],
+                    enabled: true,
+                    toggleable: true,
+                    position: {
+                        pin: "topright",
+                        translate: {
+                            x: -10,
+                            y: 10
+                        }
+                    }
+                },
+
+                timeline: {
+				    title: 'Timeline',
+                    enabled: true,
+                    toggleable: true,
+                    position: {
+                        pin: "bottomleft",
+                        translate: {
+                            x: 10,
+                            y: -10
+                        }
+                    }
+                },
+                search: {
+                    enabled: false,
+                    toggleable: false,
+                    position: {
+                        pin: "top",
+                        translate: {
+                            x: 0,
+                            y: 10
+                        }
+                    }
+                },
+                legends: {
+                    enabled: false,
+                    toggleable: true,
+                    position: {
+                        pin: "bottomleft",
+                        translate: {
+                            x: 10,
+                            y: -110
+                        }
+                    }
+                },
+                info: {
+                    enabled: true,
+                    position: {
+                        pin: "topleft",
+                        translate: {
+                            x: 10,
+                            y: 10
+                        }
+                    },
+                    metric: false
+                }
+            }
+        });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		app.on('ready', () => {
+
+		
+			// load in MapsGL sdk and set up relevant layer controls
+			aeris.mapsgl(app, {
+				//version: '1.3.2', //***********************************  
+				layers: [
+
+	                 { title: 'Particles', value: 'winds', segments: [
+
+						{
+                        title: "Wind Particles",
+                        value: "wind-particles"
+						},
+
+						{
+                        title: "Ocean Particles",
+                        value: "ocean-currents-particles"
+						}
+											
+						] },
+
+
+
+
+
+						
+
+                     { title: 'Radar', value: 'Radar', segments: [
+	
+						{
+                        title: "Radar",
+                        value: "radar"
+						},
+					
+						{
+                        title: "Clouds",
+                        value: "cloud-cover"
+						}							
+
+						],
+
+							options: {
+								paint: {
+									opacity: .75
+								}
+
+
+
+							},
+	
+					
+
+						},
+						
+					
+
+						
+
+                     { title: 'Temp Change', value: 'temp-change', segments: [
+						{
+                        title: "Past 24 hours",
+                        value: "temperatures-24hr-change"
+						},
+						
+						{
+                        title: "Past 1 hour",
+                        value: "temperatures-1hr-change"
+						},
+					
+						
+
+						],
+
+							options: {
+								paint: {
+									opacity: .25
+								}
+							},
+	
+						},
+
+
+						{
+						title: 'Heat Index', 
+						value: 'heat-index', 
+						options: {
+							paint: {
+								opacity: .05
+								}
+							}			
+						},
+
+
+						{
+						title: 'Wind Chill', 
+						value: 'wind-chill', 
+						options: {
+							paint: {
+								opacity: .1
+								}
+							},
+						
+		
+						},
+
+
+						
+                        { title: 'Winds', value: 'winds', segments: [
+                            { title: 'Arrows', value: 'wind-dir' },						
+                            { title: 'Barbs', value: 'wind-barbs' }
+                        ] },
+
+
+
+
+
+						{
+						title: 'Visibility', 
+						value: 'visibility', 
+						options: {
+							paint: {
+								opacity: .2
+								}
+							}			
+						},
+						
+
+						{
+						title: 'Drought Monitor', 
+						value: 'drought-monitor', 
+						options: {
+							paint: {
+								opacity: .4
+								}
+							}			
+						},	
+
+
+
+
+
+	
+
+						{ title: 'Oceanic Data', value: 'ocean-currents', segments: [,
+
+
+						{
+						title: "Ocean Currents",
+						value: "ocean-currents"
+
+						},
+
+						{
+						title: "Storm Surge Height",
+						value: "storm-surge"
+						},
+
+						{
+						title: "Surface Temperature",
+						value: "sst"
+						}
+							
+				
+
+						], 
+					
+							options: {
+								paint: {
+									opacity: .3
+								}
+							},
+						},
+
+						
+				
+						
+
+					]
+					
+					
+				})
+			
+
+
+			.then(({controller, mapsgl }) => {
+			
+			
+					// configure views for local weather info panel
+				app.panels.info.setContentView('localweather', {
+					views: [{
+							renderer: "alerts"
+						},{
+							renderer: "threats"
+						},{
+							renderer: "outlook"
+						}]
+				});
+			
+				// show info panel for location when map is clicked
+				app.map.on('click', (e) => {
+					app.showInfoAtCoord(e.data.coord, 'localweather', 'Local Weather');
+				});		
+
+		        //add the MapsGL legend control
+             		    //controller.addLegendControl(app.$el, { width: 200 });
+
+
+				// add the MapsGL data inspector control*********************
+
+
+
+						controller.addDataInspectorControl({ event: 'move'}); //must be here
+
+		
+						
+						//controller.addWeatherLayer('heat-index');
+						
+
+
+	
+
+						controller.addWeatherLayer('temperatures', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 //"aeroway-line"			
+						
+						);
+
+
+						controller.addWeatherLayer('temperatures-24hr-change', {
+							"paint" : {
+								"opacity" : .3
+							},
+						},
+						 "aeroway-line"			
+						
+						);
+
+
+
+
+
+
+
+
+
+						controller.addWeatherLayer('wind-speeds', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 //"aeroway-line"			
+					
+						);
+
+
+
+
+
+						controller.addWeatherLayer('dew-points', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 //"aeroway-line"			
+						
+						);
+
+						controller.addWeatherLayer('humidity', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 //"aeroway-line"			
+
+						);
+
+
+						
+						controller.addWeatherLayer('tide-heights', {
+							"paint" : {
+								"opacity" : .12
+							},
+						},
+						 //"aeroway-line"			
+
+						);
+
+
+						controller.addWeatherLayer('pressure-msl-contour', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+
+						);
+
+
+
+						
+						controller.addWeatherLayer('convective-outline', {
+							"paint" : {
+								"opacity" : .50
+							},
+						},
+						 "aeroway-line"			
+						
+						);
+						
+			
+						
+						
+
+						controller.addWeatherLayer('convective', {
+							"paint" : {
+								"opacity" : .30
+							},
+						},
+						 "aeroway-line"			
+
+						);		
+
+						controller.addWeatherLayer('fires-outlook', {
+							"paint" : {
+								"opacity" : .48
+							},
+						},
+						 "aeroway-line"			
+
+						);		
+						controller.addWeatherLayer('earthquakes', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 //"aeroway-line"			
+
+						);
+
+						controller.addWeatherLayer('earthquakes-heat', {
+							"paint" : {
+								"opacity" : .55
+							},
+						},
+						 //"aeroway-line"			
+
+						);		
+
+
+
+
+
+
+
+
+						
+						app.map.addLayers(['alerts:52']);
+
+
+		        //add the MapsGL legend control
+             		    //controller.addLegendControl(app.$el, { width: 200 });
+
+
+				// add the MapsGL data inspector control*********************
+					   //controller.addDataInspectorControl({ event: 'move'}); //must be here
+
+
+                // add Tropical module from the Javascript SDK
+						aeris.modules().then((modules) => {
+							const layerModules = [{
+								name: "groups.Tropical",
+								index: 13
+							},
+
+
+						//{
+								//name: "groups.Aviation",
+								//index: 5
+								//}
+
+
+						];
+							layerModules.forEach(({ name, index }) => {
+								const m = utils.get(modules, name);
+								if (m) {
+									if (index !== -1) {
+										app.modules.insertAt(index, m);
+									} else {
+										app.modules.add(m);
+									}
+								}
+							});
+						});
+
+										//Add Severe Module
+										//app.modules.add(new Severe());
+						
+										//controller.addWeatherLayer('heat-index');
+
+										app.modules.insertAt(12, new Severe());
+
+			});
+			
+			
+			
+			aeris.mapsgl(app, {
+				version: '1.3.2', //*************************************************
+				layers: [
+	            { title: 'Lightning Data', value: 'lightning', segments: [
+
+					{
+                        title: "Lightning Strikes",
+                        value: "lightning-strikes"						
+                    },
+
+					{
+                        title: "Lightning Density",
+                        value: "lightning-strike-density"
+                    },						
+
+					{
+                        title: "Lightning Flash",
+                        value: "lightning-flash"
+                    },				
+					
+
+					
+					{
+                        title: "Lightning All",
+                        value: "lightning-all"
+                    },
+										
+					
+			
+					
+	
+													
+                    ] },
+
+					{
+                        title: "Storm Cells",
+                        value: "stormcells"
+                    },
+
+
+
+					
+	
+				]
+
+
+
+
+
+			})
+					
+		
+		});
+
+	
+	});	
+								
+
+});
+
+
+
+</script>	
+
+<script src="js/awxjs-severe-weather.min.js"></script>
+
+</body>
+
+
+</html>
