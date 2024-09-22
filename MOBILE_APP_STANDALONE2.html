@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="css/attrib.css">
+
+  <link rel="shortcut icon" type="image/png" href="assets/logos/favicon.png"/>
+
+
+ <link rel="stylesheet" href="map_css/trimblemaps-3.17.0.css" />
+ <script src="map_css/trimblemaps-3.17.0.js"></script>
+
+
+
+
+    <title>NWS ALERTS</title>
+
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100vh;
+        width: 100%;
+    }
+
+
+	.btn-play {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+    }
+	.btn-pause {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+	}
+
+	
+
+    #controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 8px;
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+    }
+
+
+    </style>
+
+
+</head>
+	
+<body bgcolor="black">
+
+
+
+    <div id="map"> 
+
+
+
+    </div>
+
+
+    </div>
+
+
+    <div id="controls2">
+		<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
+		<button class="btn-play" onclick="location.href='MOBILE_APP_STANDALONE1.html';">TWC Radar</button>
+        	<button class="btn-play" onclick="location.href='MOBILE_APP_STANDALONE.html';">Radar Loop</button>
+        	<button class="btn-play" onclick="location.href='MOBILE_APP_STANDALONE2.html';">Reload</button>	
+
+
+    </div>
+
+<script>
+
+            TrimbleMaps.APIKey = '17CA0885B03A6B4FADBDC3D1A51DC0BD';
+            const map = new TrimbleMaps.Map({
+                container: 'map', // container id
+                style: TrimbleMaps.Common.Style.BASIC, // hosted style id
+                center: [-96.33207, 37.40621], // starting position
+                zoom: 3 // starting zoom
+            });
+            const ctrlClick = new TrimbleMaps.WeatherAlertClickControl();
+            map.addControl(ctrlClick);
+
+
+
+            const ctrlFilter = new TrimbleMaps.WeatherAlertFilterControl();
+            map.addControl(ctrlFilter, 'top-right');
+			
+			
+            map.on('load', function() {
+                map.setWeatherAlertVisibility(true);
+				map.setWeatherRadarVisibility(true);
+            });
+
+
+</script>
+
+</body>
+
+</html>

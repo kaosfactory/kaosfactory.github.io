@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MapBoxGLcustomalerts</title>
+
     <link rel="stylesheet" type="text/css" href="css/attrib.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
  
@@ -12,6 +12,8 @@
  
     <link href="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.css" rel="stylesheet" />
     <script defer src="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.js"></script>
+
+    <title>RADAR LOOP</title>
 
 
     <style>
@@ -179,10 +181,12 @@ input[type="range" i] {
     <div id="map"></div>
 
     <div id="controls2">
-	<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
-        <button class="btn-play" onclick="location.href='staticradarX.html';">TWC Radar</button>
-        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR2.html';">NWS Alerts</button>		
-        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR.html';">Reload</button>
+		<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
+		<button class="btn-play" onclick="location.href='MOBILE_APP_STANDALONE1.html';">TWC Radar</button>
+        	<button class="btn-play" onclick="location.href='MOBILE_APP_STANDALONE2.html';">NWS Alerts</button>
+        	<button class="btn-play" onclick="location.href='MOBILE_APP_STANDALONE.html';">Reload</button>	
+
+
     </div>
 
 
@@ -215,7 +219,8 @@ input[type="range" i] {
             style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
             center: [-96.33207, 37.40621],
             zoom: 3,
-	    hash: true
+			maxPitch: 0,
+			hash: true
 			
         });
 
