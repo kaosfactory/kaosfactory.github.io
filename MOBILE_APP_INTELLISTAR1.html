@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/geosettings.css">
+  <link rel="stylesheet" type="text/css" href="css/geotext.css">
+  <link rel="stylesheet" type="text/css" href="css/geobuttons.css">
+  <script src="js/StaticConfig.js"></script>
+  <script src="js/StaticMainScript.js"></script>
+  <script src="js/StaticRadarX.js"></script>
+  <script src="js/StaticConditions.js"></script>
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
+  <script defer src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+ 
+  <title>Radar</title>
+
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100vh;
+        width: 100%;
+    }
+
+
+    #controls h3 {
+        margin: 0 0 0px;
+        font-size: 12px;
+    }
+    #controls a {
+        color: #333;
+        display: block;
+        margin: 0 0px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #controls a:hover {
+        text-decoration: underline;
+    }
+
+
+    #controls .time {
+        font-weight: normal;
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 50px;
+        right: 1px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        font-size: 12px;
+		font-weight: 600;
+		
+    }
+	
+	
+	
+    #controls .loader {
+        display: none;
+        height: 20px;
+
+    }
+    .loader .ring {
+        display: inline-block;
+        position: relative;
+
+
+        width: 20px;
+        height: 20px;
+    }
+    .loader .ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+
+	width: 18px;
+        height: 18px;
+        margin: 1px;
+        border: 2px solid #333;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #333 transparent transparent transparent;
+    }
+    .loader .ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    .loader .ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    .loader .ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+
+input[type="range" i] {
+    appearance: auto;
+    cursor: default;
+    color: light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+    padding: initial;
+    border: initial;
+    margin: 4px;
+	width: 155px;
+}
+
+
+
+	.btn-play {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+    }
+	.btn-pause {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+	}
+
+
+    #controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+
+    }
+	
+
+    #controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 8px;
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+    }
+
+
+    </style>
+
+
+</head>
+
+<body bgcolor="black">	
+
+
+<script>
+
+function loop() {
+
+  localStorage.setItem('loop', 'y');
+  CONFIG.loop = true;
+
+}
+
+loop();
+
+</script>
+
+
+
+    <div id="map"> 
+
+
+
+
+    </div>
+
+
+    <div id="controls2">
+	<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
+        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR.html';">Radar Loop</button>
+        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR2.html';">NWS Alerts</button>		
+        <button class="btn-play" onclick="location.href='staticradarX.html';">Reload</button>
+    </div>
+
+
+
+  <div id="render-frame"></div>
+    <!-- Alert message -->
+  <div  class="regular-text"></div>
+
+  <!-- Settings Prompt -->
+  <div id="settings-container" style="display: none;">
+    <div id="settings-prompt">
+      <table style="width:350px">
+        <tbody>
+        
+          <!-- Locations won't be added programatically -->
+
+<img src="assets\logos\NWS.jpg" alt="NWS" width="350" height="38" onclick="nws();">
+
+          <tr>
+            <td style="text-align: left;">
+              <input type="radio" id="airport-code-button" name='location-type' checked="false"/>
+              <label for="airport-code-button" class="strong-text settings-item settings-text settings-padded">Airport</label>
+            </td>
+            <td colspan="2">
+              <input type="text" id="airport-code-text" style="font-size: 20px; width:180px" 
+              placeholder="BWI or KBWI" class="settings-item settings-text settings-input"/>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="text-align: left;">
+              <input type="radio" id="zip-code-button" name='location-type' checked="true"/>
+              <label for="zip-code-button" class="strong-text settings-item settings-text settings-padded">Postal</label>
+            </td>
+            <td>
+              <input type="text" id="zip-code-text" style="font-size: 20px; width:100px" 
+              placeholder="00000" class="settings-item settings-text settings-input"/>
+            </td>
+            <td>
+              <input type="text" id="country-code-text" style="font-size: 20px; width:50px;" 
+              placeholder="US" value="US" maxlength="2" class="settings-item settings-text settings-input"/>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div id="advanced-settings-options" class="settings-container hidden"></div>
+ 
+    </div>
+  </div>
+
+</body>
+
+</html>
