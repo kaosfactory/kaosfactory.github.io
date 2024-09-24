@@ -81,7 +81,7 @@ function desktopapp() {
 
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
-  location.href = "WX_APP_customalerts.html";
+  location.href = "DESKTOP_APP.html";
 }
 
 
