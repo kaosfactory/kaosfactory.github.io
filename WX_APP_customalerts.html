@@ -178,7 +178,34 @@ input[type="range" i] {
     </div>
 	
 
-<script>	 
+<script>
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+} 
+  
+// Gets the value associated with the key "lng and lat" 
+console.log(getParameter("lng"))
+console.log(getParameter("lat"))
+console.log(getParameter("zm"))
+
+
+var lng = (getParameter("lng"))
+var lat = (getParameter("lat"))
+var zoom = (getParameter("zoom"))
+
+
+
+	 
 window.addEventListener('load', () => { 
 		
 	const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');	
@@ -195,8 +222,11 @@ window.addEventListener('load', () => {
 				layers: 'radar, alerts, temperatures-24hr-change',
 				
                 center: {
-                    lat: 44.8,
-                    lon: -93.47
+                    //lat: 44.8,
+                    //lon: -93.47
+
+                    lat: lat,
+                    lon: lng
                 },
 
                 timeline: {
