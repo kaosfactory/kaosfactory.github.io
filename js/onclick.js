@@ -74,7 +74,17 @@ function app() {
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
   location.href = "MOBILE_APP_INTELLISTAR.html";
+
 }
+
+function app2() {
+
+  localStorage.setItem('loop', 'y');
+  CONFIG.loop = true;
+  location.href = "LITE_APP_INTELLISTAR.html";
+
+}
+
 
 
 function desktopapp() {
