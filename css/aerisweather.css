@@ -31,7 +31,7 @@
 .awxjs__loader > svg {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 9999px;
-  left: 50%;
+  left: 51%;
   position: absolute;
   top: 50%;
   transform: rotate(-90deg);
@@ -230,14 +230,16 @@
   width: 34px;
 }
 .awxjs__ui-btn-icon svg,
-.awxjs__ui-btn-icon-sm svg {
-  fill: #aaa;
-  height: 20px;
-  left: 50%;
-  margin: -10px 0 0 -10px;
-  position: absolute;
-  top: 50%;
-  width: 20px;
+
+
+.awxjs__ui-btn-icon svg, .awxjs__ui-btn-icon svg, .awxjs__ui-btn-icon svg, .awxjs__ui-btn-icon-sm svg {
+    fill: #aaa;
+    height: 15px;
+    left: 50%;
+    margin: -6px 0 0 -7px;
+    position: absolute;
+    top: 45%;
+    width: 15px;
 }
 .awxjs__ui-btn-icon:hover svg,
 .awxjs__ui-btn-icon-sm:hover svg {
@@ -533,6 +535,7 @@
   border-radius: 6px;
   position: absolute;
   z-index: 10;
+ 
 }
 .awxjs__app__ui-panel.awxjs__app__view__pinned-topright
   .awxjs__app__ui-panel-container,
@@ -573,7 +576,7 @@
   background: transparent;
   cursor: pointer;
   display: none;
-  height: 40px;
+  height: 30px;
   left: 50%;
   margin: -20px 0 0 -20px;
   position: absolute;
@@ -581,19 +584,19 @@
   transition: opacity 0.2s linear;
   -webkit-transition: opacity 0.2s linear;
   -moz-transition: opacity 0.2s linear;
-  width: 40px;
+  width: 30px;
   z-index: 1;
 }
 
 
 .awxjs__app__ui-panel .awxjs__app__ui-panel-toggle svg {
-  fill: #fff;
-  height: 24px;
-  left: 50%;
-  margin: -12px 0 0 -12px;
-  position: absolute;
-  top: 50%;
-  width: 24px;
+    fill: #fff;
+    height: 24px;
+    left: 50%;
+    margin: -8px 0 0 -6.5px;
+    position: absolute;
+    top: 50%;
+    width: 22px;
 }
 
 
@@ -608,8 +611,8 @@
   border: 0;
   padding: 0;
   position: absolute;
-  right: 5.5px;
-  top: 2px;
+  right: 5px;
+  top: 1px;
 }
 
 
@@ -624,7 +627,7 @@
 .awxjs__app__ui-panel .awxjs__app__ui-panel-close svg {
   fill: #999;
   height: 17px;
-  width: 17px;
+  width: 16px;
 }
 
 
@@ -688,7 +691,7 @@
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-toolbar {
 
-  height: 20px;
+  height: 18px;
 }
 
 
@@ -706,11 +709,11 @@
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-title {
   color: #fff;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: bold;
-  line-height: 23px;
+  line-height: 19px;
   letter-spacing: 0.1em;
-  padding: 0 10px;
+  padding: 0 8px;
   text-transform: uppercase;
 
 }
@@ -752,13 +755,13 @@
 .awxjs__app__ui-panel .awxjs__ui-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 0;
-  border-radius: 3px;
+  border-radius: 2px;
   color: #ccc;
   cursor: pointer;
   display: inline-block;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: bold;
-  padding: 5px 4px;
+  padding: 7px 7px;
   position: relative;
   text-align: left;
   white-space: nowrap;
@@ -877,6 +880,9 @@
 .awxjs__app__ui-panel-timeline .awxjs__app__ui-panel-content {
   padding: 5px;
   position: relative;
+  margin-bottom: 5px;
+  
+  
 }
 .awxjs__app__ui-panel-timeline:after {
   content: "";
@@ -889,8 +895,8 @@
 
 
 .awxjs__app__ui-panel-timeline-left {
-  margin-right: 0px;
-  min-width: 90px;
+    margin-right: 0px;
+    min-width: 68px;
 }
 
 
@@ -903,44 +909,61 @@
   margin-left: 0px;
 }
 .awxjs__app__ui-panel-timeline-daytime {
-  color: #fff;
-  font-size: 14px;
-  text-align: left;
-  white-space: nowrap;
+    color: #fff;
+    font-size: 11.5px;
+    text-align: left;
+    white-space: nowrap;
+	margin-left: 3px;
 }
 .awxjs__app__ui-panel-timeline-day {
-  font-size: 12px;
-  margin-top: 3px;
+  font-size: 11px;
+  margin-top: 1px;
 }
+
+
+
+
 .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn {
-  background: #666;
-  color: #ccc;
-  height: 30px;
-  line-height: 30px;
-  margin: 0 3px;
-  padding: 0 8px;
+    background: #666;
+    color: #ccc;
+    height: 27px;
+    line-height: 0px;
+    margin: 0 1px;
+    padding: 0 6px;
 }
+
+
+
+
 .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn svg {
   fill: #ccc;
 }
-.awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn:hover {
-  background: #fff;
-  color: #222;
+
+
+.awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon, .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon-sm {
+    height: 27px;
+    padding: 0;
 }
+
+
 .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn:hover svg {
   fill: #222;
 }
 .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon,
-.awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon-sm {
-  height: 30px;
-  padding: 0;
+
+
+.awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon, .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon-sm {
+    height: 27px;
+    padding: 0;
 }
+
+
 .awxjs__app__ui-panel-timeline .awxjs__ui-btn-settings {
   height: 30px;
   padding: 0;
   position: absolute;
-  right: 2px;
-  top: 2px;
+  right: 1.5px;
+  top: 5px;
   width: 25px;
 }
 .awxjs__app__ui-panel-timeline .awxjs__ui-btn-settings svg {
@@ -950,7 +973,7 @@
   fill: #fff;
 }
 .awxjs__app__ui-panel-timeline .awxjs__ui-timeline {
-  margin: 0 15px 0 30px;
+  margin: 0 15px 0 23px;
   position: relative;
   width: 250px;
 }
@@ -989,7 +1012,7 @@
 
 
 .awxjs__app__ui-panel-timeline .awxjs__ui-slider .awxjs__ui-slider-span {
-  border-bottom: #bbb 2px solid;
+  border-bottom: #bbb 0px solid;
 }
 .awxjs__app__ui-panel-timeline
   .awxjs__ui-slider
@@ -1216,7 +1239,8 @@
 }
 .awxjs__app__ui-panel-info__content-view .awxjs__app__ui-panel-info__view {
   margin: 12px 0;
-  padding: 12px;
+  padding: 8px;
+  padding-bottom: 10px
 }
 .awxjs__app__ui-panel-info__content-view
   .awxjs__app__ui-panel-info__view:first-child {
@@ -1246,7 +1270,7 @@
 .awxjs__app__ui-panel-info__place-name {
   font-size: 22px;
   font-weight: bold;
-  line-height: 30px;
+  line-height: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1428,7 +1452,7 @@
   margin: 8px 0;
 }
 .awxjs__app__ui-panel-info-compact .awxjs__app__ui-panel-info__place-name {
-  font-size: 18px;
+  font-size: 16px;
 }
 .awxjs__app__ui-panel-info-compact
   .awxjs__app__ui-panel-info__obs
@@ -1628,7 +1652,7 @@
 }
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form {
   background: #fff;
-  border-radius: 17px;
+  border-radius: 6px;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -1643,7 +1667,7 @@
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form input,
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form button {
   display: block;
-  height: 34px;
+  height: 30px;
   margin: 0;
 }
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form input {
@@ -1653,15 +1677,15 @@
   margin-right: 40px;
   outline: none;
   padding: 0 6px 0 20px;
-  width: 200px;
+  width: 189px;
 }
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form button {
   background-color: #efefef;
   border: 0;
-  border-top-right-radius: 17px;
-  border-bottom-right-radius: 17px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   font-size: 11px;
-  height: 34px;
+  height: 30px;
   padding: 0;
   padding: 0 10px 0 6px;
   position: absolute;
@@ -1673,6 +1697,8 @@
   fill: #333;
   height: 16px;
   width: 16px;
+  margin-left: 4px;
+   margin-top: 2px;
 }
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form button:hover {
   background-color: #333;
@@ -1818,12 +1844,12 @@
   border-color: transparent;
   border-bottom-color: #bbb;
   border-style: solid;
-  border-width: 0 12px 12px;
+  border-width: 0 8px 12px;
   bottom: 0;
   content: "";
   height: 0;
   left: 50%;
-  margin-left: -12px;
+  margin-left: -8px;
   position: absolute;
   width: 0;
 }
