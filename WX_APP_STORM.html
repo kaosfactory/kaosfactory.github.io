@@ -172,7 +172,7 @@ input[type="range" i] {
 
     <div id="controls2">
 		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
-		<button class="btn-play" onclick="location.href='WX_APP_STORM.html';">Storm Mode</button>
+		<button class="btn-play" onclick="location.href='WX_APP.html';">INFO Mode</button>
 
 
     </div>
@@ -1086,7 +1086,7 @@ window.addEventListener('load', () => {
                         // blending: 2,
                         size: (data) => {
                             const mag = Math.max(data.report?.mag || 1);
-                            const size = 1 + 70 * (mag / 10);
+                            const size = 2 + 100 * (mag / 10);
                             return { width: size, height: size };
                         }
                     }
@@ -1194,9 +1194,9 @@ window.addEventListener('load', () => {
 						
 						//app.modules.add(new Severe());
 
-						//app.modules.insertAt(17, new Severe( {showThreats: true}));
+						app.modules.insertAt(17, new Severe( {showThreats: true}));
 
-						app.modules.insertAt(17, new Severe());
+						//app.modules.insertAt(17, new Severe());
 						
 
 
