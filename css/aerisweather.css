@@ -612,7 +612,7 @@
   padding: 0;
   position: absolute;
   right: 5px;
-  top: 1px;
+  top: 2px;
 }
 
 
@@ -691,7 +691,7 @@
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-toolbar {
 
-  height: 18px;
+  height: 17px;
 }
 
 
