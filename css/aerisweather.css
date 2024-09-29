@@ -31,9 +31,9 @@
 .awxjs__loader > svg {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 9999px;
-  left: 51%;
+  left: -65%;
   position: absolute;
-  top: 50%;
+  top: 48%;
   transform: rotate(-90deg);
 }
 .awxjs__loader > svg .awxjs__fill-path {
@@ -153,7 +153,7 @@
   border-radius: 3px;
   cursor: pointer;
   font-size: 12px;
-  padding: 3px 6px;
+  padding: 0px 0px;
   position: relative;
 }
 .awxjs__ui-btn .awxjs__loader {
@@ -590,7 +590,7 @@
 
 
 .awxjs__app__ui-panel .awxjs__app__ui-panel-toggle svg {
-    fill: #fff;
+    fill: #878787;
     height: 24px;
     left: 50%;
     margin: -8px 0 0 -6.5px;
@@ -611,7 +611,7 @@
   border: 0;
   padding: 0;
   position: absolute;
-  right: 5px;
+  right: 2px;
   top: 2px;
 }
 
@@ -651,9 +651,13 @@
   min-height: 40px;
   min-width: 40px;
 }
+
+
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-container {
-  background: rgba(0, 0, 0, 0.7);
+  background: #ffffffd9;
+  
+  
 }
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
   .awxjs__app__ui-panel-container:hover {
@@ -736,7 +740,7 @@
 }
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable.awxjs__app__ui-panel-toggleable-open
   .awxjs__app__ui-panel-container {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(0 0 0 / 84%);
 }
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable.awxjs__app__ui-panel-toggleable-open
   .awxjs__app__ui-panel-toggle {
@@ -878,10 +882,11 @@
   z-index: 4998;
 }
 .awxjs__app__ui-panel-timeline .awxjs__app__ui-panel-content {
-  padding: 5px;
+  padding: 1px;
   position: relative;
-  margin-bottom: 5px;
-  
+  margin-bottom: 7px;
+  margin-left: 4px;
+  margin-right: 6px;
   
 }
 .awxjs__app__ui-panel-timeline:after {
@@ -907,13 +912,14 @@
 
 .awxjs__app__ui-panel-timeline-right {
   margin-left: 0px;
+  margin-right: 15px;
 }
 .awxjs__app__ui-panel-timeline-daytime {
     color: #fff;
     font-size: 11.5px;
     text-align: left;
     white-space: nowrap;
-	margin-left: 3px;
+	margin-left: 2px;
 }
 .awxjs__app__ui-panel-timeline-day {
   font-size: 11px;
@@ -926,9 +932,9 @@
 .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn {
     background: #666;
     color: #ccc;
-    height: 27px;
+    height: 0px;
     line-height: 0px;
-    margin: 0 1px;
+    margin: -5px 1px;
     padding: 0 6px;
 }
 
@@ -962,8 +968,8 @@
   height: 30px;
   padding: 0;
   position: absolute;
-  right: 1.5px;
-  top: 5px;
+  right: -7px;
+  top: -5px;
   width: 25px;
 }
 .awxjs__app__ui-panel-timeline .awxjs__ui-btn-settings svg {
@@ -973,7 +979,7 @@
   fill: #fff;
 }
 .awxjs__app__ui-panel-timeline .awxjs__ui-timeline {
-  margin: 0 15px 0 23px;
+  margin: 0 -13px 0px;
   position: relative;
   width: 250px;
 }
@@ -1651,7 +1657,7 @@
   clear: both;
 }
 .awxjs__ui-searchfield .awxjs__ui-searchfield-form {
-  background: #fff;
+  background: #f7f4f4db;
   border-radius: 6px;
   vertical-align: middle;
   white-space: nowrap;
