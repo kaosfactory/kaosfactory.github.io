@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<script defer src="https://cdn.aerisapi.com/sdk/js/1.8.4/aerisweather.min.js"></script>
+	<script src="https://cdn.aerisapi.com/sdk/js/1.8.4/aerisweather.min.js"></script>
 	<link rel="stylesheet" href="css/aerisweather.css">
 	<link rel="stylesheet" href="css/attrib.css">
 
@@ -16,101 +16,6 @@
         height: 100vh;
         width: 100%;
     }
-
-
-    #controls h3 {
-        margin: 0 0 0px;
-        font-size: 12px;
-    }
-    #controls a {
-        color: #333;
-        display: block;
-        margin: 0 0px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    #controls a:hover {
-        text-decoration: underline;
-    }
-
-
-    #controls .time {
-        font-weight: normal;
-		display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        position: absolute;
-        bottom: 50px;
-        right: 1px;
-        z-index: 1;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 6px;
-        border-radius: 5px;
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-        font-size: 12px;
-		font-weight: 600;
-		
-    }
-	
-	
-	
-    #controls .loader {
-        display: none;
-        height: 20px;
-
-    }
-    .loader .ring {
-        display: inline-block;
-        position: relative;
-
-
-        width: 20px;
-        height: 20px;
-    }
-    .loader .ring div {
-        box-sizing: border-box;
-        display: block;
-        position: absolute;
-
-	width: 18px;
-        height: 18px;
-        margin: 1px;
-        border: 2px solid #333;
-        border-radius: 50%;
-        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #333 transparent transparent transparent;
-    }
-    .loader .ring div:nth-child(1) {
-        animation-delay: -0.45s;
-    }
-    .loader .ring div:nth-child(2) {
-        animation-delay: -0.3s;
-    }
-    .loader .ring div:nth-child(3) {
-        animation-delay: -0.15s;
-    }
-    @keyframes lds-ring {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-
-input[type="range" i] {
-    appearance: auto;
-    cursor: default;
-    color: light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
-    padding: initial;
-    border: initial;
-    margin: 4px;
-	width: 155px;
-}
-
 
 
 	.btn-play {
@@ -127,6 +32,26 @@ input[type="range" i] {
 	  color:black;
 	  font-weight: 400;
 	}
+
+
+.btn-play {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0;
+    border-radius: 4px;
+    color: #575757;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 3px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #4f4f4f85;
+}
+
+
 
 
     #controls {
@@ -151,15 +76,32 @@ input[type="range" i] {
         flex-direction: column;
         justify-content: center;
 
-        gap: 8px;
+        gap: 3px;
         position: absolute;
-        top: 6px;
+        top: 8px;
         left: 10px;
         z-index: 1;
         background: rgba(255, 255, 255, 0.8);
-        padding: 6px;
-        border-radius: 5px;
+        padding: 4px;
+        border-radius: 4px;
     }
+	
+	
+	    #controls3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 30px;
+        position: absolute;
+        bottom: 12px;
+        right: 15px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 4px;
+        border-radius: 2px;
+    }
+	
 
     </style>
 
@@ -170,9 +112,16 @@ input[type="range" i] {
 	
 <div id="map"></div>
 
+    <div id="controls3">
+
+	<img src="assets/logos/kaosmod.png" alt="KAOS">	
+
+    </div>
+
+
     <div id="controls2">
 		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
-		<button class="btn-play" onclick="location.href='WX_APP.html';">INFO Mode</button>
+		<button class="btn-play" onclick="location.href='WX_APP_STORM.html';">Storm Mode</button>
 
 
     </div>
@@ -180,32 +129,32 @@ input[type="range" i] {
 
 <script>
 
-getParameter = (key) => { 
-  
-    // Address of the current window 
-    address = window.location.search 
-  
-    // Returns a URLSearchParams object instance 
-    parameterList = new URLSearchParams(address) 
-  
-    // Returning the respected value associated 
-    // with the provided key 
-    return parameterList.get(key) 
-} 
-  
-// Gets the value associated with the key "lng and lat" 
-console.log(getParameter("lng"))
-console.log(getParameter("lat"))
-console.log(getParameter("zm"))
+	getParameter = (key) => { 
+	  
+		// Address of the current window 
+		address = window.location.search 
+	  
+		// Returns a URLSearchParams object instance 
+		parameterList = new URLSearchParams(address) 
+	  
+		// Returning the respected value associated 
+		// with the provided key 
+		return parameterList.get(key) 
+	} 
+	  
+	// Gets the value associated with the key "lng and lat" 
+	console.log(getParameter("lng"))
+	console.log(getParameter("lat"))
+	console.log(getParameter("zm"))
 
 
-var lng = (getParameter("lng"))
-var lat = (getParameter("lat"))
-var zoom = (getParameter("zoom"))
+	var lng = (getParameter("lng"))
+	var lat = (getParameter("lat"))
+	var zoom = (getParameter("zoom"))
 
 
 	 
-window.addEventListener('load', () => { 
+	window.addEventListener('load', () => { 
 		
 	const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');	
 	const utils = aeris.utils;
@@ -229,7 +178,7 @@ window.addEventListener('load', () => {
                 },
 
                 timeline: {
-				
+
             	    bufferIntervals: 3,
             	    //showLoadingIntervals: false,
 				    //bufferIntervals: -1,
@@ -237,7 +186,7 @@ window.addEventListener('load', () => {
 					duration: 7,
 					endDelay: 4,			
                     from: -7200,
-                    to: 0
+                    to: 3600
 					
                 },
 
@@ -255,14 +204,14 @@ window.addEventListener('load', () => {
                         },					
 					
 					],
-
+					title: '',
                     enabled: true,
                     toggleable: true,
                     position: {
                         pin: "topright",
                         translate: {
-                            x: -10,
-                            y: 10
+                            x: -8,
+                            y: 8
                         }
                     }
                 },
@@ -270,14 +219,14 @@ window.addEventListener('load', () => {
 
 			
                     timeline: {
-						title: 'Timeline',
+						//title: '',
 						enabled: true,
 						toggleable: true,
 						position: {
 							pin: "bottomleft",
 							translate: {
-								x: 10,
-								y: -10
+								x: 8,
+								y: -8
 							}
 						},
 					
@@ -288,7 +237,7 @@ window.addEventListener('load', () => {
                             // set the min and max time offsets for the timeline range
                             range: {
                                 min: -12,
-                                max: 0
+                                max: 1
                             },
 
                             // define the tick labels that should be rendered along the slider
@@ -299,10 +248,8 @@ window.addEventListener('load', () => {
                                 '-6': '-6',
                                 '-4': '-4',
                                 '-2': '-2',
-								0: 'Now',
-                                //1: '+1',
-								
-
+								 0: 'Now',
+                                 1: '+1',
                             },
 
                             // the value interval to render tick marks for, e.g. every 6 hours
@@ -310,7 +257,6 @@ window.addEventListener('load', () => {
                         }
                     },				
 				
-			
 				
                 search: {
                     enabled: true,
@@ -318,7 +264,7 @@ window.addEventListener('load', () => {
                     position: {
                         pin: "top",
                         translate: {
-                            x: 0,
+                            x: -2,
                             y: 10
                         }
                     }
@@ -359,24 +305,6 @@ window.addEventListener('load', () => {
 				layers: [
 				
 				
-				
-				
-				
-				
-				
-
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-
 					{
                         title: "Storm Cells",
                         value: "stormcells",
@@ -396,9 +324,6 @@ window.addEventListener('load', () => {
 							},
 							
 					},
-
-
-
 
 					
 					
@@ -420,50 +345,29 @@ window.addEventListener('load', () => {
 					
 
 
-							{ title: 'Lightning Data', value: 'lightning', segments: [
-
-
-
-				
-
-								{
-									title: "Lightning Flash",
-									value: "lightning-flash"
-								},				
-							
-								{
-									title: "Lightning All",
-									value: "lightning-all"
-								},
-									
-									
-								],				
-
-								
-							},
+				{ title: 'Lightning Data', value: 'lightning', segments: [
 
 
 
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							
-
+					{
+						title: "Lightning Flash",
+						value: "lightning-flash"
+					},				
 				
+					{
+						title: "Lightning All",
+						value: "lightning-all"
+					},
+						
+						
+					],				
+
+					
+				},
+
+
 	
 				],
 
@@ -471,25 +375,11 @@ window.addEventListener('load', () => {
 				
 			
 							.then(({controller, mapsgl }) => {
-										
-								//Turned OFF!!!!!!!!!!
-								controller.addWeatherLayer('alertsOFF', {
-										paint: {
-						
-											fill: {
-												opacity: 0.6
-											},
+	
 
-											stroke: {
+							// ADD STUFF
 
-												opacity: .5
-											}
-
-										},
-
-									},
-									 "aeroway-line"
-								);
+	
 
 							});
 
@@ -630,14 +520,6 @@ window.addEventListener('load', () => {
 				
 				
 				
-				
-	
-				
-
-
-
-
-
 	
 						{ title: 'Heat Maps', value: 'Heat Maps', segments: [,
 
@@ -827,27 +709,13 @@ window.addEventListener('load', () => {
 				
 				
 				
-				
-				
-				
+
 			
 
 			.then(({controller, mapsgl }) => {
-					//app.getPanel('layers').select(['lightning-strikes']);
+
 
 					
-						// Set alert color based on severity/level
-					const determineAlertColor = (data) => {
-						const title = data.ADVISORY;
-			 
-						if (/warning|extreme/i.test(title)) return '#df1616';
-						if (/watch|severe/i.test(title)) return '#ff9600';
-						if (/advisory|moderate/i.test(title)) return '#009ac8';
-						if (/statement|alert|minor/i.test(title)) return '#808080';
-			 
-						return data.COLOR || '#000';
-					};					
-			
 			
 				
 				// configure views for local weather info panel
@@ -870,12 +738,17 @@ window.addEventListener('load', () => {
 					app.showInfoAtCoord(e.data.coord, 'localweather', 'Local Weather');
 				});		
 
+
 						//add the MapsGL legend control
 						//controller.addLegendControl(app.$el, { width: 200 });
 
 
 						// add the MapsGL data inspector control*********************
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
+						
+						
+						//app.getPanel('layers').select(['lightning-strikes']);
+						
 
 							
 						//controller.addWeatherLayer('heat-index');
@@ -891,57 +764,48 @@ window.addEventListener('load', () => {
 						);
 						
 						
-///////////////////////////////////////////////////////////////////////////////					
 				
-
-								//Standard Alerts
-								
-								//!!!!!!!!!!!!!!!!!//// Just uncomment below to use standard alert colors.
-						
-								controller.addWeatherLayer('alerts', { paint: {	fill: {	opacity: 0.0 }, stroke: { opacity: .0 } }, }, "aeroway-line" );				
+						//Alerts for data inspector
+						controller.addWeatherLayer('alerts', { paint: {	fill: {	opacity: 0.0 }, stroke: { opacity: .0 } }, }, "aeroway-line" );				
 						
 
-								//Custom alerts colors
 
-
-////////////////////////////////////////////////////////////////////////////////
-
-									controller.addWeatherLayer('stormreports', {
-									paint: {
-					
-										fill: {
-											opacity: 0
-										},
-
-										stroke: {
-
-											opacity: 0
-										}
-
+						controller.addWeatherLayer('stormreports', {
+								paint: {
+				
+									fill: {
+										opacity: 0
 									},
 
+									stroke: {
+
+										opacity: 0
+									}
+
 								},
-								 "aeroway-line"
-							);	
+
+							},
+							 "aeroway-line"
+						);	
 
 
-								controller.addWeatherLayer('stormcells', {
-									paint: {
-					
-										fill: {
-											opacity: 0
-										},
-
-										stroke: {
-
-											opacity: 0
-										}
-
+						controller.addWeatherLayer('stormcells', {
+								paint: {
+				
+									fill: {
+										opacity: 0
 									},
 
+									stroke: {
+
+										opacity: 0
+									}
+
 								},
-								 "aeroway-line"
-							);			
+
+							},
+							 "aeroway-line"
+						);			
 
 						
 						controller.addWeatherLayer('wind-speeds-contour', {
@@ -1022,86 +886,87 @@ window.addEventListener('load', () => {
 
 						);
 
-		
-            controller.addWeatherLayer('earthquakes', {
-                type: 'symbol',
-                source: 'earthquakes',
-                paint: {
-                    symbol: {
-                        shader: `
-            // https://www.shadertoy.com/view/ldycR3
-            #extension GL_OES_standard_derivatives : enable
- 
-            precision mediump float;
- 
-            uniform vec2 resolution;
-            uniform float dpr;
-            uniform float time;
- 
-            varying vec2 vUv;
-            varying vec2 vPosition;
-            varying float vFactor;
-            varying float vRandom;
- 
-            float saturate(float x) {
-            return clamp(x, 0.0, 1.0);
-            }
- 
-            vec3 hsb2rgb(in vec3 c) {
-            vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,
-                        0.0,
-                        1.0);
-            rgb = rgb*rgb*(3.0-2.0*rgb);
-            return c.z * mix( vec3(1.0), rgb, c.y);
-            }
- 
-            void main() {
-            vec2 pos = vUv;
-            float t = time;
- 
-            float dist = length(2.0 * pos - 1.0) * 2.0;
-            vec2 p = vec2(dist);
- 
-            float r = length(p) * 0.9;
-            vec3 color = hsb2rgb(vec3(0.03, 0.7, 0.6));
- 
-            float a = pow(r, 3.0);
-            float b = sin(r * 1.8 - 1.6);
-            float c = sin(r - 0.010);
-            float s = sin(a - t * 2.0 + b) * c;
- 
-            color *= abs(1.0 / (s * 1.8)) - 0.01;
- 
-            float d = length(2.0 * pos - 1.0);
-            // float delta = fwidth(d);
-            float alpha = 1.0 - d;
-            // alpha *= min(1.0, 0.2 + vFactor);
- 
-            gl_FragColor = vec4(color, alpha);
-            gl_FragColor.rgb *= gl_FragColor.a;
-            }
-                        `,
-                        animated: true,
-                        pitchWithMap: true,
-                        // blending: 2,
-                        size: (data) => {
-                            const mag = Math.max(data.report?.mag || 1);
-                            const size = 2 + 100 * (mag / 10);
-                            return { width: size, height: size };
-                        }
-                    }
-                }
-            });
-
-
 						controller.addWeatherLayer('earthquakes-heat', {
 							"paint" : {
-								"opacity" : .55
+								"opacity" : .5
 							},
 						},
-						 "aeroway-line"			
+						 //"aeroway-line"			
 
 						);
+						
+						controller.addWeatherLayer('earthquakes', {
+							type: 'symbol',
+							source: 'earthquakes',
+							paint: {
+								symbol: {
+									shader: `
+						// https://www.shadertoy.com/view/ldycR3
+						#extension GL_OES_standard_derivatives : enable
+			 
+						precision mediump float;
+			 
+						uniform vec2 resolution;
+						uniform float dpr;
+						uniform float time;
+			 
+						varying vec2 vUv;
+						varying vec2 vPosition;
+						varying float vFactor;
+						varying float vRandom;
+			 
+						float saturate(float x) {
+						return clamp(x, 0.0, 1.0);
+						}
+			 
+						vec3 hsb2rgb(in vec3 c) {
+						vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,
+									0.0,
+									1.0);
+						rgb = rgb*rgb*(3.0-2.0*rgb);
+						return c.z * mix( vec3(1.0), rgb, c.y);
+						}
+			 
+						void main() {
+						vec2 pos = vUv;
+						float t = time;
+			 
+						float dist = length(2.0 * pos - 1.0) * 2.0;
+						vec2 p = vec2(dist);
+			 
+						float r = length(p) * 0.9;
+						vec3 color = hsb2rgb(vec3(0.03, 0.7, 0.6));
+			 
+						float a = pow(r, 3.0);
+						float b = sin(r * 1.8 - 1.6);
+						float c = sin(r - 0.010);
+						float s = sin(a - t * 2.0 + b) * c;
+			 
+						color *= abs(1.0 / (s * 1.8)) - 0.01;
+			 
+						float d = length(2.0 * pos - 1.0);
+						// float delta = fwidth(d);
+						float alpha = 1.0 - d;
+						// alpha *= min(1.0, 0.2 + vFactor);
+			 
+						gl_FragColor = vec4(color, alpha);
+						gl_FragColor.rgb *= gl_FragColor.a;
+						}
+									`,
+									animated: true,
+									pitchWithMap: true,
+									// blending: 2,
+									size: (data) => {
+										const mag = Math.max(data.report?.mag || 1);
+										const size = 1 + 115 * (mag / 10);
+										return { width: size, height: size };
+									}
+								}
+							}
+						}, "aeroway-line");
+
+
+
 						
 
 						controller.addWeatherLayer('convective-outline', {
@@ -1139,19 +1004,20 @@ window.addEventListener('load', () => {
 									}
 								},
 								stroke: {
-									opacity: .35,		
-								
-									color: '#000'
+		
+									color: '#000',
+									opacity: .45,
+						
 								}
 							}
 						}, "aeroway-line"	 );			
-						
 						
 
 
 
 
 						app.getPanel('layers').select(['lightning-strikes']);
+
 
 						//app.map.addLayers(['alerts:52']);
 
@@ -1200,10 +1066,6 @@ window.addEventListener('load', () => {
 						
 
 
-										//Turned OFF!!!!!!!
-
-
-
 
 
 
@@ -1214,6 +1076,7 @@ window.addEventListener('load', () => {
 
 
 			});
+
 
 	
 		});	
