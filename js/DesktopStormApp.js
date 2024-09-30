@@ -75,7 +75,7 @@ scheduleTimeline();
  //window.location.href = "https://radar.weather.gov/?settings=v1_"+mapSettings;
  //window.location.href = "https://google.com";
 
-window.location.href = "WX_APP_url.html?lng=" + longitude + "&lat=" + latitude; //Comment out to use script below!!!!
+window.location.href = "WX_APP_STORM_url.html?lng=" + longitude + "&lat=" + latitude; //Comment out to use script below!!!!
 
 
 
