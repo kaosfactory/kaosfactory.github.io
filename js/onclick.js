@@ -44,6 +44,14 @@ function radarfull() {
 }
 
 
+function radar() {
+
+  localStorage.setItem('loop', 'y');
+  CONFIG.loop = true;
+  
+  window.parent.location.href= 'MOBILE_APP_INTELLISTAR1.html';
+
+}
 
 
 
@@ -55,6 +63,13 @@ function nws() {
   location.href = "mobilefullscrn.html";
 }
 
+
+function fullscreenNWS() {
+
+  localStorage.setItem('loop', 'n');
+  CONFIG.loop = false;
+  location.href = "fullscrn.html";
+}
 
 
 
