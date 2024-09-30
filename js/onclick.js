@@ -64,7 +64,7 @@ function nws() {
 }
 
 
-function fullscreenNWS() {
+function fullscrnNWS() {
 
   localStorage.setItem('loop', 'n');
   CONFIG.loop = false;
