@@ -91,7 +91,7 @@ function desktopapp() {
 
   localStorage.setItem('loop', 'y');
   CONFIG.loop = true;
-  location.href = "DESKTOP_APP.html";
+  location.href = "WX_APP.html";
 }
 
 
@@ -113,4 +113,12 @@ function intellistar() {
 }
 
 
+function lightning() {
+
+
+aeris.mapsgl(app, {	version: '1.4.2', }) .then(({controller, mapsgl }) => { controller.addWeatherLayer('lightning-strikes'); });	
+
+
+
+}
 
