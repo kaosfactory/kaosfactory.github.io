@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+
+        <title>NWS Alerts</title>
+
+        <style type="text/css">
+
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+
+            #content
+            {
+                position:absolute; left: 0; right: 0; bottom: -99px; top: -62px; 
+            }
+
+
+
+
+
+
+	.btn-play {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+    }
+	.btn-pause {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+	}
+
+
+.btn-play {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0;
+    border-radius: 4px;
+    color: #575757;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 3px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #4f4f4f85;
+}
+
+
+.btn-play:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 4px;
+    color: #575757;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 3px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #4f4f4f85;
+}
+
+
+
+
+    #controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+
+    }
+	
+
+    #controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 3px;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 4px;
+        border-radius: 4px;
+    }
+	
+	
+	    #controls3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 30px;
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 4px;
+        border-radius: 2px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+        </style>
+
+    </head>
+
+    <body>
+    <div id="controls2">
+	
+		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
+		<button class="btn-play" onclick="location.href='WX_APP_url.html';">WX APP</button>
+		<button class="btn-play" onclick="location.href='nwsalerts2.html';">Reload</button>	
+
+
+    </div>
+        <div id="content">
+
+
+
+            <iframe width="100%" height="100%" frameborder="0" src="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTk2LjE4NCwzNC44NThdLCJsb2NhdGlvbiI6bnVsbCwiem9vbSI6NC41MSwibGF5ZXIiOiJicmVmX3FjZCJ9LCJhbmltYXRpbmciOnRydWUsImJhc2UiOiJzdGFuZGFyZCIsImFydGNjIjpmYWxzZSwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51IjpmYWxzZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D"></iframe>
+
+
+
+        </div>
+    </body>
+</html>
