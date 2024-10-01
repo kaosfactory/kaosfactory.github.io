@@ -1085,7 +1085,7 @@ left:12.5px;
 .awxjs__app__ui-panel-legends .awxjs__legend:last-child,
 .awxjs__app__ui-panel-legends .awxjs__legend > .awxjs__legend {
   border-bottom: 0;
-  margin-bottom: -10px;
+
 }
 .awxjs__app__ui-panel-legends .awxjs__legend-title {
   color: #ccc !important;
