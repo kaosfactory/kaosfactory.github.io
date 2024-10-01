@@ -17,6 +17,21 @@
     stroke-dashoffset: 1000;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .awxjs__loader {
   display: none;
   height: 100%;
@@ -202,7 +217,7 @@
 .awxjs__ui-btn .awxjs__ui-btn-action svg,
 .awxjs__ui-btn .awxjs__ui-btn-action.awxjs__ui-btn-action svg {
   fill: #999;
-  height: 16px !important;
+  height: 14px !important;
   width: 16px !important;
 }
 .awxjs__ui-btn .awxjs__ui-btn-action:hover svg,
@@ -531,8 +546,8 @@
   z-index: 10000;
 }
 .awxjs__app__ui-panel .awxjs__app__ui-panel-container {
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 6px;
+  background: rgb(0 0 0 / 84%);
+  border-radius: 4px;
   position: absolute;
   z-index: 10;
  
@@ -627,7 +642,7 @@
 .awxjs__app__ui-panel .awxjs__app__ui-panel-close svg {
   fill: #999;
   height: 17px;
-  width: 16px;
+  width: 17px;
 }
 
 
@@ -693,13 +708,16 @@
 
 
 .awxjs__app__ui-panel.awxjs__app__ui-panel-toggleable
-  .awxjs__app__ui-panel-toolbar {
+ {
 
-  height: 17px;
+  height: 25px;
 }
 
 
+.awxjs__app__ui-panel-toolbar{
 
+  height: 18px;
+}
 
 
 
@@ -765,13 +783,16 @@
   display: inline-block;
   font-size: 11px;
   font-weight: bold;
-  padding: 7px 7px;
+  padding: 5px 4px;
   position: relative;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+
 .awxjs__app__ui-panel .awxjs__ui-btn svg {
   fill: #ccc;
 }
@@ -832,8 +853,10 @@
 
 
 .awxjs__app__ui-panel-layers .awxjs__app__ui-panel-buttons {
-  padding: 4px;
+  margin-top: -4px;
+  padding: 7px;
   width: 135px;
+  height:20;
 }
 
 
@@ -861,7 +884,7 @@
 }
 .awxjs__app__ui-panel-layers .awxjs__ui-btn {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 2.25px;
   min-width: 100px;
 }
 .awxjs__app__ui-panel-layers .awxjs__ui-btn:last-child {
@@ -869,6 +892,10 @@
 }
 .awxjs__app__ui-panel-layers .awxjs__ui-btn .awxjs__loader svg {
   background: transparent;
+left:12.5px;
+  
+  
+  
 }
 .awxjs__app__ui-panel-layers .awxjs__ui-btn-segments .awxjs__ui-btn {
   background: transparent;
@@ -965,7 +992,7 @@
 
 
 .awxjs__app__ui-panel-timeline .awxjs__ui-btn-settings {
-  height: 30px;
+  height: 32px;
   padding: 0;
   position: absolute;
   right: -7px;
@@ -1038,21 +1065,27 @@
 .awxjs__app__ui-panel-timeline .awxjs__loader svg {
   background: #222;
 }
+
+
 .awxjs__app__ui-panel-legends .awxjs__app__ui-panel-content {
-  max-height: 128px;
+  max-height: 80px;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 6px 10px;
+
 }
+
+
+
 .awxjs__app__ui-panel-legends .awxjs__legend-view .awxjs__legend {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .awxjs__app__ui-panel-legends .awxjs__legend {
-  padding: 6px 0 0;
+  padding: 2px 0 0;
 }
 .awxjs__app__ui-panel-legends .awxjs__legend:last-child,
 .awxjs__app__ui-panel-legends .awxjs__legend > .awxjs__legend {
   border-bottom: 0;
+  margin-bottom: -10px;
 }
 .awxjs__app__ui-panel-legends .awxjs__legend-title {
   color: #ccc !important;
@@ -2156,16 +2189,16 @@
   opacity: 1;
 }
 .awxjs__ui-tooltip {
-  font-family: "Helvetica", "Arial", sans-serif;
-  position: absolute;
-  padding: 8px 10px;
-  top: 10px;
-  max-width: 400px;
-  color: #333;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 4px;
-  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.2);
-  z-index: 5010;
+    font-family: "Helvetica", "Arial", sans-serif;
+    position: absolute;
+    padding: 7px 4px;
+    top: 10px;
+    max-width: 400px;
+    color: #333;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
 }
 .awxjs__ui-tooltip .awxjs__ui-tooltip-close {
   position: absolute;
