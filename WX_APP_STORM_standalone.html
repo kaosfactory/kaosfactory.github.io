@@ -52,6 +52,24 @@
 }
 
 
+.btn-play:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 4px;
+    color: #575757;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 3px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #4f4f4f85;
+}
+
+
 
 
     #controls {
@@ -94,7 +112,7 @@
 
         gap: 30px;
         position: absolute;
-        bottom: 12px;
+        bottom: 10px;
         right: 15px;
         z-index: 1;
         background: rgba(255, 255, 255, 0.8);
@@ -122,12 +140,32 @@
     <div id="controls2">
 		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
 		<button class="btn-play" onclick="location.href='WX_APP_standalone.html';">INFO Mode</button>
-
-
+		<button class="btn-play" onclick="location.href='nwsalerts.html';">NWS Alerts</button>
+		<button class="btn-play" onclick="location.href='WX_APP_STORM_standalone.html';">Reload</button>
+		
     </div>
-	
 
 <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	getParameter = (key) => { 
 	  
@@ -199,9 +237,100 @@
 					
 						{
                             title: "Dark Base Map",
-                            value: "flat-dk"
+                            value: "flat-dk",
+							options: {
+								style: {
+									opacity: 1
+								}
+							},
+							controls: {
+								settings: [{
+									type: 'opacity'
+								}]
+							}
+						},
 
+
+
+                        { title: 'Forecasts', value: 'forecast', segments: [
+
+						{
+                            title: "Max Temperatures",
+                            value: "ftemperatures-max-text"
+                        },
+							{
+                            title: "Min Temperatures",
+                            value: "ftemperatures-min-text"
                         },					
+						{
+                            title: "QPF Accumulation",
+                            value: "fqpf-accum"
+                        },
+						{
+                            title: "QPF (1hr Intervals)",
+                            value: "fqpf-1h"
+                        },
+						{
+                            title: "Snow (1hr Intervals)",
+                            value: "fqsf-1h"
+                        },{
+                            title: "Snow Depth",
+                            value: "fsnow-depth",
+							options: {
+								style: {
+									opacity: 0.65
+								}
+							}
+
+						},
+						
+						
+						,{
+                            title: "Snow Accumulation",
+                            value: "fqsf-accum"
+                        },{
+                            title: "Ice Accumulation",
+                            value: "fice-accum"
+                        }
+
+
+						],
+
+						options: {
+							style: {
+								opacity: 0.85
+							}
+						},
+						controls: {
+							settings: [{
+								type: 'opacity'
+							}]
+						}
+					}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					
 					],
 					title: '',
@@ -219,7 +348,7 @@
 
 			
                     timeline: {
-						//title: '',
+						//title: 'Time Machine',
 						enabled: true,
 						toggleable: true,
 						position: {
@@ -237,7 +366,7 @@
                             // set the min and max time offsets for the timeline range
                             range: {
                                 min: -12,
-                                max: 1
+                                max: 12
                             },
 
                             // define the tick labels that should be rendered along the slider
@@ -249,7 +378,12 @@
                                 '-4': '-4',
                                 '-2': '-2',
 								 0: 'Now',
-                                 1: '+1',
+                                 2: '+2',
+                                 4: '+4',								 
+                                 6: '+6',								 
+                                 8: '+8',								 
+                                 10: '+10',								 
+                                 12: '+12',								 
                             },
 
                             // the value interval to render tick marks for, e.g. every 6 hours
@@ -271,13 +405,13 @@
                 },
 				
                 legends: {
-                    enabled: false,
-                    toggleable: true,
+                    enabled: true,
+                    toggleable: false,
                     position: {
-                        pin: "bottomleft",
-                        translate: {
-                            x: 10,
-                            y: -110
+							pin: "bottomleft",
+							translate: {
+								x: 9,
+								y: -68
                         }
                     }
                 },
@@ -299,11 +433,49 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		app.on('ready', () => {
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 			aeris.mapsgl(app, {
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 				version: '1.3.5', //*************************************************
 				layers: [
 				
+
+
+
+
+
+
+
+
+
+
 				
 					{
                         title: "Storm Cells",
@@ -622,6 +794,24 @@
 	
 						},
 
+
+						
+						
+						
+						
+								{
+                        title: "Snow Depth",
+                        value: "snow-depth",
+						options: {
+							paint: {
+								opacity: .55
+								}
+							}			
+						},
+
+
+
+
 						{
 						title: 'Heat Index', 
 						value: 'heat-index', 
@@ -754,6 +944,13 @@
 						//controller.addWeatherLayer('heat-index');
 		
 
+
+						
+						
+				
+						//Alerts for data inspector
+						controller.addWeatherLayer('alerts', { paint: {	fill: {	opacity: 0.0 }, stroke: { opacity: .0 } }, }, "aeroway-line" );				
+						
 						controller.addWeatherLayer('tide-heights', {
 							"paint" : {
 								"opacity" : .12
@@ -762,13 +959,6 @@
 						 "aeroway-line"			
 
 						);
-						
-						
-				
-						//Alerts for data inspector
-						controller.addWeatherLayer('alerts', { paint: {	fill: {	opacity: 0.0 }, stroke: { opacity: .0 } }, }, "aeroway-line" );				
-						
-
 
 						controller.addWeatherLayer('stormreports', {
 								paint: {
@@ -888,7 +1078,7 @@
 
 						controller.addWeatherLayer('earthquakes-heat', {
 							"paint" : {
-								"opacity" : .5
+								"opacity" : .45
 							},
 						},
 						 //"aeroway-line"			
@@ -958,7 +1148,7 @@
 									// blending: 2,
 									size: (data) => {
 										const mag = Math.max(data.report?.mag || 1);
-										const size = 1 + 115 * (mag / 10);
+										const size = 1 + 165 * (mag / 10);
 										return { width: size, height: size };
 									}
 								}
@@ -1060,9 +1250,9 @@
 						
 						//app.modules.add(new Severe());
 
-						app.modules.insertAt(17, new Severe( {showThreats: true}));
+						//app.modules.insertAt(17, new Severe( {showThreats: true}));
 
-						//app.modules.insertAt(17, new Severe());
+						app.modules.insertAt(17, new Severe());
 						
 
 
