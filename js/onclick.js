@@ -68,7 +68,7 @@ function fullscreenNWS() {
 
   localStorage.setItem('loop', 'n');
   CONFIG.loop = false;
-  location.href = "fullscrn.html";
+  location.href = "nwsalerts.html";
 }
 
 
