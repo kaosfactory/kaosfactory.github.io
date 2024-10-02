@@ -1069,8 +1069,9 @@ left:12.5px;
 
 
 .awxjs__app__ui-panel-legends .awxjs__app__ui-panel-content {
-  max-height: 50px;
-
+  max-height: 85px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
 }
 
@@ -1081,6 +1082,9 @@ left:12.5px;
 }
 .awxjs__app__ui-panel-legends .awxjs__legend {
   padding: 2px 0 0;
+  
+  
+  
 }
 .awxjs__app__ui-panel-legends .awxjs__legend:last-child,
 .awxjs__app__ui-panel-legends .awxjs__legend > .awxjs__legend {
