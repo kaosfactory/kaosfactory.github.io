@@ -9,6 +9,15 @@ function airports() {
 }
 
 
+function airports2() {
+
+  localStorage.setItem('loop', 'n');
+  CONFIG.loop = false;
+  
+  window.parent.location.href= 'airports2.html';
+
+}
+
 
 function zipcodes() {
 
@@ -19,7 +28,14 @@ function zipcodes() {
 
 }
 
+function zipcodes2() {
 
+  localStorage.setItem('loop', 'n');
+  CONFIG.loop = false;
+  
+  window.parent.location.href= 'zipcodes2.html';
+
+}
 
 
 function radaralerts() {
