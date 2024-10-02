@@ -592,10 +592,10 @@
   cursor: pointer;
   display: none;
   height: 30px;
-  left: 50%;
+  left: 65%;
   margin: -20px 0 0 -20px;
   position: absolute;
-  top: 50%;
+  top: 65%;
   transition: opacity 0.2s linear;
   -webkit-transition: opacity 0.2s linear;
   -moz-transition: opacity 0.2s linear;
@@ -607,10 +607,10 @@
 .awxjs__app__ui-panel .awxjs__app__ui-panel-toggle svg {
     fill: #878787;
     height: 24px;
-    left: 50%;
+    left: 35%;
     margin: -8px 0 0 -6.5px;
     position: absolute;
-    top: 50%;
+    top: 35%;
     width: 22px;
 }
 
