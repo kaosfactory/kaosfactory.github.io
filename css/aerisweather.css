@@ -249,7 +249,7 @@
 
 .awxjs__ui-btn-icon svg, .awxjs__ui-btn-icon svg, .awxjs__ui-btn-icon svg, .awxjs__ui-btn-icon-sm svg {
     fill: #aaa;
-    height: 15px;
+    height: 14px;
     left: 50%;
     margin: -6px 0 0 -7px;
     position: absolute;
@@ -641,8 +641,8 @@
 
 .awxjs__app__ui-panel .awxjs__app__ui-panel-close svg {
   fill: #999;
-  height: 17px;
-  width: 17px;
+  height: 16px;
+  width: 16px;
 }
 
 
@@ -986,7 +986,8 @@ left:12.5px;
 
 
 .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon, .awxjs__app__ui-panel-timeline-controls .awxjs__ui-btn-icon-sm {
-    height: 27px;
+    height: 26px;
+
     padding: 0;
 }
 
@@ -1006,7 +1007,7 @@ left:12.5px;
   fill: #fff;
 }
 .awxjs__app__ui-panel-timeline .awxjs__ui-timeline {
-  margin: 0 -13px 0px;
+  margin: -5px -13px 0px;
   position: relative;
   width: 250px;
 }
@@ -1068,9 +1069,8 @@ left:12.5px;
 
 
 .awxjs__app__ui-panel-legends .awxjs__app__ui-panel-content {
-  max-height: 80px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  max-height: 50px;
+
 
 }
 
@@ -2111,7 +2111,7 @@ left:12.5px;
   background: #0c6d93;
 }
 .awxjs__ui-timeline .awxjs__ui-timeline__periods {
-  height: 0px;
+  height: 12px;
   position: relative;
 }
 .awxjs__ui-timeline .awxjs__ui-timeline__periods:after {
@@ -2135,9 +2135,9 @@ left:12.5px;
   display: block;
   background-color: #1397ca;
   margin: 0 1px;
-  padding: 0.125rem 0.25rem;
+  padding: 0.09rem 0.19rem;
   color: #fff;
-  font-size: 0.75rem;
+  font-size: 0.52rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -2191,7 +2191,7 @@ left:12.5px;
 .awxjs__ui-tooltip {
     font-family: "Helvetica", "Arial", sans-serif;
     position: absolute;
-    padding: 7px 4px;
+    padding: 4px 14px;
     top: 10px;
     max-width: 400px;
     color: #333;
