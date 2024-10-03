@@ -203,7 +203,7 @@ function fetchRadarImages(){
   }
 
 
-  radarImage.setAttribute("src", "DESKTOP_RADAR.html#9/" + latitude + "/" + longitude);
+  radarImage.setAttribute("src", "DESKTOP_RADAR2.html#7/" + latitude + "/" + longitude);
   radarImage.style.width = "1230px"
   radarImage.style.height = "740px"
   radarImage.style.marginTop = "-220px"
@@ -220,7 +220,7 @@ function fetchRadarImages(){
       getElement('zoomed-radar-container').style.display = 'none';
     }
   
-    zoomedRadarImage.setAttribute("src", "DESKTOP_RADAR.html#11/" + latitude + "/" + longitude);
+    zoomedRadarImage.setAttribute("src", "DESKTOP_RADAR2.html#10/" + latitude + "/" + longitude);
 
     zoomedRadarImage.style.width = "1230px"
     zoomedRadarImage.style.height = "740px"
