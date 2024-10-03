@@ -66,11 +66,14 @@ function revealTimeline(){
   }
 }
 
+
 /* Now that all the fetched information is stored in memory, display them in
 the appropriate elements */
 function setInformation(){
-  setGreetingPage();
   checkStormMusic();
+  setGreetingPage();
+  setTimeout(startRadar, 0);
+  setTimeout(startZoomedRadar, 500);
   setAlertPage();
   setForecast();
   setOutlook();
@@ -80,6 +83,8 @@ function setInformation(){
   hideSettings();
   //setTimeout(resizeWindow, 0);
   setTimeout(startAnimation, 0);
+  //setTimeout(startAnimation, 759); GL RADAR 
+
 }
 
 //function setMainBackground(){
@@ -222,8 +227,7 @@ function executePage(pageIndex, subPageIndex){
     animateValue('cc-temperature-text', -20, currentTemperature, 2500, 1);
     animateDialFill('cc-dial-color', currentTemperature, 2500);
 
-    setTimeout(startRadar, 9500);
-    setTimeout(startZoomedRadar, 17000);
+
 
   }
   else if(currentSubPageName == 'radar-page'){
