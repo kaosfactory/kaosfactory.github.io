@@ -181,12 +181,7 @@ input[type="range" i] {
 
     <div id="map"></div>
 
-    <div id="controls2">
-	<button class="btn-play" onclick="location.href='mobileX1.html';">IntelliSTAR</button>
-        <button class="btn-play" onclick="location.href='staticradarX.html';">TWC Radar</button>
-        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR2.html';">NWS Alerts</button>		
-        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR.html';">Reload</button>
-    </div>
+
 
 
    <div id="controls">
@@ -314,8 +309,8 @@ input[type="range" i] {
 
  
 			controller.timeline.setStartDateUsingOffset(-2 * 3600 * 1000);    
-			controller.timeline.duration = 7;
-			controller.timeline.endDelay = 2;
+			controller.timeline.duration = 6;
+			controller.timeline.endDelay = 1;
 
 
 
@@ -331,7 +326,7 @@ input[type="range" i] {
 
 					  controller.addWeatherLayer('radar', {
 						paint: {
-							opacity: 0.95
+							opacity: 0.75
 						},
 
 
