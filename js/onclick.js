@@ -60,6 +60,18 @@ function radarfull() {
 }
 
 
+function radarfull2() {
+
+  localStorage.setItem('loop', 'y');
+  CONFIG.loop = true;
+  
+  window.parent.location.href= 'DESKTOP_APP_INTELLISTAR1.html';
+
+}
+
+
+
+
 function radar() {
 
   localStorage.setItem('loop', 'y');
