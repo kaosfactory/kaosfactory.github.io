@@ -140,8 +140,11 @@
 
     <div id="controls2">
 		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
+
 		<button class="btn-play" onclick="location.href='WX_APP_STORM_standalone.html';">Storm Mode</button>
-		<button class="btn-play" onclick="location.href='nwsalerts.html';">NWS Alerts</button>	
+		<button class="btn-play" onclick="location.href='nwsalerts.html';">NWS Alerts</button>
+
+		<button class="btn-play" onclick="location.href='WX_APP_forecast.html';">Forecast</button>	
 		<button class="btn-play" onclick="location.href='WX_APP_standalone.html';">Reload</button>
 
 
@@ -217,7 +220,7 @@
                     //lat: lat,
                     //lon: lng
                 },
-
+////////////////////////////////////////////////////////////
                 timeline: {
 
             	    bufferIntervals: 3,
@@ -227,10 +230,9 @@
 					duration: 7,
 					endDelay: 4,			
                     from: -7200,
-                    to: 3600
+                    to: 0
 					
                 },
-
 
 			},
 
@@ -254,7 +256,6 @@
 						},
 
 
-
                         { title: 'Forecasts', value: 'forecast', segments: [
 
 						{
@@ -264,7 +265,9 @@
 							{
                             title: "Min Temperatures",
                             value: "ftemperatures-min-text"
-                        },					
+                        },	
+
+				
 						{
                             title: "QPF Accumulation",
                             value: "fqpf-accum"
@@ -312,30 +315,10 @@
 					}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					
 					],
+					
+					
 					title: '',
                     enabled: true,
                     toggleable: true,
@@ -349,7 +332,7 @@
                 },
 
 
-			
+/////////////////////////////////////////////////////////			
                     timeline: {
 						//title: 'Time Machine',
 						enabled: true,
@@ -369,22 +352,27 @@
                             // set the min and max time offsets for the timeline range
                             range: {
                                 min: -12,
-                                max: 12
+                                max: 0
                             },
 
                             // define the tick labels that should be rendered along the slider
                             marks: {
-                                '-12': '-12',
-								'-10': '-10',
-                                '-8': '-8',
+	                                '-10': '-10',						
+                                '-8': '-8',							
                                 '-6': '-6',
+
                                 '-4': '-4',
-                                '-2': '-2',
+	                                '-2': '-2',							
+
+
+
 								 0: 'Now',
-                                 2: '+2',
-                                 4: '+4',								 
-                                 6: '+6',								 
-                                 8: '+8',								 
+
+
+                                 2: 'Forecast',
+
+                                 6: '+6',									 
+                                 8: '+8',									 
                                  10: '+10',								 
                                  12: '+12',								 
                             },
@@ -708,7 +696,16 @@
                         title: "Storm Cells",
                         value: "stormcells-heat",
 						},
-
+						
+						{
+                        title: "Storm Reports",
+                        value: "stormreports-heat",
+						},
+						
+						{
+                        title: "Fire Obs",
+                        value: "fires-obs-heat",
+						},				
 
 						], 
 					
@@ -772,7 +769,29 @@
 	
 						},
 
+
+								{
+                        title: "Snow Depth",
+                        value: "snow-depth",
+						options: {
+							paint: {
+								opacity: .55
+								}
+							}			
+						},
+
+
 			
+						{
+                        title: "Precipitation (1hr)",
+                        value: "precip"
+						
+						},
+						
+
+					
+						
+
 						
                      { title: 'Temp Change', value: 'temp-change', segments: [
 					 
@@ -802,15 +821,7 @@
 						
 						
 						
-								{
-                        title: "Snow Depth",
-                        value: "snow-depth",
-						options: {
-							paint: {
-								opacity: .55
-								}
-							}			
-						},
+
 
 
 
@@ -1000,6 +1011,25 @@
 							 "aeroway-line"
 						);			
 
+
+
+						controller.addWeatherLayer('wind-gusts', {
+							data: {
+								quality: aerisweather.mapsgl.DataQuality.minimal
+							},
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+						
+						);		
+
+
+
+
+
+
 						
 						controller.addWeatherLayer('wind-speeds-contour', {
 							"paint" : {
@@ -1079,14 +1109,7 @@
 
 						);
 
-						controller.addWeatherLayer('earthquakes-heat', {
-							"paint" : {
-								"opacity" : .45
-							},
-						},
-						 //"aeroway-line"			
 
-						);
 						
 						controller.addWeatherLayer('earthquakes', {
 							type: 'symbol',
@@ -1151,15 +1174,25 @@
 									// blending: 2,
 									size: (data) => {
 										const mag = Math.max(data.report?.mag || 1);
-										const size = 1 + 165 * (mag / 10);
+										const size = 1 + 115 * (mag / 10);
 										return { width: size, height: size };
 									}
 								}
 							}
-						}, "aeroway-line");
+							
+						},
+//						"aeroway-line"
+						);
 
 
+						controller.addWeatherLayer('earthquakes-heat', {
+							"paint" : {
+								"opacity" : .45
+							},
+						},
+						 //"aeroway-line"			
 
+						);
 						
 
 						controller.addWeatherLayer('convective-outline', {
@@ -1226,7 +1259,7 @@
 						aeris.modules().then((modules) => {
 							const layerModules = [{
 								name: "groups.Tropical",
-								index: 18
+								index: 19
 							},
 
 
@@ -1255,7 +1288,7 @@
 
 						//app.modules.insertAt(17, new Severe( {showThreats: true}));
 
-						app.modules.insertAt(17, new Severe());
+						app.modules.insertAt(18, new Severe());
 						
 
 
