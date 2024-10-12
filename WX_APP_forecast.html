@@ -142,30 +142,13 @@
 		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
 		<button class="btn-play" onclick="location.href='WX_APP_standalone.html';">INFO Mode</button>
 		<button class="btn-play" onclick="location.href='nwsalerts.html';">NWS Alerts</button>	
-		<button class="btn-play" onclick="location.href='WX_APP_standalone.html';">Reload</button>
+		<button class="btn-play" onclick="location.href='WX_APP_forecast.html';">Reload</button>
 
 
     </div>
 	
 
 <script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -221,7 +204,7 @@
 				
                 timeline: {
             //bufferIntervals: 3,
-            showLoadingIntervals: false,
+            //showLoadingIntervals: false,
 					duration: 7,
 					endDelay: 2,				
                     //from: -7200,
@@ -232,14 +215,8 @@
             panels: {
                 layers: {
                     buttons: [
-					
 
-						
-
-			
-
-
-						
+		
 					{
                         title: 'Forecast',
                         multiselect: true,
@@ -262,7 +239,6 @@
 						},
 
 
-
 						{
                             title: "QPF Accum",
                             value: "fqpf-accum",
@@ -279,7 +255,7 @@
 						},
 						
 						
-						
+
 						
 						
 						{
@@ -346,12 +322,6 @@
 							}
 						},
 						
-						
-
-
-
-
-
 
 
 
@@ -360,16 +330,6 @@
 
                     },					
 						
-						
-
-						
-						
-						
-						
-						
-
-
-
 
 					
 					],
@@ -402,6 +362,9 @@
 						},
 					
                         range: {
+						
+						
+						
                             // set the initial timeline offset range value
                             value: [-2, 12],
 
@@ -481,78 +444,12 @@
 
 		app.on('ready', () => {
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 			aeris.mapsgl(app, {
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 			
 				version: '1.5.0', //*************************************************
 				layers: [
-				
-
-
-
-						
-
-
-
-
-
-
-
-				
-
-
-					
-					
-
-					
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	
 				],
@@ -578,10 +475,6 @@
                     { title: 'Observations', value: 'obs', buttons: [
 
 
-
-
-	
-	
 								{
                         title: "Snow Depth",
                         value: "snow-depth",
@@ -591,9 +484,7 @@
 								}
 							}			
 						},
-				
-				
-				
+	
 	
 						{
                         title: "Precipitation (1hr)",
@@ -603,17 +494,6 @@
 
 	
 	
-
-
-	
-
-
-			
-
-						
-
-					
-						
 
 						
                      { title: 'Temp Change', value: 'temp-change', segments: [
@@ -638,14 +518,6 @@
 							},
 	
 						},
-
-
-						
-						
-				
-						
-
-
 
 
 
@@ -742,8 +614,6 @@
 
 
 
-					
-
 						],
 
 
@@ -761,15 +631,12 @@
 				})
 				
 				
-				
 
-			
 
 			.then(({controller, mapsgl }) => {
 
 
-					
-			
+
 				
 				// configure views for local weather info panel
 				app.panels.info.setContentView('localweather', {
@@ -815,12 +682,7 @@
 						
 						);		
 						
-						
-				
 
-
-
-	
 
 						
 						controller.addWeatherLayer('wind-speeds-contour', {
@@ -892,14 +754,6 @@
 						);
 
 
-
-
-
-						
-
-
-
-
 						
 
 						controller.addWeatherLayer('convective-outline', {
@@ -922,12 +776,7 @@
 						);									
 
 
-						
 
-
-
-
-						
 						
 						app.map.addLayers(['fradar']);
 
@@ -971,11 +820,8 @@
 
 
 
-
 						
-						app.map.timeline.play();
-
-
+						//app.map.timeline.play();
 
 
 

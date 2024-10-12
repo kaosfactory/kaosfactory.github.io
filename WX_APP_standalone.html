@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
-	<script src="https://cdn.aerisapi.com/sdk/js/1.8.4/aerisweather.min.js"></script>
+	<script src="https://cdn.aerisapi.com/sdk/js/1.8.6/aerisweather.min.js"></script>
 	<link rel="stylesheet" href="css/aerisweather.css">
 	<link rel="stylesheet" href="css/attrib.css">
 	<title>KAOS WX</title>
@@ -221,16 +221,16 @@
                     //lon: lng
                 },
 ////////////////////////////////////////////////////////////
-                timeline: {
 
+                timeline: {
+					duration: 15,
             	    bufferIntervals: 3,
             	    //showLoadingIntervals: false,
 				    //bufferIntervals: -1,
 					showLoading: false,
-					duration: 7,
 					endDelay: 4,			
-                    from: -7200,
-                    to: 0
+                    //from: -7200,
+                    //to: 0
 					
                 },
 
@@ -256,63 +256,7 @@
 						},
 
 
-                        { title: 'Forecasts', value: 'forecast', segments: [
 
-						{
-                            title: "Max Temperatures",
-                            value: "ftemperatures-max-text"
-                        },
-							{
-                            title: "Min Temperatures",
-                            value: "ftemperatures-min-text"
-                        },	
-
-				
-						{
-                            title: "QPF Accumulation",
-                            value: "fqpf-accum"
-                        },
-						{
-                            title: "QPF (1hr Intervals)",
-                            value: "fqpf-1h"
-                        },
-						{
-                            title: "Snow (1hr Intervals)",
-                            value: "fqsf-1h"
-                        },{
-                            title: "Snow Depth",
-                            value: "fsnow-depth",
-							options: {
-								style: {
-									opacity: 0.65
-								}
-							}
-
-						},
-						
-						
-						,{
-                            title: "Snow Accumulation",
-                            value: "fqsf-accum"
-                        },{
-                            title: "Ice Accumulation",
-                            value: "fice-accum"
-                        }
-
-
-						],
-
-						options: {
-							style: {
-								opacity: 0.85
-							}
-						},
-						controls: {
-							settings: [{
-								type: 'opacity'
-							}]
-						}
-					}
 
 
 					
@@ -335,6 +279,7 @@
 /////////////////////////////////////////////////////////			
                     timeline: {
 						//title: 'Time Machine',
+
 						enabled: true,
 						toggleable: true,
 						position: {
@@ -346,31 +291,36 @@
 						},
 					
                         range: {
+							
+							title: 'Time Machine <span>(hours)</span>',
+							width: 300,
+												
+						
+						
                             // set the initial timeline offset range value
-                            value: [-6, 0],
+                            value: [-12,0],
 
                             // set the min and max time offsets for the timeline range
                             range: {
                                 min: -12,
-                                max: 0
+                                max: -0,
+								
                             },
 
                             // define the tick labels that should be rendered along the slider
+							//marksEvery: '% 12',
                             marks: {
-	                                '-10': '-10',						
+	                            '-12': '-12',								
+	                            '-10': '-10',						
                                 '-8': '-8',							
                                 '-6': '-6',
-
                                 '-4': '-4',
-	                                '-2': '-2',							
-
-
+	                            '-2': '-2',							
 
 								 0: 'Now',
 
-
-                                 2: 'Forecast',
-
+                                 2: '+2',
+                                 4: '+4',
                                  6: '+6',									 
                                  8: '+8',									 
                                  10: '+10',								 
@@ -378,8 +328,23 @@
                             },
 
                             // the value interval to render tick marks for, e.g. every 6 hours
-                            step: 2
-                        }
+                            step: 6,
+							
+							tooltip: (value) => {
+								if (value === 0) {
+									return 'Now';
+								}
+								const prefix = value > 0 ? '+' : '';
+								return `${prefix}${value} hours`;
+							}
+						},							
+
+							
+							
+
+						
+						
+						
                     },				
 				
 				
