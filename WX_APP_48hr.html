@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+	<script src="https://cdn.aerisapi.com/sdk/js/1.8.6/aerisweather.min.js"></script>
+	<link rel="stylesheet" href="css/aerisweather2.css">
+	<link rel="stylesheet" href="css/attrib.css">
+	<title>KAOS WX</title>
+
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100vh;
+        width: 100%;
+    }
+
+
+	.btn-play {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+    }
+	.btn-pause {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+	}
+
+
+.btn-play {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0;
+    border-radius: 4px;
+    color: #575757;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 3px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #4f4f4f85;
+}
+
+
+.btn-play:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-radius: 4px;
+    color: #575757;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 3px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #4f4f4f85;
+}
+
+
+
+
+    #controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+
+    }
+	
+
+    #controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 3px;
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 4px;
+        border-radius: 4px;
+    }
+	
+	
+	    #controls3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 30px;
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 4px;
+        border-radius: 2px;
+    }
+	
+
+    </style>
+
+
+</head>
+
+<body>		
+	
+<div id="map"></div>
+
+    <div id="controls3">
+
+	<img src="assets/logos/kaosmod.png" alt="KAOS">	
+
+    </div>
+
+
+    <div id="controls2">
+		<button class="btn-play" onclick="location.href='desktopX1.html';">IntelliSTAR</button>
+		<button class="btn-play" onclick="location.href='WX_APP_standalone.html';">INFO Mode</button>
+		<button class="btn-play" onclick="location.href='nwsalerts.html';">NWS Alerts</button>	
+		<button class="btn-play" onclick="location.href='WX_APP_forecast.html';">Reload</button>
+
+
+    </div>
+	
+
+<script>
+
+
+
+
+	getParameter = (key) => { 
+	  
+		// Address of the current window 
+		address = window.location.search 
+	  
+		// Returns a URLSearchParams object instance 
+		parameterList = new URLSearchParams(address) 
+	  
+		// Returning the respected value associated 
+		// with the provided key 
+		return parameterList.get(key) 
+	} 
+	  
+	// Gets the value associated with the key "lng and lat" 
+	console.log(getParameter("lng"))
+	console.log(getParameter("lat"))
+	console.log(getParameter("zm"))
+
+
+	var lng = (getParameter("lng"))
+	var lat = (getParameter("lat"))
+	var zoom = (getParameter("zoom"))
+
+
+	 
+	window.addEventListener('load', () => { 
+		
+	const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', '1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq');	
+	const utils = aeris.utils;
+
+	aeris.apps().then((apps) => {
+		const app = new apps.InteractiveMapApp(document.getElementById('map'), {
+            map: {
+                strategy: "mapbox",
+                accessToken: "pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw",
+                zoom: 5,
+				style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+				
+				layers: 'radar, temperatures-24hr-change',
+			
+                center: {
+                    lat: 38.8,
+                    lon: -95.47
+
+                    //lat: lat,
+                    //lon: lng
+                },
+////////////////////////////////////////////////////////////
+				
+                timeline: {
+            //bufferIntervals: 3,
+            //showLoadingIntervals: false,
+					duration: 7,
+					endDelay: 2,				
+                    //from: -7200,
+                    //to: 43200
+                }
+            },
+
+            panels: {
+                layers: {
+                    buttons: [
+
+		
+				
+						
+
+					
+					],
+					
+					
+					title: '',
+                    enabled: true,
+                    toggleable: true,
+                    position: {
+                        pin: "topright",
+                        translate: {
+                            x: -8,
+                            y: 8
+                        }
+                    }
+                },
+
+
+/////////////////////////////////////////////////////////			
+ 	                    timeline: {
+						title: 'Time Machine',
+						enabled: true,
+						toggleable: false,
+						position: {
+							pin: "bottomleft",
+							translate: {
+								x: 8,
+								y: -8
+							}
+						},
+					
+                        range: {
+						
+						
+						
+                            // set the initial timeline offset range value
+                            value: [-2, 48],
+
+                            // set the min and max time offsets for the timeline range
+                            range: {
+                                min: -2,
+                                max: 48
+                            },
+
+                            // define the tick labels that should be rendered along the slider
+                            marks: {
+
+	                            '-2': 'Start',							
+
+								 0: '0',
+
+								 1: '1',
+                                 2: '2',
+								 3: '3',								 
+								 4: '4',
+								 5: '5',								 
+                                 6: '6',
+								 7: '7',								 
+                                 8: '8',
+								 9: '9',								 
+                                 10: '10',
+								 11: '11',								 
+                                 12: '12',								 
+                            						 
+                            },
+
+                            // the value interval to render tick marks for, e.g. every 6 hours
+                            step: 0
+                        }
+                    },			
+				
+				
+                search: {
+                    enabled: true,
+                    toggleable: false,
+                    position: {
+                        pin: "top",
+                        translate: {
+                            x: -2,
+                            y: 10
+                        }
+                    }
+                },
+				
+                legends: {
+                    enabled: true,
+                    toggleable: true,
+                    position: {
+							pin: "bottomleft",
+							translate: {
+								x: 9,
+								y: -68
+                        }
+                    }
+                },
+				
+                info: {
+                    enabled: true,
+                    position: {
+                        pin: "topleft",
+                        translate: {
+                            x: 10,
+                            y: 10
+                        }
+                    },
+                    metric: false
+                }
+            }
+        });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		app.on('ready', () => {
+		
+
+			aeris.mapsgl(app, {
+
+			
+				version: '1.3.5', //*************************************************
+				layers: [
+
+	
+				],
+
+				})
+				
+			
+							.then(({controller, mapsgl }) => {
+	
+
+							// ADD STUFF
+
+	
+
+							});
+
+
+		
+			// load in MapsGL sdk and set up relevant layer controls
+			aeris.mapsgl(app, {
+				version: '1.5.2', //***********************************  
+				layers: [
+                    { title: 'Observations', value: 'obs', buttons: [
+
+
+								{
+                        title: "Snow Depth",
+                        value: "snow-depth",
+						options: {
+							paint: {
+								opacity: .55
+								}
+							}			
+						},
+	
+	
+						{
+                        title: "Precipitation (1hr)",
+                        value: "precip",
+						
+						},
+
+	
+	
+
+						
+                     { title: 'Temp Change', value: 'temp-change', segments: [
+					 
+						{
+                        title: "Past 24 hours",
+                        value: "temperatures-24hr-change"
+						},
+						
+						{
+                        title: "Past 1 hour",
+                        value: "temperatures-1hr-change"
+						},
+					
+
+						],
+
+							options: {
+								paint: {
+									opacity: .25
+								}
+							},
+	
+						},
+
+
+
+						{
+						title: 'Heat Index', 
+						value: 'heat-index', 
+						options: {
+							paint: {
+								opacity: .05
+								}
+							}			
+						},
+
+						{
+						title: 'Wind Chill', 
+						value: 'wind-chill', 
+						options: {
+							paint: {
+								opacity: .1
+								}
+							},
+						
+						},
+
+						
+                        { title: 'Winds', value: 'winds', segments: [
+						
+						
+                            { title: 'Barbs', value: 'wind-barbs' },						
+                            { title: 'Arrows', value: 'wind-dir' },						
+
+                        ] },
+
+
+
+						{
+						title: 'Visibility', 
+						value: 'visibility', 
+						options: {
+							paint: {
+								opacity: .2
+								}
+							}			
+						},
+						
+
+                        { title: 'Particles', value: 'winds', segments: [
+
+						{
+                        title: "Ocean Particles",
+                        value: "ocean-currents-particles"
+						},
+
+						{
+                        title: "Wind Particles",
+                        value: "wind-particles"
+						},
+
+
+											
+						] },		
+
+	
+						{ title: 'Oceanic Data', value: 'ocean-currents', segments: [
+
+
+						{
+						title: "Ocean Currents",
+						value: "ocean-currents"
+
+						},
+
+						{
+						title: "Storm Surge Height",
+						value: "storm-surge"
+						},
+
+						{
+						title: "Surface Temperature",
+						value: "sst"
+						}
+		
+						], 
+					
+							options: {
+								paint: {
+									opacity: .3
+								}
+							},
+
+						},
+
+
+
+
+
+						],
+
+
+	
+						},
+
+
+
+
+
+
+
+					],
+					
+				})
+				
+				
+
+
+			.then(({controller, mapsgl }) => {
+
+
+
+				
+				// configure views for local weather info panel
+				app.panels.info.setContentView('localweather', {
+					views: [{
+							renderer: "place"
+						},{
+							renderer: "forecast"
+						},{
+							renderer: "outlook"
+						},{
+							renderer: "units"
+						}]
+				});
+
+			
+				// show info panel for location when map is clicked
+				app.map.on('click', (e) => {
+					app.showInfoAtCoord(e.data.coord, 'localweather', 'Local Weather');
+				});		
+
+
+						//add the MapsGL legend control
+						//controller.addLegendControl(app.$el, { width: 200 });
+
+
+						// add the MapsGL data inspector control*********************
+						controller.addDataInspectorControl({ event: 'move'}); //must be here
+						
+						
+						app.getPanel('layers').select(['heat-index', 'wind-chill']);
+						
+
+							
+						//controller.addWeatherLayer('heat-index');
+		
+
+						controller.addWeatherLayer('wind-gusts', {
+							data: {
+								quality: aerisweather.mapsgl.DataQuality.minimal
+							},
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+						
+						);		
+						
+
+
+						
+						controller.addWeatherLayer('wind-speeds-contour', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+					
+						);						
+
+
+						controller.addWeatherLayer('humidity', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+
+						);
+
+						controller.addWeatherLayer('dew-points', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+						
+						);
+
+
+						controller.addWeatherLayer('feels-like', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+						
+						);			
+
+						
+						controller.addWeatherLayer('temperatures-24hr-change', {
+							"paint" : {
+								"opacity" : .3
+							},
+						},
+						 "aeroway-line"			
+						
+						);					
+						
+						
+						controller.addWeatherLayer('temperatures-contour', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+						
+						);
+
+
+						controller.addWeatherLayer('pressure-msl-contour', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+
+						);
+
+
+						
+
+						controller.addWeatherLayer('convective', {
+							"paint" : {
+								"opacity" : .30
+							},
+						},
+						 "aeroway-line"			
+
+						);		
+						controller.addWeatherLayer('convective-outline', {
+							"paint" : {
+								"opacity" : .50
+							},
+						},
+						 "aeroway-line"			
+						
+						);
+						
+							
+
+
+
+						
+						app.map.addLayers(['fqpf-accum,fradar:75,fpressure-msl-isobars']);
+
+						//app.map.addLayers(['alerts:52']);
+
+		        		//add the MapsGL legend control
+             		    //controller.addLegendControl(app.$el, { width: 200 });
+
+	
+						// add the MapsGL data inspector control*********************
+						//controller.addDataInspectorControl({ event: 'move'}); //must be here
+
+
+
+
+						aeris.modules().then((modules) => {
+							const layerModules = [{
+								name: "groups.Tropical",
+								index: 18
+							},
+
+
+						//{
+								//name: "groups.Aviation",
+								//index: 5
+								//}
+
+
+						];
+							layerModules.forEach(({ name, index }) => {
+								const m = utils.get(modules, name);
+								if (m) {
+									if (index !== -1) {
+										app.modules.insertAt(index, m);
+									} else {
+										app.modules.add(m);
+									}
+								}
+							});
+						});
+
+
+
+						
+						//app.map.timeline.play();
+
+
+
+				});
+			
+
+
+
+			});
+
+
+	
+		});	
+								
+
+	});
+
+
+
+</script>	
+
+<script src="js/awxjs-severe-weather.min.js"></script>
+
+</body>
+
+
+</html>
