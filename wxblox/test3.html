@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aeris JavaScript SDK - Interactive Map Animation</title>
+    <script defer src="https://cdn.aerisapi.com/sdk/js/latest/aerisweather.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+ 
+    <link href="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.css" rel="stylesheet" />
+    <script defer src="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.js"></script>
+
+
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100vh;
+        width: 100%;
+    }
+    </style>
+
+</head>
+<body>
+
+<div class="map-container">
+    <div id="map"></div>
+    <div class="map-controls" style="margin-top:5px;">
+        <a id="map-toggle-anim" href="#">Play</a>
+    </div>
+</div>
+
+<script>
+
+    window.onload = () => {
+
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw';
+        const mapboxMap = new mapboxgl.Map({
+            container: document.getElementById('map'),
+            style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+            center: [-85.7, 43.1],
+            zoom: 5
+        });
+
+
+
+
+        const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', '1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq');
+
+        aeris.views().then(views => {
+            const map = new views.InteractiveMap(mapboxMap, {
+                layers: 'satellite:80,radar',
+                timeline: {
+                    from: -6 * 3600,
+                    to: 0
+                }
+            });
+            // Animation controls
+            const control = document.getElementById('map-toggle-anim');
+            map.on('load', () => {
+            
+                // update the control label based on the map animation state
+                map.on('timeline:play', () => {
+                    control.innerHTML = 'Stop';
+                });
+                map.on('timeline:stop', () => {
+                    control.innerHTML = 'Play';
+                });
+                
+                // toggle the animation when the play/stop button is clicked
+                control.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    map.timeline.toggle();
+                });
+            });
+        });
+    };
+
+</script>
+
+</body>
+</html>

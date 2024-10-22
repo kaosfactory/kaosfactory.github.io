@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>WeatherBlox - MapViewer Demo</title>
+	<link href="https://cdn.aerisapi.com/wxblox/aeris-wxblox.css" rel="stylesheet"/>
+	<script src="https://cdn.aerisapi.com/wxblox/aeris-wxblox.min.js"></script>
+  
+	<style>
+		#map-canvas {
+      		width: 500px;
+      		height: 500px;
+    	}
+	</style>
+</head>
+<body>
+ <!-- DOM target where the WeatherBlox view will be rendered -->
+<div id="wxblox"></div>
+
+<script>
+Aeris.wxblox.setAccess('wgE96YE3scTQLKjnqiMsv', '1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq');
+
+// Insert view / layout code below
+var view = new Aeris.wxblox.views.MapViewer('#wxblox', {
+    map: {
+		loc: '45.089,-94.7461',
+        layers: {
+        	//base: "flat-dk",
+        	data: "fqpf-accum,radar",
+        	//overlays: "water-depth,admin-cities-dk"
+        },
+        zoom: 5
+    },
+	animation: {
+        enabled: true,
+        autoplay: false,
+        alwaysShowPast: false,
+        alwaysShowFuture: false,
+        from: -2, // hours
+        to: 0
+    }
+});
+view.load();
+// End view / layout code
+
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.css">
+<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+</head>
+
+
+<style>
+
+body {
+  font-family: Arial;
+}
+
+    body, html {
+
+
+  margin-top: 10px;
+  margin-bottom: 100px;
+  margin-right: 80px;
+  margin-left: 80px;
+
+
+
+    }
+    #wxblox {
+        height: 100vh;
+        width: 100%;
+    }
+
+
+
+</style>
+
+<body>
+
+
+<div id="wxblox" </div>
+
+ <div id="wxblox2" </div>
+
+
+<script>    
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', '1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq');
+aeris.on('ready', () => {
+
+	//const view = new aeris.wxblox.views.PlaceSearch('#wxblox2');
+    const view = new aeris.wxblox.layouts.local.Main('#wxblox');
+	//var search = new Aeris.wxblox.views.PlaceSearch(searchTarget, {});
+
+  console.log("Getting Geolocation");
+  // load data and render the view for a specific location
+  navigator.geolocation.getCurrentPosition(pos => {
+    console.log(`Showing weather for lat ${pos.coords.latitude}, long ${pos.coords.longitude}`);
+    view.load({
+      p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+    });
+  }, err => console.log(`Geolocation error: ${err.message}`));
+	
+	
+	
+	
+	
+	
+});
+
+
+
+</script>
+
+<link rel="stylesheet" href="/weather-ai/xweather-nimbus-chatbot-1.2.5.css">
+<style>
+    .nimbus-settings-modal-content {
+        min-width: 80%;
+    }
+    form.nimbus-form {
+        padding: 5px;
+    }
+    form.nimbus-form textarea {
+        font-size: 14px;
+    }
+</style>
+
+
+</body>
+
+</html>
