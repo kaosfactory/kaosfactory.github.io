@@ -1,0 +1,2211 @@
+
+.nimbus-chatbot {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: #0A2A3D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.nimbus-chatbot * {
+    font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    /*font-size: 16px;*/
+}
+
+.nimbus-header {
+    width: 100%;
+    padding: 16px 16px;
+    color: #dcdcdc;
+    background: #030712;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    border-bottom: #232C3B;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.nimbus-title {
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: left;
+    font-size: 16px;
+}
+
+.nimbus-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nimbus-icon {
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+
+}
+
+.nimbus-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #0BA5EC;
+}
+
+@keyframes nimbus-icon-rock {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
+}
+
+.nimbus-icon-rock-animation {
+    animation: nimbus-icon-rock 0.75s alternate 2; /* 0.5s duration, alternate direction, 2 iterations */
+}
+
+
+.nimbus-info, .nimbus-mini-title-mobile {
+    color: #dcdcdc;
+    text-align: left;
+    font-size: 12px;
+    /*margin-left: 15px;*/
+    padding: 10px 5px 10px 20px;
+    width: 100%;
+    vertical-align: center;
+}
+
+.nimbus-info:empty, .nimbus-mini-title-mobile:empty {
+    display: none;
+}
+
+
+.nimbus-chat-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    padding-bottom: 120px;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.nimbus-chat-container-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(rgba(35, 37, 42, 0), rgb(35, 37, 42));
+}
+
+.nimbus-chatbot a {
+    color: #dcdcdc
+}
+
+/* hides scrollbar */
+.nimbus-container::-webkit-scrollbar {
+    display: none;
+}
+
+.nimbus-wrapper {
+    width: 100%;
+    padding: 12px 12px;
+}
+
+.nimbus-ai {
+    background: #0E1F2C;
+}
+
+.nimbus-stripe {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.nimbus-avatar {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    background: #7B1EFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.nimbus-avatar .nimbus-inner {
+    width: 60%;
+    height: 60%;
+}
+
+.nimbus-avatar img,
+.nimbus-avatar svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.nimbus-message {
+    flex: 0;
+    min-width: 0;
+    color: #E5E7EB;
+    font-size: 14px;
+    line-height: 1.5rem;
+    margin-top: 6px;
+    max-width: 95%;
+    overflow-x: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add this if you want text to end with "..." when it overflows */
+    white-space: normal; /* Allow text to wrap to next line */
+}
+
+/* hides scrollbar */
+.nimbus-message::-webkit-scrollbar {
+    display: none;
+}
+
+
+.nimbus-ai .nimbus-avatar {
+    background: #4ED9C1;
+}
+
+.nimbus-user .nimbus-avatar .nimbus-inner {
+    color: #2D0372;
+}
+
+.nimbus-ai .nimbus-avatar .nimbus-inner {
+    width: 80%;
+    height: 80%;
+    color: #fff;
+}
+
+.nimbus-ai .nimbus-message {
+    color: #fff;
+}
+
+.nimbus-message-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.nimbus-message-details {
+    flex: 1;
+    flex-shrink: 1;
+    color: #E5E7EB;
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    margin-top: 6px;
+    max-width: 95%;
+    overflow-x: auto; /* Horizontal scroll */
+    overflow-y: hidden; /* No vertical scroll */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    white-space: nowrap; /* Keeping it to one line, as per your earlier setup */
+}
+
+.nimbus-message-details::-webkit-scrollbar {
+    display: none;
+}
+
+.nimbus-ai .nimbus-message-details {
+    color: #fff;
+}
+
+.nimbus-message-details:empty {
+    display: none;
+}
+
+.nimbus-prompt {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    border-radius: 4px;
+    background: #4B5563;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+form.nimbus-form {
+    margin: 0 auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+
+form.nimbus-form label {
+    padding: 8px 0 8px 0;
+    color: #ccc;
+}
+
+button.nimbus-button {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+}
+
+form.nimbus-form button img,
+form.nimbus-form button svg {
+    width: 20px;
+    height: 20px;
+}
+
+form.nimbus-form button {
+    color: #fff;
+    background: #0BA5EC;
+    padding: 8px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+form.nimbus-form button:hover {
+    background: #0181CE;
+}
+
+form.nimbus-form textarea {
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    padding: 4px;
+    background: transparent;
+    border: none;
+    outline: none;
+    overflow: auto;
+    /*resize: none;*/
+    min-height: 20px;
+    max-height: 300px;
+    transition: height 0.2s;
+}
+
+form.nimbus-form textarea::placeholder {
+    color: #9CA3AF;
+}
+
+.clickable-image:hover {
+    cursor: pointer;
+}
+
+.nimbus-stripe-icons-container,
+.nimbus-stripe-icons-container-ai {
+    position: absolute;
+    bottom: 0; /* Align at the bottom */
+    right: 0; /* Align to the right */
+    display: none;
+    gap: 4px; /* Space between icons */
+    background: rgba(0, 0, 0, 0.5); /* Optional: background color for visibility */
+    padding: 4px;
+    border-radius: 8px; /* rounded border for the icons container */
+    z-index: 10; /* Make sure it floats above other content */
+}
+
+.nimbus-stripe-icons-container-ai {
+}
+
+.nimbus-wrapper.nimbus-user:hover .nimbus-stripe-icons-container {
+    display: inline-block;
+}
+
+.nimbus-stripe-icons-container-ai.show-icons {
+    display: flex;
+}
+
+
+.nimbus-user .nimbus-stripe-icon,
+.nimbus-ai .nimbus-stripe-icon {
+    display: inline-block;
+    margin: 0;
+    padding: 4px; /* padding around icons */
+    background: none; /* clear any backgrounds */
+    box-shadow: none; /* clear any box shadows */
+}
+/* CSS to hide the rerun icon by default */
+.nimbus-wrapper.nimbus-user .nimbus-stripe-icon svg,
+.nimbus-wrapper.nimbus-ai .nimbus-stripe-icon svg {
+    width: 15px;
+    height: 15px;
+    color: #0BA5EC;
+}
+
+.nimbus-function {
+    color: rgba(253, 89, 0, 0.89);
+    background: rgba(81, 84, 91, 0.72);
+    border: rgb(37, 44, 121) 1px solid;
+    width: fit-content;
+    padding: 0 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nimbus-textual-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1;
+
+}
+
+.nimbus-hamburger-menu {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    z-index: 2;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.nimbus-textual-menu {
+    position: absolute;
+    top: 27px;
+    right: 10px;
+    width: auto;
+    background-color: rgb(232, 230, 230);
+    border: 1px solid #ccc;
+}
+
+.nimbus-textual-menu-header {
+    background-color: rgba(173, 173, 173);
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.nimbus-textual-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nimbus-textual-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 0.7rem;
+}
+
+.nimbus-textual-menu-item:last-child {
+    border-bottom: none;
+}
+
+.nimbus-textual-menu svg {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    color: #0BA5EC;
+}
+
+.nimbus-info-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    color: #fff;
+    font-size: 12px;
+    width: 100%;
+    vertical-align: center;
+}
+
+.nimbus-mini-title-mobile {
+    font-size: 12px;
+    min-width: 150px;
+    max-width: 220px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+code .token {
+    font-size: 12px;
+}
+
+@media (min-width: 769px) {
+    .nimbus-hamburger-menu {
+        display: none;
+    }
+
+    .nimbus-mini-title-mobile {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .nimbus-info, .nimbus-mini-title-mobile {
+        padding: 10px 5px 10px 10px;
+    }
+
+    .nimbus-mini-title-mobile {
+        display: inline-block;
+    }
+
+    .nimbus-avatar {
+        width: 20px;
+        height: 20px;
+        margin-top: 5px;
+    }
+
+    .nimbus-info {
+        font-size: 10px;
+    }
+
+    .nimbus-wrapper {
+        padding: 5px 5px 10px 10px;
+    }
+
+    .nimbus-message {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+        margin-top: 5px;
+    }
+
+    .nimbus-function {
+        font-size: .7rem;
+    }
+
+
+    .nimbus-header {
+        display: none;
+    }
+
+    .nimbus-icons {
+        display: none;
+    }
+
+    .nimbus-hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .nimbus-textual-menu {
+        display: none; /* Hide textual menu by default */
+    }
+
+
+}
+
+
+/* Modal */
+.nimbus-image-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Modal content box */
+.nimbus-image-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+}
+
+.nimbus-image-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nimbus-image-modal-close:hover,
+.nimbus-image-modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Settings Modal */
+/* Modal */
+.nimbus-settings-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Background overlay */
+}
+
+/* Modal content box */
+.nimbus-settings-modal-content {
+    background-color: #232C3B;
+    margin: 15% auto;
+    padding: 10px;
+    border-radius: 4px;
+    width: 30%;
+    color: #dcdcdc;
+    position: relative;
+}
+
+/* Modal Header */
+.nimbus-settings-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nimbus-settings-modal-title {
+    background-color: #101827;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #dcdcdc;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 0;
+    width: 100%;
+}
+
+/* Modal Close Button */
+.nimbus-settings-modal-close {
+    color: #dcdcdc;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    right: 1.2rem;
+    top: 1rem;
+}
+
+.nimbus-settings-modal-close:hover {
+    color: #bbb;
+}
+
+/* Modal form elements */
+.nimbus-settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+
+
+}
+
+.input-groups {
+    padding: 5px;
+
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label,
+.input-group input, .input-group select {
+    flex: 1;
+    margin: 5px;
+}
+
+.input-group label {
+    text-align: right;
+}
+
+.nimbus-settings-form button {
+    background-color: #0BA5EC;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px; /* Add some top margin */
+}
+
+.nimbus-settings-form button:hover {
+    background-color: #0181CE;
+}
+
+/* Checkbox styling */
+.nimbus-settings-form input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+    .nimbus-settings-modal-content {
+        width: 90%; /* Increase the width to fit mobile screens */
+        margin: 10% auto; /* You can adjust margin as needed */
+    }
+}
+
+.nimbus-suggestion-bubbles {
+    position: absolute;
+    bottom: 100px;
+    width: 80%;
+}
+.nimbus-suggestion-bubble-row {
+    width: 100%;
+    text-align: center;
+}
+.nimbus-suggestion-bubble {
+    position: relative;
+    text-align: left;
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid rgba(135, 137, 154, 0.47);
+    cursor: pointer;
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.nimbus-suggestion-bubble:hover {
+    background-color: rgba(117, 116, 116, 0.19);
+    border-color: #333;
+}
+
+
+.nimbus-suggestion-topic {
+    text-overflow: ellipsis;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #d9d5d5;
+}
+
+.nimbus-suggestion-subject {
+
+    text-overflow: ellipsis;
+    font-size: 0.65rem;
+    font-weight: normal;
+    color: rgba(201, 223, 236, 0.5);
+}
+.nimbus-send-icon {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    color: #fff;
+}
+
+.markdown-table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Ensures borders between cells are merged */
+    margin: 10px 0; /* Adds some space around the table */
+    background: #232C3B; /* Dark background similar to chatbot theme */
+    color: #E5E7EB; /* Light text for readability */
+    border-radius: 4px; /* Rounded corners */
+    overflow: hidden; /* Ensures the rounded corners are applied to the children */
+}
+
+.markdown-table th,
+.markdown-table td {
+    padding: 8px 12px; /* Spacing inside cells */
+    border-bottom: 1px solid #3b4757; /* Slight contrast for the bottom border */
+    text-align: left; /* Default alignment to left, can be overridden inline */
+}
+
+.markdown-table th {
+    background: #030712; /* Slightly darker background for header */
+    font-weight: 500; /* Bolder font for headers */
+    letter-spacing: 0.1em; /* Spacing for aesthetics */
+    font-size: 0.7rem;
+}
+
+.markdown-table tr:last-child td {
+    border-bottom: none; /* Removes the border for the last row to maintain clean look */
+}
+
+.markdown-table td {
+    vertical-align: top; /* Aligns text to the top of the cell */
+    font-size: 0.7rem; /* Smaller font size for better fit */
+}
+
+.markdown-table tr:hover {
+    background-color: #2a3348; /* Highlight row on hover for better interactivity */
+}
+
+.code-block {
+    position: relative;
+    background: #222;
+    margin: 16px 0;
+    border-radius: 5px;
+    border-color: #3d3d3d;
+    border-style: solid;
+    border-width: 1px;
+}
+
+pre.hljs {
+    margin: 5px;
+    overflow-y: auto;
+}
+
+code {
+    font-family: monospace;
+    font-size: small;
+}
+
+code[class*=language-], pre[class*=language-] {
+    font-family: monospace;
+    font-size: small;
+}
+
+.code-block-title {
+    font-size: .75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #3d3d3d;
+    color: #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 100%;
+}
+
+.code-language {
+    font-weight: bold;
+}
+
+.copy-button {
+    font-size: .75rem;
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    padding: 2px 6px;
+    cursor: pointer;
+    color: white;
+}
+
+.copy-button svg {
+    width: 12px;
+    height: 12px;
+    fill: rgba(255, 255, 255, 0.8);
+    stroke: white;
+}
+
+/* Additional styling for the button, like hover states */
+.copy-button:hover {
+    background-color: #6d6d6d;
+}
+
+.hljs {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    /* Other styling as needed */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .markdown-table th,
+    .markdown-table td {
+        padding: 6px 8px; /* Smaller padding for smaller screens */
+    }
+}
+
+/* Feedback Modal */
+.nimbus-feedback-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Background overlay */
+}
+
+.nimbus-feedback-modal-content {
+    background-color: #232C3B;
+    margin: 15% auto;
+    padding: 10px;
+    border-radius: 4px;
+    width: 30%;
+    color: #dcdcdc;
+    position: relative;
+}
+
+.nimbus-feedback-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #101827;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #dcdcdc;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 0;
+    width: 100%;
+}
+
+.nimbus-feedback-modal-close {
+    color: #dcdcdc;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    position: absolute;
+    right: 1.2rem;
+    top: 1rem;
+}
+
+.nimbus-feedback-modal-close:hover {
+    color: #aaa;
+}
+
+.nimbus-feedback-modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+}
+
+.nimbus-submit-feedback {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.nimbus-feedback-modal textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background-color: #303940; /* Slightly lighter than the modal background for contrast */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #dcdcdc;
+}
+
+.nimbus-feedback-modal select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #303940; /* Slightly lighter than the modal background for contrast */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #dcdcdc;
+}
+
+.nimbus-feedback-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+    padding: 10px 0; /* Optional: Adds some padding around the button */
+}
+
+button.nimbus-submit-feedback {
+    background-color: #0181CE; /* Main theme color */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Top margin */
+    margin-right: 0; /* Right align adjustment, if necessary */
+}
+
+.nimbus-submit-feedback:hover {
+    background-color: #026db1;
+}
+
+.nimbus-feedback-description {
+    color: #aaa;
+    font-size: 0.7rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nimbus-feedback-category-container {
+    display: none;
+    margin-top: 15px;
+}
+
+.nimbus-feedback-category {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+    .nimbus-feedback-modal-content {
+        width: 90%; /* Increase the width to fit mobile screens */
+        margin: 10% auto; /* You can adjust margin as needed */
+    }
+}
+
+
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+code.hljs {
+    padding: 3px 5px
+}
+
+/*!
+  Theme: GitHub Dark Dimmed
+  Description: Dark dimmed theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Colors taken from GitHub's CSS
+*/
+.hljs {
+    color: #adbac7;
+    background: #22272e
+}
+
+.hljs-doctag, .hljs-keyword, .hljs-meta .hljs-keyword, .hljs-template-tag, .hljs-template-variable, .hljs-type, .hljs-variable.language_ {
+    color: #f47067
+}
+
+.hljs-title, .hljs-title.class_, .hljs-title.class_.inherited__, .hljs-title.function_ {
+    color: #dcbdfb
+}
+
+.hljs-attr, .hljs-attribute, .hljs-literal, .hljs-meta, .hljs-number, .hljs-operator, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-id, .hljs-variable {
+    color: #6cb6ff
+}
+
+.hljs-meta .hljs-string, .hljs-regexp, .hljs-string {
+    color: #96d0ff
+}
+
+.hljs-built_in, .hljs-symbol {
+    color: #f69d50
+}
+
+.hljs-code, .hljs-comment, .hljs-formula {
+    color: #768390
+}
+
+.hljs-name, .hljs-quote, .hljs-selector-pseudo, .hljs-selector-tag {
+    color: #8ddb8c
+}
+
+.hljs-subst {
+    color: #adbac7
+}
+
+.hljs-section {
+    color: #316dca;
+    font-weight: 700
+}
+
+.hljs-bullet {
+    color: #eac55f
+}
+
+.hljs-emphasis {
+    color: #adbac7;
+    font-style: italic
+}
+
+.hljs-strong {
+    color: #adbac7;
+    font-weight: 700
+}
+
+.hljs-addition {
+    color: #b4f1b4;
+    background-color: #1b4721
+}
+
+.hljs-deletion {
+    color: #ffd8d3;
+    background-color: #78191b
+}
+.nimbus-mic-button {
+    color: #fff;
+    background: #4CAF50; /* A medium shade of green for better visibility */
+    border: none;
+    padding: 8px;
+    border-radius: 2px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s; /* Smooth transition for background color change */
+}
+
+.nimbus-mic-button:hover {
+    background: #388E3C; /* A darker shade for hover, enhances user interaction */
+}
+
+.nimbus-mic-button.active-mic {
+    background: #00C853; /* A vivid green for active state */
+}
+
+.nimbus-mic-button.active-mic:hover {
+    background: #009624; /* An even darker vivid green for hover on active state */
+}
+
+
+
+/** START defs */
+/** END defs */
+.awxb-widget.awxb-widget {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    line-height: 1.5;
+}
+
+.awxb-widget.awxb-widget * {
+    font-family: "San Francisco", "Helvetica", "Arial", sans-serif;
+}
+
+.awxb-widget.awxb-widget *,
+.awxb-widget.awxb-widget *::before,
+.awxb-widget.awxb-widget *::after {
+    box-sizing: inherit;
+}
+
+.awxb-widget {
+    border: 1px solid #eee;
+    color: #333;
+}
+
+.awxb-widget-row {
+    display: flex;
+}
+
+.awxb-widget-row-full {
+    display: flex;
+}
+
+.awxb-widget-row-full > div {
+    flex-grow: 1;
+}
+
+.awxb-widget-row-center {
+    align-items: center;
+}
+
+.awxb-widget-row-base {
+    align-items: baseline;
+}
+
+.awxb-widget-col-fill {
+    flex-grow: 1;
+}
+
+.awxb-widget-col-2 {
+    width: 50%;
+}
+
+.awxb-widget-col-3 {
+    width: 33.33%;
+}
+
+.awxb-widget-col-4 {
+    width: 25%;
+}
+
+.awxb-widget-content {
+    padding: 16px;
+}
+
+.awxb-widget-content-sm {
+    padding: 10px 12px;
+}
+
+.awxb-widget-tbar {
+    height: 20px;
+    margin-bottom: 12px;
+}
+
+.awxb-widget-section {
+    margin: 16px 0;
+}
+
+.awxb-widget-pull-top {
+    margin-top: 0;
+}
+
+.awxb-widget-pull-bottom {
+    margin-bottom: 0;
+}
+
+.awxb-widget-push-left {
+    margin-left: 16px;
+}
+
+.awxb-widget-push-left-half {
+    margin-left: 8px;
+}
+
+.awxb-widget-push-right {
+    margin-right: 16px;
+}
+
+.awxb-widget-push-right-half {
+    margin-right: 8px;
+}
+
+.awxb-widget-push-top {
+    margin-top: 16px;
+}
+
+.awxb-widget-push-top-half {
+    margin-top: 8px;
+}
+
+.awxb-widget-push-bottom {
+    margin-bottom: 16px;
+}
+
+.awxb-widget-push-bottom-half {
+    margin-bottom: 8px;
+}
+
+.awxb-widget-left {
+    text-align: left;
+}
+
+.awxb-widget-center {
+    text-align: center;
+}
+
+.awxb-widget-right {
+    text-align: right;
+}
+
+.awxb-widget-middle {
+    margin-top: 50%;
+    transform: translateY(-50%);
+}
+
+.awxb-widget-text-2xs {
+    font-size: 10px;
+}
+
+.awxb-widget-text-xs {
+    font-size: 12px;
+}
+
+.awxb-widget-text-sm {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.awxb-widget-text-md {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.awxb-widget-text-lg {
+    font-size: 22px;
+}
+
+.awxb-widget-text-xl {
+    font-size: 26px;
+}
+
+.awxb-widget-text-2xl {
+    font-size: 34px;
+    line-height: 36px;
+}
+
+.awxb-widget-text-heading {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.awxb-widget-text-light {
+    color: #fff;
+}
+
+.awxb-widget-text-dark {
+    color: #333;
+}
+
+.awxb-widget-bg-primary {
+    background: #fff;
+    color: #333;
+}
+
+.awxb-widget-bg-primary .awxb-widget-icon svg {
+    fill: #333;
+}
+
+.awxb-widget-bg-primary .awxb-widget-stat-icon svg {
+    fill: #333;
+}
+
+.awxb-widget-bg-secondary {
+    background: #eee;
+    color: #333;
+}
+
+.awxb-widget-bg-secondary .awxb-widget-icon svg {
+    fill: #333;
+}
+
+.awxb-widget-bg-secondary .awxb-widget-stat-icon svg {
+    fill: #333;
+}
+
+.awxb-widget-accent-bg {
+    background: #00caf1;
+    color: #fff;
+}
+
+.awxb-widget-heading {
+    background: #00caf1;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    overflow: hidden;
+    padding: 2px 30px 1px 4px;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.awxb-widget-heading-inline {
+    display: inline-block;
+    padding-right: 75px;
+}
+
+.awxb-widget-keyline {
+    background: #333;
+    height: 1px;
+}
+
+.awxb-widget-keyline-lighter {
+    opacity: 0.2;
+}
+
+.awxb-widget-keyline-accent {
+    background: #00caf1;
+}
+
+.awxb-widget-keyline-tall {
+    height: 3px;
+}
+
+.awxb-widget-place {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.awxb-widget-logo {
+    text-align: right;
+}
+
+.awxb-widget-logo svg {
+    height: 20px;
+    width: 57px;
+    fill: #333;
+}
+
+.awxb-widget-logo-inset {
+    margin-top: 10px;
+}
+
+.awxb-widget-icon {
+    height: 36px;
+    width: 36px;
+}
+
+.awxb-widget-icon-sm {
+    height: 24px;
+    width: 24px;
+}
+
+.awxb-widget-icon-lg {
+    height: 50px;
+    width: 50px;
+}
+
+.awxb-widget-stat {
+    display: flex;
+}
+
+.awxb-widget-stat:not(:first-child) {
+    margin-left: 5px;
+}
+
+.awxb-widget-stat-icon {
+    height: 24px;
+    margin-right: 6px;
+    width: 24px;
+}
+
+.awxb-widget-stat-icon svg {
+    fill-opacity: 0.8;
+}
+
+.awxb-widget-stat-value {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.awxb-widget-stat-unit {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 2px;
+}
+
+.awxb-widget-stat-label {
+    color: #666;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.awxb-widget-periods-v > div {
+    margin-top: 24px;
+}
+
+.awxb-widget-periods-v > div:first-child {
+    margin-top: 0;
+}
+
+.awxb-widget-periods-h {
+    display: flex;
+}
+
+.awxb-widget-periods-h > div {
+    border-left: 1px solid rgba(51, 51, 51, 0.2);
+    flex-grow: 1;
+    margin-left: 16px;
+    padding-left: 8px;
+}
+
+.awxb-widget-periods-h > div:first-child {
+    margin-left: 0;
+}
+
+.awxb-widget-period-icon {
+    height: 24px;
+    margin-right: 6px;
+    width: 24px;
+}
+
+.awxb-widget-period-icon-lg {
+    height: 30px;
+    width: 30px;
+}
+
+.awxb-widget-period-value {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.awxb-widget-period-value-divider {
+    line-height: 26px;
+    margin: 0 6px;
+}
+
+.awxb-widget-period-value-sm {
+    font-size: 14px;
+}
+
+.awxb-widget-period-unit {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 2px;
+}
+
+.awxb-widget-period-label {
+    color: #666;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+}
+
+.awxb-widget-logo {
+    display: block;
+}
+
+.awxb-widget-basic {
+    display: contents;
+    width: auto;
+}
+
+.awxb-widget-forecast {
+    display: contents;
+    width: auto;
+}
+
+.awxb-widget-basic .awxb-widget-section {
+    margin: 8px 0;
+}
+
+.awxb-widget-forecast .awxb-widget-push-top {
+    margin-top: 8px;
+}
+
+.awxb-widget-period-pop {
+    font-size: 16px;
+    text-align: center;
+}
+
+.awxb-widget-period-temp {
+    text-align: center;
+}
+
+.awxb-widget-period-icon-lg {
+    text-align: center;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .awxb-widget-col-3 {
+        width: 100%;
+    }
+
+    .awxb-widget-place {
+        font-size: 13px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+
+
+
+.weather-station-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.weather-station-map {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.weather-station-separator {
+    width: 15px;
+    background-color: #87c2d7;
+    cursor: ew-resize;
+    height: 100%;
+    position: relative;
+}
+
+.weather-station-sidebar {
+    width: 350px;
+    max-width: 600px;
+    resize: horizontal;
+    overflow: auto;
+    z-index: 20000;
+}
+
+.custom-logo-control {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.custom-logo-control img {
+    height: 40px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.weather-station-units-control button{
+    font-weight: bold;
+}
+
+.weather-station-units-control button.active {
+    background-color: #007cbf;
+    color: #ffffff;
+}
+
+
+.weather-station-units-control button.active:hover {
+    background-color: #01567e;
+    color: #ffffff;
+}
+
+
+.awxjs__app__view__pinned-bottomright {
+    bottom: 30px !important;
+}
+
+
+/* Styling for the first button */
+.station-popup-button :first-child {
+    background-color: #007bff;
+}
+
+/* Styling for the second button */
+.station-popup-button .chat-button {
+    background-color: #28a745;
+}
+
+.station-popup-button :hover {
+    text-decoration: none;
+}
+
+/* Hover effect for the first button */
+.station-popup-button :first-child:hover {
+    background-color: #0056b3;
+}
+
+/* Hover effect for the second button */
+.station-popup-button .chat-button:hover {
+    background-color: #218838;
+}
+
+.weather-station-sidebar-close-button {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10002;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.weather-station-ai-icon,
+.weather-station-help-icon{
+    width: 29px;
+    height: 29px;
+    font-weight: bold;
+}
+
+
+
+.weather-station-separator-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 100%;
+    background-color: #87c2d7;
+    cursor: pointer;
+    z-index: 5;
+}
+
+/* Style for the handle when hovering over it */
+.weather-station-separator-handle:hover {
+    background-color: #a1d0e6;
+}
+
+/* Additional styles for the handle to indicate it can be dragged - Optional */
+.weather-station-separator-handle::before {
+    content: '⋮⋮';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .custom-logo-control {
+        padding: 0;
+    }
+
+
+    .weather-station-sidebar {
+
+        display: none;
+
+        width: 100%;
+        height: 95%;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10001;
+    }
+
+    .weather-station-sidebar-close-button {
+        display: block;
+        position: absolute;
+
+
+        z-index: 10002;
+    }
+
+
+    .weather-station-separator {
+        width: 0;
+        overflow: hidden;
+        cursor: default;
+    }
+
+    .weather-station-map {
+        flex-grow: 1;
+    }
+
+    .weather-station-toggle {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10;
+        background: #fff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-station-toggle img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .awxjs__app__view__pinned-bottomright {
+        bottom: 0 !important;
+        right: 40px !important;
+    }
+
+}
+
+.nimbus-chatbot {
+
+}
+
+.nimbus-info-wrapper {
+    display: block;
+}
+
+.nimbus-mini-title-mobile {
+    display: block;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.nimbus-avatar {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+.nimbus-avatar .nimbus-inner {
+    margin-top:-5px;
+
+}
+
+.nimbus-info {
+    font-size: 10px;
+    display:block;
+    padding-top: 0;
+    padding-left: 10px
+}
+
+.nimbus-wrapper {
+    padding: 5px 5px 10px 10px;
+}
+
+.nimbus-message {
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+    margin-top: 5px;
+}
+.nimbus-message code {
+    font-size: 0.7rem;
+}
+.nimbus-wrapper.nimbus-user .nimbus-stripe-icon {
+    width: 17px;
+    height: 17px;
+    top: 5px;
+}
+
+.nimbus-function {
+    font-size: .7rem;
+}
+
+
+.nimbus-header {
+    display: none;
+}
+
+.nimbus-icons {
+    display: none;
+}
+
+.nimbus-hamburger-menu {
+    display: block;
+}
+
+.nimbus-textual-menu {
+    display: none;
+}
+
+.nimbus-avatar .nimbus-inner {
+    width: 20px;
+}
+
+.nimbus-suggestion-bubbles {
+    width: 95%;
+}
+.nimbus-suggestion-bubble {
+    width: 45%;
+}
+.nimbus-suggestion-topic{
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Alegreya Sans", sans-serif;
+}
+.nimbus-suggestion-subject {
+    font-size: 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "Alegreya Sans", sans-serif;
+}
+form.nimbus-form {
+    padding: 6px;
+}
+form.nimbus-form textarea {
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    .nimbus-hamburger-menu {
+        right: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+
+
+.weather-station-info-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 100000;
+    opacity: 1;
+    transition: opacity 0.5s;
+    font-family: "Roboto", "Alegreya Sans", sans-serif;
+}
+
+.weather-station-info-panel .modal-content {
+    background-color: rgba(0, 18, 51, 0.85);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: border-box;
+    position: relative;
+    margin: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-station-info-panel h2, .weather-station-info-panel p, .weather-station-info-panel ul {
+    margin: 0;
+    padding: 10px;
+}
+
+.weather-station-info-panel h2 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.weather-station-info-panel p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.weather-station-info-panel ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-left: 0;
+}
+
+.weather-station-info-panel li {
+    font-size: 0.85rem;
+    text-align: left;
+    line-height: 1.4;
+    padding-left: 10px;
+    text-indent: -10px;
+    margin-bottom: 5px;
+}
+
+.weather-station-info-panel li:before {
+    content: "•";
+    color: white;
+    display: inline-block;
+    width: 10px;
+    margin-left: -10px;
+}
+
+.weather-station-info-panel .weather-station-info-panel-close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.weather-station-info-panel .modal-footer {
+    font-size: 0.65rem;
+    color: #ccc;
+    text-align: center;
+
+    padding: 10px 10px 0;
+    border-top: 1px solid #444;
+    margin-top: 15px;
+}
+
+.weather-station-info-panel .modal-footer a {
+    color: #aad4ff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.weather-station-info-panel .modal-footer a:hover {
+    text-decoration: underline;
+}
+
+.mapboxgl-popup {
+    width: auto;
+    min-width: 250px !important;
+    max-width: 350px !important;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.mapboxgl-popup-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #333;
+    border: none;
+    width: auto !important;
+    min-width: 200px !important;
+    max-width: none !important;
+}
+
+
+
+.popup-container {
+    font-family: Roboto, sans-serif;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.station-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.icon-container {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-container svg.search-select-icon {
+    width: 40px;
+    height: 40px;
+    fill: #555;
+}
+.station-info h2 {
+    font-size: 1.15em;
+    margin: 0;
+    padding: 0;
+}
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 0 10px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.popup-time {
+    display: block;
+    font-size: 0.7em;
+    color: #555;
+}
+
+.popup-close-button {
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: -10px;
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    cursor: pointer;
+}
+.popup-body {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weather-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.weather-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10px;
+    margin: 0;
+    max-width: 100px;
+}
+
+.weather-temp {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.temp-unit {
+    font-size: 0.75em;
+}
+
+.weather-description {
+    font-size: .9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+.weather-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.weather-icon img {
+    width: 60px;
+    height: 60px;
+    margin-top:-5px
+}
+
+button.weather-info-button {
+    font-size: .7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgba(17, 79, 171, 0.12);
+    padding: 5px;
+    color: #000;
+}
+
+button.weather-info-button:hover {
+    background-color: rgba(17, 79, 171, 0.3);
+    text-decoration: underline;
+}
+
+button.weather-info-button.active {
+    background-color: rgba(17, 79, 171, 0.12);
+}
+
+
+.weather-summary {
+    display: block;
+    white-space: pre-wrap;
+    font-size: .75em;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    border-radius: 7px;
+    max-height: 100px;
+    overflow-y: auto;
+
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    flex: 1;
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-button {
+    background-color: #4CAF50;
+    border-radius: 0 0 0 10px;
+}
+
+.chat-button {
+    background-color: #008CBA;
+    border-radius: 0 0 10px 0;
+}
+
+.button:hover {
+    filter: brightness(90%);
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .mapboxgl-popup {
+        max-width: 300px !important;
+    }
+}
+
+.awxjs__weather-station-search-panel {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 340px;
+}
+
+.awxjs__ui-searchfield .awxjs__ui-searchfield-results {
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border-bottom: none;
+}
+
+.awxjs__ui-searchfield .awxjs__ui-searchfield-results ul > li:has(>.search-place) {
+    background: rgba(135, 206, 235, 0.25); /* Sky Blue, less opaque */
+}
+
+.awxjs__ui-searchfield .awxjs__ui-searchfield-results ul > li.selected:has(>.search-place) {
+    background: rgba(135, 206, 235, 0.6); /* Sky Blue, more opaque */
+}
+
+.awxjs__ui-searchfield .awxjs__ui-searchfield-results ul > li:has(>.search-station) {
+    background: rgba(124, 252, 0, 0.25); /* Lawn Green, less opaque */
+}
+
+.awxjs__ui-searchfield .awxjs__ui-searchfield-results ul > li.selected:has(>.search-station) {
+    background: rgba(124, 252, 0, 0.6); /* Lawn Green, more opaque */
+}
+
+.search-select-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle; /* Aligns the icon with the text */
+    margin-right: 5px; /* Optional: adds some space between the icon and the text */
+}
+
+
+@media only screen and (max-width: 768px) {
+    .awxjs__app__ui-panel-search .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form input {
+        width: 110px;
+    }
+
+    .awxjs__ui-searchfield .awxjs__ui-searchfield-results ul > li {
+        font-size: 12px;
+    }
+    .awxjs__weather-station-search-panel {
+        width: 180px;
+        transform: translateX(-70%);
+        left: 50%;
+        top: 10px;
+    }
+
+
+    /* Styles when the input is focused */
+    .awxjs__app__ui-panel-search .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form input:focus {
+        width: 210px; /* expanded width */
+    }
+
+    .awxjs__app__ui-panel-search .awxjs__ui-searchfield .awxjs__ui-searchfield-form > form input:focus + .awxjs__weather-station-search-panel {
+        width: 250px; /* expanded width */
+    }
+}
+
