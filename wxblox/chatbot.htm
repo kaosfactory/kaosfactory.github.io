@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" style="--vh: 8.81px;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><title>Vaisala Xweather - Weather Station AI Chatbot Demo</title><meta name="viewport" content="width=device-width,initial-scale=1"><link href="https://xweather.com/favicon.ico" rel="icon" type="image/x-icon/"><style>@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+        }
+
+        #app-container {
+            width: 100%;
+            align-items: stretch;
+            justify-content: center;
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
+
+        }</style><link href="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/mapbox-gl.css" rel="stylesheet"><link href="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/aerisweather.css" rel="stylesheet"><script src="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/keys.js"></script><script defer="defer" src="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/xweather-nimbus-weather-station-chat-1.2.7.js"></script><link href="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/xweather-nimbus-weather-station-chat-1.2.7.css" rel="stylesheet"><script charset="utf-8" src="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/aerisweather.maps.common.js"></script><script charset="utf-8" src="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/aerisweather.apps.js"></script></head><body><div id="app-container" style="height: 881px;"><div id=
+
+
+
+
+        <button id="weather-station-sidebar-close-button" class="weather-station-sidebar-close-button">X</button></div></div></div><script src="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/mapbox-gl.js"></script><script src="Vaisala%20Xweather%20-%20Weather%20Station%20AI%20Chatbot%20Demo_files/aerisweather.min.js"></script><script>let app;
+    window.onload = () => {
+        const params = new URLSearchParams(window.location.search);
+
+        mapboxgl.accessToken = appKeys.mapbox;
+        let opts = {
+            keys       : appKeys,
+            mapApp     : {
+                map: {
+                    accessToken: appKeys.mapbox,
+                }
+            },
+            chatBotOpts: {
+                streamKey: appKeys.nimbus
+            }
+        }
+
+        let stationId = params.get('station');
+        const stationIsValid = isValidStation(stationId);
+        if (stationIsValid) {
+            stationId = stationId.toUpperCase();
+            opts.stationId = stationId;
+            opts.chatBotOpts.chatSpecificConfig = {station_id: stationId};
+        } else {
+            // Add valid map center to opts if available
+            const center = getMapCenter(params);
+            if (center) {
+                opts.mapApp.map.center = center;
+            }
+
+            // Add valid zoom level to opts if available
+            const zoom = getZoomLevel(params);
+            if (zoom !== undefined) {
+                opts.mapApp.map.zoom = zoom;
+            }
+        }
+        // console.log('opts', opts);
+        const stationChat = new WeatherStationChat('#app-container', opts);
+        if (stationIsValid) {
+            const onMapIdle = () => {
+                console.log('map-idle');
+                stationChat.map.off('idle', onMapIdle);
+                stationChat.gotoStationAndShowPopup(stationId);
+            }
+
+            stationChat.on('map-loaded', () => {
+                console.log('map-loaded');
+                console.log('isMapIdle', stationChat.isMapIdle)
+                if (stationChat.isMapIdle) {
+                    onMapIdle();
+                } else {
+                    stationChat.map.on('idle', onMapIdle);
+                }
+            });
+        }
+        app = stationChat;
+
+        applyiOSFix();
+    };
+
+    function getMapCenter(params) {
+        const lat = parseFloat(params.get('lat'));
+        const lon = parseFloat(params.get('lon'));
+        if (!isNaN(lat) && !isNaN(lon) && lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180) {
+            return {lat, lon};
+        }
+        return null;
+    }
+
+    function getZoomLevel(params) {
+        const zoom = parseFloat(params.get('zoom'));
+        if (!isNaN(zoom) && zoom >= 0 && zoom <= 22) {
+            return zoom;
+        }
+        return undefined;
+    }
+
+    function isValidStation(station) {
+        return station && /^\w+$/.test(station);
+    }
+
+    function applyiOSFix() {
+        const appContainer = document.getElementById('app-container');
+        if (appContainer) {
+            const fixViewHeightForIos = () => {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+
+            window.addEventListener('resize', () => {
+                fixViewHeightForIos();
+                appContainer.scrollTop = appContainer.scrollHeight;
+            });
+
+            fixViewHeightForIos();
+        }
+    }</script>
+<style>.mapboxgl-marker { line-height: 0; }</style>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		</body></html>
