@@ -10043,10 +10043,10 @@
 	position: absolute;
 	padding: 0;
 	margin: 0 0 0 50px;
-	margin-left:290px;
+	margin-left:270px;
 	margin-top: 38.5px;
-	list-style: none
-	 
+	list-style: none;
+	min-width: 12000px;
 }
 
 .awxb-view.awxb-view .local-header ul.nav>li,.awxb-component.awxb-component .local-header ul.nav>li {
