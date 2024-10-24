@@ -81,7 +81,7 @@ button:focus { outline: none; }
 		 <section class="local"><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" style="min-width: 12000 !important;">
-									 <li class="selected"><a href="https://kaosfactory.github.io/test1.html">Forecast</a></li>
+									 <li><a href="https://kaosfactory.github.io/wxblox/test1.html">Forecast</a></li>
 									 <li><a href="https://kaosfactory.github.io/desktopX1.html">IntelliSTAR</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_standalone.html">Weather Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_forecast.html">12-Hour Map</a></li>
@@ -90,7 +90,7 @@ button:focus { outline: none; }
 									 <li><a href="https://kaosfactory.github.io//nwsalerts.html">NWS Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/chatbot.htm">WX Stations</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/nimbus.html">AI Chatbot</a></li>
-									 <li><a href="https://kaosfactory.github.io/test1a.html">Tropical</a></li></ul></li></ul>
+									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/test1a.html">Tropical</a></li></ul></li></ul>
 				
 	
 		</div>
@@ -105,9 +105,7 @@ button:focus { outline: none; }
 
 
 
-<div id="wxblox1" style="margin-bottom: 60px; margin-left: 15px;"></div>
-<div id="wxblox2" style="margin-bottom: 60px; margin-left: 10px;"></div> 
-<div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+
 
 <script>
  
@@ -126,117 +124,12 @@ aeris.on('ready', () => {
 
 
 
-  const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
-    obs: {
-      advisories: {
-        enabled: true
-      },
-      threats: {
-        enabled: true
-      }
-    },
-    nearby: {
-	enabled: false
-    },
-    shortterm: {
-	enabled: false
-    },
-    forecast: {
-	enabled: false
-    },
-
-    almanac: {
-	enabled: false
-    },
-
-
-    maps: {
-      animation: {
-        enabled: true,
-        autoplay: true,
-        alwaysShowPast: false,
-        alwaysShowFuture: false,
-        //from: -2,
-        //to: 0,
-        duration: 2,
-        endDelay: 1,
-        intervals: 10
-      },
-      controls: {
-        layers: [{
-          value: "radar",
-          title: "Radar"
-        }, {
-          value: "satellite",
-          title: "Satellite"
-        }, {
-          value: "alerts",
-          title: "Advisories"
-        }, {
-          value: "temperatures,clip-us-flat",
-          title: "Temps"
-        }],
-        regions: [{
-          zoom: 7,
-          title: "Local"
-        }, {
-          zoom: 5,
-          title: "Regional"
-        }]
-      }
-    }
-  });
-
-
-
-
-
-
-
-    const view1 = new aeris.wxblox.views.Almanac('#wxblox1');
-    const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
-    const view3 = new aeris.wxblox.views.Forecast('#wxblox3');
-
- 
-
-
-
-
-  console.log("Getting Geolocation");
-  // load data and render the view for a specific location
-  navigator.geolocation.getCurrentPosition(pos => {
-    console.log(`Showing weather for lat ${pos.coords.latitude}, long ${pos.coords.longitude}`);
-
-
-    view3.load({
-      p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-    });
-
-
-    view2.load({
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-	  p: 'lake shore,md'
-    });
-
-
-
-    view1.load({
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-	  p: 'lake shore,md'
-    });
-
-
-    view.load({
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-	  p: 'lake shore,md'
-    });
-
-
-
-
-
-	
-  }, err => console.log(`Geolocation error: ${err.message}`));
+const view = new aeris.wxblox.views.Tropical('#wxblox', {
+    show: {
+        tabbed: false
+    } 
+});
+view.load();
 
 
 
