@@ -1,6 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/attrib.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
 <!-- Step 1: Include the WeatherBlox stylesheet and script assets -->
 <link href="css/aeris-wxblox.css" rel="stylesheet"/>
 <script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+
+<link href="css/aw-wxblox-site.js" rel="stylesheet"/>
+<script src="css/analytics.js"></script>
+
+
 
 <style>
 
@@ -10,52 +25,79 @@ body {
 
     body, html {
 
-
+button:focus { outline: none; }
   margin-top: 10px;
   margin-bottom: 100px;
   margin-right: 80px;
   margin-left: 80px;
+  
 
 
 
     }
     #wxblox {
-        height: 100vh;
-        width: 100%;
+
+		button:focus { outline: none; }
     }
 
 
     .awxjs__legend-view > .awxjs__legend {
-        padding-top: -0px;
+        padding-top: 5px;
         padding-bottom: 0px;
+		button:focus { outline: none; }
 		
 		
-		height: 55px;
-		   
+		
+		height: 65px;
+		width: 482.297px !important;		   
 		overflow: scroll;
     }
 	
 	.awxjs__legend-title{
-	
+	button:focus { outline: none; }
 	 margin-top: -5px;
 	}
 
-
+button:focus { outline: none; }
 
 </style>
 
+</head>
+
+<body>
 
 
 
 
+<div id="wxblox" style="margin-bottom: -20px; min-height: 10px;">
 
 
+	<section role="content">
+	    <div class="row"></div>
+ 	       <div class="awxb-view">
+		 <section class="local"><div class="row local-header">
 
+					<ul class="info"><li><ul class="nav"><li class="selected"><a href="https://www.aerisweather.com/weather/local/us/md/pasadena">Forecast</a></li>
+									 <li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/forecast/2024/10/23">Hourly</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/advisories">Advisories</a></li>
+									 <li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/history/2024/10/23">Today</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/history/2024/10">History</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/calendar/2024/10">Calendar</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/sunmoon/2024/10">Sun/Moon</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/normals/2024/10">Normals</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/pasadena/airquality">Air Quality</a></li></ul></li></ul>
+				
+	
+		</div>
+	</div>
+	
+
+
+</div>
 <!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
-<div id="wxblox" style="margin-bottom: -260px;"></div>
+
+
+
+
+
 <div id="wxblox1" style="margin-bottom: 60px; margin-left: 15px;"></div>
 <div id="wxblox2" style="margin-bottom: 60px; margin-left: 10px;"></div> 
 <div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+
 <script>
  
 // Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
@@ -161,18 +203,21 @@ aeris.on('ready', () => {
 
 
     view2.load({
-      p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  p: 'lake shore,md'
     });
 
 
 
     view1.load({
-      p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  p: 'lake shore,md'
     });
 
 
     view.load({
-      p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  p: 'lake shore,md'
     });
 
 
@@ -193,3 +238,6 @@ aeris.on('ready', () => {
 });
  
 </script>
+
+</body>
+</html>
