@@ -486,6 +486,7 @@
 .awxjs__mapview .awxjs__map-container {
 	position: relative;
 	text-align: ;
+	width: 100% !important;
 }
 
 .awxjs__mapview .awxjs__map-container .awxjs__map {
@@ -10046,7 +10047,7 @@
 	margin-left:270px;
 	margin-top: 38.5px;
 	list-style: none;
-	min-width: 12000px;
+	min-width: 900px;
 }
 
 .awxb-view.awxb-view .local-header ul.nav>li,.awxb-component.awxb-component .local-header ul.nav>li {
