@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>JS SDK - Tropical Systems</title>
+
+    <script defer src="https://cdn.aerisapi.com/sdk/js/1.4.2/aerisweather.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.aerisapi.com/sdk/js/1.4.2/aerisweather.css">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        #app {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+    window.onload = () => {
+
+        let systems = {};
+        let activeSystem = null;
+
+        const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+
+        // function to load the active systems form the AerisWeather API
+        const loadSystems = () => {
+            return aeris.api()
+                .endpoint('tropicalcyclones')
+                .limit(50)
+                .sort('id:1')
+                .get()
+                .then((result) => {
+                    const data = result.data;
+                    if (data && Array.isArray(data)) {
+                        data.forEach((item) => systems[item.id] = item);
+                        return data;
+                    }
+                    return [];
+                });
+        };
+
+        // defines the basin order to display in the Layer Panel and the
+        // associated names
+        const basinOrder = ['all', 'AL', 'EP', 'CP', 'WP', 'SH', 'IO'];
+        const getBasinName = (code) => {
+            const mapping = {
+                AL: 'Atlantic',
+                EP: 'East Pacific',
+                CP: 'Central Pacific',
+                WP: 'West Pacific',
+                SH: 'Southern Hemisphere',
+                IO: 'Indian Ocean'
+            };
+            return mapping[code] || code;
+        };
+
+        aeris.apps().then(apps => {
+
+            // create the interactive map app
+		const app = new apps.InteractiveMapApp(document.getElementById('app'), {
+            map: {
+                strategy: "mapbox",
+                accessToken: "pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw",
+                zoom: 5,
+				style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+                    layers: 'tropical-systems'
+                }
+            });
+
+            // event to capture selecting an individual storm from the
+            // map.
+            app.on('layer:change:option', (e) => {
+                const data = e.data || {};
+                if (data.id === 'tropical-systems') {
+                    const { value: { filters }, source } = data;
+                    let systemId = null;
+                    Object.keys(filters).forEach((key) => {
+                        const val = filters[key];
+                        if (!aeris.utils.isEmpty(val) && !aeris.utils.isset(systemId)) {
+                            systemId = val;
+                        }
+                    });
+
+                    if (source) {
+                        if (systems[systemId]) {
+                            activeSystem = systems[systemId];
+                            source.reload({ p: systemId });
+                        } else if (systemId === 'all') {
+                            activeSystem = 'all';
+                            source.reload({ p: '' });
+                        }
+                    }
+                }
+            });
+
+            // event to zoom to the selected tropical system
+            app.map.on('source:load:done', (e) => {
+                const data = e.data || {};
+                if (data.layer === 'tropical-systems') {
+                    if (activeSystem) {
+                        if (activeSystem === 'all') {
+                            app.map.setView({ lat: 40.0, lon: -93.5 }, 4);
+                        } else {
+                            const [south, west, north, east] = activeSystem.profile.boundingBox;
+                            app.map.setBounds({ north, west, south, east });
+                        }
+                        app.closeInfoPanel();
+                    }
+                }
+            });
+
+
+            // after the interactive maps and modules are loaded
+            // lets fetch the active storms, add to the layer panel
+            // and enable the tropical module
+            app.on('ready', () => {
+                aeris.modules().then((modules) => {
+
+                    // fetch the active systems
+                    loadSystems().then((systems) => {
+                        const groups = {
+                            all: {
+                                id: 'tropical-systems-all',
+                                segments: [{
+                                    value: 'all',
+                                    title: 'All Systems'
+                                }]
+                            }
+                        };
+
+                        // step through the active systems and add each storm
+                        // to the proper basin group.
+                        systems.forEach((system) => {
+                            const basin = system.profile.basinCurrent;
+                            let name = system.profile.name.replace(/-([ew])$/, (r) => `${r.toUpperCase()}`);
+
+                            if (!groups[basin]) {
+                                groups[basin] = {
+                                    id: `tropical-systems-basin-${basin}`,
+                                    title: `${getBasinName(basin)}`,
+                                    segments: []
+                                };
+                            }
+
+                            groups[basin].segments.push({
+                                value: `${system.id}`,
+                                title: `${name}`
+                            });
+                        });
+
+                        // add the tropical module, with the custom basin groups.
+                        app.modules.add(modules.tropical.Systems, {
+                            id: 'tropical-systems-active',
+                            source: {
+                                data: {
+                                    request: {
+                                        endpoint: 'tropicalcyclones',
+                                        action: ':id',
+                                        params: {
+                                            filter: 'active,geo'
+                                        }
+                                    }
+                                }
+                            },
+                            controls: {
+                                title: 'Active Systems',
+                                filter: true,
+                                multiselect: false,
+                                groupMultiselect: false,
+                                reloadOnChange: false,
+                                segments: {
+                                    groups: basinOrder
+                                        .map((key) => groups[key])
+                                        .filter((v) => aeris.utils.isset(v))
+                                }
+                            }
+                        });
+                    });
+
+                });
+            });
+
+        });
+    };
+
+</script>
+
+
+</body>
+</html>
