@@ -214,7 +214,7 @@ min-height: 80px !important;
 		 <section class="local"><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" style="min-width: 12000 !important; max-width: 12000 !important; ">
-									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/test1.html">Forecast</a></li>
+									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/geo.html">Forecast</a></li>
 									 <li><a href="https://kaosfactory.github.io/desktopX1.html">IntelliSTAR</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_standalone.html">Weather Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_forecast.html">12-Hour Map</a></li>
@@ -223,7 +223,7 @@ min-height: 80px !important;
 									 <li><a href="https://kaosfactory.github.io//nwsalerts.html">NWS Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/chatbot.htm">WX Stations</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/nimbus.html">AI Chatbot</a></li>
-									 <li><a href="https://kaosfactory.github.io/wxblox/test1a.html">Tropical</a></li></ul></li></ul>
+									 <li><a href="https://kaosfactory.github.io/wxblox/geo2.html">Advisories</a></li></ul></li></ul>
 				
 	
 		</div>
@@ -242,30 +242,27 @@ min-height: 80px !important;
 		<div class="awxb-view-outlook" style="margin-bottom: 60px; margin-top: -50px; margin-left: 15px; min-width: 1205px;"></div>
 		<div class="loader" id="loader" style="display: none;"></div>
 
-<div id="wxblox2" style="margin-bottom: 60px; margin-left: 15px; width: 100%;"></div> 	
+		<div id="wxblox2" style="margin-bottom: 60px; margin-left: 15px; width: 100%;"></div> 	
 
 
 
-<div style="width: 100%; display: table;">
-    <div style="display: table-row">
-	<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 55px; "></div>	
-	<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 55px;"></div>
+		<div style="width: 100%; display: table;">
+			<div style="display: table-row">
+			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 55px; "></div>	
+			<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 55px;"></div>
 
 
-	
+			
 
-    </div>
-</div>
-
-
-
-
-		
-
-		
+			</div>
+		</div>
 
 
 <div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+
+<div id="wxblox4" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+
+<div id="wxblox5" style="margin-bottom: 260px; margin-left: 10px;"></div> 
 
 <script>
  
@@ -297,9 +294,16 @@ aeris.on('ready', () => {
 	enabled: false,
 	links: false
     },
+	
+	
     shortterm: {
+
+
+
 	enabled: false
     },
+	
+	
     forecast: {
 	enabled: false
     },
@@ -353,10 +357,30 @@ aeris.on('ready', () => {
     const view0 = new aeris.wxblox.views.Almanac('#wxblox0');
 
     const view1 = new aeris.wxblox.views.NearbyObservations('#wxblox1', {
+	
+	
     links: false
-});
+	
+	
+	});
+
+
+
+
     const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
+	
     const view3 = new aeris.wxblox.views.Forecast('#wxblox3');
+
+	const view4 = new aeris.wxblox.views.ArchiveObservations('#wxblox4', {
+
+	});
+	
+	
+	const view5 = new aeris.wxblox.views.Tropical('#wxblox5', {
+		show: {
+			tabbed: true
+		} 
+	});
 
  
 getParameter = (key) => { 
@@ -386,10 +410,12 @@ var lat = (getParameter("lat"))
  
  
  
+	view5.load();
 
 
-
-
+	view4.load({
+		p: lat,
+	});
 	
     view3.load({
 	 p: lat,
@@ -463,7 +489,7 @@ var lat = (getParameter("lat"))
 </script>
 
 
-	<div id="myP" class="awxb-view" data-name="" data-lat="45.10705" data-lon="-79.48496">LOADING</div>
+	<div id="myP" class="awxb-view" data-name="" data-lat="45.10705" data-lon="-79.48496"></div>
 
 
 	<script charset="utf-8" src="ai-css/aeris-wxblox.modules.common.js"></script>
