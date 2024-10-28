@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link href="ai-css/xweather-nimbus-chatbot-1.2.5.css" rel="stylesheet">
-   
-   	 <meta name="viewport" content="width=device-width, initial-scale=1" />
- 	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+    <link rel="stylesheet" type="text/css" href="css/attrib.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 	<link href="css/aeris-wxblox.css" rel="stylesheet"/>
 	<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
 	<script src="css/aw-wxblox-site.js"></script>
@@ -176,7 +176,10 @@ button:focus { outline: none; }
     line-height: 20px;
 }
 
+.aw-ai-summary{
 
+min-height: 80px !important;
+}
 
 
 </style>
@@ -202,7 +205,7 @@ button:focus { outline: none; }
 
 
 
-<div id="wxblox" style="margin-bottom: -20px;">
+<div id="wxblox" style="margin-bottom: 10px;">
 
 
 	<section role="content">
@@ -236,13 +239,32 @@ button:focus { outline: none; }
 
 
 
-		<div class="awxb-view-outlook" style="margin-bottom: 60px; margin-top: -50px; margin-left: 15px; min-width: 1210px;"></div>
+		<div class="awxb-view-outlook" style="margin-bottom: 60px; margin-top: -50px; margin-left: 15px; min-width: 1205px;"></div>
 		<div class="loader" id="loader" style="display: none;"></div>
+
+<div id="wxblox2" style="margin-bottom: 60px; margin-left: 15px; width: 100%;"></div> 	
+
+
+
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+	<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 55px; "></div>	
+	<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 55px;"></div>
+
+
+	
+
+    </div>
+</div>
+
+
+
+
 		
+
 		
-		
-<div id="wxblox1" style="margin-bottom: 60px; margin-left: 15px;"></div>
-<div id="wxblox2" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+
+
 <div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div> 
 
 <script>
@@ -272,7 +294,8 @@ aeris.on('ready', () => {
       }
     },
     nearby: {
-	enabled: false
+	enabled: false,
+	links: false
     },
     shortterm: {
 	enabled: false
@@ -327,9 +350,11 @@ aeris.on('ready', () => {
 
 
 
+    const view0 = new aeris.wxblox.views.Almanac('#wxblox0');
 
-
-    const view1 = new aeris.wxblox.views.Almanac('#wxblox1');
+    const view1 = new aeris.wxblox.views.NearbyObservations('#wxblox1', {
+    links: false
+});
     const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
     const view3 = new aeris.wxblox.views.Forecast('#wxblox3');
 
@@ -367,23 +392,34 @@ var lat = (getParameter("lat"))
 
 	
     view3.load({
-	 p: lat
+	 p: lat,
+	 limit: 24
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
     });
 
 
     view2.load({
-      p: lat
+      p: lat,
+	  limit: 3
 	  //p: 'lake shore,md'
     });
 
 
 
     view1.load({
+	p: lat,
+	links: false
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
+
+    view0.load({
 	p: lat
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
+
+
 
 
     view.load({
