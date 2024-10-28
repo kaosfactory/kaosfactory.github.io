@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/attrib.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<!-- Step 1: Include the WeatherBlox stylesheet and script assets -->
+<link href="css/aeris-wxblox.css" rel="stylesheet"/>
+<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+
+<link href="css/aw-wxblox-site.js" rel="stylesheet"/>
+<script src="css/analytics.js"></script>
+
+
+
+<style>
+
+body {
+  font-family: Arial;
+  min-width: 1200px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+    body, html {
+
+button:focus { outline: none; }
+  margin-top: 10px;
+  margin-bottom: 100px;
+  margin-right: 80px;
+  margin-left: 80px;
+  min-width: 1200px;
+	max-width: 1200px;
+margin: auto;
+
+    }
+    #wxblox {
+
+		button:focus { outline: none; }
+    }
+
+
+    .awxjs__legend-view > .awxjs__legend {
+        padding-top: 5px;
+        padding-bottom: 0px;
+		button:focus { outline: none; }
+		
+		
+		
+		height: 65px;
+		width: 505.297px !important;		   
+		overflow: scroll;
+    }
+	
+	.awxjs__legend-title{
+	button:focus { outline: none; }
+	 margin-top: -5px;
+	}
+
+button:focus { outline: none; }
+
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<div id="wxblox" style="margin-bottom: -20px; min-height: 10px;">
+
+
+	<section role="content">
+	    <div class="row"style="min-width: 12000 !important;" ></div>
+ 	       <div class="awxb-view">
+		 <section class="local"><div class="row local-header">
+
+					<ul class="info" ><li><ul class="nav" style="min-width: 12000 !important;">
+									 <li><a href="https://kaosfactory.github.io/wxblox/test1.html">Forecast</a></li>
+									 <li><a href="https://kaosfactory.github.io/desktopX1.html">IntelliSTAR</a></li>
+									 <li><a href="https://kaosfactory.github.io/WX_APP_standalone.html">Weather Map</a></li>
+									 <li><a href="https://kaosfactory.github.io/WX_APP_forecast.html">12-Hour Map</a></li>
+									 <li><a href="https://kaosfactory.github.io/WX_APP_48hr.html">48-Hour Map</a></li>
+									 
+									 <li><a href="https://kaosfactory.github.io//nwsalerts.html">NWS Map</a></li>
+									 <li><a href="https://kaosfactory.github.io/wxblox/chatbot.htm">WX Stations</a></li>
+									 <li><a href="https://kaosfactory.github.io/wxblox/nimbus.html">AI Chatbot</a></li>
+									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/test1a.html">Tropical</a></li></ul></li></ul>
+				
+	
+		</div>
+	</div>
+	
+
+
+</div>
+<!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
+
+
+
+
+
+
+
+<script>
+ 
+// Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', '1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq');
+ 
+// Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
+aeris.on('ready', () => {
+ 
+    // Step 5: Within your "ready" event handler, setup your desired components:
+
+
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+ 
+ 
+ 
+
+var lat = (getParameter("lat"))
+
+
+
+
+
+const view = new aeris.wxblox.layouts.local.Advisories('#wxblox', {
+    maps: {
+        controls: {
+            layers: [{
+                code: 'alerts',
+                title: 'Advisories'
+            },{
+                code: 'radar',
+                title: 'Radar'
+            },{
+                code: 'stormreports',
+                title: 'Storm Reports'
+            }]
+        }
+    }
+});
+view.load({
+     p: lat,
+});
+
+
+
+
+
+
+
+ 
+});
+ 
+</script>
+
+</body>
+</html>
