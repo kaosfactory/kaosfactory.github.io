@@ -1036,6 +1036,7 @@
 
 .awxjs__app__ui-panel-legends .awxjs__legend-view .awxjs__legend {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	
 }
 
 .awxjs__app__ui-panel-legends .awxjs__legend {
@@ -2376,7 +2377,7 @@
 
 .awxb-view.awxb-view p,.awxb-component.awxb-component p {
 	margin-top: 0;
-	margin-bottom: 1rem
+
 }
 
 .awxb-view.awxb-view abbr[title],.awxb-view.awxb-view abbr[data-original-title],.awxb-component.awxb-component abbr[title],.awxb-component.awxb-component abbr[data-original-title] {
@@ -9422,7 +9423,7 @@
 
 .awxb-view.awxb-view .u-switcher,.awxb-component.awxb-component .u-switcher {
 	position: absolute;
-	top: 6px;
+	top: 40px;
 	right: 0
 }
 
@@ -10037,17 +10038,21 @@
 
 .awxb-view.awxb-view .local-header ul.info>li.title,.awxb-component.awxb-component .local-header ul.info>li.title {
 	font-size: 1.5rem
+
 }
+
+
 
 .awxb-view.awxb-view .local-header ul.nav,.awxb-component.awxb-component .local-header ul.nav {
 	z-index: 10000;
 	position: absolute;
 	padding: 0;
 	margin: 0 0 0 50px;
-	margin-left:280px;
-	margin-top: 38.5px;
+	margin-left:35px;
+	margin-top: 71.5px;
 	list-style: none;
 	min-width: 900px;
+	
 }
 
 .awxb-view.awxb-view .local-header ul.nav>li,.awxb-component.awxb-component .local-header ul.nav>li {
