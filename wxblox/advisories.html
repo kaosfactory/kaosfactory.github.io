@@ -3,17 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+	<link href="ai-css/xweather-nimbus-chatbot-1.2.5.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/attrib.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
-<!-- Step 1: Include the WeatherBlox stylesheet and script assets -->
-<link href="css/aeris-wxblox.css" rel="stylesheet"/>
-<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
-
-<link href="css/aw-wxblox-site.js" rel="stylesheet"/>
-<script src="css/analytics.js"></script>
+	<link href="css/aeris-wxblox.css" rel="stylesheet"/>
+	<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+	<script src="css/aw-wxblox-site.js"></script>
+	<script src="css/analytics.js"></script>
 
 
 
@@ -25,6 +22,15 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 0px;
+
+
+}
+
 
     body, html {
 
@@ -81,7 +87,7 @@ button:focus { outline: none; }
 		 <section class="local"><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" style="min-width: 12000 !important; max-width: 12000 !important;">
-									 <li><a href="https://kaosfactory.github.io/wxblox/geo.html">Forecast</a></li>
+									 <li><a href="https://kaosfactory.github.io/wxblox/geo.html" style= "margin-left: -9px;" >Forecast</a></li>
 									 <li><a href="https://kaosfactory.github.io/desktopX1.html">IntelliSTAR</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_standalone.html">Weather Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_forecast.html">12-Hour Map</a></li>
@@ -110,7 +116,7 @@ button:focus { outline: none; }
 <script>
  
 // Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
-const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', '1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq');
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
  
 // Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
 aeris.on('ready', () => {
@@ -151,20 +157,21 @@ const view = new aeris.wxblox.layouts.local.Advisories('#wxblox', {
     maps: {
         controls: {
             layers: [{
-                code: 'alerts',
+                value: 'alerts',
                 title: 'Advisories'
             },{
-                code: 'radar',
+                value: 'radar',
                 title: 'Radar'
             },{
-                code: 'stormreports',
+                value: 'stormreports',
                 title: 'Storm Reports'
             }]
         }
     }
 });
 view.load({
-     p: lat,
+     //p: 81082
+	 p: lat
 });
 
 

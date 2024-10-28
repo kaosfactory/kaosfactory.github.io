@@ -24,7 +24,13 @@ body {
   margin: auto;
 }
 
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 0px;
 
+
+}
     #wxblox {
 
 		button:focus { outline: none; }
@@ -46,7 +52,7 @@ body {
 	
 	.awxjs__legend-title{
 	 button:focus { outline: none; }
-	 margin-top: -5px;
+	 margin-top:5px;
 	 
 	}
 	
@@ -182,6 +188,8 @@ min-height: 80px !important;
 }
 
 
+
+
 </style>
 
 <style>
@@ -194,6 +202,11 @@ min-height: 80px !important;
     form.nimbus-form textarea {
         font-size: 14px;
     }
+	
+
+	
+	
+	
 </style>
 
 
@@ -205,16 +218,16 @@ min-height: 80px !important;
 
 
 
-<div id="wxblox" style="margin-bottom: 10px;">
+<div id="wxblox" style="margin-bottom: 40px;">
 
 
 	<section role="content">
-	    <div class="row" ></div>
+	    <div class="row"  ></div>
  	       <div class="awxb-view">
 		 <section class="local"><div class="row local-header">
 
-					<ul class="info" ><li><ul class="nav" style="min-width: 12000 !important; max-width: 12000 !important; ">
-									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/geo.html">Forecast</a></li>
+					<ul class="info" ><li><ul class="nav" >
+									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/geo.html" style= "margin-left: -9px;"  >Forecast</a></li>
 									 <li><a href="https://kaosfactory.github.io/desktopX1.html">IntelliSTAR</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_standalone.html">Weather Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_forecast.html">12-Hour Map</a></li>
@@ -449,7 +462,8 @@ var lat = (getParameter("lat"))
 
 
     view.load({
-	p: lat
+	//p:  81082
+	p: lat	
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
