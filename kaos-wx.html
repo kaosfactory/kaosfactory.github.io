@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<link href="css/aeris-wxblox.css" rel="stylesheet"/>
-	<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
-	<script src="css/aw-wxblox-site.js"></script>
+	<script src="css/aeris-wxblox.js"></script>
+
 	<script src="css/analytics.js"></script>
 
 
@@ -24,7 +24,13 @@ body {
   margin: auto;
 }
 
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 0px;
 
+
+}
     #wxblox {
 
 		button:focus { outline: none; }
@@ -39,14 +45,14 @@ body {
 
 		
 		
-		height: 65px;
+
 		width: 505.297px !important;		   
 		overflow: scroll;
     }
 	
 	.awxjs__legend-title{
 	 button:focus { outline: none; }
-	 margin-top: -5px;
+	 margin-top:5px;
 	 
 	}
 	
@@ -182,6 +188,8 @@ min-height: 80px !important;
 }
 
 
+
+
 </style>
 
 <style>
@@ -194,6 +202,11 @@ min-height: 80px !important;
     form.nimbus-form textarea {
         font-size: 14px;
     }
+	
+
+	
+	
+	
 </style>
 
 
@@ -205,22 +218,22 @@ min-height: 80px !important;
 
 
 
-<div id="wxblox" style="margin-bottom: 10px;">
+<div id="wxblox" style="margin-bottom: 40px;">
 
 
 	<section role="content">
-	    <div class="row" ></div>
+	    <div class="row"  ></div>
  	       <div class="awxb-view">
 		 <section class="local"><div class="row local-header">
 
-					<ul class="info" ><li><ul class="nav" style="min-width: 12000 !important; max-width: 12000 !important; ">
-									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/test1.html">Forecast</a></li>
+					<ul class="info" ><li><ul class="nav" >
+									 <li class="selected"><a href="https://kaosfactory.github.io/wxblox/geo.html" style= "margin-left: -9px;"  >Forecast</a></li>
 									 <li><a href="https://kaosfactory.github.io/desktopX1.html">IntelliSTAR</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_standalone.html">Weather Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_forecast.html">12-Hour Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/WX_APP_48hr.html">48-Hour Map</a></li>
-									 
-									 <li><a href="https://kaosfactory.github.io//nwsalerts.html">NWS Map</a></li>
+									 <li><a href="https://kaosfactory.github.io/nwsalerts.html">NWS Map</a></li>
+									 <li><a href="https://kaosfactory.github.io/wblox/map.html">Raster Map</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/chatbot.htm">WX Stations</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/nimbus.html">AI Chatbot</a></li>
 									 <li><a href="https://kaosfactory.github.io/wxblox/geo2.html">Advisories</a></li></ul></li></ul>
@@ -248,8 +261,8 @@ min-height: 80px !important;
 
 		<div style="width: 100%; display: table;">
 			<div style="display: table-row">
-			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 55px; "></div>	
-			<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 55px;"></div>
+			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 45px; "></div>	
+			<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 45px;"></div>
 
 
 			
@@ -258,7 +271,9 @@ min-height: 80px !important;
 		</div>
 
 
-<div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+<div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div>
+
+ <div id="wxblox3a" style="margin-bottom: 60px; margin-left: 10px;"></div> 
 
 <div id="wxblox4" style="margin-bottom: 60px; margin-left: 10px;"></div> 
 
@@ -369,9 +384,27 @@ aeris.on('ready', () => {
 
     const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
 	
-    const view3 = new aeris.wxblox.views.Forecast('#wxblox3');
+
+
+
+    const view3 = new aeris.wxblox.views.Forecast('#wxblox3', {
+ 
+	});
+	
+
+
+	
+	const view3a = new aeris.wxblox.views.Forecast('#wxblox3a', {
+    type: 'hourly'
+	});
+	
 
 	const view4 = new aeris.wxblox.views.ArchiveObservations('#wxblox4', {
+
+		 range: {
+                    from: 'today'
+                  }
+		
 
 	});
 	
@@ -423,7 +456,12 @@ var lat = (getParameter("lat"))
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
     });
 
-
+    view3a.load({
+	 p: lat,
+	 limit: 24
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+    });
+	
     view2.load({
       p: lat,
 	  limit: 3
@@ -449,7 +487,8 @@ var lat = (getParameter("lat"))
 
 
     view.load({
-	p: lat
+	//p:  81082
+	p: lat	
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
