@@ -204,7 +204,7 @@
 				
                 timeline: {
             //bufferIntervals: 3,
-            //showLoadingIntervals: false,
+            showLoadingIntervals: false,
 					duration: 7,
 					endDelay: 2,
 					intervals: 48,
@@ -218,18 +218,14 @@
                     buttons: [
 
 						{
-                            title: "Dark Base Map",
-                            value: "flat-dk",
+                            title: "◄48-HOUR FORECAST►",
+                            value: "48HR",
 							options: {
 								style: {
 									opacity: 1
 								}
 							},
-							controls: {
-								settings: [{
-									type: 'opacity'
-								}]
-							}
+
 						},
 
 				
@@ -570,7 +566,7 @@
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
 						
 						
-						app.getPanel('layers').select(['heat-index', 'wind-chill']);
+						app.getPanel('layers').select(['heat-index', 'wind-chill', '48hr']);
 						
 
 							

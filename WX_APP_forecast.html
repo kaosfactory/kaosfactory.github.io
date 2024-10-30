@@ -204,9 +204,10 @@
 				
                 timeline: {
             //bufferIntervals: 3,
-            //showLoadingIntervals: false,
-					duration: 7,
-					endDelay: 2,				
+            showLoadingIntervals: false,
+					duration: 3,
+					endDelay: 3,
+					intervals: 12,
                     //from: -7200,
                     //to: 43200
                 }
@@ -215,6 +216,21 @@
             panels: {
                 layers: {
                     buttons: [
+					
+						{
+                            title: "◄12-HOUR FORECAST►",
+                            value: "12hr",
+							options: {
+								style: {
+									opacity: 1
+								}
+							},
+
+						},
+			
+					
+					
+					
 
 		
 					{
@@ -663,7 +679,7 @@
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
 						
 						
-						app.getPanel('layers').select(['heat-index', 'wind-chill']);
+						app.getPanel('layers').select(['heat-index', 'wind-chill', '12hr']);
 						
 
 							
@@ -778,7 +794,7 @@
 
 
 						
-						app.map.addLayers(['fradar']);
+						app.map.addLayers(['fqpf-accum', 'fradar:75', 'fpressure-msl-isobars']);
 
 						//app.map.addLayers(['alerts:52']);
 
