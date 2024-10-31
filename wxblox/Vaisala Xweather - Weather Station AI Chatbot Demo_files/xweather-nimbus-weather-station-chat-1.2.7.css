@@ -1543,8 +1543,8 @@ code.hljs {
 }
 
 .weather-station-sidebar {
-    width: 350px;
-    max-width: 600px;
+    width: 330px;
+    max-width: 330px;
     resize: horizontal;
     overflow: auto;
     z-index: 20000;
