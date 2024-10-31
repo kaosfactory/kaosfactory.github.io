@@ -1,3 +1,11 @@
+function wxapp() {
+
+
+  
+  window.parent.location.href= '/wxblox/geo.html';
+
+}
+
 
 function airports() {
 

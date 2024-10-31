@@ -120,9 +120,10 @@ window.CONFIG = {
     advancedButtonContainer.classList.add('settings-container')
     settingsPrompt.appendChild(advancedButtonContainer)
     let advancedButton = document.createElement('button')
-    advancedButton.innerHTML = "IntelliStar Emulator"
+    advancedButton.innerHTML = "Weather Home Page"
     advancedButton.id = "advanced-options-text"
-    advancedButton.setAttribute('onclick', 'toggleAdvancedSettings()')
+    //advancedButton.setAttribute('onclick', 'toggleAdvancedSettings()')
+	advancedButton.setAttribute('onclick', 'wxapp()')
     advancedButton.classList.add('regular-text', 'settings-input', 'button')
     advancedButtonContainer.appendChild(advancedButton)
     //<button class="setting-item settings-text" id="submit-button" onclick="checkZipCode();" style="margin-bottom: 10px;">Start</button>-->
