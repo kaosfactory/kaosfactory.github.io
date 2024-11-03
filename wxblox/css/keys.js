@@ -1,1 +1,1 @@
-const appKeys={nimbus:"pk.eyJ1Ijoic2FyYWhhIiwiYSI6ImNrcWZ6Z2Z0ZjBjZmYycG1yZ2Z2Z2J6Z2gifQ"};
+const appKeys={mapbox:"pk.eyJ1IjoiaHdsZWVoMiIsImEiOiJjaWxqbXZyYjU0emo3dmFtY250eWhsNXBjIn0.7q_xKPH9QyOVfoCKxIqNwA",xweather:{client_id:"wgE96YE3scTQLKjnqiMsv",client_secret:"1XwHqbCjiTqtzWi8txyN4JtM0ezVNuEfaDXQdkjq"},nimbus:"pk.eyJ1Ijoic2FyYWhhIiwiYSI6ImNrcWZ6Z2Z0ZjBjZmYycG1yZ2Z2Z2J6Z2gifQ"};
