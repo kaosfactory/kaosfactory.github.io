@@ -141,7 +141,7 @@
     <div id="controls2">
 
 
-
+		<button class="btn-play" onclick="location.href='WX_APP_standalone.html';">INFO Mode</button>
 		<button class="btn-play" onclick="location.href='/wxblox/geo.html';">Forecast</button>	
 		<button class="btn-play" onclick="location.href='WX_APP_forecast.html';">Reload</button>
 
@@ -657,11 +657,15 @@
 				
 				// configure views for local weather info panel
 				app.panels.info.setContentView('localweather', {
-                views: [{
-                        renderer: "outlook"
-                    },{
-                        renderer: "place"
-                    }]
+					views: [{
+							renderer: "place"
+						},{
+							renderer: "forecast"
+						},{
+							renderer: "outlook"
+						},{
+							renderer: "units"
+						}]
 				});
 				
 
