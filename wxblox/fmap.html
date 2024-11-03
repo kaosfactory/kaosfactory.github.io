@@ -75,7 +75,11 @@ padding-bottom:10px;
 }
 
 
-
+	.awxjs__map-overlay__timestamp{
+	
+		z-index: 10000 !important;
+	
+	}
 
 </style>
 
@@ -142,6 +146,39 @@ padding-bottom:10px;
 <script>
  
     window.onload = () => {
+
+
+
+
+	
+	getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+ 
+ 
+ 
+
+var lat = (getParameter("lat"))
+	
+	
+	
+	
+	
  	const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');	
 	const utils = aeris.utils;
 
@@ -186,7 +223,7 @@ padding-bottom:10px;
 
 					},
 					
-                    center: '39, -76',
+                    center: lat,
 					
                     zoom: 6,
 					
@@ -337,7 +374,10 @@ padding-bottom:10px;
 					title: 'Local'
 				},
 				
-
+				{
+					zoom: 9,
+					title: 'Zoom'
+				},
 				
 
 				
