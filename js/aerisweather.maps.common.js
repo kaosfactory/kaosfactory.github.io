@@ -1822,6 +1822,8 @@
                                         var a = Object(O.get)(this.opts, "style");
                                         Object(O.isEmpty)(a) ? this._baseLayer = L.tileLayer("https://api.mapbox.com/styles/v1/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw", {
                                             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+											tileSize: 512,
+											zoomOffset: -1,
                                             pane: "base"
                                         }) : this._baseLayer = L.tileLayer(a, {
                                             pane: "base"
