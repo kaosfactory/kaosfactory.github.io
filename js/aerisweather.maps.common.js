@@ -1831,7 +1831,7 @@
                                         this._baseLayer.addTo(this.map)
                                     }
                                     this.map.createPane("admin"),
-                                    this.map.getPane("admin").style.zIndex = "210",
+                                    this.map.getPane("admin").style.zIndex = "2010",
                                     setTimeout((function () {
                                             e.trigger("map:ready")
                                         }), 250)
