@@ -249,6 +249,13 @@ var lat = (getParameter("lat"))
 
                     layers: [
 					
+					{
+                        value: 'fqpf-accum,fqsf-accum,fice-accum,fpressure-msl-isobars,radar',
+                        title: 'Combined'
+                    },
+					
+					
+					
 					
 					{
                         value: 'radar',
@@ -346,24 +353,19 @@ var lat = (getParameter("lat"))
 		                value: 'tropical-cyclones',
 
                         title: 'Invests',
-                    },					
+                    },
+
+					
+
+
+					
 			
 					],	
 
 					
 					
 				 regions: [
-				 
-				{
-					region: 'us',
-					title: 'National'
-				},
-				
-				{
-					zoom: 2,
-					title: 'Global'
-				},	
-				 
+
 				{
 					zoom: 5,
 					title: 'Regional'
@@ -378,6 +380,19 @@ var lat = (getParameter("lat"))
 					zoom: 9,
 					title: 'Zoom'
 				},
+
+				 
+				{
+					region: 'us',
+					title: 'National'
+				},
+				
+				{
+					zoom: 2,
+					title: 'Global'
+				},	
+				 
+
 				
 
 				
