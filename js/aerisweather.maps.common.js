@@ -6610,7 +6610,7 @@
                                                 tiles: [1, 2, 3, 4].map((function (t) {
                                                         return e.replace(/\{s\}/, "".concat(t))
                                                     })),
-                                                tileSize: 256,
+                                                tileSize: 512,
                                                 attribution: this.opts.attribution || ""
                                             };
                                         if (this.createRenderable(), this.map) {
