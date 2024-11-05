@@ -2303,7 +2303,7 @@
         options: {
             collapsed: !0,
             position: "topright",
-            autoZIndex: !0,
+            autoZIndex: !1,
             hideSingleBase: !1,
             sortLayers: !1,
             sortFunction: function (t, i, e, n) {
