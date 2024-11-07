@@ -1820,7 +1820,7 @@
                                         this.map.createPane("base"),
                                         this.map.getPane("base").style.zIndex = "199";
                                         var a = Object(O.get)(this.opts, "style");
-                                        Object(O.isEmpty)(a) ? this._baseLayer = L.tileLayer("https://maps.api.xweather.com/wgE96YE3scTQLKjnqiMsv_SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY/flat-dk,states-outlines-dk:invert(),counties-dk:30:invert()/{z}/{x}/{y}/current.png", {
+                                        Object(O.isEmpty)(a) ? this._baseLayer = L.tileLayer("https://maps.api.xweather.com/wgE96YE3scTQLKjnqiMsv_SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY/flat-dk/{z}/{x}/{y}/current.png", {
                                             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 											tileSize: 512,
 											zoomOffset: -1,
