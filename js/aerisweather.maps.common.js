@@ -1,7 +1,7 @@
 /*!
  *
- * 	@aerisweather/javascript-sdk - 1.8.0
- * 	(c) 2022 AerisWeather
+ * 	@aerisweather/javascript-sdk - 1.8.6
+ * 	(c) 2024 AerisWeather
  * 	License: BSD
  * 	https://www.aerisweather.com/support/docs/toolkits/aeris-js-sdk/
  *
@@ -9,33 +9,33 @@
 (this.webpackJsonp = this.webpackJsonp || []).push([["aerisweather.maps.common"], {
             "5ID0": function (t, e, n) {
                 "use strict";
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("7r+a"),
                 c = function (t) {
                     var e,
                     n = t.type,
-                    i = t.coordinates;
+                    r = t.coordinates;
                     switch (n) {
                     case "Point":
-                        e = new s.e(i);
+                        e = new s.e(r);
                         break;
                     case "MultiPoint":
-                        e = new s.c(i);
+                        e = new s.c(r);
                         break;
                     case "LineString":
-                        e = new s.a(i);
+                        e = new s.a(r);
                         break;
                     case "MultiLineString":
-                        e = new s.b(i);
+                        e = new s.b(r);
                         break;
                     case "Polygon":
-                        e = new s.f(i);
+                        e = new s.f(r);
                         break;
                     case "MultiPolygon":
-                        e = new s.d(i);
+                        e = new s.d(r);
                         break;
                     default:
                         e = null
@@ -46,7 +46,7 @@
                 l = function () {
                     function t() {
                         var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-                        r()(this, t),
+                        i()(this, t),
                         e.type && e.coordinates && (e = {
                                 type: "Feature",
                                 geometry: e,
@@ -90,8 +90,8 @@
                 n("UxlC"),
                 n("EnZy"),
                 n("FZtP");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("PJYZ"),
@@ -102,13 +102,13 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = n("m0x2"),
-                v = n("dqFL"),
-                m = 'Weather data &copy; <a href="https://www.aerisweather.com/" target="_blank">AerisWeather</a>',
+                v = n("m0x2"),
+                y = n("dqFL"),
+                m = 'Weather data &copy; <a href="https://www.xweather.com/" target="_blank">Vaisala Xweather</a>',
                 g = n("l1hk"),
                 k = (n("ma9I"), n("4mDm"), n("5s+n"), n("PKPk"), n("3bBZ"), n("iWIM")),
                 b = n.n(k),
-                _ = (n("rNhl"), n("gqGf")),
+                _ = n("gqGf"),
                 O = n("0lfv"),
                 w = n("8TS8");
                 function j(t) {
@@ -129,12 +129,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -142,15 +142,15 @@
                 T = function (t) {
                     l()(n, t);
                     var e = j(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a;
-                        r()(this, n),
+                        i()(this, n),
                         (a = e.call(this))._setInitialView = !0,
                         a._ready = !1,
-                        i = Object(O.extend)({
+                        r = Object(O.extend)({
                             zoom: 7
-                        }, i),
-                        a._opts = i,
+                        }, r),
+                        a._opts = r,
                         a._sources = {},
                         a._sourceOrder = [];
                         var o = a.strategy;
@@ -188,14 +188,14 @@
                                             }), !this._factory)
                                         throw new Error("Cannot initialize map, overlay factory is undefined.");
                                     if (this._setupEvents(), this._setInitialView) {
-                                        var i = Object(O.isset)(n.zoom) ? Math.max(0, n.zoom) : 8,
-                                        r = n.center || {},
-                                        a = r.lat,
-                                        o = r.lon;
+                                        var r = Object(O.isset)(n.zoom) ? Math.max(0, n.zoom) : 8,
+                                        i = n.center || {},
+                                        a = i.lat,
+                                        o = i.lon;
                                         Object(O.isset)(a) && Object(O.isset)(o) ? this.setView({
                                             lat: parseFloat(a),
                                             lon: parseFloat(o)
-                                        }, i) : i > 0 && this.setZoom(i)
+                                        }, r) : r > 0 && this.setZoom(r)
                                     }
                                     this.on("map:ready", (function () {
                                             e._ready = !0,
@@ -264,35 +264,35 @@
                                                 e.removeOverlay(t.data.layer)
                                             }))) : this.isVector(t) && (t.on("markers:add", (function (t) {
                                                 var n = t.data,
-                                                i = n.markers;
+                                                r = n.markers;
                                                 n.animation;
-                                                i && e.addMarkers(i)
+                                                r && e.addMarkers(r)
                                             })), t.on("markers:remove", (function (t) {
                                                 var n = t.data.markers;
                                                 n && e.removeMarkers(n)
                                             })), t.on("markers:update", (function (t) {
                                                 (t.data.markers || []).forEach((function (t) {
                                                         var n = t.id,
-                                                        i = t.renderable,
-                                                        r = t.value,
+                                                        r = t.renderable,
+                                                        i = t.value,
                                                         a = t.style;
-                                                        r && e.updateMarker(i, {
+                                                        i && e.updateMarker(r, {
                                                             data: {
-                                                                value: r
+                                                                value: i
                                                             },
                                                             style: a.marker || a
                                                         }, n)
                                                     }))
                                             })), t.on("shapes:add", (function (t) {
                                                 var n = t.data,
-                                                i = n.shapes,
-                                                r = n.animation;
-                                                i && (r ? e.showShapes(i) : e.addShapes(i))
+                                                r = n.shapes,
+                                                i = n.animation;
+                                                r && (i ? e.showShapes(r) : e.addShapes(r))
                                             })), t.on("shapes:remove", (function (t) {
                                                 var n = t.data,
-                                                i = n.shapes,
-                                                r = n.animation;
-                                                i && (r ? e.hideShapes(i) : e.removeShapes(i))
+                                                r = n.shapes,
+                                                i = n.animation;
+                                                r && (i ? e.hideShapes(r) : e.removeShapes(r))
                                             })))
                                 }
                             }, {
@@ -371,22 +371,22 @@
                                         if (t.renderable) {
                                             if (t.style && t.style.callout) {
                                                 var n = t.style.callout,
-                                                i = Object(O.isFunction)(n) ? n(t.data) : n;
-                                                this.bindCalloutToMarker(t.renderable, i)
+                                                r = Object(O.isFunction)(n) ? n(t.data) : n;
+                                                this.bindCalloutToMarker(t.renderable, r)
                                             }
                                             this.addMarker(t.renderable, t.data)
                                         }
                                     } else if (Object(O.isPlainObject)(t)) {
                                         t.style = t.style || {};
-                                        var r = t.renderable,
+                                        var i = t.renderable,
                                         a = t.data,
                                         o = t.style.callout;
-                                        if (r) {
+                                        if (i) {
                                             if (o) {
                                                 var s = Object(O.isFunction)(o) ? o(a) : o;
                                                 this.bindCalloutToMarker(t.renderable, s)
                                             }
-                                            this.addMarker(r, a)
+                                            this.addMarker(i, a)
                                         }
                                     }
                                 }
@@ -423,8 +423,8 @@
                                     if (t instanceof w.d)
                                         t.renderable && this.updateMarker(t.renderable, e, n);
                                     else if (Object(O.isPlainObject)(t)) {
-                                        var i = t.renderable;
-                                        i && this.updateMarker(i, e, n)
+                                        var r = t.renderable;
+                                        r && this.updateMarker(r, e, n)
                                     }
                                 }
                             }, {
@@ -439,11 +439,11 @@
                                         t.renderable && this.addShape(t.renderable, t.data || e);
                                     else if (Object(O.isPlainObject)(t)) {
                                         var n = t.renderable,
-                                        i = t.polygons,
-                                        r = t.polylines,
+                                        r = t.polygons,
+                                        i = t.polylines,
                                         a = t.data;
-                                        i && this.addShapes(i, a),
                                         r && this.addShapes(r, a),
+                                        i && this.addShapes(i, a),
                                         n && this.addShape(n, a)
                                     }
                                 }
@@ -465,9 +465,9 @@
                                     else if (Object(O.isPlainObject)(t)) {
                                         var e = t.renderable,
                                         n = t.polygons,
-                                        i = t.polylines;
+                                        r = t.polylines;
                                         n && this.removeShapes(n),
-                                        i && this.removeShapes(i),
+                                        r && this.removeShapes(r),
                                         e && this.removeShape(e)
                                     }
                                 }
@@ -489,9 +489,9 @@
                                     else if (Object(O.isPlainObject)(t)) {
                                         var e = t.shape,
                                         n = t.polygons,
-                                        i = t.polylines;
+                                        r = t.polylines;
                                         n && this.showShapes(n),
-                                        i && this.showShapes(i),
+                                        r && this.showShapes(r),
                                         e && this.showShape(e)
                                     }
                                 }
@@ -513,9 +513,9 @@
                                     else if (Object(O.isPlainObject)(t)) {
                                         var e = t.shape,
                                         n = t.polygons,
-                                        i = t.polylines;
+                                        r = t.polylines;
                                         n && this.hideShapes(n),
-                                        i && this.hideShapes(i),
+                                        r && this.hideShapes(r),
                                         e && this.hideShape(e)
                                     }
                                 }
@@ -551,10 +551,10 @@
                                     if (e) {
                                         var n = "on";
                                         Object(O.has)(this.map, n) || (Object(O.has)(this.map, "addEventListener") ? n = "addEventListener" : Object(O.has)(this.map, "addListener") && (n = "addListener")),
-                                        Object(O.has)(this.map, n) && Object.keys(e).forEach((function (i) {
-                                                t.map[n](i, (function (n) {
-                                                        var r = t._dataForMapEvent(i, n);
-                                                        t._shouldTriggerEvent(i) && t.trigger(e[i], r)
+                                        Object(O.has)(this.map, n) && Object.keys(e).forEach((function (r) {
+                                                t.map[n](r, (function (n) {
+                                                        var i = t._dataForMapEvent(r, n);
+                                                        t._shouldTriggerEvent(r) && t.trigger(e[r], i)
                                                     }))
                                             }))
                                     }
@@ -574,15 +574,15 @@
                                 value: function (t, e, n) {
                                     if (!this.dataSource)
                                         return null;
-                                    var i = Object(O.isset)(n.zIndex) ? n.zIndex : 1,
-                                    r = this._sourceOrder.indexOf(t);
-                                    r >= 0 && (i = r + 1);
+                                    var r = Object(O.isset)(n.zIndex) ? n.zIndex : 1,
+                                    i = this._sourceOrder.indexOf(t);
+                                    i >= 0 && (r = i + 1);
                                     var a = Object(O.get)(n, "data.service");
                                     return a || (a = this.dataSource.requestForMap(t)),
                                     a.param("format", Object(O.get)(n, "style.format") || "png"),
                                     this.factory.tileLayer(t, a, Object(O.extend)(Object(O.cloneDeep)(n), {
                                             time: e,
-                                            zIndex: i
+                                            zIndex: r
                                         }))
                                 }
                             }, {
@@ -622,7 +622,7 @@
                         ]),
                     n
                 }
-                (y.a),
+                (v.a),
                 S = (n("GKVU"), n("J4zp")),
                 M = n.n(S),
                 I = n("RIqP"),
@@ -645,29 +645,29 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var P = function (t) {
                     l()(n, t);
                     var e = E(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this))._opacity = 1,
                         a._hidden = !1,
                         a._events = ["click", "mouseover", "mouseout"],
                         a._idPrefix = "aeriswx",
                         a.id = o || t,
-                        a._opts = Object(O.cloneDeep)(i),
-                        a._opacity = Object(O.isset)(i.opacity) ? i.opacity : 1,
+                        a._opts = Object(O.cloneDeep)(r),
+                        a._opacity = Object(O.isset)(r.opacity) ? r.opacity : 1,
                         a
                     }
                     return o()(n, [{
@@ -746,7 +746,7 @@
                         ]),
                     n
                 }
-                (y.a);
+                (v.a);
                 function D(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -765,12 +765,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -778,7 +778,7 @@
                     l()(n, t);
                     var e = D(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -805,7 +805,7 @@
                     n
                 }
                 (P);
-                function F(t) {
+                function A(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -823,25 +823,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var A = function (t) {
+                var F = function (t) {
                     l()(n, t);
-                    var e = F(n);
-                    function n(t, i) {
+                    var e = A(n);
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, o, s)).setOpacity(o.fillOpacity),
-                        a._polygons = i,
+                        a._polygons = r,
                         a
                     }
                     return o()(n, [{
@@ -856,24 +856,24 @@
                             }, {
                                 key: "addToMap",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     this.renderable.off(),
                                     this.renderable.on("click", (function () {
-                                            return i.trigger("click", {
-                                                data: i.data,
-                                                shape: i.renderable
+                                            return r.trigger("click", {
+                                                data: r.data,
+                                                shape: r.renderable
                                             })
                                         })),
                                     this.renderable.on("mouseover", (function () {
-                                            return i.trigger("mouseover", {
-                                                data: i.data,
-                                                shape: i.renderable
+                                            return r.trigger("mouseover", {
+                                                data: r.data,
+                                                shape: r.renderable
                                             })
                                         })),
                                     this.renderable.on("mouseout", (function () {
-                                            return i.trigger("mouseout", {
-                                                data: i.data,
-                                                shape: i.renderable
+                                            return r.trigger("mouseout", {
+                                                data: r.data,
+                                                shape: r.renderable
                                             })
                                         })),
                                     b()(p()(n.prototype), "addToMap", this).call(this, t, e)
@@ -890,8 +890,8 @@
                                     var t = [];
                                     return this._polygons.forEach((function (e) {
                                             var n = e.outer,
-                                            i = e.inner ? e.inner : [];
-                                            t.push([n].concat(R()(i)))
+                                            r = e.inner ? e.inner : [];
+                                            t.push([n].concat(R()(r)))
                                         })),
                                     L.polygon(t, Object.assign(Object.assign({}, this.opts), {
                                             fillOpacity: this.opts.fillOpacity * this.opacity,
@@ -921,24 +921,24 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var B = function (t) {
                     l()(n, t);
                     var e = C(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
-                        (a = e.call(this, t, o, s))._points = i,
+                        return i()(this, n),
+                        (a = e.call(this, t, o, s))._points = r,
                         a
                     }
                     return o()(n, [{
@@ -952,24 +952,24 @@
                             }, {
                                 key: "addToMap",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     this.renderable.off(),
                                     this.renderable.on("click", (function () {
-                                            return i.trigger("click", {
-                                                data: i.data,
-                                                shape: i.renderable
+                                            return r.trigger("click", {
+                                                data: r.data,
+                                                shape: r.renderable
                                             })
                                         })),
                                     this.renderable.on("mouseover", (function () {
-                                            return i.trigger("mouseover", {
-                                                data: i.data,
-                                                shape: i.renderable
+                                            return r.trigger("mouseover", {
+                                                data: r.data,
+                                                shape: r.renderable
                                             })
                                         })),
                                     this.renderable.on("mouseout", (function () {
-                                            return i.trigger("mouseout", {
-                                                data: i.data,
-                                                shape: i.renderable
+                                            return r.trigger("mouseout", {
+                                                data: r.data,
+                                                shape: r.renderable
                                             })
                                         })),
                                     b()(p()(n.prototype), "addToMap", this).call(this, t, e)
@@ -1011,33 +1011,45 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var W,
-                q,
+                var q,
+                W,
                 N = function (t) {
                     l()(n, t);
                     var e = V(n);
-                    function n(t, i, a) {
+                    function n(t, r, a) {
                         var o,
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (o = e.call(this))._hidden = !1,
                         o._events = ["click", "mouseover", "mouseout"],
                         o.id = s,
                         o.coordinate = t,
-                        o.data = i,
+                        o.data = r,
                         o.opts = Object.assign({}, a),
                         o
                     }
                     return o()(n, [{
+                                key: "map",
+                                get: function () {
+                                    return this._map
+                                }
+                            }, {
+                                key: "renderable",
+                                get: function () {
+                                    return this._renderable
+                                }
+                            }
+                        ]),
+                    o()(n, [{
                                 key: "addTo",
                                 value: function (t, e) {
                                     this.map !== t && (this._map = t, this._renderable || (this._renderable = this.createRenderable()), this.addToMap(t, e), this.trigger("map:add", {
@@ -1065,16 +1077,6 @@
                                     this.addTo(t)
                                 }
                             }, {
-                                key: "map",
-                                get: function () {
-                                    return this._map
-                                }
-                            }, {
-                                key: "renderable",
-                                get: function () {
-                                    return this._renderable
-                                }
-                            }, {
                                 key: "isHidden",
                                 get: function () {
                                     return this._hidden
@@ -1083,46 +1085,46 @@
                         ]),
                     n
                 }
-                (y.a),
-                Z = (n("yyme"), n("E9XD"), function (t, e, n, i) {
-                    var r = 0,
+                (v.a),
+                Z = (n("yyme"), n("E9XD"), function (t, e, n, r) {
+                    var i = 0,
                     a = 0;
-                    if (i = Object(O.extend)({
+                    if (r = Object(O.extend)({
                             x: 0,
                             y: 0
-                        }, i), Object(O.isString)(t)) {
+                        }, r), Object(O.isString)(t)) {
                         var o = t;
-                        r = (n.width - e.width) / 2,
+                        i = (n.width - e.width) / 2,
                         a = (n.height - e.height) / 2,
                         /^top/.test(o) ? a = 0 : /^bottom/.test(o) && (a = n.height - e.height),
-                        /left$/.test(o) ? r = 0 : /right$/.test(o) && (r = n.width - e.width)
+                        /left$/.test(o) ? i = 0 : /right$/.test(o) && (i = n.width - e.width)
                     } else {
                         var s = t;
-                        r = s.x,
+                        i = s.x,
                         a = s.y
                     }
                     return {
-                        x: r += i.x,
-                        y: a += i.y
+                        x: i += r.x,
+                        y: a += r.y
                     }
                 }),
                 $ = function (t) {
                     var e = t.stroke ? Object.keys(t.stroke).reduce((function (e, n) {
-                                var i = t.stroke[n];
-                                return Object(O.isset)(i) && ("width" === n && (e += ' stroke-width="'.concat(i, '"')), "color" === n && (e += ' stroke="'.concat(i, '"')), "opacity" === n && (e += ' stroke-opacity="'.concat(i, '"'))),
+                                var r = t.stroke[n];
+                                return Object(O.isset)(r) && ("width" === n && (e += ' stroke-width="'.concat(r, '"')), "color" === n && (e += ' stroke="'.concat(r, '"')), "opacity" === n && (e += ' stroke-opacity="'.concat(r, '"'))),
                                 e
                             }), "") : "",
                     n = t.fill ? Object.keys(t.fill).reduce((function (e, n) {
-                                var i = t.fill[n];
-                                return Object(O.isset)(i) && ("color" === n && (e += ' fill="'.concat(i, '"')), "opacity" === n && (e += ' fill-opacity="'.concat(i, '"'))),
+                                var r = t.fill[n];
+                                return Object(O.isset)(r) && ("color" === n && (e += ' fill="'.concat(r, '"')), "opacity" === n && (e += ' fill-opacity="'.concat(r, '"'))),
                                 e
                             }), "") : "";
                     return n || e ? "".concat(n).concat(e) : ""
                 };
-                (q = W || (W = {})).calculateTextSize = function (t, e, n, i) {
-                    var r = 0,
+                (W = q || (q = {})).calculateTextSize = function (t, e, n, r) {
+                    var i = 0,
                     a = 0;
-                    if (i = i || [0, 0], e = e || 12, window && window.document) {
+                    if (r = r || [0, 0], e = e || 12, window && window.document) {
                         var o = window.document,
                         s = o.createElement("text");
                         s.style.fontSize = Object(O.isString)(e) ? "".concat(e) : "".concat(e, "px"),
@@ -1132,14 +1134,14 @@
                         o.body.appendChild(s);
                         var c = s.getBoundingClientRect();
                         o.body.removeChild(s),
-                        c.width > 0 && (r = c.width),
+                        c.width > 0 && (i = c.width),
                         c.height > 0 && (a = c.height)
                     }
-                    var u = i,
+                    var u = r,
                     l = M()(u, 2);
-                    return [r += 2 * l[0], a += 2 * l[1]]
+                    return [i += 2 * l[0], a += 2 * l[1]]
                 },
-                q.path = function (t, e) {
+                W.path = function (t, e) {
                     e = Object(O.extend)({
                         stroke: {
                             opacity: 1
@@ -1152,8 +1154,8 @@
                     var n = $(e);
                     return "<g".concat(e.transform ? ' transform="'.concat(e.transform, '"') : "", '><path d="').concat(t, '"').concat(n, " /></g>")
                 },
-                q.rect = function (t, e, n) {
-                    var i = n = Object(O.extend)({
+                W.rect = function (t, e, n) {
+                    var r = n = Object(O.extend)({
                         margin: 0,
                         radius: 0,
                         stroke: null,
@@ -1162,9 +1164,9 @@
                             opacity: 1
                         }
                     }, n),
-                    r = i.margin,
-                    a = i.radius,
-                    o = r;
+                    i = r.margin,
+                    a = r.radius,
+                    o = i;
                     n.stroke && n.stroke.width > 0 && (o += n.stroke.width / 2, t -= n.stroke.width, e -= n.stroke.width);
                     var s = "M".concat(o + a, ",").concat(o, " ");
                     return s += "L".concat(o + t - a, ",").concat(o, " "),
@@ -1176,9 +1178,9 @@
                     s += "L".concat(o, ",").concat(o + a, " "),
                     a > 0 && (s += "A".concat(a, ",").concat(a, " 0 0,1 ").concat(o + a, ",").concat(o, " ")),
                     s += "Z",
-                    q.path(s, n)
+                    W.path(s, n)
                 },
-                q.circle = function (t, e) {
+                W.circle = function (t, e) {
                     var n = 2 * (((e = Object(O.extend)({
                                         position: "center",
                                         translate: {
@@ -1192,16 +1194,16 @@
                                             opacity: 1
                                         }
                                     }, e)).radius || 8) + (Object(O.get)(e, "stroke.width") || 0) + 1),
-                    i = Z(e.position, {
+                    r = Z(e.position, {
                         width: n,
                         height: n
                     }, t, e.translate),
-                    r = $(e);
-                    return i.x += n / 2,
-                    i.y += n / 2,
-                    "<circle".concat(e.transform ? ' transform="'.concat(e.transform, '"') : "", ' cx="').concat(i.x, '" cy="').concat(i.y, '" r="').concat(e.radius, '"').concat(r, " />")
+                    i = $(e);
+                    return r.x += n / 2,
+                    r.y += n / 2,
+                    "<circle".concat(e.transform ? ' transform="'.concat(e.transform, '"') : "", ' cx="').concat(r.x, '" cy="').concat(r.y, '" r="').concat(e.radius, '"').concat(i, " />")
                 },
-                q.text = function (t, e, n) {
+                W.text = function (t, e, n) {
                     n = Object(O.extend)({
                         position: "center",
                         translate: {
@@ -1215,10 +1217,10 @@
                         color: "#222222"
                     }, n),
                     t = t || n.value;
-                    var i = q.calculateTextSize("".concat(t), n.size, n.style, n.padding),
-                    r = M()(i, 2),
-                    a = r[0],
-                    o = r[1];
+                    var r = W.calculateTextSize("".concat(t), n.size, n.style, n.padding),
+                    i = M()(r, 2),
+                    a = i[0],
+                    o = i[1];
                     n.translate.y += o - 1;
                     var s = Z(n.position, {
                         width: a,
@@ -1235,17 +1237,17 @@
                     }
                     return c += "<text".concat(n.transform ? ' transform="'.concat(n.transform, '"') : "", ' dominent-baseline="hanging" text-anchor="').concat(n.anchor, '" x="').concat(s.x, '" y="').concat(s.y, '" style="font-family:').concat(n.font, ";font-size:").concat(n.size, "px;font-weight:").concat(n.style, ';" fill="').concat(n.color, '">').concat(t || "", "</text>")
                 },
-                q.image = function (t, e, n) {
+                W.image = function (t, e, n) {
                     n = Object(O.extend)({
                         position: "center",
                         size: [30, 30]
                     }, n),
                     t = t || n.url;
-                    var i = M()(n.size, 2),
-                    r = i[0],
-                    a = i[1],
+                    var r = M()(n.size, 2),
+                    i = r[0],
+                    a = r[1],
                     o = Z(n.position, {
-                        width: r,
+                        width: i,
                         height: a
                     }, e, n.translate),
                     s = M()(n.size, 2),
@@ -1253,15 +1255,15 @@
                     u = s[1];
                     return "<image".concat(n.transform ? ' transform="'.concat(n.transform, '"') : "", ' x="').concat(o.x, '" y="').concat(o.y, '" width="').concat(c, '" height="').concat(u, '" xlink:href="').concat(t, '" />')
                 },
-                q.svg = function (t, e, n) {
-                    var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
-                    return '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="'.concat(t, '" height="').concat(e, '"').concat(i ? ' viewBox="'.concat(i, '"') : "", ">\n\t\t\t").concat((n || []).map((function (t) {
+                W.svg = function (t, e, n) {
+                    var r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
+                    return '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="'.concat(t, '" height="').concat(e, '"').concat(r ? ' viewBox="'.concat(r, '"') : "", ">\n\t\t\t").concat((n || []).map((function (t) {
                                 return t
                             })).join(""), "\n\t\t</svg>")
                 },
-                q.draw = function (t, e, n) {
-                    var i = n.value,
-                    r = !0,
+                W.draw = function (t, e, n) {
+                    var r = n.value,
+                    i = !0,
                     a = !1,
                     o = n.shape,
                     s = n.text,
@@ -1269,36 +1271,36 @@
                     u = [],
                     l = [];
                     if (s) {
-                        var h = function (n, i) {
-                            var r = n || i.value || "",
-                            a = i.x || 0,
-                            s = i.y || 0,
-                            c = i.size || 12,
-                            u = q.calculateTextSize(r, c, i.style, i.padding),
+                        var h = function (n, r) {
+                            var i = n || r.value || "",
+                            a = r.x || 0,
+                            s = r.y || 0,
+                            c = r.size || 12,
+                            u = W.calculateTextSize(i, c, r.style, r.padding),
                             l = M()(u, 2),
                             h = l[0],
                             f = l[1],
-                            d = !Object(O.isset)(i.autosize) || i.autosize;
-                            if (Object(O.isEmpty)(r))
+                            d = !Object(O.isset)(r.autosize) || r.autosize;
+                            if (Object(O.isEmpty)(i))
                                 return null;
-                            d && (h && f ? (t = h, e = f) : (t = 5 * r.length, e = c + 2));
+                            d && (h && f ? (t = h, e = f) : (t = 5 * i.length, e = c + 2));
                             var p = 0;
                             return o && o.stroke && (p = o.stroke.width / 2 || 0),
-                            q.text(r, {
+                            W.text(i, {
                                 width: t,
                                 height: e
-                            }, Object(O.extend)(i, {
+                            }, Object(O.extend)(r, {
                                     x: p + t / 2 + a,
                                     y: p + Math.round(e - (e - .7 * c) / 2) + s
                                 }))
                         };
                         if (Object(O.isArray)(s))
                             s.forEach((function (t) {
-                                    var e = h(i, t);
+                                    var e = h(r, t);
                                     e && l.push(e)
                                 }));
                         else {
-                            var f = h(i, s);
+                            var f = h(r, s);
                             f && l.push(f)
                         }
                         l.length > 0 && (a = !0)
@@ -1306,13 +1308,13 @@
                     if (o) {
                         var d = t,
                         p = e,
-                        y = o.type,
-                        v = o.size;
-                        if (v && 2 === v.length && (d = v[0], p = v[1]), "rect" === y) {
-                            var m = q.rect(d, p, o);
+                        v = o.type,
+                        y = o.size;
+                        if (y && 2 === y.length && (d = y[0], p = y[1]), "rect" === v) {
+                            var m = W.rect(d, p, o);
                             u.push(m)
-                        } else if ("path" === y) {
-                            var g = q.path(Object(O.get)(o, "path"), o);
+                        } else if ("path" === v) {
+                            var g = W.path(Object(O.get)(o, "path"), o);
                             u.push(g)
                         } else {
                             var k = Object(O.get)(o, "stroke.width") || 0;
@@ -1321,7 +1323,7 @@
                                 x: Math.round(d / 2) + 1,
                                 y: Math.round(p / 2) + 1
                             };
-                            var b = q.circle({
+                            var b = W.circle({
                                 width: t,
                                 height: e
                             }, o);
@@ -1341,7 +1343,7 @@
                             S = M()(T, 2),
                             L = S[0],
                             I = S[1],
-                            R = q.image(_, {
+                            R = W.image(_, {
                                 width: t,
                                 height: e
                             }, Object(O.extend)(c, {
@@ -1351,10 +1353,10 @@
                             u.push(R)
                         }
                     }
-                    return l.length > 0 ? u = u.concat(l) : a && (r = !1),
-                    r ? q.svg(t, e, u, n.viewBox) : null
+                    return l.length > 0 ? u = u.concat(l) : a && (i = !1),
+                    i ? W.svg(t, e, u, n.viewBox) : null
                 };
-                var J = function (t) {
+                var H = function (t) {
                     var e = {
                         stroke: !1,
                         fill: !1
@@ -1365,7 +1367,7 @@
                     e.stroke && !Object(O.isset)(t.strokeOpacity) && (t.strokeOpacity = 1),
                     e
                 },
-                H = function (t) {
+                U = function (t) {
                     if (t.html)
                         return L.divIcon({
                             html: t.html,
@@ -1375,10 +1377,10 @@
                     if (t.svg) {
                         var e = t.size || [12, 12],
                         n = M()(e, 2),
-                        i = n[0],
-                        r = n[1];
+                        r = n[0],
+                        i = n[1];
                         return L.divIcon({
-                            html: W.draw(i, r, t.svg),
+                            html: q.draw(r, i, t.svg),
                             iconSize: t.size,
                             className: t.className || ""
                         })
@@ -1395,7 +1397,7 @@
                     }
                     return null
                 };
-                function U(t) {
+                function J(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -1413,20 +1415,20 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var G = function (t) {
                     l()(n, t);
-                    var e = U(n);
+                    var e = J(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -1435,17 +1437,17 @@
                                     var e;
                                     if (Object(O.isset)(t)) {
                                         var n = null === (e = t.data) || void 0 === e ? void 0 : e.value,
-                                        i = t.style || {};
-                                        Object(O.isFunction)(i) && (i = i({
+                                        r = t.style || {};
+                                        Object(O.isFunction)(r) && (r = r({
                                                 value: n
                                             })),
-                                        this.setStyle(i)
+                                        this.setStyle(r)
                                     }
                                 }
                             }, {
                                 key: "setStyle",
                                 value: function (t) {
-                                    var e = H(t);
+                                    var e = U(t);
                                     e && this.renderable.setIcon(e)
                                 }
                             }, {
@@ -1454,16 +1456,16 @@
                                     var t = this.opts.style,
                                     e = this.coordinate,
                                     n = {};
-                                    t && (n.icon = H(t), t.zIndex && (n.zIndexOffset = t.zIndex));
-                                    var i = L.marker([e.lat, e.lon], n);
+                                    t && (n.icon = U(t), t.zIndex && (n.zIndexOffset = t.zIndex));
+                                    var r = L.marker([e.lat, e.lon], n);
                                     if (t.callout) {
-                                        var r = t.callout;
+                                        var i = t.callout;
                                         if (Object(O.isFunction)(t.callout))
-                                            r = (0, t.callout)();
-                                        var a = L.popup().setContent(r);
-                                        i.bindPopup(a)
+                                            i = (0, t.callout)();
+                                        var a = L.popup().setContent(i);
+                                        r.bindPopup(a)
                                     }
-                                    return i
+                                    return r
                                 }
                             }, {
                                 key: "updateVisibility",
@@ -1506,7 +1508,7 @@
                 (N),
                 Q = n("uts4"),
                 X = n("R1Yn");
-                function K(t) {
+                function Y(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -1524,21 +1526,21 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var Y = function (t) {
+                var K = function (t) {
                     l()(n, t);
-                    var e = K(n);
+                    var e = Y(n);
                     function n() {
                         var t;
-                        return r()(this, n),
+                        return i()(this, n),
                         (t = e.apply(this, arguments))._visible = !0,
                         t._exists = !1,
                         t
@@ -1578,22 +1580,22 @@
                                 value: function (t) {
                                     var e = this,
                                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-                                    i = L.tileLayer(t.url(), Object(O.extend)({}, n, {
+                                    r = L.tileLayer(t.url(), Object(O.extend)({}, n, {
                                                 subdomains: t.range().join("")
                                             }));
-                                    return i.on("add", (function () {
+                                    return r.on("add", (function () {
                                             e._exists = !0
                                         })).on("remove", (function () {
                                             e._exists = !1
                                         })),
-                                    i
+                                    r
                                 }
                             }, {
                                 key: "animationLayerForDate",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
-                                    return new Promise((function (t, r) {
+                                    r = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
+                                    return new Promise((function (t, i) {
                                             if (n.dataSource) {
                                                 var a = n.dataSource.tileLayer(n.key, e, Object(O.extend)({}, n._opts, {
                                                             id: "".concat(n.identifier, "-anim-").concat(Object(X.mapTimestampFromDate)(e)),
@@ -1608,7 +1610,7 @@
                                                 a.isAnimationFrame = !0,
                                                 a.setOpacity(n._opacity, !1),
                                                 a.hide(),
-                                                i ? a.overlay.on("load", (function () {
+                                                r ? a.overlay.on("load", (function () {
                                                         t(a)
                                                     })) : t(a),
                                                 a.on("layer:remove", (function () {
@@ -1620,7 +1622,7 @@
                                                     layer: a.overlay
                                                 })
                                             } else
-                                                r(new Error("No map strategy data source provided"))
+                                                i(new Error("No map strategy data source provided"))
                                         }))
                                 }
                             }, {
@@ -1640,12 +1642,12 @@
                 (Q.a),
                 tt = function () {
                     function t() {
-                        r()(this, t)
+                        i()(this, t)
                     }
                     return o()(t, [{
                                 key: "tileLayer",
                                 value: function (t, e, n) {
-                                    return new Y(t, e, n)
+                                    return new K(t, e, n)
                                 }
                             }, {
                                 key: "marker",
@@ -1666,10 +1668,10 @@
                                     if (t.svg) {
                                         var e = t.size || [12, 12],
                                         n = M()(e, 2),
-                                        i = n[0],
-                                        r = n[1];
+                                        r = n[0],
+                                        i = n[1];
                                         return L.divIcon({
-                                            html: W.draw(i, r, t.svg),
+                                            html: q.draw(r, i, t.svg),
                                             iconSize: t.size,
                                             className: t.className || ""
                                         })
@@ -1689,19 +1691,19 @@
                             }, {
                                 key: "polygon",
                                 value: function (t, e, n) {
-                                    var i;
-                                    return n && (i = J(n)),
-                                    new A(t, e, i)
+                                    var r;
+                                    return n && (r = H(n)),
+                                    new F(t, e, r)
                                 }
                             }, {
                                 key: "polyline",
                                 value: function (t, e, n) {
-                                    var i;
-                                    n && (i = J(n));
-                                    var r = e.map((function (t) {
+                                    var r;
+                                    n && (r = H(n));
+                                    var i = e.map((function (t) {
                                                 return [t.lat, t.lon]
                                             }));
-                                    return new B(t, r, i)
+                                    return new B(t, i, r)
                                 }
                             }
                         ]),
@@ -1727,36 +1729,48 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var it = function (t) {
+                var rt = function (t) {
                     l()(n, t);
                     var e = nt(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, Object(O.extend)({
                                         style: null,
                                         map: {
                                             worldCopyJump: !0
                                         }
-                                    }, i)))._clickedMapLayer = !1,
+                                    }, r)))._clickedMapLayer = !1,
                         a
                     }
                     return o()(n, [{
+                                key: "strategy",
+                                get: function () {
+                                    return "leaflet"
+                                }
+                            }, {
+                                key: "$el",
+                                get: function () {
+                                    return Object(et.a)(this.map.getContainer())
+                                }
+                            }
+                        ]),
+                    o()(n, [{
                                 key: "loadDependencies",
                                 value: function () {
                                     return new Promise((function (t, e) {
                                             if ("undefined" == typeof L || void 0 === L.map) {
                                                 var n = "1.7.0";
-                                                Promise.all([Object(O.loadStyles)("https://unpkg.com/leaflet@".concat(n, "/dist/leaflet.css")), Object(O.loadScript)("https://kaosfactory.github.io/".concat(n, "/js/leaflet.js"))]).then((function () {
+                                                Promise.all([Object(O.loadStyles)("https://unpkg.com/leaflet@".concat(n, "/dist/leaflet.css")), Object(O.loadScript)("https://unpkg.com/leaflet@".concat(n, "/dist/leaflet.js"))]).then((function () {
                                                         t()
                                                     }))
                                             } else
@@ -1790,13 +1804,13 @@
                                     };
                                     var n = this.opts.map;
                                     if (n) {
-                                        var i = n.center,
-                                        r = n.zoom;
-                                        i && Object(O.isset)(i.lat) && Object(O.isset)(i.lng) && Object(O.set)(this.opts, "center", {
-                                            lat: i.lat,
-                                            lon: i.lng
+                                        var r = n.center,
+                                        i = n.zoom;
+                                        r && Object(O.isset)(r.lat) && Object(O.isset)(r.lng) && Object(O.set)(this.opts, "center", {
+                                            lat: r.lat,
+                                            lon: r.lng
                                         }),
-                                        r && Object(O.set)(this.opts, "zoom", r)
+                                        i && Object(O.set)(this.opts, "zoom", i)
                                     }
                                     if (Object(X.isLeaflet)(t))
                                         this._setInitialView = !1, this._map = t;
@@ -1822,8 +1836,6 @@
                                         var a = Object(O.get)(this.opts, "style");
                                         Object(O.isEmpty)(a) ? this._baseLayer = L.tileLayer("https://maps.api.xweather.com/wgE96YE3scTQLKjnqiMsv_SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY/flat-dk,states-outlines-dk:invert(),counties-dk:30:invert()/{z}/{x}/{y}/current.png", {
                                             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-											tileSize: 512,
-											zoomOffset: -1,
                                             pane: "base"
                                         }) : this._baseLayer = L.tileLayer(a, {
                                             pane: "base"
@@ -1831,7 +1843,7 @@
                                         this._baseLayer.addTo(this.map)
                                     }
                                     this.map.createPane("admin"),
-                                    this.map.getPane("admin").style.zIndex = "20000",
+                                    this.map.getPane("admin").style.zIndex = "210",
                                     setTimeout((function () {
                                             e.trigger("map:ready")
                                         }), 250)
@@ -1913,20 +1925,20 @@
                                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [10, 10];
                                     if (this._map) {
                                         var n = new L.LatLng(t.south, t.west),
-                                        i = new L.LatLng(t.north, t.east),
-                                        r = new L.LatLngBounds(n, i);
-                                        if (r.isValid()) {
+                                        r = new L.LatLng(t.north, t.east),
+                                        i = new L.LatLngBounds(n, r);
+                                        if (i.isValid()) {
                                             var a = {};
                                             2 === e.length ? a.padding = L.point(e[0], e[1]) : 4 === e.length && (a.paddingTopLeft = L.point(e[3], e[0]), a.paddingBottomRight = L.point(e[1], e[2])),
-                                            this.map.fitBounds(r, a)
+                                            this.map.fitBounds(i, a)
                                         } else
-                                            "[Aeris] Cannot fit bounds, invalid bounds - nw: ".concat(t.north, ", ").concat(t.west, "; se: ").concat(t.south, ", ").concat(t.east)
+                                            console.warn("[Aeris] Cannot fit bounds, invalid bounds - nw: ".concat(t.north, ", ").concat(t.west, "; se: ").concat(t.south, ", ").concat(t.east))
                                     }
                                 }
                             }, {
                                 key: "isTile",
                                 value: function (t) {
-                                    return t instanceof Y
+                                    return t instanceof K
                                 }
                             }, {
                                 key: "isMarker",
@@ -1936,7 +1948,7 @@
                             }, {
                                 key: "isPolygon",
                                 value: function (t) {
-                                    return !!((null == t ? void 0 : t.renderable) && t.renderable instanceof A) || t instanceof A
+                                    return !!((null == t ? void 0 : t.renderable) && t.renderable instanceof F) || t instanceof F
                                 }
                             }, {
                                 key: "isPolyline",
@@ -1956,19 +1968,19 @@
                             }, {
                                 key: "addMarker",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     t instanceof G ? (t.on("click", (function () {
-                                                return i.trigger("marker:click", {
+                                                return r.trigger("marker:click", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("marker:mouseover", {
+                                                return r.trigger("marker:mouseover", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("marker:mouseout", {
+                                                return r.trigger("marker:mouseout", {
                                                     data: e,
                                                     marker: t
                                                 })
@@ -1992,19 +2004,19 @@
                             }, {
                                 key: "addShape",
                                 value: function (t, e) {
-                                    var i = this;
-                                    (t instanceof B || t instanceof A) && (t.on("click", (function () {
-                                                return i.trigger("shape:click", {
+                                    var r = this;
+                                    (t instanceof B || t instanceof F) && (t.on("click", (function () {
+                                                return r.trigger("shape:click", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("shape:mouseover", {
+                                                return r.trigger("shape:mouseover", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("shape:mouseout", {
+                                                return r.trigger("shape:mouseout", {
                                                     data: e,
                                                     shape: t
                                                 })
@@ -2014,7 +2026,7 @@
                             }, {
                                 key: "removeShape",
                                 value: function (t) {
-                                    (t instanceof B || t instanceof A) && (t.offAll(), t.remove()),
+                                    (t instanceof B || t instanceof F) && (t.offAll(), t.remove()),
                                     b()(p()(n.prototype), "removeShape", this).call(this, t)
                                 }
                             }, {
@@ -2114,25 +2126,14 @@
                                     }
                                     return n
                                 }
-                            }, {
-                                key: "strategy",
-                                get: function () {
-                                    return "leaflet"
-                                }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return Object(et.a)(this.map.getContainer())
-                                }
                             }
                         ]),
                     n
                 }
                 (T);
                 n("TeQF"),
-                n("4l63"),
                 n("TWNs");
-                function rt(t) {
+                function it(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -2150,20 +2151,20 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var at = function (t) {
                     l()(n, t);
-                    var e = rt(n);
+                    var e = it(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -2177,15 +2178,15 @@
                                 value: function (t) {
                                     if (this.exists()) {
                                         var e = this.map.getStyle().layers,
-                                        n = 20000;
+                                        n = 0;
                                         e.forEach((function (t, e) {
                                                 "line" === t.type && /^admin-/.test(t.id) && 0 === n && (n = e)
                                             }));
-                                        var i = e.map((function (t) {
+                                        var r = e.map((function (t) {
                                                     return t.id
                                                 }))[n + t];
                                         this.map.removeLayer(this.layerId),
-                                        this.map.addLayer(this.renderable, i)
+                                        this.map.addLayer(this.renderable, r)
                                     }
                                 }
                             }, {
@@ -2264,25 +2265,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var ct = function (t) {
                     l()(n, t);
                     var e = st(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, o, s))._needsEventSetup = !0,
-                        a._polygons = i,
+                        a._polygons = r,
                         a
                     }
                     return o()(n, [{
@@ -2359,12 +2360,12 @@
                                         stroke: {}
                                     };
                                     return ["fill", "line"].forEach((function (n) {
-                                            var i = "line" === n ? "stroke" : "fill";
+                                            var r = "line" === n ? "stroke" : "fill";
                                             Object.keys(t).filter((function (t) {
                                                     return new RegExp("^".concat(n, "-")).test(t)
                                                 })).forEach((function (n) {
-                                                    var r = ot.hyphenate(n);
-                                                    Object(O.isset)(t[n]) && (e[i][r] = t[n])
+                                                    var i = ot.hyphenate(n);
+                                                    Object(O.isset)(t[n]) && (e[r][i] = t[n])
                                                 }))
                                         })),
                                     Object.keys(e.stroke).length > 0 && (this._strokeLayer = {
@@ -2409,25 +2410,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var lt = function (t) {
                     l()(n, t);
                     var e = ut(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, o, s))._needsEventSetup = !0,
-                        a._points = i,
+                        a._points = r,
                         a
                     }
                     return o()(n, [{
@@ -2511,25 +2512,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var ft = function (t) {
                     l()(n, t);
                     var e = ht(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, Object(O.extend)({
                                         type: "tile"
-                                    }, i), o))._type = a.opts.type,
+                                    }, r), o))._type = a.opts.type,
                         a
                     }
                     return o()(n, [{
@@ -2551,8 +2552,8 @@
                                     var n = this.map;
                                     if (n) {
                                         e || (e = this.opts.bounds);
-                                        var i = n.getSource(this.sourceId);
-                                        i ? i.updateImage({
+                                        var r = n.getSource(this.sourceId);
+                                        r ? r.updateImage({
                                             url: t,
                                             coordinates: [[e.west, e.north], [e.east, e.north], [e.east, e.south], [e.west, e.south]]
                                         }) : this.invalidate()
@@ -2579,13 +2580,13 @@
                                                 tiles: [1, 2, 3, 4].map((function (t) {
                                                         return e.replace(/\{s\}/, "".concat(t))
                                                     })),
-                                                tileSize: 512,
+                                                tileSize: 256,
                                                 attribution: this.opts.attribution || ""
                                             };
                                         if (this.createRenderable(), this.map) {
-                                            var i = this.map;
+                                            var r = this.map;
                                             this.remove(),
-                                            this.addTo(i)
+                                            this.addTo(r)
                                         }
                                     }
                                 }
@@ -2637,14 +2638,14 @@
                 pt = function (t) {
                     if (!t)
                         return null;
-                    if (t.html, t.svg) {
+                    if (t.html && console.warn("awxjs - HTML markers are not currently supported with Mapbox GL"), t.svg) {
                         var e = t.size || [12, 12],
                         n = M()(e, 2),
-                        i = n[0],
-                        r = n[1];
+                        r = n[0],
+                        i = n[1];
                         if (document) {
                             var a = document.createElement("div");
-                            return a.innerHTML = W.draw(i, r, t.svg),
+                            return a.innerHTML = q.draw(r, i, t.svg),
                             t.zIndex && (a.style.zIndex = "".concat(t.zIndex)),
                             a
                         }
@@ -2658,7 +2659,7 @@
                     }
                     return null
                 };
-                function yt(t) {
+                function vt(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -2676,20 +2677,20 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var vt = function (t) {
+                var yt = function (t) {
                     l()(n, t);
-                    var e = yt(n);
+                    var e = vt(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -2699,12 +2700,12 @@
                                     if (Object(O.isset)(t)) {
                                         var n = t.data;
                                         Object(O.isset)(n) && (this.data = Object.assign(Object.assign({}, this.data), n));
-                                        var i = null === (e = this.data) || void 0 === e ? void 0 : e.value,
-                                        r = t.style || {};
-                                        Object(O.isFunction)(r) && (r = r({
-                                                value: i
+                                        var r = null === (e = this.data) || void 0 === e ? void 0 : e.value,
+                                        i = t.style || {};
+                                        Object(O.isFunction)(i) && (i = i({
+                                                value: r
                                             })),
-                                        this.setStyle(r)
+                                        this.setStyle(i)
                                     }
                                 }
                             }, {
@@ -2720,18 +2721,18 @@
                                     e = this.coordinate,
                                     n = {};
                                     t && (n.icon = pt(t), t.zIndex && (n.zIndex = t.zIndex));
-                                    var i = new mapboxgl.Marker({
+                                    var r = new mapboxgl.Marker({
                                         element: n.icon
                                     });
-                                    if (i.setLngLat([e.lon, e.lat]), t && t.callout) {
-                                        var r = t.callout;
+                                    if (r.setLngLat([e.lon, e.lat]), t && t.callout) {
+                                        var i = t.callout;
                                         if (Object(O.isFunction)(t.callout))
-                                            r = (0, t.callout)();
+                                            i = (0, t.callout)();
                                         var a = new mapboxgl.Popup;
-                                        a.setHTML(r),
-                                        i.setPopup(a)
+                                        a.setHTML(i),
+                                        r.setPopup(a)
                                     }
-                                    return i
+                                    return r
                                 }
                             }, {
                                 key: "updateVisibility",
@@ -2740,21 +2741,21 @@
                                 key: "addToMap",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = this.renderable;
-                                    if (i) {
-                                        var r = i.getElement();
+                                    r = this.renderable;
+                                    if (r) {
+                                        var i = r.getElement();
                                         this._events.forEach((function (t) {
                                                 var e = "__awxjs_".concat(t, "Handler");
-                                                i[e] ? r.removeEventListener(t, i[e]) : i[e] = function (e) {
+                                                r[e] ? i.removeEventListener(t, r[e]) : r[e] = function (e) {
                                                     e.stopPropagation(),
                                                     n.trigger(t, {
                                                         data: n.data,
-                                                        marker: i
+                                                        marker: r
                                                     })
                                                 },
-                                                r.addEventListener(t, i[e])
+                                                i.addEventListener(t, r[e])
                                             })),
-                                        i.addTo(t)
+                                        r.addTo(t)
                                     }
                                 }
                             }, {
@@ -2764,8 +2765,8 @@
                                     if (e) {
                                         var n = e.getElement();
                                         this._events.forEach((function (t) {
-                                                var i = "__awxjs_".concat(t, "Handler");
-                                                e[i] && n.removeEventListener(t, e.__awxjs_clickHandler)
+                                                var r = "__awxjs_".concat(t, "Handler");
+                                                e[r] && n.removeEventListener(t, e.__awxjs_clickHandler)
                                             })),
                                         e.remove()
                                     }
@@ -2793,22 +2794,22 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var gt = function (t) {
                     l()(n, t);
                     var e = mt(n);
-                    function n(t, i, a) {
+                    function n(t, r, a) {
                         var o;
-                        r()(this, n);
-                        var s = (o = e.call(this, t, i, a)).animation,
+                        i()(this, n);
+                        var s = (o = e.call(this, t, r, a)).animation,
                         c = new ft(t, Object(O.extend)(a, {
                                     type: "image"
                                 }), "".concat(o.identifier, "-anim"));
@@ -2879,8 +2880,8 @@
                                 key: "animationLayerForDate",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
-                                    return new Promise((function (t, r) {
+                                    r = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
+                                    return new Promise((function (t, i) {
                                             if (n.dataSource) {
                                                 var a = n.dataSource.tileLayer(n.key, e, Object(O.extend)({}, n._opts, {
                                                             id: "".concat(n.identifier, "-anim-").concat(Object(X.mapTimestampFromDate)(e)),
@@ -2892,12 +2893,12 @@
                                                                 enabled: !1
                                                             }
                                                         }));
-                                                if (a.isAnimationFrame = !0, a.setOpacity(n._opacity, !1), a.hide(), i)
+                                                if (a.isAnimationFrame = !0, a.setOpacity(n._opacity, !1), a.hide(), r)
                                                     n.overlay.map.on("sourcedata", (function (e) {
                                                             var n = e || {},
-                                                            i = n.sourceId,
-                                                            r = n.isSourceLoaded;
-                                                            i === a.overlay.sourceId && r && t(a)
+                                                            r = n.sourceId,
+                                                            i = n.isSourceLoaded;
+                                                            r === a.overlay.sourceId && i && t(a)
                                                         }));
                                                 else
                                                     t(a);
@@ -2910,7 +2911,7 @@
                                                     layer: a.overlay
                                                 })
                                             } else
-                                                r(new Error("No map strategy data source provided"))
+                                                i(new Error("No map strategy data source provided"))
                                         }))
                                 }
                             }, {
@@ -2931,7 +2932,7 @@
                 (Q.a),
                 kt = function () {
                     function t() {
-                        r()(this, t)
+                        i()(this, t)
                     }
                     return o()(t, [{
                                 key: "tileLayer",
@@ -2941,29 +2942,29 @@
                             }, {
                                 key: "marker",
                                 value: function (t, e, n) {
-                                    return n && n.skip && !0 === n.skip ? null : new vt(e, void 0, {
+                                    return n && n.skip && !0 === n.skip ? null : new yt(e, void 0, {
                                         style: n
                                     })
                                 }
                             }, {
                                 key: "polygon",
                                 value: function (t, e, n) {
-                                    var i;
-                                    return n && (i = dt(n)),
+                                    var r;
+                                    return n && (r = dt(n)),
                                     e.forEach((function (t) {
-                                            i.id || (i.id = t.id)
+                                            r.id || (r.id = t.id)
                                         })),
-                                    new ct(t, e, i, i.id)
+                                    new ct(t, e, r, r.id)
                                 }
                             }, {
                                 key: "polyline",
                                 value: function (t, e, n) {
-                                    var i;
-                                    n && n && delete (i = dt(n)).fill;
+                                    var r;
+                                    n && n && delete (r = dt(n)).fill;
                                     e.map((function (t) {
                                             return [t.lat, t.lon]
                                         }));
-                                    return new lt(t, e, i, i.id)
+                                    return new lt(t, e, r, r.id)
                                 }
                             }
                         ]),
@@ -2988,12 +2989,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -3001,18 +3002,30 @@
                 Ot = function (t) {
                     l()(n, t);
                     var e = bt(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, Object(O.extend)({
                                         accessToken: null,
                                         style: "mapbox://styles/mapbox/streets-v9"
-                                    }, i)))._pointAnimationUpdates = {},
+                                    }, r)))._pointAnimationUpdates = {},
                         a._shapeDataById = {},
                         a._clickedMapLayer = !1,
                         a
                     }
                     return o()(n, [{
+                                key: "strategy",
+                                get: function () {
+                                    return "mapbox"
+                                }
+                            }, {
+                                key: "$el",
+                                get: function () {
+                                    return Object(et.a)(this.map.getContainer())
+                                }
+                            }
+                        ]),
+                    o()(n, [{
                                 key: "loadDependencies",
                                 value: function () {
                                     var t = document.createElement("style");
@@ -3049,10 +3062,10 @@
                                     };
                                     var n = mapboxgl.version;
                                     if (n) {
-                                        var i = n.split("."),
-                                        r = M()(i, 2),
-                                        a = r[0],
-                                        o = r[1];
+                                        var r = n.split("."),
+                                        i = M()(r, 2),
+                                        a = i[0],
+                                        o = i[1];
                                         if (a = parseInt(a, 10), o = parseInt(o, 10), 0 === a && o < 50)
                                             throw new Error("AerisWeather SDK requires Mapbox GL JS version 0.50.0 or higher. You are using version ".concat(n, "."))
                                     }
@@ -3081,14 +3094,13 @@
                                         else if (Object(O.isDOM)(t)) {
                                             t = t[0]
                                         }
-                                        mapboxgl.accessToken = this.opts.accessToken,
-                                        this._map = new mapboxgl.Map(Object(O.extend)({}, this.opts.map, {
-                                                    container: t,
-                                                    style: this.opts.style
-                                                })),
-                                        this._currentMapStyle = this.opts.style;
-                                        var d = new mapboxgl.NavigationControl;
-                                        this._map.addControl(d, "bottom-left"),
+                                        if (mapboxgl.accessToken = this.opts.accessToken, this._map = new mapboxgl.Map(Object(O.extend)({}, this.opts.map, {
+                                                        container: t,
+                                                        style: this.opts.style
+                                                    })), this._currentMapStyle = this.opts.style, !(!1 === Object(O.get)(this.opts, "map.zoomControl"))) {
+                                            var d = new mapboxgl.NavigationControl;
+                                            this._map.addControl(d, "bottom-left")
+                                        }
                                         Object(O.isset)(this.opts.center) || Object(O.set)(this.opts, "center", {
                                             lat: 43,
                                             lon: -93
@@ -3107,20 +3119,20 @@
                                     if (t !== this._currentMapStyle) {
                                         var e = this.map,
                                         n = e.getStyle(),
-                                        i = n.layers.filter((function (t) {
+                                        r = n.layers.filter((function (t) {
                                                     return /^aeris-/.test(t.id)
                                                 })),
-                                        r = Object.keys(n.sources).filter((function (t) {
+                                        i = Object.keys(n.sources).filter((function (t) {
                                                     return /^aeris-/.test(t)
                                                 })).reduce((function (t, e) {
                                                     return t[e] = n.sources[e],
                                                     t
                                                 }), {});
                                         e.on("style.load", (function () {
-                                                Object.keys(r).forEach((function (t) {
-                                                        e.getSource(t) || e.addSource(t, r[t])
+                                                Object.keys(i).forEach((function (t) {
+                                                        e.getSource(t) || e.addSource(t, i[t])
                                                     })),
-                                                i.forEach((function (t) {
+                                                r.forEach((function (t) {
                                                         e.getLayer(t.id) || e.addLayer(t)
                                                     }))
                                             })),
@@ -3190,8 +3202,8 @@
                                 value: function (t) {
                                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [10, 10],
                                     n = new mapboxgl.LngLat(t.west, t.south),
-                                    i = new mapboxgl.LngLat(t.east, t.north),
-                                    r = new mapboxgl.LngLatBounds(n, i),
+                                    r = new mapboxgl.LngLat(t.east, t.north),
+                                    i = new mapboxgl.LngLatBounds(n, r),
                                     a = {};
                                     1 === e.length ? a.padding = e[0] : 2 === e.length ? a.padding = {
                                         top: e[1],
@@ -3205,7 +3217,7 @@
                                             bottom: e[2],
                                             left: e[3]
                                         }),
-                                    this.map.fitBounds(r, a)
+                                    this.map.fitBounds(i, a)
                                 }
                             }, {
                                 key: "isTile",
@@ -3246,19 +3258,19 @@
                             }, {
                                 key: "addMarker",
                                 value: function (t, e) {
-                                    var i = this;
-                                    t instanceof vt ? (t.on("click", (function () {
-                                                return i.trigger("marker:click", {
+                                    var r = this;
+                                    t instanceof yt ? (t.on("click", (function () {
+                                                return r.trigger("marker:click", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("marker:mouseover", {
+                                                return r.trigger("marker:mouseover", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("marker:mouseout", {
+                                                return r.trigger("marker:mouseout", {
                                                     data: e,
                                                     marker: t
                                                 })
@@ -3268,30 +3280,30 @@
                             }, {
                                 key: "removeMarker",
                                 value: function (t) {
-                                    t instanceof vt ? (t.offAll(), t.remove()) : t instanceof mapboxgl.Marker && t.remove(),
+                                    t instanceof yt ? (t.offAll(), t.remove()) : t instanceof mapboxgl.Marker && t.remove(),
                                     b()(p()(n.prototype), "removeMarker", this).call(this, t)
                                 }
                             }, {
                                 key: "updateMarker",
                                 value: function (t, e) {
-                                    Object(O.isset)(e) && t instanceof vt && t.update(e)
+                                    Object(O.isset)(e) && t instanceof yt && t.update(e)
                                 }
                             }, {
                                 key: "addShape",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     (t instanceof ct || t instanceof lt) && (t.on("click", (function () {
-                                                return i.trigger("shape:click", {
+                                                return r.trigger("shape:click", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("shape:mouseover", {
+                                                return r.trigger("shape:mouseover", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("shape:mouseout", {
+                                                return r.trigger("shape:mouseout", {
                                                     data: e,
                                                     shape: t
                                                 })
@@ -3338,11 +3350,11 @@
                             }, {
                                 key: "showCallout",
                                 value: function (t, e, n) {
-                                    var i = new mapboxgl.Popup(n).setHTML(e);
-                                    Object(X.isCoordObject)(t) ? i.setLngLat({
+                                    var r = new mapboxgl.Popup(n).setHTML(e);
+                                    Object(X.isCoordObject)(t) ? r.setLngLat({
                                         lat: t.lat,
                                         lng: t.lon
-                                    }).addTo(this.map) : this.isMarker(t) && (t.setPopup(i), t.togglePopup())
+                                    }).addTo(this.map) : this.isMarker(t) && (t.setPopup(r), t.togglePopup())
                                 }
                             }, {
                                 key: "_setupEvents",
@@ -3401,16 +3413,6 @@
                                     }
                                     return n
                                 }
-                            }, {
-                                key: "strategy",
-                                get: function () {
-                                    return "mapbox"
-                                }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return Object(et.a)(this.map.getContainer())
-                                }
                             }
                         ]),
                     n
@@ -3436,12 +3438,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -3449,7 +3451,7 @@
                     l()(n, t);
                     var e = xt(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -3517,24 +3519,24 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var Mt = function (t) {
                     l()(n, t);
                     var e = St(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
-                        (a = e.call(this, t, o, s))._polygons = i,
+                        return i()(this, n),
+                        (a = e.call(this, t, o, s))._polygons = r,
                         a
                     }
                     return o()(n, [{
@@ -3552,19 +3554,19 @@
                                     var t,
                                     e = this.opts,
                                     n = e.stroke,
-                                    i = e.fill,
-                                    r = this._polygons.length > 1,
+                                    r = e.fill,
+                                    i = this._polygons.length > 1,
                                     a = (this._polygons || []).map((function (e) {
                                             !Object(O.isset)(t) && Object(O.isset)(e.id) && (t = e.id);
                                             var n = e.outer.map((function (t) {
                                                         return [t.lon, t.lat]
                                                     })),
-                                            i = e.inner ? e.inner.map((function (t) {
+                                            r = e.inner ? e.inner.map((function (t) {
                                                         return t.map((function (t) {
                                                                 return [t.lon, t.lat]
                                                             }))
                                                     })) : [];
-                                            return [n].concat(R()(i))
+                                            return [n].concat(R()(r))
                                         }));
                                     return this.source = new ol.source.Vector({
                                         features: (new ol.format.GeoJSON).readFeatures({
@@ -3575,8 +3577,8 @@
                                                         id: t
                                                     },
                                                     geometry: {
-                                                        type: r ? "MultiPolygon" : "Polygon",
-                                                        coordinates: r ? a : a[0] || []
+                                                        type: i ? "MultiPolygon" : "Polygon",
+                                                        coordinates: i ? a : a[0] || []
                                                     }
                                                 }
                                             ]
@@ -3589,7 +3591,7 @@
                                         source: this.source,
                                         style: new ol.style.Style({
                                             stroke: n ? new ol.style.Stroke(n) : null,
-                                            fill: i ? new ol.style.Fill(i) : null
+                                            fill: r ? new ol.style.Fill(r) : null
                                         })
                                     })
                                 }
@@ -3616,24 +3618,24 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var It = function (t) {
                     l()(n, t);
                     var e = Lt(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
-                        (a = e.call(this, t, o, s))._points = i,
+                        return i()(this, n),
+                        (a = e.call(this, t, o, s))._points = r,
                         a
                     }
                     return o()(n, [{
@@ -3690,12 +3692,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -3704,7 +3706,7 @@
                     var e = Rt(n);
                     function n() {
                         var t;
-                        return r()(this, n),
+                        return i()(this, n),
                         (t = e.apply(this, arguments))._loadCounter = {
                             loading: 0,
                             loaded: 0
@@ -3763,38 +3765,38 @@
                 (Tt),
                 Pt = n("2dk7"),
                 Dt = function (t) {
-                    if (t.html, t.svg) {
+                    if (t.html && console.warn("awxjs - HTML markers are not currently supported with OpenLayers"), t.svg) {
                         var e = t.size || [12, 12],
                         n = M()(e, 2),
-                        i = n[0],
-                        r = n[1];
+                        r = n[0],
+                        i = n[1];
                         if (t.svg.text) {
                             var a = t.svg.text;
                             if (Object(O.isArray)(a))
                                 a.forEach((function (t) {
                                         if (t.autosize) {
-                                            var e = W.calculateTextSize(t.value, t.size),
+                                            var e = q.calculateTextSize(t.value, t.size),
                                             n = M()(e, 2);
-                                            i = n[0],
-                                            r = n[1]
+                                            r = n[0],
+                                            i = n[1]
                                         }
                                     }));
                             else {
                                 var o = a;
                                 if (o.autosize) {
-                                    var s = W.calculateTextSize(o.value, o.size),
+                                    var s = q.calculateTextSize(o.value, o.size),
                                     c = M()(s, 2);
-                                    i = c[0],
-                                    r = c[1]
+                                    r = c[0],
+                                    i = c[1]
                                 }
                             }
                         }
-                        r += 3;
-                        var u = W.draw(i, r, t.svg);
+                        i += 3;
+                        var u = q.draw(r, i, t.svg);
                         return new ol.style.Icon({
                             src: "data:image/svg+xml;base64,".concat(btoa(u)),
-                            size: [i, r],
-                            imgSize: [i, r],
+                            size: [r, i],
+                            imgSize: [r, i],
                             crossOrigin: "anonymous"
                         })
                     }
@@ -3812,7 +3814,7 @@
                 },
                 zt = function () {
                     function t(e) {
-                        if (r()(this, t), document) {
+                        if (i()(this, t), document) {
                             var n = Object(et.a)('<div class="aeris__openlayers__popup"></div>');
                             this._container = n,
                             this._overlay = new ol.Overlay({
@@ -3847,9 +3849,9 @@
                                 value: function (t) {
                                     var e = ol.proj.fromLonLat([t.lon, t.lat]),
                                     n = M()(e, 2),
-                                    i = n[0],
-                                    r = n[1];
-                                    this._overlay.setPosition([Math.round(i), Math.round(r)])
+                                    r = n[0],
+                                    i = n[1];
+                                    this._overlay.setPosition([Math.round(r), Math.round(i)])
                                 }
                             }, {
                                 key: "setHTML",
@@ -3872,7 +3874,7 @@
                     t
                 }
                 ();
-                function Ft(t) {
+                function At(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -3890,20 +3892,20 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var At = function (t) {
+                var Ft = function (t) {
                     l()(n, t);
-                    var e = Ft(n);
+                    var e = At(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -3912,11 +3914,11 @@
                                     var e;
                                     if (Object(O.isset)(t)) {
                                         var n = null === (e = t.data) || void 0 === e ? void 0 : e.value,
-                                        i = t.style || {};
-                                        Object(O.isFunction)(i) && (i = i({
+                                        r = t.style || {};
+                                        Object(O.isFunction)(r) && (r = r({
                                                 value: n
                                             })),
-                                        this.setStyle(i)
+                                        this.setStyle(r)
                                     }
                                 }
                             }, {
@@ -3939,12 +3941,12 @@
                                     e = this.opts.style,
                                     n = this.coordinate;
                                     if (e && (t = Dt(e), e.callout)) {
-                                        var i = e.callout;
+                                        var r = e.callout;
                                         if (Object(O.isFunction)(e.callout))
-                                            i = (0, e.callout)();
-                                        var r = new zt(n);
-                                        r.setHTML(i),
-                                        this._popup = r
+                                            r = (0, e.callout)();
+                                        var i = new zt(n);
+                                        i.setHTML(r),
+                                        this._popup = i
                                     }
                                     return this._feature = new ol.Feature({
                                         geometry: new ol.geom.Point(ol.proj.fromLonLat([n.lon, n.lat]))
@@ -3966,16 +3968,16 @@
                                 key: "addToMap",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = this.renderable;
-                                    i && ["click", "mouseover", "mouseout"].forEach((function (e) {
-                                            var r = "__awxjs_".concat(e, "Handler");
-                                            i[r] ? i.un(e, i[r]) : (i[r] = function (r) {
+                                    r = this.renderable;
+                                    r && ["click", "mouseover", "mouseout"].forEach((function (e) {
+                                            var i = "__awxjs_".concat(e, "Handler");
+                                            r[i] ? r.un(e, r[i]) : (r[i] = function (i) {
                                                 n.trigger(e, {
                                                     data: n.data,
-                                                    marker: i
+                                                    marker: r
                                                 }),
                                                 n.popup && (n._activePopup && n._activePopup.remove(), n.popup.addTo(t), n._activePopup = n.popup)
-                                            }, i.on("marker:click", i[r]))
+                                            }, r.on("marker:click", r[i]))
                                         })),
                                     t.addLayer(this.renderable)
                                 }
@@ -4022,12 +4024,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -4035,7 +4037,7 @@
                     l()(n, t);
                     var e = Ct(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -4083,8 +4085,8 @@
                                 key: "animationLayerForDate",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
-                                    return new Promise((function (t, r) {
+                                    r = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
+                                    return new Promise((function (t, i) {
                                             if (n.dataSource) {
                                                 var a = n.dataSource.tileLayer(n.key, e, Object(O.extend)(Object(O.cloneDeep)(n._opts), {
                                                             id: "".concat(n.identifier, "-anim-").concat(Object(X.mapTimestampFromDate)(e)),
@@ -4098,9 +4100,9 @@
                                                 a.isAnimationFrame = !0,
                                                 a.setOpacity(n._opacity, !0),
                                                 a.hide(),
-                                                !1 === i && t(a),
+                                                !1 === r && t(a),
                                                 a.overlay.on("load", (function () {
-                                                        i && t(a),
+                                                        r && t(a),
                                                         a.setOpacity(n._opacity, !0)
                                                     })),
                                                 a.on("layer:remove", (function () {
@@ -4114,7 +4116,7 @@
                                                     offset: 1
                                                 })
                                             } else
-                                                r(new Error("No map strategy data source provided"))
+                                                i(new Error("No map strategy data source provided"))
                                         }))
                                 }
                             }, {
@@ -4129,10 +4131,10 @@
                                         var e = this.urlTemplate();
                                         if (e) {
                                             var n = this.service.range(),
-                                            i = n.filter((function (t, e) {
+                                            r = n.filter((function (t, e) {
                                                         return 0 === e || e === n.length - 1
                                                     })).join("-");
-                                            e = e.replace(/\{s\}/, "{".concat(i, "}"))
+                                            e = e.replace(/\{s\}/, "{".concat(r, "}"))
                                         }
                                         this.overlay.setUrl(e)
                                     }
@@ -4143,9 +4145,9 @@
                 }
                 (Q.a),
                 Vt = n("ad4Q"),
-                Wt = function () {
+                qt = function () {
                     function t() {
-                        r()(this, t)
+                        i()(this, t)
                     }
                     return o()(t, [{
                                 key: "tileLayer",
@@ -4155,45 +4157,45 @@
                             }, {
                                 key: "marker",
                                 value: function (t, e, n) {
-                                    return n && n.skip && !0 === n.skip ? null : new At(e, null, {
+                                    return n && n.skip && !0 === n.skip ? null : new Ft(e, null, {
                                         style: n
                                     })
                                 }
                             }, {
                                 key: "markerIcon",
                                 value: function (t) {
-                                    if (t.html, t.svg) {
+                                    if (t.html && console.warn("awxjs - HTML markers are not currently supported with OpenLayers"), t.svg) {
                                         var e = t.size || [12, 12],
                                         n = M()(e, 2),
-                                        i = n[0],
-                                        r = n[1];
+                                        r = n[0],
+                                        i = n[1];
                                         if (t.svg.text) {
                                             var a = t.svg.text;
                                             if (Object(O.isArray)(a))
                                                 a.forEach((function (t) {
                                                         if (t.autosize) {
-                                                            var e = W.calculateTextSize(t.value, t.size),
+                                                            var e = q.calculateTextSize(t.value, t.size),
                                                             n = M()(e, 2);
-                                                            i = n[0],
-                                                            r = n[1]
+                                                            r = n[0],
+                                                            i = n[1]
                                                         }
                                                     }));
                                             else {
                                                 var o = a;
                                                 if (o.autosize) {
-                                                    var s = W.calculateTextSize(o.value, o.size),
+                                                    var s = q.calculateTextSize(o.value, o.size),
                                                     c = M()(s, 2);
-                                                    i = c[0],
-                                                    r = c[1]
+                                                    r = c[0],
+                                                    i = c[1]
                                                 }
                                             }
                                         }
-                                        r += 3;
-                                        var u = W.draw(i, r, t.svg);
+                                        i += 3;
+                                        var u = q.draw(r, i, t.svg);
                                         return new ol.style.Icon({
                                             src: "data:image/svg+xml;base64,".concat(btoa(u)),
-                                            size: [i, r],
-                                            imgSize: [i, r],
+                                            size: [r, i],
+                                            imgSize: [r, i],
                                             crossOrigin: "anonymous"
                                         })
                                     }
@@ -4212,17 +4214,17 @@
                             }, {
                                 key: "polygon",
                                 value: function (t, e, n) {
-                                    var i;
+                                    var r;
                                     if (n) {
-                                        if ((i = {
+                                        if ((r = {
                                                     stroke: null,
                                                     fill: null
                                                 }).id = n.id, n.stroke) {
-                                            var r = Object(Pt.toRGB)(n.stroke.color),
-                                            a = r.r,
-                                            o = r.g,
-                                            s = r.b;
-                                            i.stroke = {
+                                            var i = Object(Pt.toRGB)(n.stroke.color),
+                                            a = i.r,
+                                            o = i.g,
+                                            s = i.b;
+                                            r.stroke = {
                                                 color: "rgba(".concat(a, ", ").concat(o, ", ").concat(s, ", ").concat(n.stroke.opacity || 1, ")"),
                                                 width: n.stroke.width,
                                                 lineCap: n.stroke.lineCap,
@@ -4236,29 +4238,29 @@
                                             u = c.r,
                                             l = c.g,
                                             h = c.b;
-                                            i.fill = {
+                                            r.fill = {
                                                 color: "rgba(".concat(u, ", ").concat(l, ", ").concat(h, ", ").concat(Object(O.isset)(n.fill.opacity) ? n.fill.opacity : 1, ")")
                                             }
                                         }
                                     }
                                     return e.forEach((function (t) {
-                                            i.id || (i.id = t.id)
+                                            r.id || (r.id = t.id)
                                         })),
-                                    new Mt(t, e, i)
+                                    new Mt(t, e, r)
                                 }
                             }, {
                                 key: "polyline",
                                 value: function (t, e, n) {
-                                    var i;
-                                    if (n && ((i = {
+                                    var r;
+                                    if (n && ((r = {
                                                     stroke: null,
                                                     fill: null
                                                 }).id = n.id, n.stroke)) {
-                                        var r = Object(Pt.toRGB)(n.stroke.color),
-                                        a = r.r,
-                                        o = r.g,
-                                        s = r.b;
-                                        i.stroke = {
+                                        var i = Object(Pt.toRGB)(n.stroke.color),
+                                        a = i.r,
+                                        o = i.g,
+                                        s = i.b;
+                                        r.stroke = {
                                             color: "rgba(".concat(a, ", ").concat(o, ", ").concat(s, ", ").concat(n.stroke.opacity || 1, ")"),
                                             width: n.stroke.width,
                                             lineCap: n.stroke.lineCap,
@@ -4267,14 +4269,14 @@
                                             lineDashOffset: n.stroke.dashOffset
                                         }
                                     }
-                                    return new It(t, e, i)
+                                    return new It(t, e, r)
                                 }
                             }
                         ]),
                     t
                 }
                 ();
-                function qt(t) {
+                function Wt(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -4292,21 +4294,21 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var Nt = function (t) {
                     l()(n, t);
-                    var e = qt(n);
+                    var e = Wt(n);
                     function n() {
                         var t;
-                        return r()(this, n),
+                        return i()(this, n),
                         (t = e.apply(this, arguments))._hasLoaded = !1,
                         t._clickedMapLayer = !1,
                         t._shapeDataById = {},
@@ -4329,7 +4331,7 @@
                                 key: "setupMap",
                                 value: function (t) {
                                     var e = this;
-                                    this._factory = new Wt,
+                                    this._factory = new qt,
                                     this._eventMapping = {
                                         unload: "unload",
                                         resize: "resize",
@@ -4346,10 +4348,10 @@
                                     zt.injectStyles();
                                     var n = Object(O.get)(this.opts, "map.view");
                                     if (n && n instanceof ol.View) {
-                                        var i = ol.proj.toLonLat(n.getCenter()),
-                                        r = M()(i, 2),
-                                        a = r[0],
-                                        o = r[1];
+                                        var r = ol.proj.toLonLat(n.getCenter()),
+                                        i = M()(r, 2),
+                                        a = i[0],
+                                        o = i[1];
                                         Object(O.isset)(o) && Object(O.isset)(a) && Object(O.set)(this.opts, "center", {
                                             lat: o,
                                             lon: a
@@ -4438,13 +4440,13 @@
                                     var t = this.map.getView().calculateExtent(this.map.getSize()),
                                     e = ol.proj.transformExtent(t, "EPSG:3857", "EPSG:4326"),
                                     n = M()(e, 4),
-                                    i = n[0],
-                                    r = n[1],
+                                    r = n[0],
+                                    i = n[1],
                                     a = n[2];
                                     return {
                                         north: n[3],
-                                        west: i,
-                                        south: r,
+                                        west: r,
+                                        south: i,
                                         east: a
                                     }
                                 }
@@ -4453,11 +4455,11 @@
                                 value: function (t) {
                                     var e = ol.proj.fromLonLat([t.west, t.south]),
                                     n = M()(e, 2),
-                                    i = n[0],
-                                    r = n[1],
+                                    r = n[0],
+                                    i = n[1],
                                     a = ol.proj.fromLonLat([t.east, t.north]),
                                     o = M()(a, 2),
-                                    s = [i, r, o[0], o[1]];
+                                    s = [r, i, o[0], o[1]];
                                     this.map.getView().fit(s)
                                 }
                             }, {
@@ -4465,10 +4467,10 @@
                                 value: function (t) {
                                     var e,
                                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [10, 10],
-                                    i = ol.proj.fromLonLat([t.west, t.south]),
-                                    r = M()(i, 2),
-                                    a = r[0],
-                                    o = r[1],
+                                    r = ol.proj.fromLonLat([t.west, t.south]),
+                                    i = M()(r, 2),
+                                    a = i[0],
+                                    o = i[1],
                                     s = ol.proj.fromLonLat([t.east, t.north]),
                                     c = M()(s, 2),
                                     u = c[0],
@@ -4487,7 +4489,7 @@
                             }, {
                                 key: "isMarker",
                                 value: function (t) {
-                                    return t instanceof At
+                                    return t instanceof Ft
                                 }
                             }, {
                                 key: "isPolygon",
@@ -4512,20 +4514,20 @@
                             }, {
                                 key: "addMarker",
                                 value: function (t, e) {
-                                    var i = this;
-                                    if (t instanceof At)
+                                    var r = this;
+                                    if (t instanceof Ft)
                                         this.containsLayer(t.renderable) || (t.on("click", (function () {
-                                                    return i.trigger("marker:click", {
+                                                    return r.trigger("marker:click", {
                                                         data: e,
                                                         marker: t
                                                     })
                                                 })), t.on("mouseover", (function () {
-                                                    return i.trigger("marker:mouseover", {
+                                                    return r.trigger("marker:mouseover", {
                                                         data: e,
                                                         marker: t
                                                     })
                                                 })), t.on("mouseout", (function () {
-                                                    return i.trigger("marker:mouseout", {
+                                                    return r.trigger("marker:mouseout", {
                                                         data: e,
                                                         marker: t
                                                     })
@@ -4537,14 +4539,14 @@
                             }, {
                                 key: "removeMarker",
                                 value: function (t) {
-                                    t instanceof At ? (t.offAll(), t.remove()) : t instanceof ol.layer.Vector && this.map.removeLayer(t),
+                                    t instanceof Ft ? (t.offAll(), t.remove()) : t instanceof ol.layer.Vector && this.map.removeLayer(t),
                                     b()(p()(n.prototype), "removeMarker", this).call(this, t)
                                 }
                             }, {
                                 key: "updateMarker",
                                 value: function (t, e) {
-                                    var i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
-                                    e && (t instanceof At && t.update(e), b()(p()(n.prototype), "updateMarker", this).call(this, t, e, i))
+                                    var r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
+                                    e && (t instanceof Ft && t.update(e), b()(p()(n.prototype), "updateMarker", this).call(this, t, e, r))
                                 }
                             }, {
                                 key: "showMarkers",
@@ -4558,28 +4560,28 @@
                             }, {
                                 key: "addShape",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     if ((t instanceof Mt || t instanceof It) && !this.containsLayer(t.renderable)) {
-                                        var r = this.getIndexBoundForGeom("point", !0);
+                                        var i = this.getIndexBoundForGeom("point", !0);
                                         t.on("click", (function () {
-                                                return i.trigger("shape:click", {
+                                                return r.trigger("shape:click", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })),
                                         t.on("mouseover", (function () {
-                                                return i.trigger("shape:mouseover", {
+                                                return r.trigger("shape:mouseover", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })),
                                         t.on("mouseout", (function () {
-                                                return i.trigger("shape:mouseout", {
+                                                return r.trigger("shape:mouseout", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })),
-                                        t.addTo(this.map, r),
+                                        t.addTo(this.map, i),
                                         this._shapeDataById[t.id] = e
                                     }
                                     b()(p()(n.prototype), "addShape", this).call(this, t, e)
@@ -4628,10 +4630,10 @@
                                     var e = this.map.getCoordinateFromPixel(ol.proj.toLonLat([t.x, t.y]));
                                     if (e) {
                                         var n = M()(e, 2),
-                                        i = n[0];
+                                        r = n[0];
                                         return {
                                             lat: n[1],
-                                            lon: i
+                                            lon: r
                                         }
                                     }
                                     return null
@@ -4640,20 +4642,20 @@
                                 key: "getInsertIndex",
                                 value: function (t, e) {
                                     var n = this.map.getLayers().getArray(),
-                                    i = n.indexOf(t);
-                                    return -1 !== i ? Math.max(0, i + e) : n.length
+                                    r = n.indexOf(t);
+                                    return -1 !== r ? Math.max(0, r + e) : n.length
                                 }
                             }, {
                                 key: "getIndexBoundForGeom",
                                 value: function (t) {
                                     var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
                                     n = 0,
-                                    i = this.map.getLayers().getArray();
-                                    return i.forEach((function (i, r) {
-                                            if (i instanceof ol.layer.Vector) {
-                                                var a = i.getSource().getFeatures();
+                                    r = this.map.getLayers().getArray();
+                                    return r.forEach((function (r, i) {
+                                            if (r instanceof ol.layer.Vector) {
+                                                var a = r.getSource().getFeatures();
                                                 if (a && a.length > 0)
-                                                    a[0].getGeometry().getType().toLowerCase() === t.toLowerCase() && (n = e ? Math.min(n, r) : Math.max(n, r))
+                                                    a[0].getGeometry().getType().toLowerCase() === t.toLowerCase() && (n = e ? Math.min(n, i) : Math.max(n, i))
                                             }
                                         })),
                                     Math.max(1, n)
@@ -4661,27 +4663,27 @@
                             }, {
                                 key: "showCallout",
                                 value: function (t, e, n) {
-                                    var i = new zt;
-                                    if (i.setHTML(e), Object(X.isCoordObject)(t))
-                                        i.setCoordinate(t);
+                                    var r = new zt;
+                                    if (r.setHTML(e), Object(X.isCoordObject)(t))
+                                        r.setCoordinate(t);
                                     else if (this.isMarker(t))
-                                        i.setCoordinate(t.coordinate);
+                                        r.setCoordinate(t.coordinate);
                                     else if (t instanceof ol.Feature) {
-                                        var r = t.getGeometry();
-                                        if (r instanceof ol.geom.Point) {
-                                            var a = r.getCoordinates(),
+                                        var i = t.getGeometry();
+                                        if (i instanceof ol.geom.Point) {
+                                            var a = i.getCoordinates(),
                                             o = M()(a, 2),
                                             s = o[0],
                                             c = o[1];
-                                            i.setCoordinate({
+                                            r.setCoordinate({
                                                 lat: c,
                                                 lon: s
                                             })
                                         }
                                     }
                                     this._activePopup && this._activePopup.remove(),
-                                    this._activePopup = i,
-                                    i.addTo(this.map)
+                                    this._activePopup = r,
+                                    r.addTo(this.map)
                                 }
                             }, {
                                 key: "_setupEvents",
@@ -4690,25 +4692,25 @@
                                     b()(p()(n.prototype), "_setupEvents", this).call(this);
                                     ["mouseover", "mouseout", "mousedown", "mouseup"].forEach((function (e) {
                                             t.map.getTargetElement().addEventListener(e, (function (n) {
-                                                    var i = function (e) {
+                                                    var r = function (e) {
                                                         var n = t.map.getEventPixel(e),
-                                                        i = t.map.getEventCoordinate(e);
+                                                        r = t.map.getEventCoordinate(e);
                                                         return {
                                                             pixel: n,
-                                                            coord: i ? ol.proj.toLonLat(i) : [null, null]
+                                                            coord: r ? ol.proj.toLonLat(r) : [null, null]
                                                         }
                                                     }
                                                     (n),
-                                                    r = i.pixel,
-                                                    a = i.coord;
+                                                    i = r.pixel,
+                                                    a = r.coord;
                                                     t.trigger(e, {
                                                         coord: {
                                                             lat: a[1],
                                                             lon: a[0]
                                                         },
                                                         point: {
-                                                            x: r[0],
-                                                            y: r[1]
+                                                            x: i[0],
+                                                            y: i[1]
                                                         }
                                                     })
                                                 }))
@@ -4718,27 +4720,27 @@
                                         })),
                                     this.map.on("click", (function (e) {
                                             var n = !1,
-                                            i = !1;
-                                            t.map.forEachFeatureAtPixel(e.pixel, (function (e, r) {
-                                                    if (!i) {
+                                            r = !1;
+                                            t.map.forEachFeatureAtPixel(e.pixel, (function (e, i) {
+                                                    if (!r) {
                                                         var a = e.getGeometry(),
                                                         o = e.getProperties(),
                                                         s = (Object(O.get)(o, "id") || Object(O.get)(o, "properties.id") || "").replace(/^aeriswx-/, "");
                                                         if (a instanceof ol.geom.Point)
-                                                            n = !0, r.dispatchEvent(new Vt.a("marker:click")), i = !0;
+                                                            n = !0, i.dispatchEvent(new Vt.a("marker:click")), r = !0;
                                                         else if (a instanceof ol.geom.SimpleGeometry) {
                                                             var c = t._shapeDataById[s];
                                                             t.trigger("shape:click", {
                                                                 shape: e,
                                                                 data: c
                                                             }),
-                                                            i = !0
+                                                            r = !0
                                                         }
                                                     }
                                                 }), {
                                                 hitTolerance: 10
                                             }),
-                                            i ? (t._clickedMapLayer = !0, setTimeout((function () {
+                                            r ? (t._clickedMapLayer = !0, setTimeout((function () {
                                                         t._clickedMapLayer = !1
                                                     }), 100)) : t.trigger("click", t._dataForMapEvent("click", e)),
                                             !n && t._activePopup && t._activePopup.remove()
@@ -4754,30 +4756,30 @@
                                         if (t._hoveredMapLayer) {
                                             var e,
                                             n = t._hoveredMapLayer,
-                                            i = n.type,
-                                            r = n.feature;
-                                            t.trigger("".concat(i, ":mouseout"), (e = {}, jt()(e, i, r), jt()(e, "data", null), e)),
+                                            r = n.type,
+                                            i = n.feature;
+                                            t.trigger("".concat(r, ":mouseout"), (e = {}, jt()(e, r, i), jt()(e, "data", null), e)),
                                             t._hoveredMapLayer = void 0
                                         }
                                     };
                                     this.map.on("pointermove", (function (n) {
-                                            var i = !1;
-                                            t.map.forEachFeatureAtPixel(n.pixel, (function (n, r) {
+                                            var r = !1;
+                                            t.map.forEachFeatureAtPixel(n.pixel, (function (n, i) {
                                                     var a,
                                                     o;
-                                                    if (!i) {
+                                                    if (!r) {
                                                         var s = n.getGeometry(),
                                                         c = n.getProperties(),
                                                         u = (Object(O.get)(c, "id") || Object(O.get)(c, "properties.id") || "").replace(/^aeriswx-/, "");
                                                         if (s instanceof ol.geom.Point)
-                                                            i = !0, n !== (null === (a = t._hoveredMapLayer) || void 0 === a ? void 0 : a.feature) && (e(), t.trigger("marker:mouseover", {
+                                                            r = !0, n !== (null === (a = t._hoveredMapLayer) || void 0 === a ? void 0 : a.feature) && (e(), t.trigger("marker:mouseover", {
                                                                     marker: n,
                                                                     data: null
                                                                 }), t._hoveredMapLayer = {
                                                                     type: "marker",
                                                                     feature: n
                                                                 });
-                                                        else if (s instanceof ol.geom.SimpleGeometry && (i = !0, n !== (null === (o = t._hoveredMapLayer) || void 0 === o ? void 0 : o.feature))) {
+                                                        else if (s instanceof ol.geom.SimpleGeometry && (r = !0, n !== (null === (o = t._hoveredMapLayer) || void 0 === o ? void 0 : o.feature))) {
                                                             e();
                                                             var l = t._shapeDataById[u];
                                                             t.trigger("shape:mouseover", {
@@ -4791,7 +4793,7 @@
                                                         }
                                                     }
                                                 })),
-                                            i || e()
+                                            r || e()
                                         }))
                                 }
                             }, {
@@ -4805,12 +4807,12 @@
                                     if (!e)
                                         return null;
                                     var n,
-                                    i = null;
+                                    r = null;
                                     switch (t) {
                                     case "pointermove":
                                     case "click":
                                     case "dblclick":
-                                        i = {
+                                        r = {
                                             coord: {
                                                 lat: (n = ol.proj.toLonLat(e.coordinate))[1],
                                                 lon: n[0]
@@ -4821,7 +4823,7 @@
                                             }
                                         }
                                     }
-                                    return i
+                                    return r
                                 }
                             }, {
                                 key: "strategy",
@@ -4856,12 +4858,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -4869,7 +4871,7 @@
                     l()(n, t);
                     var e = Zt(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -4896,7 +4898,7 @@
                     n
                 }
                 (P);
-                function Jt(t) {
+                function Ht(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -4914,24 +4916,24 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var Ht = function (t) {
+                var Ut = function (t) {
                     l()(n, t);
-                    var e = Jt(n);
-                    function n(t, i) {
+                    var e = Ht(n);
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
-                        (a = e.call(this, t, o, s))._polygons = i,
+                        return i()(this, n),
+                        (a = e.call(this, t, o, s))._polygons = r,
                         a
                     }
                     return o()(n, [{
@@ -4952,14 +4954,14 @@
                                     var t = this,
                                     e = [],
                                     n = this.opts;
-                                    return this._polygons.forEach((function (i) {
-                                            var r = i.outer.map((function (t) {
+                                    return this._polygons.forEach((function (r) {
+                                            var i = r.outer.map((function (t) {
                                                         return {
                                                             lat: t.lat,
                                                             lng: t.lon
                                                         }
                                                     })),
-                                            a = i.inner.map((function (t) {
+                                            a = r.inner.map((function (t) {
                                                         return t.map((function (t) {
                                                                 return {
                                                                     lat: t.lat,
@@ -4967,7 +4969,7 @@
                                                                 }
                                                             }))
                                                     }));
-                                            n.paths = [r].concat(a);
+                                            n.paths = [i].concat(a);
                                             var o = new google.maps.Polygon(Object.assign(Object.assign({}, n), {
                                                         fillOpacity: t.opts.fillOpacity * t.opacity,
                                                         opacity: t.opts.strokeOpacity * t.opacity
@@ -5010,7 +5012,7 @@
                     n
                 }
                 ($t);
-                function Ut(t) {
+                function Jt(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -5028,24 +5030,24 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var Gt = function (t) {
                     l()(n, t);
-                    var e = Ut(n);
-                    function n(t, i) {
+                    var e = Jt(n);
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : void 0,
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
-                        (a = e.call(this, t, o, s))._points = i,
+                        return i()(this, n),
+                        (a = e.call(this, t, o, s))._points = r,
                         a
                     }
                     return o()(n, [{
@@ -5118,12 +5120,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -5131,7 +5133,7 @@
                     l()(n, t);
                     var e = Qt(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -5178,19 +5180,19 @@
                                         opacity: this.opacity,
                                         tileSize: new google.maps.Size(256, 256),
                                         getTileUrl: function (e, n) {
-                                            var i = t.opts.url;
-                                            if (!Object(O.isset)(i))
+                                            var r = t.opts.url;
+                                            if (!Object(O.isset)(r))
                                                 return null;
-                                            var r = {
+                                            var i = {
                                                 x: e.x,
                                                 y: e.y,
                                                 z: n,
                                                 s: Math.abs(e.x + e.y) % 4 + 1
                                             };
-                                            return Object.keys(r).forEach((function (t) {
-                                                    i = i.replace(new RegExp("{".concat(t, "}")), "".concat(r[t]))
+                                            return Object.keys(i).forEach((function (t) {
+                                                    r = r.replace(new RegExp("{".concat(t, "}")), "".concat(i[t]))
                                                 })),
-                                            i
+                                            r
                                         }
                                     });
                                     return google.maps.event.addListenerOnce(e, "tilesloaded", (function () {
@@ -5219,7 +5221,7 @@
                     n
                 }
                 ($t),
-                Kt = function (t) {
+                Yt = function (t) {
                     var e = {};
                     return t.stroke ? (e.strokeColor = t.stroke.color, e.strokeOpacity = t.stroke.opacity, e.strokeWeight = t.stroke.width) : e.strokeOpacity = 0,
                     t.fill ? (e.fillColor = t.fill.color, e.fillOpacity = t.fill.opacity) : e.fillOpacity = 0,
@@ -5227,40 +5229,40 @@
                     Object(O.isset)(t.strokeOpacity) || (t.strokeOpacity = 1),
                     e
                 },
-                Yt = function (t) {
-                    if (t.html, t.svg) {
+                Kt = function (t) {
+                    if (t.html && console.warn("awxjs - HTML markers are not currently supported with Google Maps"), t.svg) {
                         var e = t.size || [12, 12],
                         n = M()(e, 2),
-                        i = n[0],
-                        r = n[1];
+                        r = n[0],
+                        i = n[1];
                         if (t.svg.text) {
                             var a = t.svg.text;
                             if (Object(O.isArray)(a))
                                 a.forEach((function (t) {
                                         if (t.autosize) {
-                                            var e = W.calculateTextSize(t.value, t.size),
+                                            var e = q.calculateTextSize(t.value, t.size),
                                             n = M()(e, 2);
-                                            i = n[0],
-                                            r = n[1]
+                                            r = n[0],
+                                            i = n[1]
                                         }
                                     }));
                             else {
                                 var o = a;
                                 if (o.autosize) {
-                                    var s = W.calculateTextSize(o.value, o.size),
+                                    var s = q.calculateTextSize(o.value, o.size),
                                     c = M()(s, 2);
-                                    i = c[0],
-                                    r = c[1]
+                                    r = c[0],
+                                    i = c[1]
                                 }
                             }
                         }
-                        r += 3;
-                        var u = W.draw(i, r, t.svg);
+                        i += 3;
+                        var u = q.draw(r, i, t.svg);
                         return {
                             url: "data:image/svg+xml;base64,".concat(btoa(u)),
-                            size: new google.maps.Size(i, r),
-                            scaledSize: new google.maps.Size(i, r),
-                            anchor: new google.maps.Point(i / 2, r / 2)
+                            size: new google.maps.Size(r, i),
+                            scaledSize: new google.maps.Size(r, i),
+                            anchor: new google.maps.Point(r / 2, i / 2)
                         }
                     }
                     if (t.icon) {
@@ -5293,12 +5295,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -5306,7 +5308,7 @@
                     l()(n, t);
                     var e = te(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -5315,17 +5317,17 @@
                                     var e;
                                     if (Object(O.isset)(t)) {
                                         var n = null === (e = t.data) || void 0 === e ? void 0 : e.value,
-                                        i = t.style || {};
-                                        Object(O.isFunction)(i) && (i = i({
+                                        r = t.style || {};
+                                        Object(O.isFunction)(r) && (r = r({
                                                 value: n
                                             })),
-                                        this.setStyle(i)
+                                        this.setStyle(r)
                                     }
                                 }
                             }, {
                                 key: "setStyle",
                                 value: function (t) {
-                                    var e = Yt(t);
+                                    var e = Kt(t);
                                     e && this.renderable.setIcon(e)
                                 }
                             }, {
@@ -5334,8 +5336,8 @@
                                     var t = this.opts.style,
                                     e = this.coordinate,
                                     n = {};
-                                    t && (n.icon = Yt(t), t.zIndex && (n.zIndex = t.zIndex));
-                                    var i = new google.maps.Marker(Object(O.extend)({
+                                    t && (n.icon = Kt(t), t.zIndex && (n.zIndex = t.zIndex));
+                                    var r = new google.maps.Marker(Object(O.extend)({
                                                 position: new google.maps.LatLng(e.lat, e.lon),
                                                 optimized: !1
                                             }, n));
@@ -5344,7 +5346,7 @@
                                         if (Object(O.isFunction)(t.callout))
                                             (0, t.callout)()
                                     }
-                                    return i
+                                    return r
                                 }
                             }, {
                                 key: "updateVisibility",
@@ -5353,16 +5355,16 @@
                                 key: "addToMap",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = this.renderable;
-                                    i && (this._events.forEach((function (t) {
+                                    r = this.renderable;
+                                    r && (this._events.forEach((function (t) {
                                                 var e = "__awxjs_".concat(t, "Handler");
-                                                i[e] ? i[e].remove() : i[e] = i.addListener(t, (function () {
+                                                r[e] ? r[e].remove() : r[e] = r.addListener(t, (function () {
                                                             n.trigger(t, {
                                                                 data: n.data,
-                                                                marker: i
+                                                                marker: r
                                                             })
                                                         }))
-                                            })), i.setMap(t))
+                                            })), r.setMap(t))
                                 }
                             }, {
                                 key: "removeFromMap",
@@ -5396,23 +5398,23 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var ie = function (t) {
+                var re = function (t) {
                     l()(n, t);
                     var e = ne(n);
-                    function n(t, i, a) {
+                    function n(t, r, a) {
                         var o,
                         s;
-                        return r()(this, n),
-                        (o = e.call(this, t, i, a))._layerRemovedWhileLoading = !1,
+                        return i()(this, n),
+                        (o = e.call(this, t, r, a))._layerRemovedWhileLoading = !1,
                         o._tileLoadCheckInterval = null,
                         null === (s = o.animation) || void 0 === s || s.on("reset", (function () {
                                 o._loadingSource && o.trigger("layer:remove", {
@@ -5456,24 +5458,24 @@
                                 value: function (t) {
                                     var e = this,
                                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
-                                    i = new Xt(this.key, {
+                                    r = new Xt(this.key, {
                                         opacity: Object(O.isset)(Object(O.get)(n, "style.opacity")) ? Object(O.get)(n, "style.opacity") : 1,
                                         zIndex: Object(O.get)(n, "style.zIndex")
                                     }, this.identifier);
-                                    return i.on("map:add", (function (t) {
+                                    return r.on("map:add", (function (t) {
                                             var n = (t.data || {}).map;
                                             n && google.maps.event.addListener(n.overlayMapTypes, "remove_at", (function (t, n) {
                                                     e._layerRemovedWhileLoading = !0
                                                 }))
                                         })),
-                                    i
+                                    r
                                 }
                             }, {
                                 key: "animationLayerForDate",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
-                                    return new Promise((function (t, r) {
+                                    r = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
+                                    return new Promise((function (t, i) {
                                             if (n.dataSource) {
                                                 var a = n.dataSource.tileLayer(n.key, e, Object(O.extend)({}, n._opts, {
                                                             id: "".concat(n.identifier, "-anim-").concat(Object(X.mapTimestampFromDate)(e)),
@@ -5491,7 +5493,7 @@
                                                     n._loadingSource = null
                                                 };
                                                 n._loadingSource = a,
-                                                i ? (n._tileLoadCheckInterval = setTimeout((function () {
+                                                r ? (n._tileLoadCheckInterval = setTimeout((function () {
                                                                 n._layerRemovedWhileLoading && o(),
                                                                 n._layerRemovedWhileLoading = !1
                                                             }), 2e3), a.overlay.once("load", (function () {
@@ -5508,7 +5510,7 @@
                                                     layer: a.overlay
                                                 })
                                             } else
-                                                r(new Error("No map strategy data source provided"))
+                                                i(new Error("No map strategy data source provided"))
                                         }))
                                 }
                             }, {
@@ -5526,14 +5528,14 @@
                     n
                 }
                 (Q.a),
-                re = function () {
+                ie = function () {
                     function t() {
-                        r()(this, t)
+                        i()(this, t)
                     }
                     return o()(t, [{
                                 key: "tileLayer",
                                 value: function (t, e, n) {
-                                    return new ie(t, e, n)
+                                    return new re(t, e, n)
                                 }
                             }, {
                                 key: "marker",
@@ -5545,16 +5547,16 @@
                             }, {
                                 key: "polygon",
                                 value: function (t, e, n) {
-                                    var i;
-                                    return n && (i = Kt(n)),
-                                    new Ht(t, e, i)
+                                    var r;
+                                    return n && (r = Yt(n)),
+                                    new Ut(t, e, r)
                                 }
                             }, {
                                 key: "polyline",
                                 value: function (t, e, n) {
-                                    var i;
-                                    return n && (i = Kt(n)),
-                                    new Gt(t, e, i)
+                                    var r;
+                                    return n && (r = Yt(n)),
+                                    new Gt(t, e, r)
                                 }
                             }
                         ]),
@@ -5579,42 +5581,54 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var oe = function (t) {
                     l()(n, t);
                     var e = ae(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, Object(O.extend)({
                                         accessToken: null
-                                    }, i))).addAttributions = Object(O.debounce)((function (t) {
+                                    }, r))).addAttributions = Object(O.debounce)((function (t) {
                                     if (!(Object(et.a)("#awxjs-attribution").length > 0)) {
                                         var e = Object(et.a)('<div id="awxjs-attribution"></div>');
                                         a.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(e[0]);
                                         var n = t.join(" | "),
-                                        i = {
+                                        r = {
                                             "background-color": "rgba(255,255,255,0.6)",
                                             "font-size": "10px",
                                             padding: "2px 4px 0",
                                             "white-space": "nowrap"
                                         };
-                                        e.html('<span style="'.concat(Object.keys(i).map((function (t) {
-                                                        return "".concat(t, ": ").concat(i[t], ";")
+                                        e.html('<span style="'.concat(Object.keys(r).map((function (t) {
+                                                        return "".concat(t, ": ").concat(r[t], ";")
                                                     })).join(" "), '">').concat(n, "</span>"))
                                     }
                                 }), 500),
                         a
                     }
                     return o()(n, [{
+                                key: "strategy",
+                                get: function () {
+                                    return "google"
+                                }
+                            }, {
+                                key: "$el",
+                                get: function () {
+                                    return Object(et.a)(this.map.getDiv())
+                                }
+                            }
+                        ]),
+                    o()(n, [{
                                 key: "loadDependencies",
                                 value: function () {
                                     var t = this;
@@ -5631,7 +5645,7 @@
                                 key: "setupMap",
                                 value: function (t) {
                                     var e = this;
-                                    this._factory = new re,
+                                    this._factory = new ie,
                                     this._callout = new google.maps.InfoWindow,
                                     this._eventMapping = {
                                         click: "click",
@@ -5646,13 +5660,13 @@
                                     };
                                     var n = this.opts.map;
                                     if (n) {
-                                        var i = n.center,
-                                        r = n.zoom;
-                                        Object(O.isPlainObject)(i) && Object(O.isset)(i.lat) && Object(O.isset)(i.lng) && Object(O.set)(this.opts, "center", {
-                                            lat: i.lat,
-                                            lon: i.lng
+                                        var r = n.center,
+                                        i = n.zoom;
+                                        Object(O.isPlainObject)(r) && Object(O.isset)(r.lat) && Object(O.isset)(r.lng) && Object(O.set)(this.opts, "center", {
+                                            lat: r.lat,
+                                            lon: r.lng
                                         }),
-                                        r && Object(O.set)(this.opts, "zoom", r)
+                                        i && Object(O.set)(this.opts, "zoom", i)
                                     }
                                     if (Object(X.isGoogle)(t))
                                         this._setInitialView = !1, this._map = t;
@@ -5662,9 +5676,10 @@
                                         else if (Object(O.isDOM)(t)) {
                                             t = t[0]
                                         }
+                                        var a = !1 === Object(O.get)(this.opts, "map.zoomControl");
                                         this._map = new google.maps.Map(t, Object(O.extend)({
                                                     disableDefaultUI: !0,
-                                                    zoomControl: !0,
+                                                    zoomControl: !a,
                                                     zoomControlOptions: {
                                                         position: google.maps.ControlPosition.LEFT_BOTTOM
                                                     }
@@ -5681,7 +5696,9 @@
                                 }
                             }, {
                                 key: "setBaseStyle",
-                                value: function (t) {}
+                                value: function (t) {
+                                    console.warn("[Aeris] `setBaseStyle` is not supported for the Google Maps strategy")
+                                }
                             }, {
                                 key: "setView",
                                 value: function (t, e) {
@@ -5748,9 +5765,9 @@
                                 value: function (t) {
                                     var e,
                                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [10, 10],
-                                    i = new google.maps.LatLng(t.south, t.west),
-                                    r = new google.maps.LatLng(t.north, t.east),
-                                    a = new google.maps.LatLngBounds(i, r);
+                                    r = new google.maps.LatLng(t.south, t.west),
+                                    i = new google.maps.LatLng(t.north, t.east),
+                                    a = new google.maps.LatLngBounds(r, i);
                                     1 === n.length ? e = n[0] : 2 === n.length ? e = {
                                         top: n[1],
                                         right: n[0],
@@ -5773,7 +5790,7 @@
                             }, {
                                 key: "isTile",
                                 value: function (t) {
-                                    return t instanceof ie
+                                    return t instanceof re
                                 }
                             }, {
                                 key: "isMarker",
@@ -5821,19 +5838,19 @@
                             }, {
                                 key: "addMarker",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     t instanceof ee ? (t.on("click", (function () {
-                                                return i.trigger("marker:click", {
+                                                return r.trigger("marker:click", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("marker:mouseover", {
+                                                return r.trigger("marker:mouseover", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("marker:mouseout", {
+                                                return r.trigger("marker:mouseout", {
                                                     data: e,
                                                     marker: t
                                                 })
@@ -5863,19 +5880,19 @@
                             }, {
                                 key: "addShape",
                                 value: function (t, e) {
-                                    var i = this;
-                                    t instanceof Ht || t instanceof Gt ? (t.on("click", (function () {
-                                                return i.trigger("shape:click", {
+                                    var r = this;
+                                    t instanceof Ut || t instanceof Gt ? (t.on("click", (function () {
+                                                return r.trigger("shape:click", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("shape:mouseover", {
+                                                return r.trigger("shape:mouseover", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("shape:mouseout", {
+                                                return r.trigger("shape:mouseout", {
                                                     data: e,
                                                     shape: t
                                                 })
@@ -5885,7 +5902,7 @@
                             }, {
                                 key: "removeShape",
                                 value: function (t) {
-                                    t instanceof Ht || t instanceof Gt ? (t.offAll(), t.remove()) : (this.isPolygon(t) || this.isPolyline(t)) && t.setMap(null),
+                                    t instanceof Ut || t instanceof Gt ? (t.offAll(), t.remove()) : (this.isPolygon(t) || this.isPolyline(t)) && t.setMap(null),
                                     b()(p()(n.prototype), "removeShape", this).call(this, t)
                                 }
                             }, {
@@ -5905,13 +5922,13 @@
                                         return null;
                                     var e = this.map.getProjection(),
                                     n = this.map.getBounds(),
-                                    i = e.fromLatLngToPoint(n.getNorthEast()),
-                                    r = e.fromLatLngToPoint(n.getSouthWest()),
+                                    r = e.fromLatLngToPoint(n.getNorthEast()),
+                                    i = e.fromLatLngToPoint(n.getSouthWest()),
                                     a = Math.pow(this.map.getZoom(), 2),
                                     o = e.fromLatLngToPoint(new google.maps.LatLng(t.lat, t.lon));
                                     return {
-                                        x: (o.x - r.x) * a,
-                                        y: (o.y - i.y) * a
+                                        x: (o.x - i.x) * a,
+                                        y: (o.y - r.y) * a
                                     }
                                 }
                             }, {
@@ -5921,10 +5938,10 @@
                                         return null;
                                     var e = this.map.getProjection(),
                                     n = this.map.getBounds(),
-                                    i = e.fromLatLngToPoint(n.getNorthEast()),
-                                    r = e.fromLatLngToPoint(n.getSouthWest()),
+                                    r = e.fromLatLngToPoint(n.getNorthEast()),
+                                    i = e.fromLatLngToPoint(n.getSouthWest()),
                                     a = Math.pow(this.map.getZoom(), 2),
-                                    o = e.fromPointToLatLng(new google.maps.Point(t.x / a * r.x, t.y / a + i.y));
+                                    o = e.fromPointToLatLng(new google.maps.Point(t.x / a * i.x, t.y / a + r.y));
                                     return {
                                         lat: o.lat(),
                                         lon: o.lng()
@@ -5970,7 +5987,7 @@
                                         x: void 0,
                                         y: void 0
                                     },
-                                    i = null;
+                                    r = null;
                                     switch (t) {
                                     case "mouseover":
                                     case "mousemove":
@@ -5978,7 +5995,7 @@
                                     case "mouseup":
                                     case "click":
                                     case "dblclick":
-                                        i = {
+                                        r = {
                                             coord: {
                                                 lat: e.latLng.lat(),
                                                 lon: e.latLng.lng()
@@ -5989,17 +6006,7 @@
                                             }
                                         }
                                     }
-                                    return i
-                                }
-                            }, {
-                                key: "strategy",
-                                get: function () {
-                                    return "google"
-                                }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return Object(et.a)(this.map.getDiv())
+                                    return r
                                 }
                             }
                         ]),
@@ -6010,7 +6017,7 @@
                 ce = n("lnrW"),
                 ue = function () {
                     function t(e) {
-                        r()(this, t),
+                        i()(this, t),
                         this._configs = {
                             "air-quality": se.b.airquality,
                             convective: se.b.convectiveOutlook,
@@ -6041,24 +6048,24 @@
                                 key: "setStyle",
                                 value: function (t, e) {
                                     var n,
-                                    i = this.getConfig(t) || {};
+                                    r = this.getConfig(t) || {};
                                     if (Object(ce.c)(t))
-                                        n = e.raster ? e.raster : e, i.style = Object(O.extend)(i.style, n);
+                                        n = e.raster ? e.raster : e, r.style = Object(O.extend)(r.style, n);
                                     else if (Object(ce.d)(t) || Object(ce.b)(t)) {
-                                        var r,
+                                        var i,
                                         a,
                                         o,
                                         s = Object(O.isset)(e.marker) || Object(O.isset)(e.polygon) || Object(O.isset)(e.polyline);
-                                        e.marker ? r = e.marker : !1 === s && (r = e),
+                                        e.marker ? i = e.marker : !1 === s && (i = e),
                                         e.polygon ? a = e.polygon : !1 === s && (a = e),
                                         e.polyline ? o = e.polyline : !1 === s && (o = e),
-                                        i.style = Object(O.extend)(i.style, {
-                                            marker: r,
+                                        r.style = Object(O.extend)(r.style, {
+                                            marker: i,
                                             polygon: a,
                                             polyline: o
                                         })
                                     }
-                                    this._configs[t] = Object(O.cloneDeep)(i)
+                                    this._configs[t] = Object(O.cloneDeep)(r)
                                 }
                             }, {
                                 key: "setStyles",
@@ -6073,8 +6080,8 @@
                                 value: function (t, e) {
                                     var n = this.getConfig(t);
                                     if (n) {
-                                        var i = n.style;
-                                        return i[e] ? i[e] : i
+                                        var r = n.style;
+                                        return r[e] ? r[e] : r
                                     }
                                 }
                             }, {
@@ -6116,12 +6123,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -6130,24 +6137,24 @@
                     var e = de(n);
                     function n() {
                         var t;
-                        return r()(this, n),
+                        return i()(this, n),
                         (t = e.apply(this, arguments))._order = new Map,
                         t._mapping = new Map,
                         t
                     }
                     return o()(n, [{
                                 key: "add",
-                                value: function (t, e, i) {
+                                value: function (t, e, r) {
                                     b()(p()(n.prototype), "add", this).call(this, t, e),
-                                    Object(O.isset)(i) && this._order.set(t, i)
+                                    Object(O.isset)(r) && this._order.set(t, r)
                                 }
                             }, {
                                 key: "get",
                                 value: function (t) {
                                     var e = b()(p()(n.prototype), "get", this).call(this, t);
                                     if (!Object(O.isset)(e)) {
-                                        var i = this.mapping.get(t);
-                                        i && (e = b()(p()(n.prototype), "get", this).call(this, i))
+                                        var r = this.mapping.get(t);
+                                        r && (e = b()(p()(n.prototype), "get", this).call(this, r))
                                     }
                                     return e
                                 }
@@ -6166,7 +6173,7 @@
                     n
                 }
                 (n("QAwG").a);
-                function ye(t) {
+                function ve(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -6184,20 +6191,20 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var ve = function (t) {
+                var ye = function (t) {
                     l()(n, t);
-                    var e = ye(n);
+                    var e = ve(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -6215,11 +6222,11 @@
                                         e.forEach((function (t, e) {
                                                 "line" === t.type && /^admin-/.test(t.id) && 0 === n && (n = e)
                                             }));
-                                        var i = e.map((function (t) {
+                                        var r = e.map((function (t) {
                                                     return t.id
                                                 }))[n + t];
                                         this.map.removeLayer(this.layerId),
-                                        this.map.addLayer(this.renderable, i)
+                                        this.map.addLayer(this.renderable, r)
                                     }
                                 }
                             }, {
@@ -6297,25 +6304,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var ge = function (t) {
                     l()(n, t);
                     var e = me(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, o, s))._needsEventSetup = !0,
-                        a._polygons = i,
+                        a._polygons = r,
                         a
                     }
                     return o()(n, [{
@@ -6392,12 +6399,12 @@
                                         stroke: {}
                                     };
                                     return ["fill", "line"].forEach((function (n) {
-                                            var i = "line" === n ? "stroke" : "fill";
+                                            var r = "line" === n ? "stroke" : "fill";
                                             Object.keys(t).filter((function (t) {
                                                     return new RegExp("^".concat(n, "-")).test(t)
                                                 })).forEach((function (n) {
-                                                    var r = ot.hyphenate(n);
-                                                    Object(O.isset)(t[n]) && (e[i][r] = t[n])
+                                                    var i = ot.hyphenate(n);
+                                                    Object(O.isset)(t[n]) && (e[r][i] = t[n])
                                                 }))
                                         })),
                                     Object.keys(e.stroke).length > 0 && (this._strokeLayer = {
@@ -6423,7 +6430,7 @@
                         ]),
                     n
                 }
-                (ve);
+                (ye);
                 function ke(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -6442,25 +6449,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var be = function (t) {
                     l()(n, t);
                     var e = ke(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
                         s = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, o, s))._needsEventSetup = !0,
-                        a._points = i,
+                        a._points = r,
                         a
                     }
                     return o()(n, [{
@@ -6525,7 +6532,7 @@
                         ]),
                     n
                 }
-                (ve);
+                (ye);
                 function _e(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -6544,25 +6551,25 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var Oe = function (t) {
                     l()(n, t);
                     var e = _e(n);
-                    function n(t, i) {
+                    function n(t, r) {
                         var a,
                         o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         (a = e.call(this, t, Object(O.extend)({
                                         type: "tile"
-                                    }, i), o))._type = a.opts.type,
+                                    }, r), o))._type = a.opts.type,
                         a
                     }
                     return o()(n, [{
@@ -6584,8 +6591,8 @@
                                     var n = this.map;
                                     if (n) {
                                         e || (e = this.opts.bounds);
-                                        var i = n.getSource(this.sourceId);
-                                        i ? i.updateImage({
+                                        var r = n.getSource(this.sourceId);
+                                        r ? r.updateImage({
                                             url: t,
                                             coordinates: [[e.west, e.north], [e.east, e.north], [e.east, e.south], [e.west, e.south]]
                                         }) : this.invalidate()
@@ -6612,13 +6619,13 @@
                                                 tiles: [1, 2, 3, 4].map((function (t) {
                                                         return e.replace(/\{s\}/, "".concat(t))
                                                     })),
-                                                tileSize: 512,
+                                                tileSize: 256,
                                                 attribution: this.opts.attribution || ""
                                             };
                                         if (this.createRenderable(), this.map) {
-                                            var i = this.map;
+                                            var r = this.map;
                                             this.remove(),
-                                            this.addTo(i)
+                                            this.addTo(r)
                                         }
                                     }
                                 }
@@ -6648,7 +6655,7 @@
                         ]),
                     n
                 }
-                (ve);
+                (ye);
                 function we(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -6667,12 +6674,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -6680,7 +6687,7 @@
                     l()(n, t);
                     var e = we(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -6690,12 +6697,12 @@
                                     if (Object(O.isset)(t)) {
                                         var n = t.data;
                                         Object(O.isset)(n) && (this.data = Object.assign(Object.assign({}, this.data), n));
-                                        var i = null === (e = this.data) || void 0 === e ? void 0 : e.value,
-                                        r = t.style || {};
-                                        Object(O.isFunction)(r) && (r = r({
-                                                value: i
+                                        var r = null === (e = this.data) || void 0 === e ? void 0 : e.value,
+                                        i = t.style || {};
+                                        Object(O.isFunction)(i) && (i = i({
+                                                value: r
                                             })),
-                                        this.setStyle(r)
+                                        this.setStyle(i)
                                     }
                                 }
                             }, {
@@ -6711,18 +6718,18 @@
                                     e = this.coordinate,
                                     n = {};
                                     t && (n.icon = pt(t), t.zIndex && (n.zIndex = t.zIndex));
-                                    var i = new maplibregl.Marker({
+                                    var r = new maplibregl.Marker({
                                         element: n.icon
                                     });
-                                    if (i.setLngLat([e.lon, e.lat]), t && t.callout) {
-                                        var r = t.callout;
+                                    if (r.setLngLat([e.lon, e.lat]), t && t.callout) {
+                                        var i = t.callout;
                                         if (Object(O.isFunction)(t.callout))
-                                            r = (0, t.callout)();
+                                            i = (0, t.callout)();
                                         var a = new maplibregl.Popup;
-                                        a.setHTML(r),
-                                        i.setPopup(a)
+                                        a.setHTML(i),
+                                        r.setPopup(a)
                                     }
-                                    return i
+                                    return r
                                 }
                             }, {
                                 key: "updateVisibility",
@@ -6731,21 +6738,21 @@
                                 key: "addToMap",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = this.renderable;
-                                    if (i) {
-                                        var r = i.getElement();
+                                    r = this.renderable;
+                                    if (r) {
+                                        var i = r.getElement();
                                         this._events.forEach((function (t) {
                                                 var e = "__awxjs_".concat(t, "Handler");
-                                                i[e] ? r.removeEventListener(t, i[e]) : i[e] = function (e) {
+                                                r[e] ? i.removeEventListener(t, r[e]) : r[e] = function (e) {
                                                     e.stopPropagation(),
                                                     n.trigger(t, {
                                                         data: n.data,
-                                                        marker: i
+                                                        marker: r
                                                     })
                                                 },
-                                                r.addEventListener(t, i[e])
+                                                i.addEventListener(t, r[e])
                                             })),
-                                        i.addTo(t)
+                                        r.addTo(t)
                                     }
                                 }
                             }, {
@@ -6755,8 +6762,8 @@
                                     if (e) {
                                         var n = e.getElement();
                                         this._events.forEach((function (t) {
-                                                var i = "__awxjs_".concat(t, "Handler");
-                                                e[i] && n.removeEventListener(t, e.__awxjs_clickHandler)
+                                                var r = "__awxjs_".concat(t, "Handler");
+                                                e[r] && n.removeEventListener(t, e.__awxjs_clickHandler)
                                             })),
                                         e.remove()
                                     }
@@ -6784,22 +6791,22 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var Te = function (t) {
                     l()(n, t);
                     var e = xe(n);
-                    function n(t, i, a) {
+                    function n(t, r, a) {
                         var o;
-                        r()(this, n);
-                        var s = (o = e.call(this, t, i, a)).animation,
+                        i()(this, n);
+                        var s = (o = e.call(this, t, r, a)).animation,
                         c = new Oe(t, Object(O.extend)(a, {
                                     type: "image"
                                 }), "".concat(o.identifier, "-anim"));
@@ -6870,8 +6877,8 @@
                                 key: "animationLayerForDate",
                                 value: function (t, e) {
                                     var n = this,
-                                    i = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
-                                    return new Promise((function (t, r) {
+                                    r = !(arguments.length > 2 && void 0 !== arguments[2]) || arguments[2];
+                                    return new Promise((function (t, i) {
                                             if (n.dataSource) {
                                                 var a = n.dataSource.tileLayer(n.key, e, Object(O.extend)({}, n._opts, {
                                                             id: "".concat(n.identifier, "-anim-").concat(Object(X.mapTimestampFromDate)(e)),
@@ -6883,12 +6890,12 @@
                                                                 enabled: !1
                                                             }
                                                         }));
-                                                if (a.isAnimationFrame = !0, a.setOpacity(n._opacity, !1), a.hide(), i)
+                                                if (a.isAnimationFrame = !0, a.setOpacity(n._opacity, !1), a.hide(), r)
                                                     n.overlay.map.on("sourcedata", (function (e) {
                                                             var n = e || {},
-                                                            i = n.sourceId,
-                                                            r = n.isSourceLoaded;
-                                                            i === a.overlay.sourceId && r && t(a)
+                                                            r = n.sourceId,
+                                                            i = n.isSourceLoaded;
+                                                            r === a.overlay.sourceId && i && t(a)
                                                         }));
                                                 else
                                                     t(a);
@@ -6901,7 +6908,7 @@
                                                     layer: a.overlay
                                                 })
                                             } else
-                                                r(new Error("No map strategy data source provided"))
+                                                i(new Error("No map strategy data source provided"))
                                         }))
                                 }
                             }, {
@@ -6922,7 +6929,7 @@
                 (Q.a),
                 Se = function () {
                     function t() {
-                        r()(this, t)
+                        i()(this, t)
                     }
                     return o()(t, [{
                                 key: "tileLayer",
@@ -6939,22 +6946,22 @@
                             }, {
                                 key: "polygon",
                                 value: function (t, e, n) {
-                                    var i;
-                                    return n && (i = dt(n)),
+                                    var r;
+                                    return n && (r = dt(n)),
                                     e.forEach((function (t) {
-                                            i.id || (i.id = t.id)
+                                            r.id || (r.id = t.id)
                                         })),
-                                    new ge(t, e, i, i.id)
+                                    new ge(t, e, r, r.id)
                                 }
                             }, {
                                 key: "polyline",
                                 value: function (t, e, n) {
-                                    var i;
-                                    n && n && delete (i = dt(n)).fill;
+                                    var r;
+                                    n && n && delete (r = dt(n)).fill;
                                     e.map((function (t) {
                                             return [t.lat, t.lon]
                                         }));
-                                    return new be(t, e, i, i.id)
+                                    return new be(t, e, r, r.id)
                                 }
                             }
                         ]),
@@ -6979,12 +6986,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -6997,7 +7004,7 @@
                     var e = Me(n);
                     function n() {
                         var t;
-                        return r()(this, n),
+                        return i()(this, n),
                         (t = e.apply(this, arguments))._pointAnimationUpdates = {},
                         t._shapeDataById = {},
                         t._clickedMapLayer = !1,
@@ -7040,10 +7047,10 @@
                                     };
                                     var n = this.opts.map;
                                     if (n) {
-                                        var i = n.center,
-                                        r = n.zoom;
-                                        if (i && Object(O.isArray)(i)) {
-                                            var a = M()(i, 2),
+                                        var r = n.center,
+                                        i = n.zoom;
+                                        if (r && Object(O.isArray)(r)) {
+                                            var a = M()(r, 2),
                                             o = a[0],
                                             s = a[1];
                                             Object(O.isset)(s) && Object(O.isset)(o) && Object(O.set)(this.opts, "center", {
@@ -7051,7 +7058,7 @@
                                                 lon: o
                                             })
                                         }
-                                        r && Object(O.set)(this.opts, "zoom", r)
+                                        i && Object(O.set)(this.opts, "zoom", i)
                                     }
                                     if (Object(X.isMaplibre)(t))
                                         this._setInitialView = !1, this._map = t, setTimeout((function () {
@@ -7086,20 +7093,20 @@
                                     if (t !== this._currentMapStyle) {
                                         var e = this.map,
                                         n = e.getStyle(),
-                                        i = n.layers.filter((function (t) {
+                                        r = n.layers.filter((function (t) {
                                                     return /^aeris-/.test(t.id)
                                                 })),
-                                        r = Object.keys(n.sources).filter((function (t) {
+                                        i = Object.keys(n.sources).filter((function (t) {
                                                     return /^aeris-/.test(t)
                                                 })).reduce((function (t, e) {
                                                     return t[e] = n.sources[e],
                                                     t
                                                 }), {});
                                         e.on("style.load", (function () {
-                                                Object.keys(r).forEach((function (t) {
-                                                        e.getSource(t) || e.addSource(t, r[t])
+                                                Object.keys(i).forEach((function (t) {
+                                                        e.getSource(t) || e.addSource(t, i[t])
                                                     })),
-                                                i.forEach((function (t) {
+                                                r.forEach((function (t) {
                                                         e.getLayer(t.id) || e.addLayer(t)
                                                     }))
                                             })),
@@ -7169,8 +7176,8 @@
                                 value: function (t) {
                                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [10, 10],
                                     n = new maplibregl.LngLat(t.west, t.south),
-                                    i = new maplibregl.LngLat(t.east, t.north),
-                                    r = new maplibregl.LngLatBounds(n, i),
+                                    r = new maplibregl.LngLat(t.east, t.north),
+                                    i = new maplibregl.LngLatBounds(n, r),
                                     a = {};
                                     1 === e.length ? a.padding = e[0] : 2 === e.length ? a.padding = {
                                         top: e[1],
@@ -7184,7 +7191,7 @@
                                             bottom: e[2],
                                             left: e[3]
                                         }),
-                                    this.map.fitBounds(r, a)
+                                    this.map.fitBounds(i, a)
                                 }
                             }, {
                                 key: "isTile",
@@ -7225,19 +7232,19 @@
                             }, {
                                 key: "addMarker",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     t instanceof je ? (t.on("click", (function () {
-                                                return i.trigger("marker:click", {
+                                                return r.trigger("marker:click", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("marker:mouseover", {
+                                                return r.trigger("marker:mouseover", {
                                                     data: e,
                                                     marker: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("marker:mouseout", {
+                                                return r.trigger("marker:mouseout", {
                                                     data: e,
                                                     marker: t
                                                 })
@@ -7258,19 +7265,19 @@
                             }, {
                                 key: "addShape",
                                 value: function (t, e) {
-                                    var i = this;
+                                    var r = this;
                                     (t instanceof ge || t instanceof be) && (t.on("click", (function () {
-                                                return i.trigger("shape:click", {
+                                                return r.trigger("shape:click", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseover", (function () {
-                                                return i.trigger("shape:mouseover", {
+                                                return r.trigger("shape:mouseover", {
                                                     data: e,
                                                     shape: t
                                                 })
                                             })), t.on("mouseout", (function () {
-                                                return i.trigger("shape:mouseout", {
+                                                return r.trigger("shape:mouseout", {
                                                     data: e,
                                                     shape: t
                                                 })
@@ -7317,11 +7324,11 @@
                             }, {
                                 key: "showCallout",
                                 value: function (t, e, n) {
-                                    var i = new maplibregl.Popup(n).setHTML(e);
-                                    Object(X.isCoordObject)(t) ? i.setLngLat({
+                                    var r = new maplibregl.Popup(n).setHTML(e);
+                                    Object(X.isCoordObject)(t) ? r.setLngLat({
                                         lat: t.lat,
                                         lng: t.lon
-                                    }).addTo(this.map) : this.isMarker(t) && (t.setPopup(i), t.togglePopup())
+                                    }).addTo(this.map) : this.isMarker(t) && (t.setPopup(r), t.togglePopup())
                                 }
                             }, {
                                 key: "_setupEvents",
@@ -7413,12 +7420,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -7432,15 +7439,15 @@
                 ze = function (t) {
                     l()(n, t);
                     var e = Ee(n);
-                    function n(t, i, a) {
+                    function n(t, r, a) {
                         var o;
-                        if (r()(this, n), (o = e.call(this))._ready = !1, o._metric = !1, o.store = new pe, o._stateForData = {}, o._resumeAnimationTimer = null, o._resumeOnBoundsChange = !1, o.update = Object(O.debounce)((function () {
+                        if (i()(this, n), (o = e.call(this))._ready = !1, o._metric = !1, o.store = new pe, o._stateForData = {}, o._resumeAnimationTimer = null, o._resumeOnBoundsChange = !1, o.update = Object(O.debounce)((function () {
                                         o._loadForBounds(!0)
                                     }), 250), o._dblClickTimer = null, !t)
                             throw new Error("[Aeris] Invalid target specified for InteractiveMap, which must be a DOM element or map instance");
-                        i = i || {},
-                        t instanceof HTMLElement == !1 && (Object(X.isLeaflet)(t) ? i.strategy = "leaflet" : Object(X.isMapbox)(t) ? i.strategy = "mapbox" : Object(X.isMaplibre)(t) ? i.strategy = "maplibre" : Object(X.isGoogle)(t) ? i.strategy = "google" : Object(X.isOpenLayers)(t) && (i.strategy = "openlayers")),
-                        i = Object(O.extend)({
+                        r = r || {},
+                        t instanceof HTMLElement == !1 && (Object(X.isLeaflet)(t) ? r.strategy = "leaflet" : Object(X.isMapbox)(t) ? r.strategy = "mapbox" : Object(X.isMaplibre)(t) ? r.strategy = "maplibre" : Object(X.isGoogle)(t) ? r.strategy = "google" : Object(X.isOpenLayers)(t) && (r.strategy = "openlayers")),
+                        r = Object(O.extend)({
                             strategy: "leaflet",
                             center: void 0,
                             zoom: 7,
@@ -7458,23 +7465,23 @@
                             attribution: !0,
                             onInit: void 0,
                             reloadOnBoundsChange: !0
-                        }, i),
-                        o._opts = i,
-                        i.account && (o.account = i.account),
-                        "mapbox" === i.strategy ? o._strategy = new Ot(t, i) : "maplibre" === i.strategy ? o._strategy = new Re(t, i) : "google" === i.strategy ? o._strategy = new oe(t, i) : "openlayers" === i.strategy ? o._strategy = new Nt(t, i) : o._strategy = new it(t, i),
+                        }, r),
+                        o._opts = r,
+                        r.account && (o.account = r.account),
+                        "mapbox" === r.strategy ? o._strategy = new Ot(t, r) : "maplibre" === r.strategy ? o._strategy = new Re(t, r) : "google" === r.strategy ? o._strategy = new oe(t, r) : "openlayers" === r.strategy ? o._strategy = new Nt(t, r) : o._strategy = new rt(t, r),
                         o._strategy.dataSource = c()(o),
-                        o._timeline = new v.a(Object(O.extend)(i.timeline, {
+                        o._timeline = new y.a(Object(O.extend)(r.timeline, {
                                     key: "map-timeline"
                                 })),
                         o._sourceOrder = {
                             tile: []
                         },
                         o._layers = new ce.a(o.account),
-                        o._config = new ue(i.styles),
+                        o._config = new ue(r.styles),
                         o._metric = o._opts.metric;
                         var s = function () {
-                            if (o._indicator = new le.a, o._indicator.appendTo(o.strategy.$el), o.strategy.$el.addClass("awxjs__ia-map"), o._setupEvents(), o._ready = !0, i.layers) {
-                                var t = i.layers;
+                            if (o._indicator = new le.a, o._indicator.appendTo(o.strategy.$el), o.strategy.$el.addClass("awxjs__ia-map"), o._setupEvents(), o._ready = !0, r.layers) {
+                                var t = r.layers;
                                 Object(O.isArray)(t) || (t = t.split(",")),
                                 t.forEach((function (t) {
                                         if (Object(O.isString)(t))
@@ -7486,7 +7493,7 @@
                                         }
                                     }))
                             }
-                            i.refresh > 0 && o.enableAutoUpdate(i.refresh),
+                            r.refresh > 0 && o.enableAutoUpdate(r.refresh),
                             a && a(c()(o)),
                             o.trigger("load"),
                             o.trigger("ready")
@@ -7557,10 +7564,10 @@
                                 value: function (t, e) {
                                     var n = this;
                                     if (this._checkReady(), !Object(O.isset)(t) || Object(O.isEmpty)(t) || !Object(O.isString)(t))
-                                        return "[Aeris] Cannot add invalid layer code {".concat(t, "} to InteractiveMap."), this;
-                                    var i = Object(fe.d)(t),
-                                    r = Object(O.get)(e, "id") || i,
-                                    a = this.getSourceForId(r);
+                                        return console.warn("[Aeris] Cannot add invalid layer code {".concat(t, "} to InteractiveMap."), t), this;
+                                    var r = Object(fe.d)(t),
+                                    i = Object(O.get)(e, "id") || r,
+                                    a = this.getSourceForId(i);
                                     if (a)
                                         return this;
                                     var o = Pe[t];
@@ -7573,8 +7580,8 @@
                                                 n.store.mapping.set(t, u),
                                                 n.addSource(l, e),
                                                 n.trigger("layer:add", {
-                                                    id: r,
-                                                    layer: i,
+                                                    id: i,
+                                                    layer: r,
                                                     source: a
                                                 })
                                             })), this) : ((a = Object(fe.a)(t, Object(O.extend)({}, Object(O.cloneDeep)(e), {
@@ -7589,9 +7596,9 @@
                                                             bufferIntervals: Object(O.get)(this._opts, "timeline.bufferIntervals"),
                                                             showLoadingIntervals: Object(O.get)(this._opts, "timeline.showLoadingIntervals")
                                                         }
-                                                    }), this.strategy.factory, this._layers)) && (a.code = i, this.addSource(a, e), this.store.mapping.set(i, r), this.trigger("layer:add", {
-                                                id: r,
-                                                layer: i,
+                                                    }), this.strategy.factory, this._layers)) && (a.code = r, this.addSource(a, e), this.store.mapping.set(r, i), this.trigger("layer:add", {
+                                                id: i,
+                                                layer: r,
                                                 source: a
                                             })), this)
                                 }
@@ -7614,9 +7621,9 @@
                                         return this;
                                     this.removeSource(e);
                                     var n = this.store.mapping.get(e.key),
-                                    i = this.store.mapping.get(n);
+                                    r = this.store.mapping.get(n);
                                     return this.trigger("layer:remove", {
-                                        id: i,
+                                        id: r,
                                         layer: n,
                                         source: e
                                     }),
@@ -7629,10 +7636,10 @@
                                     if (!e)
                                         return this;
                                     var n = this.store.mapping.get(e.key),
-                                    i = this.store.mapping.get(n);
+                                    r = this.store.mapping.get(n);
                                     return this.removeSource(e),
                                     this.trigger("layer:remove", {
-                                        id: i,
+                                        id: r,
                                         layer: n,
                                         source: e
                                     }),
@@ -7654,12 +7661,12 @@
                                     n = this.getSourceForLayer(t);
                                     this.store.count;
                                     if (n && n instanceof _.c) {
-                                        var i = this._sourceOrder.tile,
-                                        r = i.indexOf(t);
-                                        -1 !== r && (i.splice(r, 1), i.push(t)),
+                                        var r = this._sourceOrder.tile,
+                                        i = r.indexOf(t);
+                                        -1 !== i && (r.splice(i, 1), r.push(t)),
                                         Object.keys(this.store.items).forEach((function (t) {
                                                 var n = e.store.get(t);
-                                                n instanceof _.c && n.setOrder(i.indexOf(t) + 1)
+                                                n instanceof _.c && n.setOrder(r.indexOf(t) + 1)
                                             }))
                                     }
                                 }
@@ -7669,12 +7676,12 @@
                                     var e = this,
                                     n = this.getSourceForLayer(t);
                                     if (n && n instanceof _.c) {
-                                        var i = this._sourceOrder.tile,
-                                        r = i.indexOf(t);
-                                        -1 !== r && (i.splice(r, 1), i.splice(0, 0, t)),
+                                        var r = this._sourceOrder.tile,
+                                        i = r.indexOf(t);
+                                        -1 !== i && (r.splice(i, 1), r.splice(0, 0, t)),
                                         Object.keys(this.store.items).forEach((function (t) {
                                                 var n = e.store.get(t);
-                                                n instanceof _.c && n.setOrder(i.indexOf(t) + 1)
+                                                n instanceof _.c && n.setOrder(r.indexOf(t) + 1)
                                             }))
                                     }
                                 }
@@ -7709,26 +7716,26 @@
                                 value: function (t, e) {
                                     var n = this;
                                     if (this._checkReady(), !Object(O.isset)(t.key))
-                                        return this;
+                                        return console.error("[Aeris] Cannot add a data source with an undefined key to the map. Make sure you have set the `key` property on your data source before adding to the map."), this;
                                     t.strategy = this.strategy,
                                     t.enabled = !0,
                                     t.identifier = t.key,
                                     this.store.add(t.identifier, t),
                                     this.strategy.addSource(t);
-                                    var i = Object(O.get)(e, "style");
-                                    i && this._updateSourceStyle(t, i),
+                                    var r = Object(O.get)(e, "style");
+                                    r && this._updateSourceStyle(t, r),
                                     Object(O.has)(t, "animation") && Object(O.isset)(t.animation) && !0 === t.animation.isEnabled() && this.timeline.add(t.key, t.animation);
-                                    var r = this.getBounds();
+                                    var i = this.getBounds();
                                     return t instanceof _.d && (t.on("data:load:start", (function (t) {
                                                 return n.trigger("source:load:start", t.data)
                                             })), t.on("data:load:done", (function (t) {
                                                 return n.trigger("source:load:done", t.data)
                                             })), t.load({
-                                            bounds: r,
+                                            bounds: i,
                                             from: this.timeline.startDate(),
                                             to: this.timeline.endDate()
                                         }).catch((function (e) {
-                                                "[Aeris] Failed to load data for VectorSource with key ".concat(t.key)
+                                                console.error("[Aeris] Failed to load data for VectorSource with key ".concat(t.key), e)
                                             }))),
                                     this.trigger("source:add", {
                                         source: t,
@@ -7741,20 +7748,20 @@
                                 value: function (t) {
                                     var e = this,
                                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null,
-                                    i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null,
-                                    r = function (t) {
+                                    r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null,
+                                    i = function (t) {
                                         t.initialize(e.account, null, e);
-                                        var i = t.source(),
-                                        r = e.createSource(t.id, i.type, Object(O.extend)({}, i, n));
-                                        r && e.addSource(r)
+                                        var r = t.source(),
+                                        i = e.createSource(t.id, r.type, Object(O.extend)({}, r, n));
+                                        i && e.addSource(i)
                                     },
                                     a = function (t) {
-                                        e.isReady ? r(t) : e.on("ready", (function () {
-                                                r(t)
+                                        e.isReady ? i(t) : e.on("ready", (function () {
+                                                i(t)
                                             }))
                                     };
                                     Object(O.isFunction)(t) ? t().then((function (t) {
-                                            var e = new(t = t.default || t)(i);
+                                            var e = new(t = t.default || t)(r);
                                             a(e)
                                         })) : Object(O.has)(t, "source") && a(t)
                                 }
@@ -7767,15 +7774,15 @@
                                     Object(O.has)(t, "animation") && Object(O.isset)(t.animation) && !0 === t.animation.isEnabled() && (t.animation.reset(), this.timeline.remove(t.animation)),
                                     Object(O.has)(t, "reset") && t.reset(),
                                     this.store.remove(t.identifier),
-                                    this.store.each((function (n, i) {
-                                            i === t && e.store.remove(n)
+                                    this.store.each((function (n, r) {
+                                            r === t && e.store.remove(n)
                                         }));
                                     var n = t.key,
-                                    i = t.code;
+                                    r = t.code;
                                     return this.trigger("source:remove", {
                                         source: t,
                                         id: n,
-                                        layer: i
+                                        layer: r
                                     }),
                                     this
                                 }
@@ -7838,8 +7845,8 @@
                                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                                     if (t && t instanceof _.c) {
                                         var n = e.zIndex,
-                                        i = e.opacity;
-                                        Object(O.isset)(i) && t.setOpacity(i),
+                                        r = e.opacity;
+                                        Object(O.isset)(r) && t.setOpacity(r),
                                         Object(O.isset)(n) && t.setOrder(n)
                                     }
                                 }
@@ -7849,16 +7856,16 @@
                                     var t = this,
                                     e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
                                     n = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-                                    i = this.getBounds();
-                                    this.store.each((function (r, a) {
+                                    r = this.getBounds();
+                                    this.store.each((function (i, a) {
                                             if (a instanceof _.d) {
                                                 var o = a;
                                                 (o.requiresBounds || !1 === o.hasData() || e) && o.load({
-                                                    bounds: i,
+                                                    bounds: r,
                                                     from: t.timeline.startDate(),
                                                     to: t.timeline.endDate()
                                                 }, n).catch((function (t) {
-                                                        "[Aeris] Failed to load data for VectorSource with key ".concat(a.key)
+                                                        console.error("[Aeris] Failed to load data for VectorSource with key ".concat(a.key), t)
                                                     }))
                                             }
                                         }))
@@ -7883,12 +7890,12 @@
                                     e = Object(O.get)(this._opts, "timeline.resetOnBoundsChange"),
                                     n = this._opts.reloadOnBoundsChange;
                                     if (this._resumeAnimationTimer && (clearTimeout(this._resumeAnimationTimer), this._resumeAnimationTimer = null), n && !Object(O.isEmpty)(this._stateForData)) {
-                                        var i = this._stateForData,
-                                        r = this.strategy.coordToPoint(i.center),
+                                        var r = this._stateForData,
+                                        i = this.strategy.coordToPoint(r.center),
                                         a = this.strategy.coordToPoint(this.getCenter());
-                                        if (Object(O.isset)(r) && Object(O.isset)(a))
-                                            n = Math.max(Math.abs(r.x - a.x), Math.abs(r.y - a.y)) >= 50;
-                                        this.getZoom() !== i.zoom && (n = !0)
+                                        if (Object(O.isset)(i) && Object(O.isset)(a))
+                                            n = Math.max(Math.abs(i.x - a.x), Math.abs(i.y - a.y)) >= 50;
+                                        this.getZoom() !== r.zoom && (n = !0)
                                     }
                                     var o = !1;
                                     if (this.store.each((function (t, e) {
@@ -8116,7 +8123,7 @@
                         ]),
                     n
                 }
-                (y.a);
+                (v.a);
                 e.a = ze
             },
             "7r+a": function (t, e, n) {
@@ -8134,13 +8141,13 @@
                         return p
                     })),
                 n.d(e, "f", (function () {
-                        return v
+                        return y
                     })),
                 n.d(e, "d", (function () {
                         return m
                     }));
-                var i = n("J4zp"),
-                r = n.n(i),
+                var r = n("J4zp"),
+                i = n.n(r),
                 a = n("lwsE"),
                 o = n.n(a),
                 s = n("W8MJ"),
@@ -8151,12 +8158,12 @@
                     function t(e) {
                         if (o()(this, t), Object(l.isEmpty)(e))
                             throw new Error("Invalid coordinates for Point");
-                        var n = r()(e, 2),
-                        i = n[0],
+                        var n = i()(e, 2),
+                        r = n[0],
                         a = n[1];
                         this.coordinates = {
                             lat: a,
-                            lon: i
+                            lon: r
                         }
                     }
                     return c()(t, [{
@@ -8165,8 +8172,8 @@
                                     var t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
                                     e = this.coordinates,
                                     n = e.lat,
-                                    i = e.lon;
-                                    return t ? [i, n] : [n, i]
+                                    r = e.lon;
+                                    return t ? [r, n] : [n, r]
                                 }
                             }, {
                                 key: "bounds",
@@ -8225,7 +8232,7 @@
                         this.coordinates = e.map((function (t) {
                                     if (t.length < 2)
                                         throw new Error("Coordinate dimension count is less than 2");
-                                    var e = r()(t, 2),
+                                    var e = i()(t, 2),
                                     n = e[0];
                                     return {
                                         lat: e[1],
@@ -8295,13 +8302,13 @@
                     t
                 }
                 (),
-                y = function t(e) {
+                v = function t(e) {
                     if (o()(this, t), Object(l.isEmpty)(e))
                         throw new Error("Invalid vertices for PolygonGeometry");
                     this.coordinates = e.map((function (t) {
                                 if (t.length < 2)
                                     throw new Error("Coordinate dimension count is less than 2");
-                                var e = r()(t, 2),
+                                var e = i()(t, 2),
                                 n = e[0];
                                 return {
                                     lat: e[1],
@@ -8309,7 +8316,7 @@
                                 }
                             }))
                 },
-                v = function () {
+                y = function () {
                     function t(e) {
                         var n = this;
                         if (o()(this, t), Object(l.isEmpty)(e))
@@ -8318,9 +8325,9 @@
                         this.coordinates = e.map((function (t, e) {
                                     if (t.length < 4)
                                         throw new Error("Vertex count in Polygon is less than 4");
-                                    var i = new y(t);
-                                    return 0 === e ? n.outer = i : n.inner.push(i),
-                                    i.coordinates
+                                    var r = new v(t);
+                                    return 0 === e ? n.outer = r : n.inner.push(r),
+                                    r.coordinates
                                 }))
                     }
                     return c()(t, [{
@@ -8348,7 +8355,7 @@
                         if (o()(this, t), Object(l.isEmpty)(e))
                             throw new Error("Invalid coordinates for MultiPolygon");
                         this.polygons = e.map((function (t) {
-                                    return new v(t)
+                                    return new y(t)
                                 })),
                         this.coordinates = this.polygons.map((function (t) {
                                     return t.coordinates
@@ -8386,7 +8393,7 @@
             "8TS8": function (t, e, n) {
                 "use strict";
                 n.d(e, "a", (function () {
-                        return v
+                        return y
                     })),
                 n.d(e, "c", (function () {
                         return m
@@ -8397,8 +8404,8 @@
                 n("07d7"),
                 n("SuFq"),
                 n("JfAA");
-                var i = n("7W2i"),
-                r = n.n(i),
+                var r = n("7W2i"),
+                i = n.n(r),
                 a = n("a1gu"),
                 o = n.n(a),
                 s = n("Nsbk"),
@@ -8426,21 +8433,21 @@
                     ();
                     return function () {
                         var n,
-                        i = c()(t);
+                        r = c()(t);
                         if (e) {
-                            var r = c()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = c()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return o()(this, n)
                     }
                 }
-                var y = function () {
-                    function t(e, n, i) {
+                var v = function () {
+                    function t(e, n, r) {
                         l()(this, t),
                         this.data = e,
                         this.style = n,
-                        this.renderable = i,
+                        this.renderable = r,
                         e.id && (this.id = e.id)
                     }
                     return f()(t, [{
@@ -8460,8 +8467,8 @@
                     t
                 }
                 (),
-                v = function (t) {
-                    r()(n, t);
+                y = function (t) {
+                    i()(n, t);
                     var e = p(n);
                     function n() {
                         return l()(this, n),
@@ -8469,9 +8476,9 @@
                     }
                     return n
                 }
-                (y),
+                (v),
                 m = function (t) {
-                    r()(n, t);
+                    i()(n, t);
                     var e = p(n);
                     function n() {
                         return l()(this, n),
@@ -8479,9 +8486,9 @@
                     }
                     return n
                 }
-                (y),
+                (v),
                 g = function (t) {
-                    r()(n, t);
+                    i()(n, t);
                     var e = p(n);
                     function n() {
                         return l()(this, n),
@@ -8489,12 +8496,12 @@
                     }
                     return n
                 }
-                (y);
-                e.d = y
+                (v);
+                e.d = v
             },
             "8YOa": function (t, e, n) {
-                var i = n("0BK2"),
-                r = n("hh1v"),
+                var r = n("0BK2"),
+                i = n("hh1v"),
                 a = n("UTVS"),
                 o = n("m/L8").f,
                 s = n("kOOl"),
@@ -8515,7 +8522,7 @@
                 d = t.exports = {
                     REQUIRED: !1,
                     fastKey: function (t, e) {
-                        if (!r(t))
+                        if (!i(t))
                             return "symbol" == typeof t ? t : ("string" == typeof t ? "S" : "P") + t;
                         if (!a(t, u)) {
                             if (!h(t))
@@ -8541,7 +8548,7 @@
                         t
                     }
                 };
-                i[u] = !0
+                r[u] = !0
             },
             CVtS: function (t, e, n) {
                 "use strict";
@@ -8559,8 +8566,8 @@
                 n("JfAA"),
                 n("UxlC"),
                 n("FZtP");
-                var i = n("o0o1"),
-                r = n.n(i),
+                var r = n("o0o1"),
+                i = n.n(r),
                 a = (n("ls82"), n("lwsE")),
                 o = n.n(a),
                 s = n("W8MJ"),
@@ -8571,8 +8578,8 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = n("m0x2"),
-                v = n("0lfv"),
+                v = n("m0x2"),
+                y = n("0lfv"),
                 m = n("3j3Q");
                 function g(t) {
                     var e = function () {
@@ -8592,36 +8599,58 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var k = function (t) {
                     l()(n, t);
                     var e = g(n);
-                    function n(t, i) {
-                        var r;
+                    function n(t, r) {
+                        var i;
                         return o()(this, n),
-                        (r = e.call(this))._key = t,
-                        r._opts = Object(v.extend)({
+                        (i = e.call(this))._key = t,
+                        i._opts = Object(y.extend)({
                             size: void 0,
                             autosize: !1,
                             format: "svg",
                             metric: !1
-                        }, i),
-                        Object(v.isset)(r._opts.size) || (r._opts.autosize = !0),
-                        r._target = Object(m.a)('<div class="awxjs__legend awxjs__legend-'.concat(t, '"></div>')),
+                        }, r),
+                        Object(y.isset)(i._opts.size) || (i._opts.autosize = !0),
+                        i._target = Object(m.a)('<div class="awxjs__legend awxjs__legend-'.concat(t, '"></div>')),
                         setTimeout((function () {
-                                r.update(r._opts)
+                                i.update(i._opts)
                             }), 500),
-                        r
+                        i
                     }
                     return c()(n, [{
+                                key: "opts",
+                                get: function () {
+                                    return this._opts
+                                }
+                            }, {
+                                key: "key",
+                                get: function () {
+                                    return this._key
+                                }
+                            }, {
+                                key: "account",
+                                get: function () {
+                                    return this.opts.account
+                                }
+                            }, {
+                                key: "$el",
+                                get: function () {
+                                    return this._target
+                                }
+                            }
+                        ]),
+                    c()(n, [{
                                 key: "show",
                                 value: function () {
                                     this.$el.show()
@@ -8634,7 +8663,7 @@
                             }, {
                                 key: "setSize",
                                 value: function (t) {
-                                    this._opts.size = Object(v.extend)(this._opts.size, t),
+                                    this._opts.size = Object(y.extend)(this._opts.size, t),
                                     this.update()
                                 }
                             }, {
@@ -8663,7 +8692,7 @@
                                 key: "units",
                                 value: function () {
                                     var t = this._opts.metric ? "metric" : "imperial",
-                                    e = Object(v.get)(this._opts, "units.".concat(t));
+                                    e = Object(y.get)(this._opts, "units.".concat(t));
                                     return e && /^(f|c)$/.test(e) && (e = e.toUpperCase()),
                                     e
                                 }
@@ -8686,31 +8715,11 @@
                                     this.$el.css("width", "".concat(t.width, "px")),
                                     this.trigger("resize", t)
                                 }
-                            }, {
-                                key: "opts",
-                                get: function () {
-                                    return this._opts
-                                }
-                            }, {
-                                key: "key",
-                                get: function () {
-                                    return this._key
-                                }
-                            }, {
-                                key: "account",
-                                get: function () {
-                                    return this.opts.account
-                                }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return this._target
-                                }
                             }
                         ]),
                     n
                 }
-                (y.a),
+                (v.a),
                 b = (n("ma9I"), n("iWIM")),
                 _ = n.n(b);
                 function O(t) {
@@ -8731,12 +8740,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -8746,7 +8755,7 @@
                     function n() {
                         var t;
                         return o()(this, n),
-                        (t = e.apply(this, arguments))._load = Object(v.debounce)((function (e) {
+                        (t = e.apply(this, arguments))._load = Object(y.debounce)((function (e) {
                                     if (!e) {
                                         var n = new Error("Invalid legend url");
                                         return t.trigger("load:error", {
@@ -8758,8 +8767,8 @@
                                     t.trigger("load:start"),
                                     t._image.onload = function () {
                                         var n = t.units(),
-                                        i = t.opts.title ? t.opts.title.replace(/\([^\)]+\)$/, "".concat(n ? "(".concat(n, ")") : "")) : null;
-                                        t.$el.html("\n\t\t\t\t".concat(t.opts.title ? '<div class="awxjs__legend-title">'.concat(i, "</div>") : "", '\n\t\t\t\t<div class="awxjs__legend-content"><img src="').concat(e, '"></div>\n\t\t\t')),
+                                        r = t.opts.title ? t.opts.title.replace(/\([^\)]+\)$/, "".concat(n ? "(".concat(n, ")") : "")) : null;
+                                        t.$el.html("\n\t\t\t\t".concat(t.opts.title ? '<div class="awxjs__legend-title">'.concat(r, "</div>") : "", '\n\t\t\t\t<div class="awxjs__legend-content"><img src="').concat(e, '"></div>\n\t\t\t')),
                                         t.trigger("load:done"),
                                         setTimeout((function () {
                                                 var e = t.getSize();
@@ -8769,7 +8778,7 @@
                                             }), 150)
                                     },
                                     t._image.onerror = function () {
-                                        "[Aeris] ImageLegend - Failed to load image from ".concat(e)
+                                        console.warn("[Aeris] ImageLegend - Failed to load image from ".concat(e))
                                     },
                                     t._image.src = e
                                 }), 250),
@@ -8779,7 +8788,7 @@
                                 key: "url",
                                 value: function () {
                                     var t;
-                                    Object(v.isPlainObject)(this.opts.url) ? t = t[this.opts.metric ? "metric" : "imperial"] : Object(v.isString)(this.opts.url) && (t = this.opts.url);
+                                    Object(y.isPlainObject)(this.opts.url) ? t = t[this.opts.metric ? "metric" : "imperial"] : Object(y.isString)(this.opts.url) && (t = this.opts.url);
                                     return t
                                 }
                             }, {
@@ -8800,7 +8809,7 @@
                                 key: "update",
                                 value: function (t) {
                                     var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
-                                    Object(v.isEmpty)(t) || (e = !0),
+                                    Object(y.isEmpty)(t) || (e = !0),
                                     !e && this._image || this._load(this.url())
                                 }
                             }, {
@@ -8837,12 +8846,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -8857,7 +8866,7 @@
                     return c()(n, [{
                                 key: "setSize",
                                 value: function (t) {
-                                    this.opts.size = Object(v.extend)(this.opts.size, t),
+                                    this.opts.size = Object(y.extend)(this.opts.size, t),
                                     this.update()
                                 }
                             }, {
@@ -8869,7 +8878,7 @@
                                 key: "_url",
                                 value: function () {
                                     var t = this.opts,
-                                    e = Object(v.extend)({
+                                    e = Object(y.extend)({
                                         interval: 1,
                                         gutter: null,
                                         radius: 6,
@@ -8890,12 +8899,12 @@
                                         }
                                     }, t.styles),
                                     n = t.type || "bar",
-                                    i = e.cell || {},
-                                    r = e.label || {},
+                                    r = e.cell || {},
+                                    i = e.label || {},
                                     a = {};
                                     if ("point" === n)
-                                        if (Object(v.isset)(e.gutter)) {
-                                            if (Object(v.isString)(e.gutter)) {
+                                        if (Object(y.isset)(e.gutter)) {
+                                            if (Object(y.isString)(e.gutter)) {
                                                 var o = e.gutter.split(",");
                                                 e.gutter = {
                                                     x: o[0],
@@ -8907,13 +8916,13 @@
                                                 x: 20,
                                                 y: 5
                                             };
-                                    if (a.ls = r.fontsize, Object(v.isEmpty)(r.custom) || (a.labels = r.custom.replace(/,\s+/g, ",").replace(/\s/g, "%20")), !Object(v.isEmpty)(r.color)) {
-                                        var s = r.color.replace(/#/, "");
+                                    if (a.ls = i.fontsize, Object(y.isEmpty)(i.custom) || (a.labels = i.custom.replace(/,\s+/g, ",").replace(/\s/g, "%20")), !Object(y.isEmpty)(i.color)) {
+                                        var s = i.color.replace(/#/, "");
                                         6 === s.length && (a.lc = s)
                                     }
-                                    "point" !== n || Object(v.isEmpty)(e.filter_groups) || (a.filter = e.filter_groups),
-                                    Object(v.isset)(t.range) && (Object(v.isString)(t.range) ? a.range = ",".concat(t.range) : Object(v.isArray)(t.range) && (1 === t.range.length ? a.range = ",".concat(t.range[0]) : a.range = t.range.join(","))),
-                                    Object(v.isset)(t.keys) ? a.keys = t.keys : Object(v.isset)(t.filter) && (a.filter = t.filter);
+                                    "point" !== n || Object(y.isEmpty)(e.filter_groups) || (a.filter = e.filter_groups),
+                                    Object(y.isset)(t.range) && (Object(y.isString)(t.range) ? a.range = ",".concat(t.range) : Object(y.isArray)(t.range) && (1 === t.range.length ? a.range = ",".concat(t.range[0]) : a.range = t.range.join(","))),
+                                    Object(y.isset)(t.keys) ? a.keys = t.keys : Object(y.isset)(t.filter) && (a.filter = t.filter);
                                     var c = e.units;
                                     c && (t.metric ? a.units = c.metric : a.units = c.imperial);
                                     var u = t.size || {
@@ -8922,32 +8931,32 @@
                                     },
                                     l = u.width,
                                     h = u.height,
-                                    f = i.size || {
+                                    f = r.size || {
                                         width: null,
                                         height: null
                                     },
                                     d = f.width,
                                     p = f.height,
-                                    y = {
+                                    v = {
                                         type: n,
-                                        interval: Object(v.isEmpty)(e.interval) ? "" : "-i".concat(e.interval),
+                                        interval: Object(y.isEmpty)(e.interval) ? "" : "-i".concat(e.interval),
                                         label: {
-                                            interval: Object(v.isEmpty)(r.interval) ? "" : "-li".concat(r.interval)
+                                            interval: Object(y.isEmpty)(i.interval) ? "" : "-li".concat(i.interval)
                                         },
                                         cell: {
-                                            size: Object(v.isEmpty)(d) || Object(v.isEmpty)(p) ? "" : "-c".concat(d, "x").concat(p),
-                                            pad: Object(v.isset)(e.gutter) ? "-p".concat(e.gutter.x, ",").concat(e.gutter.y) : ""
+                                            size: Object(y.isEmpty)(d) || Object(y.isEmpty)(p) ? "" : "-c".concat(d, "x").concat(p),
+                                            pad: Object(y.isset)(e.gutter) ? "-p".concat(e.gutter.x, ",").concat(e.gutter.y) : ""
                                         },
-                                        layout: "-".concat(e.orientation, ",").concat(r.position),
+                                        layout: "-".concat(e.orientation, ",").concat(i.position),
                                         metric: t.metric ? "-metric" : "",
-                                        size: Object(v.isEmpty)(l) || Object(v.isEmpty)(h) || t.autosize ? "" : "_".concat(l, "x").concat(h),
+                                        size: Object(y.isEmpty)(l) || Object(y.isEmpty)(h) || t.autosize ? "" : "_".concat(l, "x").concat(h),
                                         format: t.format,
-                                        radius: Object(v.isEmpty)(e.radius) ? "" : "-r".concat(e.radius),
-                                        columns: !Object(v.isEmpty)(e.columns) && e.columns > 0 ? "-col".concat(e.columns) : ""
+                                        radius: Object(y.isEmpty)(e.radius) ? "" : "-r".concat(e.radius),
+                                        columns: !Object(y.isEmpty)(e.columns) && e.columns > 0 ? "-col".concat(e.columns) : ""
                                     },
                                     m = "https://legends.aerisapi.com/".concat(this.key);
-                                    return m += "point" === n ? "".concat(y.radius).concat(y.columns).concat(y.cell.pad) : "".concat(y.interval).concat(y.label.interval).concat(y.cell.size).concat(y.cell.pad).concat(y.layout).concat(y.metric),
-                                    m += "".concat(y.size, ".").concat(y.format),
+                                    return m += "point" === n ? "".concat(v.radius).concat(v.columns).concat(v.cell.pad) : "".concat(v.interval).concat(v.label.interval).concat(v.cell.size).concat(v.cell.pad).concat(v.layout).concat(v.metric),
+                                    m += "".concat(v.size, ".").concat(v.format),
                                     m += (m.indexOf("?") > -1 ? "&" : "?") + Object.keys(a).map((function (t) {
                                             return "".concat(encodeURIComponent(t), "=").concat(a[t])
                                         })).join("&")
@@ -8957,7 +8966,7 @@
                     n
                 }
                 (w),
-                S = (n("Rfxz"), n("ToJy"), n("sMBO"), n("qePV"), n("kSko"), n("toAj"), n("rNhl"), n("4l63"), n("DA0x")),
+                S = (n("Rfxz"), n("sMBO"), n("qePV"), n("kSko"), n("toAj"), n("DA0x")),
                 M = Math.PI / 180,
                 L = 180 / Math.PI,
                 I = function (t) {
@@ -8970,11 +8979,11 @@
                     return t * L
                 },
                 P = function (t, e, n) {
-                    var i = Math.PI,
-                    r = 128 / i * Math.pow(2, e),
+                    var r = Math.PI,
+                    i = 128 / r * Math.pow(2, e),
                     a = R(t.lat),
-                    o = r * (R(t.lon) + i),
-                    s = r * (i - Math.log(Math.tan(.25 * i + .5 * a)));
+                    o = i * (R(t.lon) + r),
+                    s = i * (r - Math.log(Math.tan(.25 * r + .5 * a)));
                     return {
                         x: .5 * n.width - o,
                         y: .5 * n.height - s
@@ -9003,22 +9012,22 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 !function (t) {
                     t.pointToCoord = function (t, e, n) {
-                        var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0,
-                        r = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : void 0,
+                        var r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0,
+                        i = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : void 0,
                         a = Math.PI,
                         o = I(n),
-                        s = i && r ? P(i, n, r) : {
+                        s = r && i ? P(r, n, i) : {
                             x: 0,
                             y: 0
                         },
@@ -9032,13 +9041,13 @@
                         }
                     },
                     t.coordToPoint = function (t, e, n) {
-                        var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0,
-                        r = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : void 0;
+                        var r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0,
+                        i = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : void 0;
                         e *= M,
                         t *= M;
                         var a = Math.PI,
                         o = I(n),
-                        s = i && r ? P(i, n, r) : {
+                        s = r && i ? P(r, n, i) : {
                             x: 0,
                             y: 0
                         },
@@ -9062,29 +9071,29 @@
                             n = Math.log((1 + e) / (1 - e)) / 2;
                             return Math.max(Math.min(n, Math.PI), -Math.PI) / 2
                         },
-                        i = function (t, e, n) {
+                        r = function (t, e, n) {
                             return Math.floor(Math.log(t / e / n) / Math.LN2)
                         },
-                        r = (n(t.north) - n(t.south)) / Math.PI,
+                        i = (n(t.north) - n(t.south)) / Math.PI,
                         a = t.east - t.west,
                         o = (a < 0 ? a + 360 : a) / 360,
-                        s = i(e.height, 256, r),
-                        c = i(e.width, 256, o);
+                        s = r(e.height, 256, i),
+                        c = r(e.width, 256, o);
                         return Math.min(s, c, 21)
                     },
                     t.getSizeForBounds = function (e, n) {
-                        var i = t.coordToPoint(e.north, e.west, n),
-                        r = t.coordToPoint(e.south, e.east, n);
+                        var r = t.coordToPoint(e.north, e.west, n),
+                        i = t.coordToPoint(e.south, e.east, n);
                         return {
-                            width: r.x - i.x,
-                            height: r.y - i.y
+                            width: i.x - r.x,
+                            height: i.y - r.y
                         }
                     },
                     t.getBoundsThatFits = function (e, n) {
-                        var i = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0,
-                        r = 0,
-                        a = t.coordToPoint(e.north, e.west, r),
-                        o = t.coordToPoint(e.south, e.east, r),
+                        var r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0,
+                        i = 0,
+                        a = t.coordToPoint(e.north, e.west, i),
+                        o = t.coordToPoint(e.south, e.east, i),
                         s = Math.abs(o.x - a.x),
                         c = Math.abs(o.y - a.y),
                         u = {
@@ -9103,17 +9112,17 @@
                                 var p = n.width / n.height;
                                 l.height = l.width * (1 / p)
                             } else {
-                                var y = n.height / n.width;
-                                l.width = l.height * (1 / y)
+                                var v = n.height / n.width;
+                                l.width = l.height * (1 / v)
                             }
-                        l.width += i * d,
-                        l.height += i * d;
-                        var v = {
+                        l.width += r * d,
+                        l.height += r * d;
+                        var y = {
                             x: l.width / 2,
                             y: l.height / 2
                         },
-                        m = t.pointToCoord(u.x - v.x, u.y - v.y, r),
-                        g = t.pointToCoord(u.x + v.x, u.y + v.y, r);
+                        m = t.pointToCoord(u.x - y.x, u.y - y.y, i),
+                        g = t.pointToCoord(u.x + y.x, u.y + y.y, i);
                         return {
                             north: D(m.lat),
                             south: D(g.lat),
@@ -9123,11 +9132,11 @@
                     },
                     t.coordToTile = function (t, e) {
                         var n = Math.PI,
-                        i = t.lon,
-                        r = R(t.lat);
+                        r = t.lon,
+                        i = R(t.lat);
                         return {
-                            x: Math.floor((i + 180) / 360 * Math.pow(2, e)),
-                            y: Math.floor((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / n) / 2 * Math.pow(2, e))
+                            x: Math.floor((r + 180) / 360 * Math.pow(2, e)),
+                            y: Math.floor((1 - Math.log(Math.tan(i) + 1 / Math.cos(i)) / n) / 2 * Math.pow(2, e))
                         }
                     },
                     t.tileToCoord = function (t, e) {
@@ -9139,20 +9148,20 @@
                     }
                 }
                 (x || (x = {}));
-                var F = function (t, e, n, i) {
-                    var r = {
+                var A = function (t, e, n, r) {
+                    var i = {
                         lat: t,
                         lon: e
                     },
-                    a = x.pointToCoord(0, 0, n, r, i),
-                    o = x.pointToCoord(i.width, i.height, n, r, i);
+                    a = x.pointToCoord(0, 0, n, i, r),
+                    o = x.pointToCoord(r.width, r.height, n, i, r);
                     return a.lat = parseFloat(a.lat.toFixed(2)),
                     a.lon = parseFloat(a.lon.toFixed(2)),
                     o.lat = parseFloat(o.lat.toFixed(2)),
                     o.lon = parseFloat(o.lon.toFixed(2)),
                     "".concat(a.lat, ",").concat(a.lon, ",").concat(o.lat, ",").concat(o.lon)
                 },
-                A = function (t) {
+                F = function (t) {
                     l()(n, t);
                     var e = z(n);
                     function n() {
@@ -9166,26 +9175,26 @@
                                     if (t) {
                                         if (t.within) {
                                             if (t.within.bounds) {
-                                                var i = t.within.bounds,
-                                                r = i.east,
-                                                a = i.west,
-                                                o = Math.abs(r - a),
+                                                var r = t.within.bounds,
+                                                i = r.east,
+                                                a = r.west,
+                                                o = Math.abs(i - a),
                                                 s = Math.floor(o / 360);
-                                                s > 0 && (a = -180, r = 180),
+                                                s > 0 && (a = -180, i = 180),
                                                 t.within.bounds.west = a,
-                                                t.within.bounds.east = r
+                                                t.within.bounds.east = i
                                             }
                                             this.opts.within = t.within
                                         }
                                         this._update()
                                     } else
-                                        Object(v.isset)(this.opts.keys) && _()(p()(n.prototype), "update", this).call(this, t, e)
+                                        Object(y.isset)(this.opts.keys) && _()(p()(n.prototype), "update", this).call(this, t, e)
                                 }
                             }, {
                                 key: "_update",
                                 value: function () {
                                     var t = this;
-                                    this.account && (this._request || (this._request = Object(v.debounce)((function (e) {
+                                    this.account ? (this._request || (this._request = Object(y.debounce)((function (e) {
                                                         t._getVtecCodes(e).then((function (e) {
                                                                 if (t.opts.keys = e.join(","), 0 === e.length) {
                                                                     var n = t.opts.title ? t.opts.title.replace(/\([^\)]+\)$/, "") : null;
@@ -9194,7 +9203,7 @@
                                                                 } else
                                                                     t.show(), t.update(null, !0)
                                                             }))
-                                                    }), 1e3)), this._request(this.opts.within))
+                                                    }), 1e3)), this._request(this.opts.within)) : console.warn("[Aeris] Cannot render advisories/alerts legend, no valid Aeris account defined")
                                 }
                             }, {
                                 key: "_getVtecCodes",
@@ -9202,19 +9211,19 @@
                                     var t = this,
                                     e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
                                     n = e.size,
-                                    i = e.center,
-                                    r = e.bounds,
+                                    r = e.center,
+                                    i = e.bounds,
                                     a = e.zoom;
                                     return a = parseInt(a, 10),
                                     new Promise((function (e, o) {
-                                            if (!r) {
+                                            if (!i) {
                                                 if (!n || Number.isNaN(n.width) || Number.isNaN(n.height))
                                                     return void o(new Error("Size is not a number"));
-                                                !r && i && (Object(v.isString)(i) && /^[\d\.-]+,[\d\.-]+/.test(i) ? (i = i.split(","), r = F(i[0], i[1], a, n)) : Object(v.isObject)(i) && i.lat && i.lon && (r = F(i.lat, i.lon, a, n)))
+                                                !i && r && (Object(y.isString)(r) && /^[\d\.-]+,[\d\.-]+/.test(r) ? (r = r.split(","), i = A(r[0], r[1], a, n)) : Object(y.isObject)(r) && r.lat && r.lon && (i = A(r.lat, r.lon, a, n)))
                                             }
-                                            r ? t._getAdvisories(r).then((function (t) {
+                                            i ? t._getAdvisories(i).then((function (t) {
                                                     e(t)
-                                                })) : i && t._getPlace(i, n, a).then((function (n) {
+                                                })) : r && t._getPlace(r, n, a).then((function (n) {
                                                     t._getAdvisories(n).then((function (t) {
                                                             e(t)
                                                         }))
@@ -9224,19 +9233,19 @@
                             }, {
                                 key: "_getPlace",
                                 value: function (t, e, n) {
-                                    var i = this;
-                                    return new Promise((function (r, a) {
+                                    var r = this;
+                                    return new Promise((function (i, a) {
                                             new S.a({
-                                                client: i.account.credentials()
+                                                client: r.account.credentials()
                                             }).endpoint("places").place(t).limit(1).get().then((function (t) {
                                                     if (t.data) {
-                                                        var i = t.data.loc,
-                                                        o = i.lat,
-                                                        s = i.long,
-                                                        c = F(o, s, n, e).split(",").map((function (t) {
+                                                        var r = t.data.loc,
+                                                        o = r.lat,
+                                                        s = r.long,
+                                                        c = A(o, s, n, e).split(",").map((function (t) {
                                                                     return parseFloat(t)
                                                                 }));
-                                                        4 === c.length ? r({
+                                                        4 === c.length ? i({
                                                             north: c[0],
                                                             west: c[1],
                                                             south: c[2],
@@ -9250,44 +9259,44 @@
                                 key: "_getAdvisories",
                                 value: function (t) {
                                     var e = this;
-                                    return new Promise((function (n, i) {
-                                            var r = e.account.canAccess("advisories_summary"),
+                                    return new Promise((function (n, r) {
+                                            var i = e.account.canAccess("advisories_summary"),
                                             a = !0,
                                             o = function (t, n) {
-                                                var i = new S.a({
+                                                var r = new S.a({
                                                     client: e.account.credentials()
                                                 });
-                                                return n ? (i.endpoint("alerts/summary").fields("summary.typeCodes,summary.types.type,summary.types.code"), i.sort("priority:1"), a = !1) : i.endpoint("alerts").fields("details.type,details.name").limit(300),
+                                                return n ? (r.endpoint("alerts/summary").fields("summary.typeCodes,summary.types.type,summary.types.code"), r.sort("priority:1"), a = !1) : r.endpoint("alerts").fields("details.type,details.name").limit(300),
                                                 (t.west < -180 || t.west > 180) && (t.west += 360 * Math.floor(t.west / 360)),
-                                                i.action("within").bounds(t),
-                                                i
+                                                r.action("within").bounds(t),
+                                                r
                                             },
                                             s = function (t) {
                                                 var e = [];
-                                                t && (r ? (t = t[0] || t, (Object(v.get)(t, "summary.types") || []).filter((function (t) {
-                                                                return Object(v.isset)(t) && Object(v.isset)(t.code)
+                                                t && (i ? (t = t[0] || t, (Object(y.get)(t, "summary.types") || []).filter((function (t) {
+                                                                return Object(y.isset)(t) && Object(y.isset)(t.code)
                                                             })).forEach((function (t) {
                                                                 var n = t.code,
-                                                                i = t.type,
-                                                                r = e.some((function (t) {
+                                                                r = t.type,
+                                                                i = e.some((function (t) {
                                                                             return t.code === n
                                                                         }));
-                                                                n && !1 === r && e.push({
+                                                                n && !1 === i && e.push({
                                                                     code: n,
-                                                                    name: i.toUpperCase()
+                                                                    name: r.toUpperCase()
                                                                 })
                                                             }))) : t.filter((function (t) {
-                                                            return Object(v.isset)(t) && Object(v.isset)(t.type)
+                                                            return Object(y.isset)(t) && Object(y.isset)(t.type)
                                                         })).forEach((function (t) {
                                                             var n = t.details,
-                                                            i = n.type,
-                                                            r = n.name,
+                                                            r = n.type,
+                                                            i = n.name,
                                                             a = e.some((function (t) {
-                                                                        return t.code === i
+                                                                        return t.code === r
                                                                     }));
-                                                            i && !1 === a && e.push({
-                                                                code: i,
-                                                                name: r.toUpperCase()
+                                                            r && !1 === a && e.push({
+                                                                code: r,
+                                                                name: i.toUpperCase()
                                                             })
                                                         })));
                                                 return (a ? e.sort((function (t, e) {
@@ -9306,17 +9315,17 @@
                                                 d = new S.a({
                                                     client: e.account.credentials()
                                                 }),
-                                                p = o(Object(v.extend)({}, t, {
+                                                p = o(Object(y.extend)({}, t, {
                                                             east: h ? 180 : f
-                                                        }), r),
-                                                y = o(Object(v.extend)({}, t, {
+                                                        }), i),
+                                                v = o(Object(y.extend)({}, t, {
                                                             west: h ? -180 : f
-                                                        }), r);
+                                                        }), i);
                                                 d.addRequest(p),
-                                                d.addRequest(y),
+                                                d.addRequest(v),
                                                 d.get().then((function (t) {
-                                                        var e = Object(v.get)(t, "data.responses"),
-                                                        i = r ? {
+                                                        var e = Object(y.get)(t, "data.responses"),
+                                                        r = i ? {
                                                             summary: {
                                                                 types: [],
                                                                 typeCodes: []
@@ -9325,20 +9334,20 @@
                                                          : [];
                                                         e && e.forEach((function (t) {
                                                                 if (t = t.response || t)
-                                                                    if (r) {
+                                                                    if (i) {
                                                                         var e = (t[0] || t).summary || {},
                                                                         n = e.types,
                                                                         a = e.typeCodes;
-                                                                        i.summary.types = i.summary.types.concat(n),
-                                                                        i.summary.typeCodes = i.summary.typeCodes.concat(a)
+                                                                        r.summary.types = r.summary.types.concat(n),
+                                                                        r.summary.typeCodes = r.summary.typeCodes.concat(a)
                                                                     } else
-                                                                        Object(v.isEmpty)(t) || (i = i.concat(t))
+                                                                        Object(y.isEmpty)(t) || (r = r.concat(t))
                                                             }));
-                                                        var a = s(i || {});
+                                                        var a = s(r || {});
                                                         n(a)
                                                     }))
                                             } else {
-                                                o(t, r).get().then((function (t) {
+                                                o(t, i).get().then((function (t) {
                                                         var e = s(t.data || {});
                                                         n(e)
                                                     }))
@@ -9368,43 +9377,60 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var B = function (t) {
                     l()(n, t);
                     var e = C(n);
-                    function n(t, i) {
-                        var r;
+                    function n(t, r) {
+                        var i;
                         return o()(this, n),
-                        (r = e.call(this))._loaded = [],
-                        r._key = t,
-                        r._opts = Object(v.extend)({
+                        (i = e.call(this))._loaded = [],
+                        i._key = t,
+                        i._opts = Object(y.extend)({
                             types: null
-                        }, i),
-                        r._target = Object(m.a)('<div class="awxjs__legend awxjs__legend-group awxjs__legend-'.concat(t, '"></div>')),
-                        r._legends = {},
-                        r._opts.types && (r.trigger("load:start"), Object.keys(r._opts.types).forEach((function (t) {
-                                    var e = Object(v.extend)({}, i, Object(v.cloneDeep)(r._opts.types[t]));
+                        }, r),
+                        i._target = Object(m.a)('<div class="awxjs__legend awxjs__legend-group awxjs__legend-'.concat(t, '"></div>')),
+                        i._legends = {},
+                        i._opts.types && (i.trigger("load:start"), Object.keys(i._opts.types).forEach((function (t) {
+                                    var e = Object(y.extend)({}, r, Object(y.cloneDeep)(i._opts.types[t]));
                                     delete e.types,
-                                    Object(v.isEmpty)(e.use) || (t = e.use);
+                                    Object(y.isEmpty)(e.use) || (t = e.use);
                                     var n = new T(t, e);
                                     n.on("load:done", (function () {
-                                            r._loaded.push(t),
-                                            r._checkLoaded()
+                                            i._loaded.push(t),
+                                            i._checkLoaded()
                                         })),
-                                    r._legends[t] = n,
-                                    r.$el.append(n.$el)
+                                    i._legends[t] = n,
+                                    i.$el.append(n.$el)
                                 }))),
-                        r
+                        i
                     }
                     return c()(n, [{
+                                key: "key",
+                                get: function () {
+                                    return this._key
+                                }
+                            }, {
+                                key: "opts",
+                                get: function () {
+                                    return this._opts
+                                }
+                            }, {
+                                key: "$el",
+                                get: function () {
+                                    return this._target
+                                }
+                            }
+                        ]),
+                    c()(n, [{
                                 key: "show",
                                 value: function () {
                                     this.$el.show()
@@ -9419,9 +9445,9 @@
                                 value: function (t) {
                                     var e = this;
                                     Object.keys(this._legends).forEach((function (n) {
-                                            var i = e.opts.types[n];
+                                            var r = e.opts.types[n];
                                             e._legends[n].setSize({
-                                                width: t.width * i.factor,
+                                                width: t.width * r.factor,
                                                 height: t.height
                                             })
                                         }))
@@ -9432,17 +9458,17 @@
                                     var t = this,
                                     e = this.$el.bounds(),
                                     n = 0,
-                                    i = e.height;
+                                    r = e.height;
                                     return Object.keys(this._legends).forEach((function (e) {
-                                            var r = t._legends[e];
-                                            if (r.$el) {
-                                                var a = r.$el.bounds();
+                                            var i = t._legends[e];
+                                            if (i.$el) {
+                                                var a = i.$el.bounds();
                                                 n += a.width,
-                                                i = Math.max(i, a.height)
+                                                r = Math.max(r, a.height)
                                             }
                                         })), {
                                         width: n,
-                                        height: i
+                                        height: r
                                     }
                                 }
                             }, {
@@ -9480,29 +9506,14 @@
                                                 t.trigger("resize", e)
                                             }), 150))
                                 }
-                            }, {
-                                key: "key",
-                                get: function () {
-                                    return this._key
-                                }
-                            }, {
-                                key: "opts",
-                                get: function () {
-                                    return this._opts
-                                }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return this._target
-                                }
                             }
                         ]),
                     n
                 }
-                (y.a),
+                (v.a),
                 V = n("qV3b"),
-                W = (n("Tskq"), n("PKPk"), n("RIqP")),
-                q = n.n(W);
+                q = (n("Tskq"), n("PKPk"), n("RIqP")),
+                W = n.n(q);
                 function N(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -9521,12 +9532,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -9549,27 +9560,27 @@
                             }, {
                                 key: "has",
                                 value: function (t) {
-                                    return Object(v.isset)(this.get(t))
+                                    return Object(y.isset)(this.get(t))
                                 }
                             }, {
                                 key: "remove",
                                 value: function (t) {
                                     var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-                                    i = this.get(t);
-                                    if (i)
+                                    r = this.get(t);
+                                    if (r)
                                         if (e)
                                             _()(p()(n.prototype), "remove", this).call(this, t), this.mapping.delete(t), this.refs.delete(t);
                                         else {
                                             this.decrement(t);
-                                            var r = this.refCount(t);
-                                            0 === r && _()(p()(n.prototype), "remove", this).call(this, t)
+                                            var i = this.refCount(t);
+                                            0 === i && _()(p()(n.prototype), "remove", this).call(this, t)
                                         }
                                 }
                             }, {
                                 key: "map",
                                 value: function (t, e) {
                                     var n = this.mapping.get(t) || [];
-                                    this._mapping.set(t, [].concat(q()(n), [e]))
+                                    this._mapping.set(t, [].concat(W()(n), [e]))
                                 }
                             }, {
                                 key: "increment",
@@ -9621,92 +9632,104 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var J = function (t, e, n, i) {
-                    return new(n || (n = Promise))((function (r, a) {
+                var H = function (t, e, n, r) {
+                    return new(n || (n = Promise))((function (i, a) {
                             function o(t) {
                                 try {
-                                    c(i.next(t))
+                                    c(r.next(t))
                                 } catch (t) {
                                     a(t)
                                 }
                             }
                             function s(t) {
                                 try {
-                                    c(i.throw(t))
+                                    c(r.throw(t))
                                 } catch (t) {
                                     a(t)
                                 }
                             }
                             function c(t) {
                                 var e;
-                                t.done ? r(t.value) : (e = t.value, e instanceof n ? e : new n((function (t) {
+                                t.done ? i(t.value) : (e = t.value, e instanceof n ? e : new n((function (t) {
                                             t(e)
                                         }))).then(o, s)
                             }
-                            c((i = i.apply(t, e || [])).next())
+                            c((r = r.apply(t, e || [])).next())
                         }))
                 },
-                H = function (t) {
+                U = function (t) {
                     l()(n, t);
                     var e = $(n);
-                    function n(t, i) {
-                        var r;
-                        if (o()(this, n), (r = e.call(this))._loading = !1, r._loadCallbacks = {}, r._onResize = function () {
-                            r.trigger("resize", r.getSize())
+                    function n(t, r) {
+                        var i;
+                        if (o()(this, n), (i = e.call(this))._loading = !1, i._loadCallbacks = {}, i._onResize = function () {
+                            i.trigger("resize", i.getSize())
                         }, !t)
                             throw new Error("[Aeris] Invalid DOM target specified for LegendView");
-                        return r._opts = Object(v.extend)({
+                        return i._opts = Object(y.extend)({
                             size: {
                                 width: 400,
                                 height: 40
                             }
-                        }, i),
-                        r._store = new Z,
+                        }, r),
+                        i._store = new Z,
                         Object(m.a)(t).append('<div class="awxjs__legend-view"></div>'),
-                        r._target = Object(m.a)(".awxjs__legend-view", t),
-                        r
+                        i._target = Object(m.a)(".awxjs__legend-view", t),
+                        i
                     }
                     return c()(n, [{
+                                key: "$el",
+                                get: function () {
+                                    return this._target
+                                }
+                            }, {
+                                key: "count",
+                                get: function () {
+                                    return this._store.count
+                                }
+                            }
+                        ]),
+                    c()(n, [{
                                 key: "add",
                                 value: function (t, e) {
                                     var n,
-                                    i = this,
-                                    r = this.getKey(t);
+                                    r = this,
+                                    i = this.getKey(t);
                                     if (!this._configs)
                                         return this._loadCallbacks[t] = function () {
-                                            i.add(t, e)
+                                            r.add(t, e)
                                         },
                                     void(!1 === this._loading && this.loadStyles());
-                                    "image" === (e = Object(v.extend)(Object(v.cloneDeep)(this._opts), e)).type && (n = e);
+                                    "image" === (e = Object(y.extend)(Object(y.cloneDeep)(this._opts), e)).type && (n = e);
                                     var a = this.configForType(t);
                                     if (a) {
                                         var o = a.config;
-                                        if (Object(v.isEmpty)(o) || (n = o), !Object(v.isEmpty)(o.use)) {
+                                        if (Object(y.isEmpty)(o) || (n = o), !Object(y.isEmpty)(o.use)) {
                                             var s = this.configForType(o.use);
                                             n = Object.assign(Object.assign({}, s), n)
                                         }
                                     }
-                                    if (Object(v.isset)(n)) {
-                                        var c = Object(v.extend)(e, {
+                                    if (Object(y.isset)(n)) {
+                                        var c = Object(y.extend)(e, {
                                             title: n.title,
                                             size: this._opts.size,
                                             autosize: this._opts.autosize,
                                             format: this._opts.format,
                                             metric: this._opts.metric
                                         }, n, e),
-                                        u = this._store.get(r);
+                                        u = this._store.get(i);
                                         if (u)
-                                            return this._store.increment(r), void u.update(c);
-                                        n && !Object(v.isEmpty)(n) && (u = this.createLegend(t, n, c), this.addLegend(u), r !== t && this._store.map(r, t))
+                                            return this._store.increment(i), void u.update(c);
+                                        n && !Object(y.isEmpty)(n) && (u = this.createLegend(t, n, c), this.addLegend(u), i !== t && this._store.map(i, t))
                                     }
                                 }
                             }, {
@@ -9732,7 +9755,7 @@
                                     if (e) {
                                         var n = this._store.get(e);
                                         n && (this._store.remove(e), 0 === this._store.refCount(e) && this.removeLegend(n)),
-                                        n instanceof y.a && n.off("resize", this._onResize),
+                                        n instanceof v.a && n.off("resize", this._onResize),
                                         this._onResize()
                                     }
                                     0 === this.count && (this.$el.hide(), this.trigger("empty"))
@@ -9751,7 +9774,7 @@
                                     this._store.add(e, t),
                                     this.$el.append(t.$el),
                                     this.$el.show(),
-                                    t instanceof y.a && t.on("resize", this._onResize),
+                                    t instanceof v.a && t.on("resize", this._onResize),
                                     this.trigger("add", {
                                         key: t.key,
                                         count: this.count
@@ -9771,14 +9794,14 @@
                                 value: function (t) {
                                     var e = this;
                                     Object.keys(this._store.items).forEach((function (n) {
-                                            var i = !0;
+                                            var r = !0;
                                             if (t) {
-                                                var r = e._store.mapping.get(n) || [];
-                                                -1 !== t.indexOf(n) ? i = !1 : r && r.forEach((function (e) {
-                                                            -1 !== t.indexOf(e) && (i = !1)
+                                                var i = e._store.mapping.get(n) || [];
+                                                -1 !== t.indexOf(n) ? r = !1 : i && i.forEach((function (e) {
+                                                            -1 !== t.indexOf(e) && (r = !1)
                                                         }))
                                             }
-                                            i && e.remove(n)
+                                            r && e.remove(n)
                                         }))
                                 }
                             }, {
@@ -9815,10 +9838,10 @@
                                 value: function () {
                                     var t = 0,
                                     e = 0;
-                                    return this._each((function (n, i) {
-                                            var r = i.getSize();
-                                            t += r.height,
-                                            e = Math.max(e, r.width)
+                                    return this._each((function (n, r) {
+                                            var i = r.getSize();
+                                            t += i.height,
+                                            e = Math.max(e, i.width)
                                         })), {
                                         width: e,
                                         height: t
@@ -9843,19 +9866,19 @@
                                             config: null
                                         };
                                     var n,
-                                    i = this._configs[t];
-                                    return !i && /^f/.test(t) && (n = t.replace(/^f/, ""), i = this._configs[n]),
-                                    i || Object.keys(this._configs).forEach((function (r) {
-                                            var a = e._configs[r];
-                                            if (!0 === a.enabled || !Object(v.isset)(a.enabled)) {
+                                    r = this._configs[t];
+                                    return !r && /^f/.test(t) && (n = t.replace(/^f/, ""), r = this._configs[n]),
+                                    r || Object.keys(this._configs).forEach((function (i) {
+                                            var a = e._configs[i];
+                                            if (!0 === a.enabled || !Object(y.isset)(a.enabled)) {
                                                 var o = a.layers;
                                                 o && (o.forEach((function (e) {
-                                                            new RegExp(e).test(t) && (i = Object(v.cloneDeep)(a), n = r)
-                                                        })), i && !n && (n = r))
+                                                            new RegExp(e).test(t) && (r = Object(y.cloneDeep)(a), n = i)
+                                                        })), r && !n && (n = i))
                                             }
                                         })), {
                                         key: n || t,
-                                        config: Object(v.cloneDeep)(i)
+                                        config: Object(y.cloneDeep)(r)
                                     }
                                 }
                             }, {
@@ -9882,34 +9905,34 @@
                             }, {
                                 key: "createLegend",
                                 value: function (t, e, n) {
-                                    var i,
-                                    r = this,
+                                    var r,
+                                    i = this,
                                     a = this.getKey(t);
                                     if ("image" === e.type)
-                                        i = new w(a, n);
+                                        r = new w(a, n);
                                     else if (e.grouped && e.items) {
                                         var o = n.types || {};
                                         n.types = e.items.reduce((function (t, e) {
-                                                    var n = r.configForType(e.key).config,
-                                                    i = Object(v.extend)({
+                                                    var n = i.configForType(e.key).config,
+                                                    r = Object(y.extend)({
                                                         factor: e.factor,
                                                         size: {
-                                                            height: r._opts.size.height
+                                                            height: i._opts.size.height
                                                         }
                                                     }, n, o[e.key]);
-                                                    return i.size.width = Math.floor(r._opts.size.width * i.factor),
-                                                    t[e.key] = i,
+                                                    return r.size.width = Math.floor(i._opts.size.width * r.factor),
+                                                    t[e.key] = r,
                                                     t
                                                 }), {}),
-                                        i = new B(a, n)
+                                        r = new B(a, n)
                                     } else
-                                        "alerts" === t || "advisories" === t || /^alerts-/.test(t) ? (i = new A(a, n), Object(v.isset)(n.within) && setTimeout((function () {
-                                                    r.update({
+                                        "alerts" === t || "advisories" === t || /^alerts-/.test(t) ? (r = new F(a, n), Object(y.isset)(n.within) && setTimeout((function () {
+                                                    i.update({
                                                         account: n.account,
                                                         within: n.within
                                                     })
-                                                }), 500)) : i = new T(a, n);
-                                    return i
+                                                }), 500)) : r = new T(a, n);
+                                    return r
                                 }
                             }, {
                                 key: "loadStyles",
@@ -9917,9 +9940,9 @@
                                     var t = this;
                                     return this._loading = !0,
                                     new Promise((function (e, n) {
-                                            return J(t, void 0, void 0, r.a.mark((function t() {
+                                            return H(t, void 0, void 0, i.a.mark((function t() {
                                                         var n = this;
-                                                        return r.a.wrap((function (t) {
+                                                        return i.a.wrap((function (t) {
                                                                 for (; ; )
                                                                     switch (t.prev = t.next) {
                                                                     case 0:
@@ -9932,20 +9955,20 @@
                                                                     case 3:
                                                                         V.b.request("https://legends.aerisapi.com/defaults.json").then((function (t) {
                                                                                 if (t.data) {
-                                                                                    var i = t.data;
-                                                                                    Object.keys(i).forEach((function (t) {
-                                                                                            var e = i[t];
+                                                                                    var r = t.data;
+                                                                                    Object.keys(r).forEach((function (t) {
+                                                                                            var e = r[t];
                                                                                             e.config && (Object.keys(e.config).forEach((function (t) {
                                                                                                         if (-1 !== t.indexOf("_")) {
                                                                                                             var n = t.replace(/^labels_/, "label_").replace(/_/g, ".");
-                                                                                                            Object(v.set)(e.config, n, e.config[t]),
+                                                                                                            Object(y.set)(e.config, n, e.config[t]),
                                                                                                             delete e.config[t]
                                                                                                         }
-                                                                                                    })), e.styles = Object(v.cloneDeep)(e.config), delete e.config)
+                                                                                                    })), e.styles = Object(y.cloneDeep)(e.config), delete e.config)
                                                                                         })),
-                                                                                    n._configs = i,
+                                                                                    n._configs = r,
                                                                                     n._loading = !1,
-                                                                                    e(Object(v.cloneDeep)(n._configs)),
+                                                                                    e(Object(y.cloneDeep)(n._configs)),
                                                                                     Object.keys(n._loadCallbacks).forEach((function (t) {
                                                                                             (0, n._loadCallbacks[t])()
                                                                                         }))
@@ -9959,48 +9982,38 @@
                                                     })))
                                         }))
                                 }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return this._target
-                                }
-                            }, {
-                                key: "count",
-                                get: function () {
-                                    return this._store.count
-                                }
                             }
                         ]),
                     n
                 }
-                (y.a);
-                e.a = H
+                (v.a);
+                e.a = U
             },
             GKVU: function (t, e, n) {
                 "use strict";
-                var i = n("I+eb"),
-                r = n("hXpO");
-                i({
+                var r = n("I+eb"),
+                i = n("hXpO");
+                r({
                     target: "String",
                     proto: !0,
                     forced: n("rwPt")("anchor")
                 }, {
                     anchor: function (t) {
-                        return r(this, "a", "name", t)
+                        return i(this, "a", "name", t)
                     }
                 })
             },
             GRPF: function (t, e, n) {
                 "use strict";
-                var i = n("I+eb"),
-                r = n("hXpO");
-                i({
+                var r = n("I+eb"),
+                i = n("hXpO");
+                r({
                     target: "String",
                     proto: !0,
                     forced: n("rwPt")("fontsize")
                 }, {
                     fontsize: function (t) {
-                        return r(this, "font", "size", t)
+                        return i(this, "font", "size", t)
                     }
                 })
             },
@@ -10016,14 +10029,14 @@
                         return p
                     })),
                 n.d(e, "a", (function () {
-                        return y
+                        return v
                     }));
                 n("yXV3"),
                 n("rB9j"),
                 n("UxlC"),
                 n("EnZy");
-                var i = n("DA0x"),
-                r = n("GdSY"),
+                var r = n("DA0x"),
+                i = n("GdSY"),
                 a = n("gqGf"),
                 o = n("0lfv"),
                 s = n("lnrW"),
@@ -10037,9 +10050,9 @@
                 },
                 h = function (t, e) {
                     var n = e.layer,
-                    i = e.request,
-                    a = new r.a({
-                        server: i.server,
+                    r = e.request,
+                    a = new i.a({
+                        server: r.server,
                         client: {
                             id: t.id,
                             secret: t.secret
@@ -10051,39 +10064,39 @@
                     a
                 },
                 f = function (t, e, n) {
-                    var i = Object(o.get)(e, "data.service");
-                    return Object(o.isFunction)(i) && (i = i()),
-                    i instanceof r.a && i.type("tile"),
-                    n.tileLayer(t, i, e)
+                    var r = Object(o.get)(e, "data.service");
+                    return Object(o.isFunction)(r) && (r = r()),
+                    r instanceof i.a && r.type("tile"),
+                    n.tileLayer(t, r, e)
                 },
-                d = function (t, e, n, r) {
+                d = function (t, e, n, i) {
                     var s = n || {},
                     c = s.account,
                     u = s.servers;
                     if (delete n.account, delete n.servers, -1 === ["tile", "vector", "geojson", "text"].indexOf(e))
                         return null;
                     if ("tile" === e)
-                        return f(t, n, r);
+                        return f(t, n, i);
                     if (n.data && !Object(o.isset)(Object(o.get)(n, "data.service"))) {
                         var l = function (t, e) {
                             if (!Object(o.isset)(e))
                                 return null;
                             var n = e.service;
                             if (Object(o.isset)(e.request)) {
-                                var r = e.request;
+                                var i = e.request;
                                 if (n) {
-                                    var a = r.action,
-                                    s = r.parameters;
+                                    var a = i.action,
+                                    s = i.parameters;
                                     a && n.action(a),
                                     s && n.setParams(s)
                                 } else
-                                    r.endpoint && ((n = new i.a({
-                                                server: r.server,
+                                    i.endpoint && ((n = new r.a({
+                                                server: i.server,
                                                 client: {
                                                     id: t.id,
                                                     secret: t.secret
                                                 }
-                                            })).endpoint(r.endpoint), r.action && n.action(r.action), r.parameters && n.setParams(r.parameters))
+                                            })).endpoint(i.endpoint), i.action && n.action(i.action), i.parameters && n.setParams(i.parameters))
                             }
                             return n
                         }
@@ -10099,31 +10112,31 @@
                 p = function (t) {
                     return t.replace(/\:[^,]+/g, "")
                 },
-                y = function (t) {
+                v = function (t) {
                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
                     n = arguments.length > 2 ? arguments[2] : void 0,
-                    i = arguments.length > 3 ? arguments[3] : void 0,
-                    r = e || {},
-                    a = r.account,
-                    l = r.servers,
-                    y = r.timeline,
-                    v = void 0 === y ? {}
-                     : y,
+                    r = arguments.length > 3 ? arguments[3] : void 0,
+                    i = e || {},
+                    a = i.account,
+                    l = i.servers,
+                    v = i.timeline,
+                    y = void 0 === v ? {}
+                     : v,
                     m = p(t),
                     g = Object(o.get)(e, "id") || m;
                     if (Object(s.c)(t) || "tile" === e.type) {
                         delete e.data;
                         var k = !Object(o.isset)(e.validate) || e.validate;
-                        if (!0 === k && !i.exists(t)) {
-                            var b = i.findInvalidIds(t);
-                            return "[Aeris] Cannot add layer(s) {".concat(b, "}, not a valid AerisWeather Maps layer. See https://www.aerisweather.com/support/docs/aeris-maps/reference/map-layers/ for the list of supported AMP layers."),
+                        if (!0 === k && !r.exists(t)) {
+                            var b = r.findInvalidIds(t);
+                            return console.warn("[Aeris] Cannot add layer(s) {".concat(b, "}, not a valid AerisWeather Maps layer. See https://www.aerisweather.com/support/docs/aeris-maps/reference/map-layers/ for the list of supported AMP layers.")),
                             u
                         }
-                        var _ = i.isFuture(t),
-                        O = i.isBase(t),
-                        w = i.isOverlay(t),
+                        var _ = r.isFuture(t),
+                        O = r.isBase(t),
+                        w = r.isOverlay(t),
                         j = Object(o.get)(e, "alwaysShow");
-                        Object(o.isset)(j) || (j = _ ? v.alwaysShowFuture : v.alwaysShowPast);
+                        Object(o.isset)(j) || (j = _ ? y.alwaysShowFuture : y.alwaysShowPast);
                         var x = h(a, {
                             layer: t,
                             request: {
@@ -10142,7 +10155,7 @@
                                 }
                             });
                         else {
-                            var S = v.intervals;
+                            var S = y.intervals;
                             T = Object(o.extend)({
                                 animation: {
                                     enabled: !0,
@@ -10153,8 +10166,8 @@
                                 future: _,
                                 alwaysShow: j,
                                 animation: {
-                                    bufferIntervals: v.bufferIntervals,
-                                    showLoadingIntervals: v.showLoadingIntervals
+                                    bufferIntervals: y.bufferIntervals,
+                                    showLoadingIntervals: y.showLoadingIntervals
                                 }
                             })
                         }
@@ -10198,8 +10211,8 @@
                 n("PKPk"),
                 n("FZtP"),
                 n("3bBZ");
-                var i = n("J4zp"),
-                r = n.n(i),
+                var r = n("J4zp"),
+                i = n.n(r),
                 a = n("lwsE"),
                 o = n.n(a),
                 s = n("W8MJ"),
@@ -10242,10 +10255,10 @@
                                 key: "items",
                                 get: function () {
                                     return Array.from(this.store.entries()).reduce((function (t, e) {
-                                            var n = r()(e, 2),
-                                            i = n[0],
+                                            var n = i()(e, 2),
+                                            r = n[0],
                                             a = n[1];
-                                            return t[i] = a,
+                                            return t[r] = a,
                                             t
                                         }), {})
                                 }
@@ -10295,66 +10308,66 @@
                         return p
                     }));
                 n("2B1R");
-                var i = n("Cr01"),
-                r = n("0lfv"),
+                var r = n("Cr01"),
+                i = n("0lfv"),
                 a = function (t) {
                     var e = new Date(t.getTime() + 60 * t.getTimezoneOffset() * 1e3);
-                    return Object(r.formatDate)(e, "yyyyMMddHHmm00")
+                    return Object(i.formatDate)(e, "yyyyMMddHHmm00")
                 },
                 o = function (t) {
-                    if (Object(r.isPlainObject)(t)) {
+                    if (Object(i.isPlainObject)(t)) {
                         var e = t.lat,
                         n = t.lon;
-                        return Object(r.isset)(e) && Object(r.isset)(n)
+                        return Object(i.isset)(e) && Object(i.isset)(n)
                     }
                     return !1
                 },
                 s = function (t) {
                     if (t) {
-                        var e = Object(r.has)(t, "openPopup");
+                        var e = Object(i.has)(t, "openPopup");
                         if ("undefined" != typeof L && (t instanceof L.map || t instanceof L.Map) && e)
                             return !0;
-                        if (!Object(r.isHTMLElement)(t) && e)
+                        if (!Object(i.isHTMLElement)(t) && e)
                             return !0
                     }
                     return !1
                 },
                 c = function (t) {
                     if (t) {
-                        var e = Object(r.has)(t, "queryRenderedFeatures");
+                        var e = Object(i.has)(t, "queryRenderedFeatures");
                         if ("undefined" != typeof mapboxgl && t instanceof mapboxgl.Map && e)
                             return !0;
-                        if (!Object(r.isHTMLElement)(t) && e)
+                        if (!Object(i.isHTMLElement)(t) && e)
                             return !0
                     }
                     return !1
                 },
                 u = function (t) {
                     if (t) {
-                        var e = Object(r.has)(t, "queryRenderedFeatures");
+                        var e = Object(i.has)(t, "queryRenderedFeatures");
                         if ("undefined" != typeof maplibregl && t instanceof maplibregl.Map && e)
                             return !0;
-                        if (!Object(r.isHTMLElement)(t) && e)
+                        if (!Object(i.isHTMLElement)(t) && e)
                             return !0
                     }
                     return !1
                 },
                 l = function (t) {
                     if (t) {
-                        var e = Object(r.has)(t, "getStreetView");
+                        var e = Object(i.has)(t, "getStreetView");
                         if ("undefined" != typeof google && t instanceof google.maps.Map && e)
                             return !0;
-                        if (!Object(r.isHTMLElement)(t) && e)
+                        if (!Object(i.isHTMLElement)(t) && e)
                             return !0
                     }
                     return !1
                 },
                 h = function (t) {
                     if (t) {
-                        var e = Object(r.has)(t, "forEachFeatureAtPixel");
+                        var e = Object(i.has)(t, "forEachFeatureAtPixel");
                         if ("undefined" != typeof ol && t instanceof ol.Map && e)
                             return !0;
-                        if (!Object(r.isHTMLElement)(t) && e)
+                        if (!Object(i.isHTMLElement)(t) && e)
                             return !0
                     }
                     return !1
@@ -10364,12 +10377,12 @@
                 },
                 d = function (t, e) {
                     var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "";
-                    return t && Object(r.isset)(e) && !Object(r.isEmpty)(e) ? t(e) : n
+                    return t && Object(i.isset)(e) && !Object(i.isEmpty)(e) ? t(e) : n
                 },
                 p = function (t, e) {
-                    Object(i.modulesLoader)().then((function (n) {
-                            var i = Object(r.get)(n, t);
-                            i && i().then((function (t) {
+                    Object(r.modulesLoader)().then((function (n) {
+                            var r = Object(i.get)(n, t);
+                            r && r().then((function (t) {
                                     var n = new(t = t.default || t);
                                     e(n.id, n.source(), n)
                                 }))
@@ -10378,8 +10391,8 @@
             },
             TfTi: function (t, e, n) {
                 "use strict";
-                var i = n("A2ZE"),
-                r = n("ewvW"),
+                var r = n("A2ZE"),
+                i = n("ewvW"),
                 a = n("m92n"),
                 o = n("6VoE"),
                 s = n("UMSQ"),
@@ -10392,63 +10405,37 @@
                     h,
                     f,
                     d,
-                    p = r(t),
-                    y = "function" == typeof this ? this : Array,
-                    v = arguments.length,
-                    m = v > 1 ? arguments[1] : void 0,
+                    p = i(t),
+                    v = "function" == typeof this ? this : Array,
+                    y = arguments.length,
+                    m = y > 1 ? arguments[1] : void 0,
                     g = void 0 !== m,
                     k = u(p),
                     b = 0;
-                    if (g && (m = i(m, v > 2 ? arguments[2] : void 0, 2)), null == k || y == Array && o(k))
-                        for (n = new y(e = s(p.length)); e > b; b++)
+                    if (g && (m = r(m, y > 2 ? arguments[2] : void 0, 2)), null == k || v == Array && o(k))
+                        for (n = new v(e = s(p.length)); e > b; b++)
                             d = g ? m(p[b], b) : p[b], c(n, b, d);
                     else
-                        for (f = (h = k.call(p)).next, n = new y; !(l = f.call(h)).done; b++)
+                        for (f = (h = k.call(p)).next, n = new v; !(l = f.call(h)).done; b++)
                             d = g ? a(h, m, [l.value, b], !0) : l.value, c(n, b, d);
                     return n.length = b,
                     n
                 }
             },
-            ToJy: function (t, e, n) {
-                "use strict";
-                var i = n("I+eb"),
-                r = n("HAuM"),
-                a = n("ewvW"),
-                o = n("0Dky"),
-                s = n("pkCn"),
-                c = [],
-                u = c.sort,
-                l = o((function () {
-                            c.sort(void 0)
-                        })),
-                h = o((function () {
-                            c.sort(null)
-                        })),
-                f = s("sort");
-                i({
-                    target: "Array",
-                    proto: !0,
-                    forced: l || !h || !f
-                }, {
-                    sort: function (t) {
-                        return void 0 === t ? u.call(a(this)) : u.call(a(this), r(t))
-                    }
-                })
-            },
             Tskq: function (t, e, n) {
                 "use strict";
-                var i = n("bWFh"),
-                r = n("ZWaQ");
-                t.exports = i("Map", (function (t) {
+                var r = n("bWFh"),
+                i = n("ZWaQ");
+                t.exports = r("Map", (function (t) {
                             return function () {
                                 return t(this, arguments.length ? arguments[0] : void 0)
                             }
-                        }), r)
+                        }), i)
             },
             ZWaQ: function (t, e, n) {
                 "use strict";
-                var i = n("m/L8").f,
-                r = n("fHMY"),
+                var r = n("m/L8").f,
+                i = n("fHMY"),
                 a = n("4syw"),
                 o = n("A2ZE"),
                 s = n("GarU"),
@@ -10459,47 +10446,47 @@
                 f = n("8YOa").fastKey,
                 d = n("afO8"),
                 p = d.set,
-                y = d.getterFor;
+                v = d.getterFor;
                 t.exports = {
                     getConstructor: function (t, e, n, u) {
-                        var l = t((function (t, i) {
+                        var l = t((function (t, r) {
                                     s(t, l, e),
                                     p(t, {
                                         type: e,
-                                        index: r(null),
+                                        index: i(null),
                                         first: void 0,
                                         last: void 0,
                                         size: 0
                                     }),
                                     h || (t.size = 0),
-                                    null != i && c(i, t[u], {
+                                    null != r && c(r, t[u], {
                                         that: t,
                                         AS_ENTRIES: n
                                     })
                                 })),
-                        d = y(e),
-                        v = function (t, e, n) {
-                            var i,
-                            r,
+                        d = v(e),
+                        y = function (t, e, n) {
+                            var r,
+                            i,
                             a = d(t),
                             o = m(t, e);
                             return o ? o.value = n : (a.last = o = {
-                                        index: r = f(e, !0),
+                                        index: i = f(e, !0),
                                         key: e,
                                         value: n,
-                                        previous: i = a.last,
+                                        previous: r = a.last,
                                         next: void 0,
                                         removed: !1
-                                    }, a.first || (a.first = o), i && (i.next = o), h ? a.size++ : t.size++, "F" !== r && (a.index[r] = o)),
+                                    }, a.first || (a.first = o), r && (r.next = o), h ? a.size++ : t.size++, "F" !== i && (a.index[i] = o)),
                             t
                         },
                         m = function (t, e) {
                             var n,
-                            i = d(t),
-                            r = f(e);
-                            if ("F" !== r)
-                                return i.index[r];
-                            for (n = i.first; n; n = n.next)
+                            r = d(t),
+                            i = f(e);
+                            if ("F" !== i)
+                                return r.index[i];
+                            for (n = r.first; n; n = n.next)
                                 if (n.key == e)
                                     return n
                         };
@@ -10513,23 +10500,23 @@
                             delete : function (t) {
                                 var e = this,
                                 n = d(e),
-                                i = m(e, t);
-                                if (i) {
-                                    var r = i.next,
-                                    a = i.previous;
-                                    delete n.index[i.index],
-                                    i.removed = !0,
-                                    a && (a.next = r),
-                                    r && (r.previous = a),
-                                    n.first == i && (n.first = r),
-                                    n.last == i && (n.last = a),
+                                r = m(e, t);
+                                if (r) {
+                                    var i = r.next,
+                                    a = r.previous;
+                                    delete n.index[r.index],
+                                    r.removed = !0,
+                                    a && (a.next = i),
+                                    i && (i.previous = a),
+                                    n.first == r && (n.first = i),
+                                    n.last == r && (n.last = a),
                                     h ? n.size-- : e.size--
                                 }
-                                return !!i
+                                return !!r
                             },
                             forEach: function (t) {
-                                for (var e, n = d(this), i = o(t, arguments.length > 1 ? arguments[1] : void 0, 3); e = e ? e.next : n.first; )
-                                    for (i(e.value, e.key, this); e && e.removed; )
+                                for (var e, n = d(this), r = o(t, arguments.length > 1 ? arguments[1] : void 0, 3); e = e ? e.next : n.first; )
+                                    for (r(e.value, e.key, this); e && e.removed; )
                                         e = e.previous
                             },
                             has: function (t) {
@@ -10542,15 +10529,15 @@
                                 return e && e.value
                             },
                             set: function (t, e) {
-                                return v(this, 0 === t ? 0 : t, e)
+                                return y(this, 0 === t ? 0 : t, e)
                             }
                         }
                              : {
                             add: function (t) {
-                                return v(this, t = 0 === t ? 0 : t, t)
+                                return y(this, t = 0 === t ? 0 : t, t)
                             }
                         }),
-                        h && i(l.prototype, "size", {
+                        h && r(l.prototype, "size", {
                             get: function () {
                                 return d(this).size
                             }
@@ -10558,14 +10545,14 @@
                         l
                     },
                     setStrong: function (t, e, n) {
-                        var i = e + " Iterator",
-                        r = y(e),
-                        a = y(i);
+                        var r = e + " Iterator",
+                        i = v(e),
+                        a = v(r);
                         u(t, e, (function (t, e) {
                                 p(this, {
-                                    type: i,
+                                    type: r,
                                     target: t,
-                                    state: r(t),
+                                    state: i(t),
                                     kind: e,
                                     last: void 0
                                 })
@@ -10611,8 +10598,8 @@
             },
             bWFh: function (t, e, n) {
                 "use strict";
-                var i = n("I+eb"),
-                r = n("2oRo"),
+                var r = n("I+eb"),
+                i = n("2oRo"),
                 a = n("lMq5"),
                 o = n("busE"),
                 s = n("8YOa"),
@@ -10624,10 +10611,10 @@
                 d = n("1E5z"),
                 p = n("cVYH");
                 t.exports = function (t, e, n) {
-                    var y = -1 !== t.indexOf("Map"),
-                    v = -1 !== t.indexOf("Weak"),
-                    m = y ? "set" : "add",
-                    g = r[t],
+                    var v = -1 !== t.indexOf("Map"),
+                    y = -1 !== t.indexOf("Weak"),
+                    m = v ? "set" : "add",
+                    g = i[t],
                     k = g && g.prototype,
                     b = g,
                     _ = {},
@@ -10638,26 +10625,26 @@
                             this
                         }
                              : "delete" == t ? function (t) {
-                            return !(v && !l(t)) && e.call(this, 0 === t ? 0 : t)
+                            return !(y && !l(t)) && e.call(this, 0 === t ? 0 : t)
                         }
                              : "get" == t ? function (t) {
-                            return v && !l(t) ? void 0 : e.call(this, 0 === t ? 0 : t)
+                            return y && !l(t) ? void 0 : e.call(this, 0 === t ? 0 : t)
                         }
                              : "has" == t ? function (t) {
-                            return !(v && !l(t)) && e.call(this, 0 === t ? 0 : t)
+                            return !(y && !l(t)) && e.call(this, 0 === t ? 0 : t)
                         }
                              : function (t, n) {
                             return e.call(this, 0 === t ? 0 : t, n),
                             this
                         })
                     };
-                    if (a(t, "function" != typeof g || !(v || k.forEach && !h((function () {
+                    if (a(t, "function" != typeof g || !(y || k.forEach && !h((function () {
                                         (new g).entries().next()
                                     })))))
-                        b = n.getConstructor(e, t, y, m), s.REQUIRED = !0;
+                        b = n.getConstructor(e, t, v, m), s.REQUIRED = !0;
                     else if (a(t, !0)) {
                         var w = new b,
-                        j = w[m](v ? {}
+                        j = w[m](y ? {}
                                  : -0, 1) != w,
                         x = h((function () {
                                     w.has(1)
@@ -10665,31 +10652,31 @@
                         T = f((function (t) {
                                     new g(t)
                                 })),
-                        S = !v && h((function () {
+                        S = !y && h((function () {
                                     for (var t = new g, e = 5; e--; )
                                         t[m](e, e);
                                     return !t.has(-0)
                                 }));
                         T || ((b = e((function (e, n) {
                                             u(e, b, t);
-                                            var i = p(new g, e, b);
-                                            return null != n && c(n, i[m], {
-                                                that: i,
-                                                AS_ENTRIES: y
+                                            var r = p(new g, e, b);
+                                            return null != n && c(n, r[m], {
+                                                that: r,
+                                                AS_ENTRIES: v
                                             }),
-                                            i
+                                            r
                                         }))).prototype = k, k.constructor = b),
-                        (x || S) && (O("delete"), O("has"), y && O("get")),
+                        (x || S) && (O("delete"), O("has"), v && O("get")),
                         (S || j) && O(m),
-                        v && k.clear && delete k.clear
+                        y && k.clear && delete k.clear
                     }
                     return _[t] = b,
-                    i({
+                    r({
                         global: !0,
                         forced: b != g
                     }, _),
                     d(b, t),
-                    v || n.setStrong(b, t, y),
+                    y || n.setStrong(b, t, v),
                     b
                 }
             },
@@ -10703,15 +10690,14 @@
                 n("qePV"),
                 n("tkto"),
                 n("07d7"),
-                n("rNhl"),
                 n("SuFq"),
                 n("TWNs"),
                 n("rB9j"),
                 n("JfAA"),
                 n("UxlC"),
                 n("FZtP");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("7W2i"),
@@ -10722,8 +10708,8 @@
                 f = n.n(h),
                 d = n("m0x2"),
                 p = n("0lfv"),
-                y = n("pAjv");
-                function v(t) {
+                v = n("pAjv");
+                function y(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -10741,23 +10727,24 @@
                     ();
                     return function () {
                         var n,
-                        i = f()(t);
+                        r = f()(t);
                         if (e) {
-                            var r = f()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = f()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return l()(this, n)
                     }
                 }
                 var m = function (t) {
                     c()(n, t);
-                    var e = v(n);
+                    var e = y(n);
                     function n() {
                         var t,
-                        i = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
-                        r()(this, n),
-                        (t = e.call(this))._startOffset = 0,
+                        r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
+                        i()(this, n),
+                        (t = e.call(this)).manualAdvance = !1,
+                        t._startOffset = 0,
                         t._endOffset = 0,
                         t._elapsed = 0,
                         t._time = 0,
@@ -10771,7 +10758,7 @@
                         t._currentInterval = 0,
                         t._active = !1,
                         t._enabled = !0,
-                        i = Object(p.extend)({}, {
+                        r = Object(p.extend)({}, {
                             key: void 0,
                             enabled: !0,
                             from: 0,
@@ -10781,12 +10768,14 @@
                             intervals: 10,
                             autoplay: !1,
                             future: !1,
-                            alwaysShow: !1
-                        }, i),
-                        t._now = new Date;
+                            alwaysShow: !1,
+                            manualAdvance: !1
+                        }, r),
+                        t._now = new Date,
+                        t.manualAdvance = r.manualAdvance || !1;
                         var a = t._now.getTime();
-                        if (Object.keys(i).forEach((function (t) {
-                                    var e = i[t];
+                        if (Object.keys(r).forEach((function (t) {
+                                    var e = r[t];
                                     if (("from" === t || "to" === t) && Object(p.isString)(e)) {
                                         var n = {
                                             year: ["y", "yr"],
@@ -10799,38 +10788,139 @@
                                         };
                                         e = e.replace(/\s/g, ""),
                                         Object.keys(n).forEach((function (t) {
-                                                var i = n[t];
-                                                Object(p.isArray)(i) && i.forEach((function (n) {
-                                                        var i = new RegExp("^([\\d\\.-]+)".concat(n, "$"));
-                                                        e = e.replace(i, "$1".concat(t))
+                                                var r = n[t];
+                                                Object(p.isArray)(r) && r.forEach((function (n) {
+                                                        var r = new RegExp("^([\\d\\.-]+)".concat(n, "$"));
+                                                        e = e.replace(r, "$1".concat(t))
                                                     }))
                                             })),
                                         /(year|month|week|day|hour|minute|second)/.test(e) && (e = 3600 * Object(p.toTimeOffsetHours)(e))
                                     }
                                     Object(p.isNumeric)(e) && (e = parseFloat(e)),
-                                    i[t] = e
-                                })), Object(p.isString)(i.from) && (i.from = Object(y.toDate)("".concat(i.from))), Object(p.isString)(i.to) && (i.to = Object(y.toDate)("".concat(i.to))), t.opts = i, Object(p.isDate)(i.from)) {
-                            var o = i.from;
+                                    r[t] = e
+                                })), Object(p.isString)(r.from) && (r.from = Object(v.toDate)("".concat(r.from))), Object(p.isString)(r.to) && (r.to = Object(v.toDate)("".concat(r.to))), t.opts = r, Object(p.isDate)(r.from)) {
+                            var o = r.from;
                             t._startOffset = o.getTime() - a,
                             t.from = o.getTime()
                         } else
-                            t._startOffset = 1e3 * parseFloat("".concat(i.from)), t.from = a + t._startOffset;
-                        if (Object(p.isDate)(i.to)) {
-                            var s = i.to;
+                            t._startOffset = 1e3 * parseFloat("".concat(r.from)), t.from = a + t._startOffset;
+                        if (Object(p.isDate)(r.to)) {
+                            var s = r.to;
                             t._endOffset = s.getTime() - a,
                             t.to = s.getTime()
                         } else
-                            t._endOffset = 1e3 * parseFloat("".concat(i.to)), t.to = a + t._endOffset;
-                        return t._enabled = i.enabled,
-                        t.duration = i.duration || 2,
-                        t.endDelay = i.endDelay || 1,
-                        t.totalIntervals = i.intervals || 10,
+                            t._endOffset = 1e3 * parseFloat("".concat(r.to)), t.to = a + t._endOffset;
+                        return t._enabled = r.enabled,
+                        t.duration = r.duration || 2,
+                        t.endDelay = r.endDelay || 1,
+                        t.totalIntervals = r.intervals || 10,
                         t._time = t.from,
                         t._times = [],
                         t._startup(),
                         t
                     }
                     return o()(n, [{
+                                key: "key",
+                                get: function () {
+                                    return this.opts.key
+                                }
+                            }, {
+                                key: "timeline",
+                                get: function () {
+                                    return this._timeline
+                                },
+                                set: function (t) {
+                                    var e = this;
+                                    this._timeline = t,
+                                    t && (this.now = t.now, this.from = t.from, this.to = t.to, ["duration", "endDelay"].forEach((function (n) {
+                                                e.opt(n, t.opt(n))
+                                            })), this.goToTime(t.currentTime))
+                                }
+                            }, {
+                                key: "from",
+                                get: function () {
+                                    return parseFloat("".concat(this.opts.from))
+                                },
+                                set: function (t) {
+                                    this.stop(),
+                                    this.opts.from = t,
+                                    this._startOffset = t - this._now.getTime(),
+                                    this._onTimingChange(),
+                                    this.trigger("start:change", {
+                                        from: this.startDate(),
+                                        to: this.endDate()
+                                    })
+                                }
+                            }, {
+                                key: "to",
+                                get: function () {
+                                    return parseFloat("".concat(this.opts.to))
+                                },
+                                set: function (t) {
+                                    this.stop(),
+                                    this.opts.to = t,
+                                    this._endOffset = t - this._now.getTime(),
+                                    this._onTimingChange(),
+                                    this.trigger("end:change", {
+                                        from: this.startDate(),
+                                        to: this.endDate()
+                                    })
+                                }
+                            }, {
+                                key: "now",
+                                get: function () {
+                                    return this._now
+                                },
+                                set: function (t) {
+                                    this._now = t
+                                }
+                            }, {
+                                key: "duration",
+                                get: function () {
+                                    return this.opts.duration
+                                },
+                                set: function (t) {
+                                    t !== this.opts.duration && (this.opts.duration = t, this._updateTiming())
+                                }
+                            }, {
+                                key: "endDelay",
+                                get: function () {
+                                    return this.opts.endDelay
+                                },
+                                set: function (t) {
+                                    this.opts.endDelay = t
+                                }
+                            }, {
+                                key: "totalTime",
+                                get: function () {
+                                    return this.to - this.from
+                                }
+                            }, {
+                                key: "currentTime",
+                                get: function () {
+                                    return this._time
+                                }
+                            }, {
+                                key: "currentOffset",
+                                get: function () {
+                                    return this._offset
+                                }
+                            }, {
+                                key: "increment",
+                                get: function () {
+                                    return this._increment
+                                }
+                            }, {
+                                key: "position",
+                                get: function () {
+                                    return this._offset / this.totalTime
+                                },
+                                set: function (t) {
+                                    this.goToTime(this.from + (this.to - this.from) * t)
+                                }
+                            }
+                        ]),
+                    o()(n, [{
                                 key: "opt",
                                 value: function (t, e) {
                                     return e ? (Object(p.set)(this.opts, t, e), "intervals" === t && (this.reset(), this.totalIntervals = e, this._updateTimes()), this) : Object(p.get)(this.opts, t)
@@ -10935,8 +11025,7 @@
                                 key: "setStartDate",
                                 value: function (t) {
                                     var e = Object(p.isDate)(t) ? t.getTime() : t;
-                                    return e > this.to || (this.from = e),
-                                    this
+                                    return e > this.to ? (console.error("[Aeris] Animation start date cannot be set to a date after the current\n\t\t\t\tend date value. You may need to change the end date first."), this) : (this.from = e, this)
                                 }
                             }, {
                                 key: "startOffset",
@@ -10947,8 +11036,7 @@
                                 key: "setStartOffset",
                                 value: function (t) {
                                     var e = this._now.getTime() + t;
-                                    return e > this.to || (this.from = e),
-                                    this
+                                    return e > this.to ? (console.error("[Aeris] Animation start offset cannot be set to a time offset after the\n\t\t\t\tcurrent end date value. You may need to change the end date or time offset first."), this) : (this.from = e, this)
                                 }
                             }, {
                                 key: "endDate",
@@ -10960,7 +11048,7 @@
                                 value: function (t) {
                                     var e = Object(p.isDate)(t) ? t.getTime() : t;
                                     if (e < this.from)
-                                        return this;
+                                        return console.error("[Aeris] Animation end date cannot be set to a date before the current\n\t\t\t\tstart date value. You may need to change the start date first."), this;
                                     this.to = e;
                                     var n = this._now.getTime();
                                     return this.to > n ? this.goToTime(n) : this.currentTime > this.to && this.goToTime(this.to),
@@ -10975,8 +11063,7 @@
                                 key: "setEndOffset",
                                 value: function (t) {
                                     var e = this._now.getTime() + t;
-                                    return e < this.from || (this.to = e),
-                                    this
+                                    return e < this.from ? (console.error("[Aeris] Animation end offset cannot be set to a time offset before the\n\t\t\t\tcurrent start date value. You may need to change the start date or time offset first."), this) : (this.to = e, this)
                                 }
                             }, {
                                 key: "setTimes",
@@ -11092,10 +11179,10 @@
                                 key: "_start",
                                 value: function () {
                                     var t = this;
-                                    this.timeline || (this._active = !0, this._timer = setInterval((function () {
-                                                    var e = t._time + t._increment;
-                                                    e > t.to ? t.restart() : t.goToTime(e)
-                                                }), 1e3 * this._delay))
+                                    this.timeline || (this._active = !0, this.manualAdvance || (this._timer = setInterval((function () {
+                                                        var e = t._time + t._increment;
+                                                        e > t.to ? t.restart() : t.goToTime(e)
+                                                    }), 1e3 * this._delay)))
                                 }
                             }, {
                                 key: "_clearTimers",
@@ -11135,9 +11222,9 @@
                                     var e = this.from,
                                     n = Math.abs(t - e);
                                     return void 0 === this._times && this._updateTimes(),
-                                    this._times.forEach((function (i) {
-                                            var r = Math.abs(t - i);
-                                            r < n && (n = r, e = i)
+                                    this._times.forEach((function (r) {
+                                            var i = Math.abs(t - r);
+                                            i < n && (n = i, e = r)
                                         })),
                                     Math.round(e)
                                 }
@@ -11149,113 +11236,14 @@
                                         return [];
                                     for (var e = [], n = function (n) {
                                         t.canShow(n) && -1 === e.indexOf(n) && e.push(n)
-                                    }, i = this.opts.intervals, r = Math.round((this.to - this.from) / (i - 1)), a = this.isFuture() && this.startDate().getTime() === this.now.getTime() ? 6e4 : 0, o = null, s = 0; s < i - 1; s += 1) {
+                                    }, r = this.opts.intervals, i = Math.round((this.to - this.from) / (r - 1)), a = this.isFuture() && this.startDate().getTime() === this.now.getTime() ? 6e4 : 0, o = null, s = 0; s < r - 1; s += 1) {
                                         var c = 0 === s ? a : 0,
-                                        u = this.from + r * s + c;
+                                        u = this.from + i * s + c;
                                         0 !== s && u === o || (n(Math.round(u)), o = u)
                                     }
                                     return e.length > 0 && n(this.to),
                                     this.totalIntervals = e.length,
                                     e
-                                }
-                            }, {
-                                key: "key",
-                                get: function () {
-                                    return this.opts.key
-                                }
-                            }, {
-                                key: "timeline",
-                                get: function () {
-                                    return this._timeline
-                                },
-                                set: function (t) {
-                                    var e = this;
-                                    this._timeline = t,
-                                    t && (this.now = t.now, this.from = t.from, this.to = t.to, ["duration", "endDelay"].forEach((function (n) {
-                                                e.opt(n, t.opt(n))
-                                            })), this.goToTime(t.currentTime))
-                                }
-                            }, {
-                                key: "from",
-                                get: function () {
-                                    return parseFloat("".concat(this.opts.from))
-                                },
-                                set: function (t) {
-                                    this.stop(),
-                                    this.opts.from = t,
-                                    this._startOffset = t - this._now.getTime(),
-                                    this._onTimingChange(),
-                                    this.trigger("start:change", {
-                                        from: this.startDate(),
-                                        to: this.endDate()
-                                    })
-                                }
-                            }, {
-                                key: "to",
-                                get: function () {
-                                    return parseFloat("".concat(this.opts.to))
-                                },
-                                set: function (t) {
-                                    this.stop(),
-                                    this.opts.to = t,
-                                    this._endOffset = t - this._now.getTime(),
-                                    this._onTimingChange(),
-                                    this.trigger("end:change", {
-                                        from: this.startDate(),
-                                        to: this.endDate()
-                                    })
-                                }
-                            }, {
-                                key: "now",
-                                get: function () {
-                                    return this._now
-                                },
-                                set: function (t) {
-                                    this._now = t
-                                }
-                            }, {
-                                key: "duration",
-                                get: function () {
-                                    return this.opts.duration
-                                },
-                                set: function (t) {
-                                    t !== this.opts.duration && (this.opts.duration = t, this._updateTiming())
-                                }
-                            }, {
-                                key: "endDelay",
-                                get: function () {
-                                    return this.opts.endDelay
-                                },
-                                set: function (t) {
-                                    this.opts.endDelay = t
-                                }
-                            }, {
-                                key: "totalTime",
-                                get: function () {
-                                    return this.to - this.from
-                                }
-                            }, {
-                                key: "currentTime",
-                                get: function () {
-                                    return this._time
-                                }
-                            }, {
-                                key: "currentOffset",
-                                get: function () {
-                                    return this._offset
-                                }
-                            }, {
-                                key: "increment",
-                                get: function () {
-                                    return this._increment
-                                }
-                            }, {
-                                key: "position",
-                                get: function () {
-                                    return this._offset / this.totalTime
-                                },
-                                set: function (t) {
-                                    this.goToTime(this.from + (this.to - this.from) * t)
                                 }
                             }
                         ]),
@@ -11267,15 +11255,15 @@
             dJbZ: function (t, e, n) {
                 "use strict";
                 n("2B1R");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("5ID0"),
                 c = n("0lfv"),
                 u = function () {
                     function t(e) {
-                        r()(this, t),
+                        i()(this, t),
                         (e = e || {}).features = e.features || e,
                         Object(c.isEmpty)(e.features) || (this._features = e.features.map((function (t) {
                                         return new s.a(t)
@@ -11303,11 +11291,11 @@
                 n("SuFq"),
                 n("JfAA"),
                 n("FZtP");
-                var i = n("lwsE"),
-                r = n.n(i),
-                a = n("W8MJ"),
+                var r = n("lwsE"),
+                i = n.n(r),
+                a = n("iWIM"),
                 o = n.n(a),
-                s = n("iWIM"),
+                s = n("W8MJ"),
                 c = n.n(s),
                 u = n("7W2i"),
                 l = n.n(u),
@@ -11315,8 +11303,8 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = n("dB9R"),
-                v = n("hWIy"),
+                v = n("dB9R"),
+                y = n("hWIy"),
                 m = n("ry37"),
                 g = n("0lfv");
                 function k(t) {
@@ -11337,12 +11325,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -11351,13 +11339,28 @@
                     var e = k(n);
                     function n() {
                         var t,
-                        i = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
-                        return r()(this, n),
-                        (t = e.call(this, i))._loading = !1,
+                        r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
+                        return i()(this, n),
+                        (t = e.call(this, r))._loading = !1,
                         t._animations = {},
                         t
                     }
-                    return o()(n, [{
+                    return c()(n, [{
+                                key: "animations",
+                                get: function () {
+                                    return this._animations || {}
+                                },
+                                set: function (t) {
+                                    var e = this;
+                                    this.stop(),
+                                    this._animations = t,
+                                    this._each((function (t) {
+                                            t.timeline = e
+                                        }))
+                                }
+                            }
+                        ]),
+                    c()(n, [{
                                 key: "get",
                                 value: function (t) {
                                     return this._animations[t]
@@ -11379,6 +11382,7 @@
                                 value: function (t, e) {
                                     this.stop(),
                                     e.timeline = this,
+                                    e.manualAdvance = this.manualAdvance,
                                     this._animations[t] = e
                                 }
                             }, {
@@ -11401,12 +11405,12 @@
                                 value: function () {
                                     var t = this,
                                     e = !0,
-                                    i = [],
-                                    r = [];
+                                    r = [],
+                                    i = [];
                                     this.canAnimate() && (this._each((function (n) {
                                                 var a = t.opt("showLoading"),
                                                 o = !1 === t.containsPast();
-                                                if (n instanceof v.a) {
+                                                if (n instanceof y.a) {
                                                     var s = n;
                                                     s.showWhenLoading = a,
                                                     n.isFuture() && (s.showWhenLoading = o || s.alwaysShow())
@@ -11415,20 +11419,20 @@
                                                     c.showWhenLoading = a,
                                                     n.isFuture() && (c.showWhenLoading = o || c.alwaysShow())
                                                 }
-                                                n.isEnabled() && (n.isReady() ? (n.isLoading() || n.needsData()) && (r.push(n), n.once("load:done", (function () {
-                                                                r.splice(r.indexOf(n), 1),
-                                                                0 === r.length && (t._loading = !1, t.trigger("load:done"))
-                                                            }))) : (e = !1, i.push(n), r.push(n), n.once("ready", (function () {
+                                                n.isEnabled() && (n.isReady() ? (n.isLoading() || n.needsData()) && (i.push(n), n.once("load:done", (function () {
                                                                 i.splice(i.indexOf(n), 1),
+                                                                0 === i.length && (t._loading = !1, t.trigger("load:done"))
+                                                            }))) : (e = !1, r.push(n), i.push(n), n.once("ready", (function () {
                                                                 r.splice(r.indexOf(n), 1),
-                                                                0 === i.length && setTimeout((function () {
+                                                                i.splice(i.indexOf(n), 1),
+                                                                0 === r.length && setTimeout((function () {
                                                                         t.trigger("ready"),
                                                                         t.play()
                                                                     }), 100)
                                                             }))), n.play())
-                                            })), !1 === this._loading && r.length > 0 ? (this._loading = !0, this.trigger("load:start")) : this._loading && 0 === r.length && (this._loading = !1, this.trigger("load:done")), e && (this._each((function (t) {
+                                            })), !1 === this._loading && i.length > 0 ? (this._loading = !0, this.trigger("load:start")) : this._loading && 0 === i.length && (this._loading = !1, this.trigger("load:done")), e && (this._each((function (t) {
                                                     t.play()
-                                                })), c()(p()(n.prototype), "play", this).call(this)))
+                                                })), o()(p()(n.prototype), "play", this).call(this)))
                                 }
                             }, {
                                 key: "stop",
@@ -11436,7 +11440,7 @@
                                     this._each((function (t) {
                                             t.stop()
                                         })),
-                                    c()(p()(n.prototype), "stop", this).call(this),
+                                    o()(p()(n.prototype), "stop", this).call(this),
                                     this._loading && this.trigger("load:done"),
                                     this._loading = !1
                                 }
@@ -11446,7 +11450,7 @@
                                     this._each((function (t) {
                                             t.pause()
                                         })),
-                                    c()(p()(n.prototype), "pause", this).call(this)
+                                    o()(p()(n.prototype), "pause", this).call(this)
                                 }
                             }, {
                                 key: "restart",
@@ -11454,7 +11458,7 @@
                                     this._each((function (t) {
                                             t.restart()
                                         })),
-                                    c()(p()(n.prototype), "restart", this).call(this)
+                                    o()(p()(n.prototype), "restart", this).call(this)
                                 }
                             }, {
                                 key: "reset",
@@ -11465,7 +11469,7 @@
                                     this._each((function (e) {
                                             e.reset(t)
                                         })),
-                                    c()(p()(n.prototype), "reset", this).call(this, t)
+                                    o()(p()(n.prototype), "reset", this).call(this, t)
                                 }
                             }, {
                                 key: "isLoading",
@@ -11478,7 +11482,7 @@
                                     return this._each((function (e) {
                                             e.goToTime(t)
                                         })),
-                                    c()(p()(n.prototype), "goToTime", this).call(this, t)
+                                    o()(p()(n.prototype), "goToTime", this).call(this, t)
                                 }
                             }, {
                                 key: "setStartDate",
@@ -11486,7 +11490,7 @@
                                     return this._each((function (e) {
                                             e.setStartDate(t)
                                         })),
-                                    c()(p()(n.prototype), "setStartDate", this).call(this, t)
+                                    o()(p()(n.prototype), "setStartDate", this).call(this, t)
                                 }
                             }, {
                                 key: "setStartOffset",
@@ -11494,7 +11498,7 @@
                                     return this._each((function (e) {
                                             e.setStartOffset(t)
                                         })),
-                                    c()(p()(n.prototype), "setStartOffset", this).call(this, t)
+                                    o()(p()(n.prototype), "setStartOffset", this).call(this, t)
                                 }
                             }, {
                                 key: "setEndDate",
@@ -11502,7 +11506,7 @@
                                     return this._each((function (e) {
                                             e.setEndDate(t)
                                         })),
-                                    c()(p()(n.prototype), "setEndDate", this).call(this, t)
+                                    o()(p()(n.prototype), "setEndDate", this).call(this, t)
                                 }
                             }, {
                                 key: "setEndOffset",
@@ -11510,13 +11514,13 @@
                                     return this._each((function (e) {
                                             e.setEndOffset(t)
                                         })),
-                                    c()(p()(n.prototype), "setEndOffset", this).call(this, t)
+                                    o()(p()(n.prototype), "setEndOffset", this).call(this, t)
                                 }
                             }, {
                                 key: "refresh",
                                 value: function () {
                                     var t = this;
-                                    c()(p()(n.prototype), "refresh", this).call(this),
+                                    o()(p()(n.prototype), "refresh", this).call(this),
                                     this._each((function (e) {
                                             e.now = t.now
                                         }))
@@ -11526,44 +11530,31 @@
                                 value: function (t) {
                                     var e = this;
                                     Object.keys(this.animations).forEach((function (n) {
-                                            var i = e._animations[n];
-                                            t(i)
+                                            var r = e._animations[n];
+                                            t(r)
                                         }))
                                 }
                             }, {
                                 key: "_onTimingChange",
                                 value: function () {
                                     var t = this;
-                                    c()(p()(n.prototype), "_onTimingChange", this).call(this),
+                                    o()(p()(n.prototype), "_onTimingChange", this).call(this),
                                     this._each((function (e) {
                                             e.from = t.from,
                                             e.to = t.to
-                                        }))
-                                }
-                            }, {
-                                key: "animations",
-                                get: function () {
-                                    return this._animations || {}
-                                },
-                                set: function (t) {
-                                    var e = this;
-                                    this.stop(),
-                                    this._animations = t,
-                                    this._each((function (t) {
-                                            t.timeline = e
                                         }))
                                 }
                             }
                         ]),
                     n
                 }
-                (y.a);
+                (v.a);
                 e.a = b
             },
             fbCW: function (t, e, n) {
                 "use strict";
-                var i = n("I+eb"),
-                r = n("tycR").find,
+                var r = n("I+eb"),
+                i = n("tycR").find,
                 a = n("RNIs"),
                 o = n("rkAj"),
                 s = "find",
@@ -11572,13 +11563,13 @@
                 s in[] && Array(1).find((function () {
                         c = !1
                     })),
-                i({
+                r({
                     target: "Array",
                     proto: !0,
                     forced: c || !u
                 }, {
                     find: function (t) {
-                        return r(this, t, arguments.length > 1 ? arguments[1] : void 0)
+                        return i(this, t, arguments.length > 1 ? arguments[1] : void 0)
                     }
                 }),
                 a(s)
@@ -11586,11 +11577,10 @@
             fnc3: function (t, e, n) {
                 "use strict";
                 n("ma9I"),
-                n("rNhl"),
                 n("rB9j"),
                 n("UxlC");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("0lfv"),
@@ -11599,13 +11589,25 @@
                 l = function () {
                     function t() {
                         var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
-                        r()(this, t),
+                        i()(this, t),
                         this._opts = Object(s.extend)({
                             strokeWidth: 4
                         }, e),
                         this.render()
                     }
                     return o()(t, [{
+                                key: "$el",
+                                get: function () {
+                                    return this._target
+                                }
+                            }, {
+                                key: "$path",
+                                get: function () {
+                                    return Object(c.a)(".".concat(u.a.cssPrefix, "fill-path"), this.$el)
+                                }
+                            }
+                        ]),
+                    o()(t, [{
                                 key: "appendTo",
                                 value: function (t) {
                                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null,
@@ -11629,22 +11631,12 @@
                                     e = Object(s.get)(this._opts, "size") || "100%";
                                     Object(s.isString)(e) && (!1 === /%$/.test(e) ? (e = e.replace(/[0-9\.]/, ""), e = parseFloat(e)) : t = !0);
                                     var n = Object(s.isString)(e) ? 60 : e,
-                                    i = Math.round(n / 2),
-                                    r = Math.round(n / 60 * 18),
+                                    r = Math.round(n / 2),
+                                    i = Math.round(n / 60 * 18),
                                     a = Math.round(n / 2),
                                     o = Object(s.get)(this._opts, "strokeWidth") || 4,
                                     l = t ? e : "".concat(e, "px");
-                                    this._target = Object(c.a)('\n\t\t\t<div class="'.concat(u.a.cssPrefix, 'loader" style="width: ').concat(l, "; height: ").concat(l, ';">\n\t\t\t\t<svg version="1.1" class="').concat(u.a.cssPrefix, 'filler-loader" width="').concat(n, '" height="').concat(n, '" style="margin-top: -').concat(a, "px; margin-left: -").concat(a, 'px;">\n\t\t\t\t\t<circle class="').concat(u.a.cssPrefix, 'fill-path" cx="').concat(i, '" cy="').concat(i, '" r="').concat(r, '" stroke-width="').concat(o, '" />\n\t\t\t\t</svg>\n\t\t\t</div>\n\t\t'))
-                                }
-                            }, {
-                                key: "$el",
-                                get: function () {
-                                    return this._target
-                                }
-                            }, {
-                                key: "$path",
-                                get: function () {
-                                    return Object(c.a)(".".concat(u.a.cssPrefix, "fill-path"), this.$el)
+                                    this._target = Object(c.a)('\n\t\t\t<div class="'.concat(u.a.cssPrefix, 'loader" style="width: ').concat(l, "; height: ").concat(l, ';">\n\t\t\t\t<svg version="1.1" class="').concat(u.a.cssPrefix, 'filler-loader" width="').concat(n, '" height="').concat(n, '" style="margin-top: -').concat(a, "px; margin-left: -").concat(a, 'px;">\n\t\t\t\t\t<circle class="').concat(u.a.cssPrefix, 'fill-path" cx="').concat(r, '" cy="').concat(r, '" r="').concat(i, '" stroke-width="').concat(o, '" />\n\t\t\t\t</svg>\n\t\t\t</div>\n\t\t'))
                                 }
                             }
                         ]),
@@ -11655,11 +11647,11 @@
             },
             gdVl: function (t, e, n) {
                 "use strict";
-                var i = n("ewvW"),
-                r = n("I8vh"),
+                var r = n("ewvW"),
+                i = n("I8vh"),
                 a = n("UMSQ");
                 t.exports = function (t) {
-                    for (var e = i(this), n = a(e.length), o = arguments.length, s = r(o > 1 ? arguments[1] : void 0, n), c = o > 2 ? arguments[2] : void 0, u = void 0 === c ? n : r(c, n); u > s; )
+                    for (var e = r(this), n = a(e.length), o = arguments.length, s = i(o > 1 ? arguments[1] : void 0, n), c = o > 2 ? arguments[2] : void 0, u = void 0 === c ? n : i(c, n); u > s; )
                         e[s++] = t;
                     return e
                 }
@@ -11667,7 +11659,7 @@
             gqGf: function (t, e, n) {
                 "use strict";
                 n.d(e, "b", (function () {
-                        return H
+                        return U
                     })),
                 n.d(e, "d", (function () {
                         return B
@@ -11683,8 +11675,8 @@
                 n("rB9j"),
                 n("JfAA"),
                 n("UxlC");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("PJYZ"),
@@ -11695,37 +11687,37 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = (n("ma9I"), n("yyme"), n("TeQF"), n("QWBl"), n("2B1R"), n("E9XD"), n("zKZe"), n("tkto"), n("5s+n"), n("FZtP"), n("RIqP")),
-                v = n.n(y),
+                v = (n("ma9I"), n("yyme"), n("TeQF"), n("QWBl"), n("2B1R"), n("E9XD"), n("zKZe"), n("tkto"), n("5s+n"), n("FZtP"), n("RIqP")),
+                y = n.n(v),
                 m = n("m0x2"),
                 g = n("l1hk"),
                 k = n("8TS8"),
                 b = n("5ID0"),
                 _ = n("7r+a"),
                 O = n("0lfv"),
-                w = function (t, e, n, i, r) {
-                    var a = r.marker(t, {
+                w = function (t, e, n, r, i) {
+                    var a = i.marker(t, {
                         lat: n.lat,
                         lon: n.lon
-                    }, i);
+                    }, r);
                     if (!a)
                         return null;
                     var o = Object.assign(Object.assign({}, e), {
                         awxjs_source: t
                     }),
-                    s = new k.a(o, i, a);
+                    s = new k.a(o, r, a);
                     return s.geometry = new _.e([n.lon, n.lat]),
                     s
                 },
-                j = function (t, e, n, i, r) {
-                    var a = Object(O.isFunction)(i) ? i(e) : i,
-                    o = r.polyline(e.id, n, a),
+                j = function (t, e, n, r, i) {
+                    var a = Object(O.isFunction)(r) ? r(e) : r,
+                    o = i.polyline(e.id, n, a),
                     s = Object.assign(Object.assign({}, e), {
                         awxjs_source: t
                     });
                     return new k.c(s, a, o)
                 },
-                x = function (t, e, n, i, r) {
+                x = function (t, e, n, r, i) {
                     var a = function (t) {
                         return t.map((function (t, n) {
                                 return {
@@ -11739,8 +11731,8 @@
                     },
                     o = [];
                     n instanceof _.d ? o = a(n.polygons) : n instanceof _.f && (o = a([n]));
-                    var s = Object(O.isFunction)(i) ? i(e) : i,
-                    c = r.polygon(t, o, s),
+                    var s = Object(O.isFunction)(r) ? r(e) : r,
+                    c = i.polygon(t, o, s),
                     u = Object.assign(Object.assign({}, e), {
                         awxjs_source: t
                     }),
@@ -11748,14 +11740,14 @@
                     return l.geometry = n,
                     l
                 },
-                T = (n("ToJy"), n("DA0x")),
+                T = n("DA0x"),
                 S = n("qV3b"),
                 M = n("pAjv"),
                 L = function (t) {
                     var e,
                     n = t.service,
-                    i = t.url,
-                    r = t.dataKeypath,
+                    r = t.url,
+                    i = t.dataKeypath,
                     a = t.restrictToTimeline,
                     o = void 0 === a || a,
                     s = t.onLoad,
@@ -11764,28 +11756,29 @@
                     u = t.onError,
                     l = void 0 === u ? function () {}
                      : u;
-                    return n ? e = function (t, e, i, a, s) {
+                    return n ? e = function (t, e, r, a, s) {
                         var u = Object(O.isFunction)(n) ? n() : n;
                         if (Object(O.isset)(u) && u instanceof T.a != !1) {
-                            var h = u.param("limit") || 300,
-                            f = u.param("sort") || "dt:-1";
+                            var h = (null == a ? void 0 : a.limit) || u.param("limit") || 300,
+                            f = (null == a ? void 0 : a.sort) || u.param("sort") || "dt:-1";
                             if (a && u.setParams(a), u.getAction() || u.action("within"), "within" === u.getAction()) {
                                 if (!t)
                                     return;
                                 u.place(Object(M.toBounds)(t))
                             }
-                            o && u.from(e).to(i).limit(h).sort(f),
+                            o && u.from(e).to(r).limit(h).sort(f),
                             u.get().then((function (t) {
-                                    c(Object(O.get)(t.data, r) || t.data, s)
+                                    c(Object(O.get)(t.data, i) || t.data, s)
                                 })).catch((function (t) {
                                     return l(t, s)
                                 }))
-                        }
+                        } else
+                            console.error("[Aeris] Invalid ApiRequest returned for data source")
                     }
-                     : i && (e = function (t, e, n, a, o) {
-                        var s = Object(O.isFunction)(i) ? i(a) : i;
+                     : r && (e = function (t, e, n, a, o) {
+                        var s = Object(O.isFunction)(r) ? r(a) : r;
                         S.b.request(s).then((function (t) {
-                                c(Object(O.get)(t.data, r) || t.data, o)
+                                c(Object(O.get)(t.data, i) || t.data, o)
                             })).catch((function (t) {
                                 return l(t, o)
                             }))
@@ -11794,7 +11787,7 @@
                 },
                 I = (n("qePV"), n("kSko"), n("cDf5")),
                 R = n.n(I),
-                E = (n("yXV3"), n("pDQq"), n("4l63"), n("iWIM")),
+                E = (n("yXV3"), n("pDQq"), n("iWIM")),
                 P = n.n(E);
                 function D(t) {
                     var e = function () {
@@ -11814,12 +11807,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -11828,12 +11821,12 @@
                     var e = D(n);
                     function n() {
                         var t,
-                        i = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
-                        return r()(this, n),
-                        i = Object(O.extend)({}, {
+                        r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
+                        return i()(this, n),
+                        r = Object(O.extend)({}, {
                             refresh: 0
-                        }, i),
-                        (t = e.call(this, i)).itemsByTime = {},
+                        }, r),
+                        (t = e.call(this, r)).itemsByTime = {},
                         t.lastInterval = 0,
                         t.dataBeyondBounds = {
                             before: [],
@@ -11876,10 +11869,10 @@
                                         var e = this.currentTime;
                                         if (e !== this.lastInterval) {
                                             var n,
-                                            i = Math.min(this.lastInterval, e),
-                                            r = Math.max(this.lastInterval, e),
+                                            r = Math.min(this.lastInterval, e),
+                                            i = Math.max(this.lastInterval, e),
                                             a = e < this.lastInterval;
-                                            if (e === this.from ? (a = !0, n = this._elementsInIntervalRange(this.from, this.to)) : n = this._elementsInIntervalRange(i, a ? this.to : r), n.length > 0)
+                                            if (e === this.from ? (a = !0, n = this._elementsInIntervalRange(this.from, this.to)) : n = this._elementsInIntervalRange(r, a ? this.to : i), n.length > 0)
                                                 if (a)
                                                     [].concat(this.itemsByTime[this.from]).forEach((function (t) {
                                                             var e = n.indexOf(t);
@@ -11943,22 +11936,22 @@
                                     var e = this;
                                     if (!(this.increment <= 0) && Object(O.isArray)(t)) {
                                         var n = this._prepareIntervals(),
-                                        i = t,
-                                        r = "timestamp";
+                                        r = t,
+                                        i = "timestamp";
                                         this.dataBeyondBounds = {
                                             before: [],
                                             after: []
                                         },
-                                        (i || []).forEach((function (t) {
-                                                if (Object(O.has)(t, r)) {
-                                                    var i = Object(O.get)(t, r);
-                                                    if (i < e.from)
+                                        (r || []).forEach((function (t) {
+                                                if (Object(O.has)(t, i)) {
+                                                    var r = Object(O.get)(t, i);
+                                                    if (r < e.from)
                                                         e.dataBeyondBounds.before.push(t);
-                                                    else if (i > e.to)
+                                                    else if (r > e.to)
                                                         e.dataBeyondBounds.after.push(t);
                                                     else {
-                                                        var a = e.dataIntervalClosestToTime(i);
-                                                        i < e.to && n[a] && n[a].push(t)
+                                                        var a = e.dataIntervalClosestToTime(r);
+                                                        r < e.to && n[a] && n[a].push(t)
                                                     }
                                                 }
                                             })),
@@ -11992,27 +11985,27 @@
                                     var n = this;
                                     if (t === e)
                                         return [];
-                                    var i = [],
-                                    r = Object.keys(this.dataByTime()).sort().map((function (t) {
+                                    var r = [],
+                                    i = Object.keys(this.dataByTime()).sort().map((function (t) {
                                                 return parseInt(t, 10)
                                             })),
                                     a = [];
-                                    return r.forEach((function (r) {
+                                    return i.forEach((function (i) {
                                             var o = !1;
-                                            e < t ? r >= e && r < t && (o = !0) : (r === t && r === e || r >= t && r < e || r === e) && (o = !0),
-                                            o && -1 === a.indexOf(r) && (a.push(r), i = (i || []).concat(n.dataByTime()[r]))
+                                            e < t ? i >= e && i < t && (o = !0) : (i === t && i === e || i >= t && i < e || i === e) && (o = !0),
+                                            o && -1 === a.indexOf(i) && (a.push(i), r = (r || []).concat(n.dataByTime()[i]))
                                         })),
-                                    i
+                                    r
                                 }
                             }
                         ]),
                     n
                 }
                 (n("dB9R").a),
-                F = function () {
+                A = function () {
                     function t(e, n) {
-                        var i = this;
-                        r()(this, t),
+                        var r = this;
+                        i()(this, t),
                         this._animatableData = [],
                         this._nonAnimatableData = [],
                         this.source = e;
@@ -12029,28 +12022,28 @@
                         o = new z;
                         o.provider = this,
                         o.on("play", (function () {
-                                var t = a(i._nonAnimatableData),
+                                var t = a(r._nonAnimatableData),
                                 n = t.markers,
-                                r = t.shapes;
+                                i = t.shapes;
                                 n.length > 0 && e.trigger("markers:remove", {
                                     markers: n,
                                     animation: o
                                 }),
-                                r.length > 0 && e.trigger("shapes:remove", {
-                                    shapes: r,
+                                i.length > 0 && e.trigger("shapes:remove", {
+                                    shapes: i,
                                     animation: o
                                 })
                             })),
                         o.on("stop", (function () {
-                                var t = a(i._nonAnimatableData),
+                                var t = a(r._nonAnimatableData),
                                 n = t.markers,
-                                r = t.shapes;
+                                i = t.shapes;
                                 n.length > 0 && e.trigger("markers:add", {
                                     markers: n,
                                     animation: o
                                 }),
-                                r.length > 0 && e.trigger("shapes:add", {
-                                    shapes: r,
+                                i.length > 0 && e.trigger("shapes:add", {
+                                    shapes: i,
                                     animation: o
                                 })
                             })),
@@ -12062,32 +12055,32 @@
                                         shapes: e.shapes,
                                         animation: o
                                     })),
-                                i._animatableData = [],
-                                i._nonAnimatableData = []
+                                r._animatableData = [],
+                                r._nonAnimatableData = []
                             })),
                         o.on("data:add", (function (t) {
                                 var n = a(t.data.items),
-                                i = n.markers,
-                                r = n.shapes;
-                                i.length > 0 && e.trigger("markers:add", {
-                                    markers: i,
+                                r = n.markers,
+                                i = n.shapes;
+                                r.length > 0 && e.trigger("markers:add", {
+                                    markers: r,
                                     animation: o
                                 }),
-                                r.length > 0 && e.trigger("shapes:add", {
-                                    shapes: r,
+                                i.length > 0 && e.trigger("shapes:add", {
+                                    shapes: i,
                                     animation: o
                                 })
                             })),
                         o.on("data:remove", (function (t) {
                                 var n = a(t.data.items),
-                                i = n.markers,
-                                r = n.shapes;
-                                i.length > 0 && e.trigger("markers:remove", {
-                                    markers: i,
+                                r = n.markers,
+                                i = n.shapes;
+                                r.length > 0 && e.trigger("markers:remove", {
+                                    markers: r,
                                     animation: o
                                 }),
-                                r.length > 0 && e.trigger("shapes:remove", {
-                                    shapes: r,
+                                i.length > 0 && e.trigger("shapes:remove", {
+                                    shapes: i,
                                     animation: o
                                 })
                             })),
@@ -12098,23 +12091,23 @@
                                 value: function (t) {
                                     var e = this,
                                     n = this.source,
-                                    i = function () {
+                                    r = function () {
                                         var t = Object.keys(n.markersById).map((function (t) {
                                                     return n.markersById[t]
                                                 })),
-                                        i = n.shapes,
-                                        r = [];
+                                        r = n.shapes,
+                                        i = [];
                                         if (t) {
                                             var a = t.map((function (t) {
-                                                        var i,
-                                                        r,
+                                                        var r,
+                                                        i,
                                                         a,
                                                         o = t.data,
                                                         s = t.renderable,
                                                         c = t.style;
                                                         if (!o || !s)
                                                             return null;
-                                                        var u = (null === (r = null === (i = n.opts.data) || void 0 === i ? void 0 : i.properties) || void 0 === r ? void 0 : r.timestamp) || "timestamp";
+                                                        var u = (null === (i = null === (r = n.opts.data) || void 0 === r ? void 0 : r.properties) || void 0 === i ? void 0 : i.timestamp) || "timestamp";
                                                         return Object(O.has)(o, u) ? a = 1e3 * Object(O.get)(o, u) : e._nonAnimatableData.push(s), {
                                                             timestamp: a,
                                                             renderable: s,
@@ -12124,13 +12117,13 @@
                                                     })).filter((function (t) {
                                                         return t && !1 === Number.isNaN(t.timestamp)
                                                     }));
-                                            a && (r = r.concat(a))
+                                            a && (i = i.concat(a))
                                         }
-                                        if (i) {
+                                        if (r) {
                                             var o = function (t) {
                                                 return t.map((function (t) {
-                                                        var i,
-                                                        r,
+                                                        var r,
+                                                        i,
                                                         a = t.data,
                                                         o = t.renderable,
                                                         s = t.style;
@@ -12138,7 +12131,7 @@
                                                             return null;
                                                         var c,
                                                         u,
-                                                        l = (null === (r = null === (i = n.opts.data) || void 0 === i ? void 0 : i.properties) || void 0 === r ? void 0 : r.timestamp) || "timestamp";
+                                                        l = (null === (i = null === (r = n.opts.data) || void 0 === r ? void 0 : r.properties) || void 0 === i ? void 0 : i.timestamp) || "timestamp";
                                                         return "object" === R()(l) && l.from ? u = l.from : "string" == typeof l && (u = l),
                                                         Object(O.has)(a, u) ? c = 1e3 * Object(O.get)(a, u) : e._nonAnimatableData.push(o), {
                                                             timestamp: c,
@@ -12150,30 +12143,30 @@
                                                         return t && !1 === Number.isNaN(t.timestamp)
                                                     }))
                                             };
-                                            i.forEach((function (t) {
+                                            r.forEach((function (t) {
                                                     var e = t.polygons;
                                                     if (Object(O.isset)(e)) {
                                                         var n = o(e);
-                                                        n && (r = r.concat(n))
+                                                        n && (i = i.concat(n))
                                                     } else {
-                                                        var i = o([t]);
-                                                        i && (r = r.concat(i))
+                                                        var r = o([t]);
+                                                        r && (i = i.concat(r))
                                                     }
                                                 }))
                                         }
-                                        return e._animatableData = r,
-                                        r
+                                        return e._animatableData = i,
+                                        i
                                     };
-                                    return new Promise((function (t, r) {
+                                    return new Promise((function (t, i) {
                                             if (n.isLoading)
                                                 n.once("data:load", (function () {
-                                                        var e = i();
+                                                        var e = r();
                                                         t(e)
                                                     }));
                                             else if (e._animatableData && e._animatableData.length > 0)
                                                 t(e._animatableData);
                                             else if (n.markers) {
-                                                var a = i();
+                                                var a = r();
                                                 t(a)
                                             } else
                                                 t(null)
@@ -12184,7 +12177,7 @@
                     t
                 }
                 ();
-                function A(t) {
+                function F(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -12202,12 +12195,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -12242,13 +12235,13 @@
                 },
                 B = function (t) {
                     l()(n, t);
-                    var e = A(n);
-                    function n(t, i) {
+                    var e = F(n);
+                    function n(t, r) {
                         var a,
                         o;
-                        if (r()(this, n), (a = e.call(this)).requiresBounds = !1, a._animateOnLoad = !1, a.key = t, a.enabled = !0, a.opts = Object(O.extend)({
+                        if (i()(this, n), (a = e.call(this)).requiresBounds = !1, a._animateOnLoad = !1, a.key = t, a.enabled = !0, a.opts = Object(O.extend)({
                                 data: null,
-                                style: i.style || Object.assign({}, C),
+                                style: r.style || Object.assign({}, C),
                                 requiresBounds: !1,
                                 restrictToTimeline: !0,
                                 animation: {
@@ -12256,7 +12249,7 @@
                                     enabled: !1
                                 },
                                 refresh: 0
-                            }, i), a._opacityByType = {
+                            }, r), a._opacityByType = {
                                 marker: 1,
                                 polyline: 1,
                                 polygon: 1
@@ -12266,17 +12259,17 @@
                             ["polyline", "polygon"].forEach((function (t) {
                                     var e,
                                     n,
-                                    i = function (t) {
+                                    r = function (t) {
                                         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                                         return (Object(O.isFunction)(t) ? t(e) : t) || {}
                                     }
                                     (a.style[t]),
-                                    r = (null === (e = i.fill) || void 0 === e ? void 0 : e.opacity) || (null === (n = i.stroke) || void 0 === n ? void 0 : n.opacity);
-                                    Object(O.isset)(r) && (a._opacityByType[t] = r)
+                                    i = (null === (e = r.fill) || void 0 === e ? void 0 : e.opacity) || (null === (n = r.stroke) || void 0 === n ? void 0 : n.opacity);
+                                    Object(O.isset)(i) && (a._opacityByType[t] = i)
                                 }))
                         }
                         var u = a.opts.animation;
-                        u.enabled && (a._animator = new F(c()(a), u));
+                        u.enabled && (a._animator = new A(c()(a), u));
                         var l = Object(O.get)(a.opts, "data.service");
                         return Object(O.isFunction)(l) && (l = l()),
                         a._service = l,
@@ -12284,415 +12277,6 @@
                         a
                     }
                     return o()(n, [{
-                                key: "hasData",
-                                value: function () {
-                                    return !Object(O.isEmpty)(this.markers) || !Object(O.isEmpty)(this.polygons) || !Object(O.isEmpty)(this.polylines)
-                                }
-                            }, {
-                                key: "setData",
-                                value: function (t) {
-                                    this._data = Object(O.isPlainObject)(t) ? Object(O.cloneDeep)(t) : t,
-                                    this.render()
-                                }
-                            }, {
-                                key: "setOpacity",
-                                value: function () {
-                                    var t = this,
-                                    e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 1;
-                                    this._opacity = e,
-                                    this.shapes.filter((function (t) {
-                                            return t.adjustOpacity
-                                        })).forEach((function (n) {
-                                            n instanceof k.c ? n.renderable.setOpacity(t._opacityByType.polyline * e) : n instanceof k.b && n.renderable.setOpacity(t._opacityByType.polygon * e)
-                                        }))
-                                }
-                            }, {
-                                key: "load",
-                                value: function (t) {
-                                    var e,
-                                    n = this,
-                                    i = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-                                    r = arguments.length > 2 ? arguments[2] : void 0,
-                                    a = null === (e = this.opts) || void 0 === e ? void 0 : e.data;
-                                    if (!a)
-                                        return new Promise((function (t, e) {
-                                                e(new Error("Invalid configuration for VectorSource"))
-                                            }));
-                                    t = Object(O.extend)({}, Object(O.get)(this.opts, "data.request.parameters"), this._lastLoadParams, t),
-                                    this._lastLoadParams = t,
-                                    this._animateOnLoad = i;
-                                    var o = a.service,
-                                    s = a.url,
-                                    c = a.items,
-                                    u = t,
-                                    l = u.bounds,
-                                    h = u.from,
-                                    f = u.to;
-                                    if (this.requiresBounds && !Object(O.isset)(l))
-                                        throw new Error("[Aeris] Vector source ".concat(this.key, " requires coordinate bounds when loading but bounds were not provided."));
-                                    if (l && (this._visibleBounds = g.a.fromBounds(l)), c)
-                                        return new Promise((function (t, e) {
-                                                n._onLoad(c, (function (n, i) {
-                                                        n ? t(n) : e(i)
-                                                    }))
-                                            }));
-                                    var d = L({
-                                        service: o,
-                                        url: s,
-                                        dataKeypath: Object(O.get)(this.opts, "data.properties.root"),
-                                        restrictToTimeline: this.opts.restrictToTimeline,
-                                        onLoad: function (t, e) {
-                                            n._onLoad(t, e, r)
-                                        },
-                                        onError: function (t, e) {
-                                            n._onError(t, e)
-                                        }
-                                    });
-                                    if (o && (this._service = Object(O.isFunction)(o) ? o() : o), !Object(O.isset)(d))
-                                        throw new Error("[Aeris] Cannot load data for VectorSource with key {".concat(this.key, '} due to an invalid configuration. Check that you have provided a valid "data.service" or "data.url" in your configuration. Refer to the docs for more info: https://www.aerisweather.com/support/docs/toolkits/aeris-js-sdk/map-modules/data-sources/'));
-                                    return this._request || (this._request = Object(O.debounce)((function (t, e, i, r, a) {
-                                                    n._loading = !0,
-                                                    d(t, e, i, r, a)
-                                                }), 1500)),
-                                    new Promise((function (t, e) {
-                                            if (n._request) {
-                                                var i = Object(O.get)(n.opts, "data.request.parameters.from") || h,
-                                                r = Object(O.get)(n.opts, "data.request.parameters.to") || f;
-                                                n._loading = !0,
-                                                n.trigger("data:load:start", {
-                                                    layer: n.key
-                                                }),
-                                                n._request(l, i, r, n._lastLoadParams, (function (i, r) {
-                                                        n.trigger("data:load:done", {
-                                                            layer: n.key
-                                                        }),
-                                                        r ? e(r) : t(i),
-                                                        n._startAutoUpdateIfNeeded()
-                                                    }))
-                                            } else
-                                                e(new Error("Invalid configuration for VectorSource"))
-                                        }))
-                                }
-                            }, {
-                                key: "reload",
-                                value: function (t, e) {
-                                    this.load(t, !1, e)
-                                }
-                            }, {
-                                key: "render",
-                                value: function () {
-                                    if (Object(O.isset)(this._data)) {
-                                        var t = this.markers,
-                                        e = this.shapes;
-                                        Object(O.isEmpty)(t) || this.trigger("markers:remove", {
-                                            markers: t
-                                        }),
-                                        Object(O.isEmpty)(e) || this.trigger("shapes:remove", {
-                                            shapes: e
-                                        }),
-                                        this._result = this._process(this._data),
-                                        this.setOpacity(this._opacity),
-                                        t = this.markers,
-                                        e = this.shapes,
-                                        Object(O.isEmpty)(t) || this.trigger("markers:add", {
-                                            markers: t
-                                        }),
-                                        Object(O.isEmpty)(e) || this.trigger("shapes:add", {
-                                            shapes: e
-                                        })
-                                    }
-                                }
-                            }, {
-                                key: "reset",
-                                value: function () {
-                                    var t = this.markers,
-                                    e = this.shapes;
-                                    Object(O.isEmpty)(t) || this.trigger("markers:remove", {
-                                        markers: t
-                                    }),
-                                    Object(O.isEmpty)(e) || this.trigger("shapes:remove", {
-                                        shapes: e
-                                    }),
-                                    this.animation && this.animation.reset(),
-                                    this._loading = !1,
-                                    this._result = {},
-                                    this.trigger("data:load:done", {
-                                        layer: this.key
-                                    }),
-                                    this.trigger("reset")
-                                }
-                            }, {
-                                key: "update",
-                                value: function (t) {
-                                    t && (this.opts.data = Object(O.extend)(this.opts.data, t), this._request = null),
-                                    this.reload()
-                                }
-                            }, {
-                                key: "_onLoad",
-                                value: function (t, e, n) {
-                                    !1 !== this.enabled && (t && (n && (Object(O.isArray)(t) ? t = [].concat(v()(n), v()(t)) : Object(O.isPlainObject)(t) && (t = Object.assign(Object.assign({}, n), t))), this.setData(t)), this._loading = !1, this.trigger("data:load", {
-                                            layer: this.key,
-                                            results: t
-                                        }), Object(O.isFunction)(e) && e(this._result, null), this._animateOnLoad && this.animation && (this.animation.reset(), this.animation.play()), this._animateOnLoad = !1)
-                                }
-                            }, {
-                                key: "_onError",
-                                value: function (t, e) {
-                                    t.stack && console.log(t.stack),
-                                    this._loading = !1,
-                                    this.trigger("data:error", {
-                                        error: t
-                                    }),
-                                    e && e(null, t)
-                                }
-                            }, {
-                                key: "_visibleMapObjects",
-                                value: function () {
-                                    var t = this,
-                                    e = this.markers,
-                                    n = this.shapes;
-                                    return {
-                                        markers: e = e.filter((function (e) {
-                                                    var n = e.coord;
-                                                    return !n || t._visibleBounds.contains(n)
-                                                })),
-                                        shapes: n = n.filter((function (e) {
-                                                    var n = e.bounds;
-                                                    return !n || t._visibleBounds.contains(n)
-                                                }))
-                                    }
-                                }
-                            }, {
-                                key: "_mapObjects",
-                                value: function () {
-                                    var t = [];
-                                    if (this.polygons && (t = t.concat(this.polygons)), this.polylines && (t = t.concat(this.polylines)), 0 === t.length)
-                                        return null;
-                                    var e = Object.keys(t).reduce((function (e, n) {
-                                                return e.concat(t.map((function (t) {
-                                                            return t.polygons ? t.polygons.map((function (t) {
-                                                                    return t.polygon
-                                                                })) : t.polylines ? t.polylines.map((function (t) {
-                                                                    return t.polyline
-                                                                })) : t.polygon ? t.polygon : t.polyline ? t.polyline : t
-                                                        })))
-                                            }), []);
-                                    return Object(O.flatten)(e)
-                                }
-                            }, {
-                                key: "_process",
-                                value: function (t, e) {
-                                    var n = this;
-                                    if (!this.strategy)
-                                        throw new Error("No map strategy defined for VectorSource but one is required.");
-                                    t = t || {};
-                                    var i = Object(O.get)(this.opts, "data.formatter");
-                                    i && (t = i(t));
-                                    var r = {},
-                                    a = {},
-                                    o = {};
-                                    if (Object(O.isPlainObject)(t) && "FeatureCollection" === t.type)
-                                        return "[Aeris] Data for layer {".concat(this.key, '} is in GeoJSON format. Use GeoJsonSource (or "geojson" type) for this layer instead.'), null;
-                                    if (Object(O.isArray)(t)) {
-                                        var s = this.style,
-                                        c = s.marker,
-                                        u = s.polygon,
-                                        l = s.polyline,
-                                        h = [],
-                                        f = Object(O.get)(this.opts, "data.properties") || {},
-                                        d = Object(O.get)(this.opts, "data.geometry");
-                                        t.forEach((function (t, i) {
-                                                var s,
-                                                p,
-                                                y,
-                                                v = "awxjs-shape-".concat(n.key, "-").concat(i);
-                                                if (f && (f.id && (v = Object(O.get)(t, f.id)), f.category && !1 === /^\[path\]/.test(f.category) && (s = Object(O.get)(t, f.category)), f.path && (p = Object(O.get)(t, f.path)), c))
-                                                    if (f.points) {
-                                                        var m = f.points;
-                                                        !e && Object(O.isArray)(m) ? (y = [], m.forEach((function (e) {
-                                                                    var n = Object(O.get)(t, e);
-                                                                    n && Object(O.isArray)(n) && (y = y.concat(n))
-                                                                }))) : y = Object(O.get)(t, m)
-                                                    } else
-                                                        y = [t];
-                                                if (y && c) {
-                                                    var g = Object(O.get)(n.opts, "data.coordinate");
-                                                    y.forEach((function (t) {
-                                                            var e = n._processRecord(t),
-                                                            i = e.loc || (g && Object(O.isFunction)(g) ? g(e) : {});
-                                                            if (i) {
-                                                                var a = {
-                                                                    lat: i.lat,
-                                                                    lon: i.long || i.lon
-                                                                },
-                                                                o = Object(O.isFunction)(c) ? c(e) : c;
-                                                                e.id = e.id || "".concat(n.key, "-").concat(v, "-").concat(a.lat, "_").concat(a.lon);
-                                                                var s = !0;
-                                                                if (o && o.spacing > 0) {
-                                                                    var u = n.strategy.coordToPoint(a);
-                                                                    h.forEach((function (t) {
-                                                                            var e = n.strategy.coordToPoint(t);
-                                                                            Math.sqrt(Math.pow(u.x - e.x, 2) + Math.pow(u.y - e.y, 2)) < o.spacing && (s = !1)
-                                                                        }))
-                                                                }
-                                                                if (s) {
-                                                                    var l = new b.a({
-                                                                        type: "Point",
-                                                                        coordinates: [a.lon, a.lat]
-                                                                    });
-                                                                    l.properties = e;
-                                                                    var f = l.geometry;
-                                                                    if (f instanceof _.e && Object(O.isValidCoord)(f.coordinates)) {
-                                                                        var d = w(n.key, l.properties, f.coordinates, o, n.strategy.factory);
-                                                                        d && (r[e.id] = d, h.push(a))
-                                                                    }
-                                                                }
-                                                            }
-                                                        }))
-                                                }
-                                                if (p && (u || l)) {
-                                                    var k = Object(O.get)(n.opts, "data.reversedCoord") || !1,
-                                                    T = p;
-                                                    Object(O.isArray)(T) ? T.length > 0 && Object(O.isArray)(T[0]) && 2 === T[0].length && Object(O.isNumber)(T[0][0]) && (T = [T]) : T = [T],
-                                                    d && Object(O.isFunction)(d) && (T = T.map((function (t) {
-                                                                    return {
-                                                                        type: "Feature",
-                                                                        properties: t,
-                                                                        geometry: d(t)
-                                                                    }
-                                                                }))),
-                                                    T.map((function (e) {
-                                                            Object(O.isArray)(e) && 2 === e[0].length && (e = {
-                                                                    type: "Polygon",
-                                                                    coordinates: [k ? p.map((function (t) {
-                                                                                return [t[1], t[0]]
-                                                                            })) : e]
-                                                                });
-                                                            var n = new b.a(e);
-                                                            return n.properties = Object(O.extend)({}, t, n.properties),
-                                                            n
-                                                        })).forEach((function (t) {
-                                                            var e = t.geometry,
-                                                            i = f.category,
-                                                            r = s;
-                                                            if (!r && i && (i = i.replace(/^\[path\]\./, ""), r = Object(O.get)(t.properties, i)), e instanceof _.f ? e = new _.d([e.toArray(!0)]) : e instanceof _.a && (e = new _.b([e.toArray(!0)])), e instanceof _.d) {
-                                                                var c = "".concat(t.properties.id || v),
-                                                                h = Object.assign(Object.assign({}, t.properties), {
-                                                                    id: c
-                                                                }),
-                                                                d = x(n.key, h, e, u, n.strategy.factory);
-                                                                if (r) {
-                                                                    var p = a[r];
-                                                                    if (!p) {
-                                                                        var y = Object(O.set)({}, i, r);
-                                                                        p = {
-                                                                            data: Object.assign(Object.assign(Object.assign({}, y), h), {
-                                                                                awxjs_source: n.key
-                                                                            }),
-                                                                            elements: []
-                                                                        },
-                                                                        a[r] = p
-                                                                    }
-                                                                    p.elements.push(d)
-                                                                } else
-                                                                    v && (a[v] = d)
-                                                            } else
-                                                                e instanceof _.b && e.lines.forEach((function (e, s) {
-                                                                        var c = Object.assign(Object.assign({}, t.properties), {
-                                                                            id: "".concat(t.properties.id || v, "-").concat(s)
-                                                                        }),
-                                                                        u = j(n.key, c, e.coordinates, l, n.strategy.factory);
-                                                                        if (r) {
-                                                                            var h = a[r];
-                                                                            if (!h) {
-                                                                                var f = Object(O.set)({}, i, r);
-                                                                                h = {
-                                                                                    data: Object.assign(Object.assign({}, f), {
-                                                                                        awxjs_source: n.key
-                                                                                    }),
-                                                                                    elements: []
-                                                                                },
-                                                                                o[r] = h
-                                                                            }
-                                                                            h.elements.push(u)
-                                                                        } else
-                                                                            v && (o[v] = u)
-                                                                    }))
-                                                        }))
-                                                }
-                                                y && l && function (t, e, n) {
-                                                    var i,
-                                                    r,
-                                                    a = [],
-                                                    o = [];
-                                                    return t.forEach((function (t, s) {
-                                                            var c = t.loc || (n && Object(O.isFunction)(n) ? n(t) : {}),
-                                                            u = Object(O.isEmpty)(c) && t.lat && t.lon ? t : {
-                                                                lat: c.lat,
-                                                                lon: c.long || c.lon
-                                                            };
-                                                            e && t[e];
-                                                            Object(O.isset)(r) && u.lat === r.lat && u.lon === r.lon || (o.push(u), 0 === s ? i = {
-                                                                    north: u.lat,
-                                                                    south: u.lat,
-                                                                    west: u.lon,
-                                                                    east: u.lon
-                                                                }
-                                                                 : (i.north = Math.max(i.north, u.lat), i.south = Math.min(i.south, u.lat), i.west = Math.min(i.west, u.lon), i.east = Math.max(i.east, u.lon)), a.push({
-                                                                    coords: o,
-                                                                    data: t,
-                                                                    bounds: i
-                                                                }), (o = []).push(u), i = {
-                                                                    north: u.lat,
-                                                                    south: u.lat,
-                                                                    west: u.lon,
-                                                                    east: u.lon
-                                                                }),
-                                                            r = u
-                                                        })),
-                                                    a
-                                                }
-                                                (y, Object(O.get)(n.opts, "data.properties.category"), Object(O.get)(n.opts, "data.coordinate")).forEach((function (t) {
-                                                        var e = j(n.key, t.data, t.coords, l, n.strategy.factory);
-                                                        o[e.id] = e
-                                                    }))
-                                            }))
-                                    }
-                                    return this._markers = r,
-                                    this._polygons = a,
-                                    this._polylines = o, {
-                                        markers: Object.keys(r).map((function (t) {
-                                                return r[t]
-                                            })),
-                                        polygons: Object.keys(a).map((function (t) {
-                                                return a[t]
-                                            })),
-                                        polylines: Object.keys(o).map((function (t) {
-                                                return o[t]
-                                            }))
-                                    }
-                                }
-                            }, {
-                                key: "_processRecord",
-                                value: function (t) {
-                                    return t
-                                }
-                            }, {
-                                key: "_startAutoUpdateIfNeeded",
-                                value: function () {
-                                    var t = this;
-                                    this._stopAutoUpdate();
-                                    var e = Object(O.get)(this.opts, "refresh");
-                                    this.enabled && e > 0 && (this._refreshTimer = setTimeout((function () {
-                                                    t.reload()
-                                                }), 1e3 * e))
-                                }
-                            }, {
-                                key: "_stopAutoUpdate",
-                                value: function () {
-                                    this._refreshTimer && (clearTimeout(this._refreshTimer), this._refreshTimer = null)
-                                }
-                            }, {
                                 key: "markers",
                                 get: function () {
                                     var t;
@@ -12772,13 +12356,425 @@
                                 }
                             }
                         ]),
+                    o()(n, [{
+                                key: "hasData",
+                                value: function () {
+                                    return !Object(O.isEmpty)(this.markers) || !Object(O.isEmpty)(this.polygons) || !Object(O.isEmpty)(this.polylines)
+                                }
+                            }, {
+                                key: "setData",
+                                value: function (t) {
+                                    this._data = Object(O.isPlainObject)(t) ? Object(O.cloneDeep)(t) : t,
+                                    this.render()
+                                }
+                            }, {
+                                key: "setOpacity",
+                                value: function () {
+                                    var t = this,
+                                    e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 1;
+                                    this._opacity = e,
+                                    this.shapes.filter((function (t) {
+                                            return t.adjustOpacity
+                                        })).forEach((function (n) {
+                                            n instanceof k.c ? n.renderable.setOpacity(t._opacityByType.polyline * e) : n instanceof k.b && n.renderable.setOpacity(t._opacityByType.polygon * e)
+                                        }))
+                                }
+                            }, {
+                                key: "load",
+                                value: function (t) {
+                                    var e,
+                                    n = this,
+                                    r = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
+                                    i = arguments.length > 2 ? arguments[2] : void 0,
+                                    a = null === (e = this.opts) || void 0 === e ? void 0 : e.data;
+                                    if (!a)
+                                        return new Promise((function (t, e) {
+                                                e(new Error("Invalid configuration for VectorSource"))
+                                            }));
+                                    t = Object(O.extend)({}, Object(O.get)(this.opts, "data.request.parameters"), this._lastLoadParams, t),
+                                    Object(O.isset)(t.save) && !1 === t.save || (this._lastLoadParams = t),
+                                    this._animateOnLoad = r;
+                                    var o = a.service,
+                                    s = a.url,
+                                    c = a.items,
+                                    u = t,
+                                    l = u.bounds,
+                                    h = u.from,
+                                    f = u.to;
+                                    if (this.requiresBounds && !Object(O.isset)(l))
+                                        throw new Error("[Aeris] Vector source ".concat(this.key, " requires coordinate bounds when loading but bounds were not provided."));
+                                    if (l && (this._visibleBounds = g.a.fromBounds(l)), c)
+                                        return new Promise((function (t, e) {
+                                                n._onLoad(c, (function (n, r) {
+                                                        n ? t(n) : e(r)
+                                                    }))
+                                            }));
+                                    var d = L({
+                                        service: o,
+                                        url: s,
+                                        dataKeypath: Object(O.get)(this.opts, "data.properties.root"),
+                                        restrictToTimeline: this.opts.restrictToTimeline,
+                                        onLoad: function (t, e) {
+                                            n._onLoad(t, e, i)
+                                        },
+                                        onError: function (t, e) {
+                                            n._onError(t, e)
+                                        }
+                                    });
+                                    if (o && (this._service = Object(O.isFunction)(o) ? o() : o), !Object(O.isset)(d))
+                                        throw new Error("[Aeris] Cannot load data for VectorSource with key {".concat(this.key, '} due to an invalid configuration. Check that you have provided a valid "data.service" or "data.url" in your configuration. Refer to the docs for more info: https://www.aerisweather.com/support/docs/toolkits/aeris-js-sdk/map-modules/data-sources/'));
+                                    return this._request || (this._request = Object(O.debounce)((function (t, e, r, i, a) {
+                                                    n._loading = !0,
+                                                    d(t, e, r, i, a)
+                                                }), 1500)),
+                                    new Promise((function (e, r) {
+                                            if (n._request) {
+                                                var i = Object(O.get)(n.opts, "data.request.parameters.from") || h,
+                                                a = Object(O.get)(n.opts, "data.request.parameters.to") || f;
+                                                n._loading = !0,
+                                                n.trigger("data:load:start", {
+                                                    layer: n.key
+                                                }),
+                                                n._request(l, i, a, t, (function (t, i) {
+                                                        n.trigger("data:load:done", {
+                                                            layer: n.key
+                                                        }),
+                                                        i ? r(i) : e(t),
+                                                        n._startAutoUpdateIfNeeded()
+                                                    }))
+                                            } else
+                                                r(new Error("Invalid configuration for VectorSource"))
+                                        }))
+                                }
+                            }, {
+                                key: "reload",
+                                value: function (t, e) {
+                                    this.load(t, !1, e)
+                                }
+                            }, {
+                                key: "render",
+                                value: function () {
+                                    if (Object(O.isset)(this._data)) {
+                                        var t = this.markers,
+                                        e = this.shapes;
+                                        Object(O.isEmpty)(t) || this.trigger("markers:remove", {
+                                            markers: t
+                                        }),
+                                        Object(O.isEmpty)(e) || this.trigger("shapes:remove", {
+                                            shapes: e
+                                        }),
+                                        this._result = this._process(this._data),
+                                        this.setOpacity(this._opacity),
+                                        t = this.markers,
+                                        e = this.shapes,
+                                        Object(O.isEmpty)(t) || this.trigger("markers:add", {
+                                            markers: t
+                                        }),
+                                        Object(O.isEmpty)(e) || this.trigger("shapes:add", {
+                                            shapes: e
+                                        })
+                                    }
+                                }
+                            }, {
+                                key: "reset",
+                                value: function () {
+                                    var t = this.markers,
+                                    e = this.shapes;
+                                    Object(O.isEmpty)(t) || this.trigger("markers:remove", {
+                                        markers: t
+                                    }),
+                                    Object(O.isEmpty)(e) || this.trigger("shapes:remove", {
+                                        shapes: e
+                                    }),
+                                    this.animation && this.animation.reset(),
+                                    this._loading = !1,
+                                    this._result = {},
+                                    this.trigger("data:load:done", {
+                                        layer: this.key
+                                    }),
+                                    this.trigger("reset")
+                                }
+                            }, {
+                                key: "update",
+                                value: function (t) {
+                                    t && (this.opts.data = Object(O.extend)(this.opts.data, t), this._request = null),
+                                    this.reload()
+                                }
+                            }, {
+                                key: "_onLoad",
+                                value: function (t, e, n) {
+                                    !1 !== this.enabled && (t && (n && (Object(O.isArray)(t) ? t = [].concat(y()(n), y()(t)) : Object(O.isPlainObject)(t) && (t = Object.assign(Object.assign({}, n), t))), this.setData(t)), this._loading = !1, this.trigger("data:load", {
+                                            layer: this.key,
+                                            results: t
+                                        }), Object(O.isFunction)(e) && e(this._result, null), this._animateOnLoad && this.animation && (this.animation.reset(), this.animation.play()), this._animateOnLoad = !1)
+                                }
+                            }, {
+                                key: "_onError",
+                                value: function (t, e) {
+                                    console.error("[Aeris] Vector source request failed", t),
+                                    t.stack && t.stack,
+                                    this._loading = !1,
+                                    this.trigger("data:error", {
+                                        error: t
+                                    }),
+                                    e && e(null, t)
+                                }
+                            }, {
+                                key: "_visibleMapObjects",
+                                value: function () {
+                                    var t = this,
+                                    e = this.markers,
+                                    n = this.shapes;
+                                    return {
+                                        markers: e = e.filter((function (e) {
+                                                    var n = e.coord;
+                                                    return !n || t._visibleBounds.contains(n)
+                                                })),
+                                        shapes: n = n.filter((function (e) {
+                                                    var n = e.bounds;
+                                                    return !n || t._visibleBounds.contains(n)
+                                                }))
+                                    }
+                                }
+                            }, {
+                                key: "_mapObjects",
+                                value: function () {
+                                    var t = [];
+                                    if (this.polygons && (t = t.concat(this.polygons)), this.polylines && (t = t.concat(this.polylines)), 0 === t.length)
+                                        return null;
+                                    var e = Object.keys(t).reduce((function (e, n) {
+                                                return e.concat(t.map((function (t) {
+                                                            return t.polygons ? t.polygons.map((function (t) {
+                                                                    return t.polygon
+                                                                })) : t.polylines ? t.polylines.map((function (t) {
+                                                                    return t.polyline
+                                                                })) : t.polygon ? t.polygon : t.polyline ? t.polyline : t
+                                                        })))
+                                            }), []);
+                                    return Object(O.flatten)(e)
+                                }
+                            }, {
+                                key: "_process",
+                                value: function (t, e) {
+                                    var n = this;
+                                    if (!this.strategy)
+                                        throw new Error("No map strategy defined for VectorSource but one is required.");
+                                    t = t || {};
+                                    var r = Object(O.get)(this.opts, "data.formatter");
+                                    r && (t = r(t));
+                                    var i = {},
+                                    a = {},
+                                    o = {};
+                                    if (Object(O.isPlainObject)(t) && "FeatureCollection" === t.type)
+                                        return console.warn("[Aeris] Data for layer {".concat(this.key, '} is in GeoJSON format. Use GeoJsonSource (or "geojson" type) for this layer instead.')), null;
+                                    if (Object(O.isArray)(t)) {
+                                        var s = this.style,
+                                        c = s.marker,
+                                        u = s.polygon,
+                                        l = s.polyline,
+                                        h = [],
+                                        f = Object(O.get)(this.opts, "data.properties") || {},
+                                        d = Object(O.get)(this.opts, "data.geometry");
+                                        t.forEach((function (t, r) {
+                                                var s,
+                                                p,
+                                                v,
+                                                y = "awxjs-shape-".concat(n.key, "-").concat(r);
+                                                if (f && (f.id && (y = Object(O.get)(t, f.id)), f.category && !1 === /^\[path\]/.test(f.category) && (s = Object(O.get)(t, f.category)), f.path && (p = Object(O.get)(t, f.path)), c))
+                                                    if (f.points) {
+                                                        var m = f.points;
+                                                        !e && Object(O.isArray)(m) ? (v = [], m.forEach((function (e) {
+                                                                    var n = Object(O.get)(t, e);
+                                                                    n && Object(O.isArray)(n) && (v = v.concat(n))
+                                                                }))) : v = Object(O.get)(t, m)
+                                                    } else
+                                                        v = [t];
+                                                if (v && c) {
+                                                    var g = Object(O.get)(n.opts, "data.coordinate");
+                                                    v.forEach((function (t) {
+                                                            var e = n._processRecord(t),
+                                                            r = e.loc || (g && Object(O.isFunction)(g) ? g(e) : {});
+                                                            if (r) {
+                                                                var a = {
+                                                                    lat: r.lat,
+                                                                    lon: r.long || r.lon
+                                                                },
+                                                                o = Object(O.isFunction)(c) ? c(e) : c;
+                                                                e.id = e.id || "".concat(n.key, "-").concat(y, "-").concat(a.lat, "_").concat(a.lon);
+                                                                var s = !0;
+                                                                if (o && o.spacing > 0) {
+                                                                    var u = n.strategy.coordToPoint(a);
+                                                                    h.forEach((function (t) {
+                                                                            var e = n.strategy.coordToPoint(t);
+                                                                            Math.sqrt(Math.pow(u.x - e.x, 2) + Math.pow(u.y - e.y, 2)) < o.spacing && (s = !1)
+                                                                        }))
+                                                                }
+                                                                if (s) {
+                                                                    var l = new b.a({
+                                                                        type: "Point",
+                                                                        coordinates: [a.lon, a.lat]
+                                                                    });
+                                                                    l.properties = e;
+                                                                    var f = l.geometry;
+                                                                    if (f instanceof _.e && Object(O.isValidCoord)(f.coordinates)) {
+                                                                        var d = w(n.key, l.properties, f.coordinates, o, n.strategy.factory);
+                                                                        d && (i[e.id] = d, h.push(a))
+                                                                    }
+                                                                }
+                                                            }
+                                                        }))
+                                                }
+                                                if (p && (u || l)) {
+                                                    var k = Object(O.get)(n.opts, "data.reversedCoord") || !1,
+                                                    T = p;
+                                                    Object(O.isArray)(T) ? T.length > 0 && Object(O.isArray)(T[0]) && 2 === T[0].length && Object(O.isNumber)(T[0][0]) && (T = [T]) : T = [T],
+                                                    d && Object(O.isFunction)(d) && (T = T.map((function (t) {
+                                                                    return {
+                                                                        type: "Feature",
+                                                                        properties: t,
+                                                                        geometry: d(t)
+                                                                    }
+                                                                }))),
+                                                    T.map((function (e) {
+                                                            Object(O.isArray)(e) && 2 === e[0].length && (e = {
+                                                                    type: "Polygon",
+                                                                    coordinates: [k ? p.map((function (t) {
+                                                                                return [t[1], t[0]]
+                                                                            })) : e]
+                                                                });
+                                                            var n = new b.a(e);
+                                                            return n.properties = Object(O.extend)({}, t, n.properties),
+                                                            n
+                                                        })).forEach((function (t) {
+                                                            var e = t.geometry,
+                                                            r = f.category,
+                                                            i = s;
+                                                            if (!i && r && (r = r.replace(/^\[path\]\./, ""), i = Object(O.get)(t.properties, r)), e instanceof _.f ? e = new _.d([e.toArray(!0)]) : e instanceof _.a && (e = new _.b([e.toArray(!0)])), e instanceof _.d) {
+                                                                var c = "".concat(t.properties.id || y),
+                                                                h = Object.assign(Object.assign({}, t.properties), {
+                                                                    id: c
+                                                                }),
+                                                                d = x(n.key, h, e, u, n.strategy.factory);
+                                                                if (i) {
+                                                                    var p = a[i];
+                                                                    if (!p) {
+                                                                        var v = Object(O.set)({}, r, i);
+                                                                        p = {
+                                                                            data: Object.assign(Object.assign(Object.assign({}, v), h), {
+                                                                                awxjs_source: n.key
+                                                                            }),
+                                                                            elements: []
+                                                                        },
+                                                                        a[i] = p
+                                                                    }
+                                                                    p.elements.push(d)
+                                                                } else
+                                                                    y && (a[y] = d)
+                                                            } else
+                                                                e instanceof _.b && e.lines.forEach((function (e, s) {
+                                                                        var c = Object.assign(Object.assign({}, t.properties), {
+                                                                            id: "".concat(t.properties.id || y, "-").concat(s)
+                                                                        }),
+                                                                        u = j(n.key, c, e.coordinates, l, n.strategy.factory);
+                                                                        if (i) {
+                                                                            var h = a[i];
+                                                                            if (!h) {
+                                                                                var f = Object(O.set)({}, r, i);
+                                                                                h = {
+                                                                                    data: Object.assign(Object.assign({}, f), {
+                                                                                        awxjs_source: n.key
+                                                                                    }),
+                                                                                    elements: []
+                                                                                },
+                                                                                o[i] = h
+                                                                            }
+                                                                            h.elements.push(u)
+                                                                        } else
+                                                                            y && (o[y] = u)
+                                                                    }))
+                                                        }))
+                                                }
+                                                v && l && function (t, e, n) {
+                                                    var r,
+                                                    i,
+                                                    a = [],
+                                                    o = [];
+                                                    return t.forEach((function (t, s) {
+                                                            var c = t.loc || (n && Object(O.isFunction)(n) ? n(t) : {}),
+                                                            u = Object(O.isEmpty)(c) && t.lat && t.lon ? t : {
+                                                                lat: c.lat,
+                                                                lon: c.long || c.lon
+                                                            };
+                                                            e && t[e];
+                                                            Object(O.isset)(i) && u.lat === i.lat && u.lon === i.lon || (o.push(u), 0 === s ? r = {
+                                                                    north: u.lat,
+                                                                    south: u.lat,
+                                                                    west: u.lon,
+                                                                    east: u.lon
+                                                                }
+                                                                 : (r.north = Math.max(r.north, u.lat), r.south = Math.min(r.south, u.lat), r.west = Math.min(r.west, u.lon), r.east = Math.max(r.east, u.lon)), a.push({
+                                                                    coords: o,
+                                                                    data: t,
+                                                                    bounds: r
+                                                                }), (o = []).push(u), r = {
+                                                                    north: u.lat,
+                                                                    south: u.lat,
+                                                                    west: u.lon,
+                                                                    east: u.lon
+                                                                }),
+                                                            i = u
+                                                        })),
+                                                    a
+                                                }
+                                                (v, Object(O.get)(n.opts, "data.properties.category"), Object(O.get)(n.opts, "data.coordinate")).forEach((function (t) {
+                                                        var e = j(n.key, t.data, t.coords, l, n.strategy.factory);
+                                                        o[e.id] = e
+                                                    }))
+                                            }))
+                                    }
+                                    return this._markers = i,
+                                    this._polygons = a,
+                                    this._polylines = o, {
+                                        markers: Object.keys(i).map((function (t) {
+                                                return i[t]
+                                            })),
+                                        polygons: Object.keys(a).map((function (t) {
+                                                return a[t]
+                                            })),
+                                        polylines: Object.keys(o).map((function (t) {
+                                                return o[t]
+                                            }))
+                                    }
+                                }
+                            }, {
+                                key: "_processRecord",
+                                value: function (t) {
+                                    return t
+                                }
+                            }, {
+                                key: "_startAutoUpdateIfNeeded",
+                                value: function () {
+                                    var t = this;
+                                    this._stopAutoUpdate();
+                                    var e = Object(O.get)(this.opts, "refresh");
+                                    this.enabled && e > 0 && (this._refreshTimer = setTimeout((function () {
+                                                    t.reload()
+                                                }), 1e3 * e))
+                                }
+                            }, {
+                                key: "_stopAutoUpdate",
+                                value: function () {
+                                    this._refreshTimer && (clearTimeout(this._refreshTimer), this._refreshTimer = null)
+                                }
+                            }
+                        ]),
                     n
                 }
                 (m.a),
                 V = n("o0o1"),
-                W = n.n(V);
+                q = n.n(V);
                 n("ls82");
-                function q(t) {
+                function W(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -12796,21 +12792,21 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var N = function (t) {
                     l()(n, t);
-                    var e = q(n);
+                    var e = W(n);
                     function n() {
                         var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
-                        return r()(this, n),
+                        return i()(this, n),
                         t = Object(O.extend)({}, {
                             refresh: 0
                         }, t),
@@ -12823,10 +12819,10 @@
                                     if (this.dataByTime()) {
                                         this.lastInterval || (this.lastInterval = this.from);
                                         var n,
-                                        i = this.currentTime,
-                                        r = Math.min(this.lastInterval, i),
-                                        a = Math.max(this.lastInterval, i);
-                                        if (i < this.lastInterval) {
+                                        r = this.currentTime,
+                                        i = Math.min(this.lastInterval, r),
+                                        a = Math.max(this.lastInterval, r);
+                                        if (r < this.lastInterval) {
                                             var o = [],
                                             s = [];
                                             Object.keys(this.dataByTime()).sort().map((function (t) {
@@ -12838,11 +12834,11 @@
                                                 })),
                                             n = s
                                         } else
-                                            n = this._elementsInIntervalRange(r, a);
+                                            n = this._elementsInIntervalRange(i, a);
                                         n.length > 0 && this.trigger("data:update", {
                                             items: n
                                         }),
-                                        this.lastInterval = i
+                                        this.lastInterval = r
                                     }
                                 }
                             }, {
@@ -12851,18 +12847,18 @@
                                     var e = this;
                                     if (!(this.increment <= 0) && Object(O.isPlainObject)(t)) {
                                         var n = this._prepareIntervals(),
-                                        i = t;
-                                        Object.keys(i).forEach((function (i) {
-                                                var r = t[i],
-                                                a = r.renderable,
-                                                o = r.data,
-                                                s = r.style;
+                                        r = t;
+                                        Object.keys(r).forEach((function (r) {
+                                                var i = t[r],
+                                                a = i.renderable,
+                                                o = i.data,
+                                                s = i.style;
                                                 Object.keys(o).forEach((function (t) {
-                                                        var r = parseInt(t, 10),
-                                                        c = e.dataIntervalClosestToTime(r);
-                                                        r < e.to && n[c] && n[c].push({
-                                                            id: i,
-                                                            value: o[r],
+                                                        var i = parseInt(t, 10),
+                                                        c = e.dataIntervalClosestToTime(i);
+                                                        i < e.to && n[c] && n[c].push({
+                                                            id: r,
+                                                            value: o[i],
                                                             renderable: a,
                                                             style: s
                                                         })
@@ -12877,35 +12873,35 @@
                     n
                 }
                 (z),
-                Z = function (t, e, n, i) {
-                    return new(n || (n = Promise))((function (r, a) {
+                Z = function (t, e, n, r) {
+                    return new(n || (n = Promise))((function (i, a) {
                             function o(t) {
                                 try {
-                                    c(i.next(t))
+                                    c(r.next(t))
                                 } catch (t) {
                                     a(t)
                                 }
                             }
                             function s(t) {
                                 try {
-                                    c(i.throw(t))
+                                    c(r.throw(t))
                                 } catch (t) {
                                     a(t)
                                 }
                             }
                             function c(t) {
                                 var e;
-                                t.done ? r(t.value) : (e = t.value, e instanceof n ? e : new n((function (t) {
+                                t.done ? i(t.value) : (e = t.value, e instanceof n ? e : new n((function (t) {
                                             t(e)
                                         }))).then(o, s)
                             }
-                            c((i = i.apply(t, e || [])).next())
+                            c((r = r.apply(t, e || [])).next())
                         }))
                 },
                 $ = function () {
                     function t(e, n) {
-                        var i = this;
-                        r()(this, t),
+                        var r = this;
+                        i()(this, t),
                         this.source = e;
                         var a = new N;
                         a.provider = this,
@@ -12926,7 +12922,7 @@
                             })),
                         this.animation = a,
                         e.on("data:load:start reset", (function () {
-                                i._animationMarkers = null
+                                r._animationMarkers = null
                             }))
                     }
                     return o()(t, [{
@@ -12934,38 +12930,39 @@
                                 value: function () {
                                     var t = this.source;
                                     return new Promise((function (e, n) {
-                                            var i = t.service.param("limit") || 300,
-                                            r = t.service.param("plimit"),
+                                            var r = t.service.param("limit") || 300,
+                                            i = t.service.param("plimit"),
                                             a = t.service.param("sort") || "dt:-1",
                                             o = t.style.marker || t.style;
-                                            t.service.action("within").plimit(100).limit(i).sort(a).get().then((function (n) {
-                                                    t.service.plimit(r);
-                                                    var i = {},
+                                            t.service.action("within").plimit(100).limit(r).sort(a).get().then((function (n) {
+                                                    t.service.plimit(i);
+                                                    var r = {},
                                                     a = Object(O.get)(n, "data") || [];
                                                     Object(O.isArray)(a) && a.forEach((function (e) {
                                                             var n = t.processRecord(e),
-                                                            r = n.loc || {},
+                                                            i = n.loc || {},
                                                             a = {
-                                                                lat: r.lat,
-                                                                lon: r.long || r.lon
+                                                                lat: i.lat,
+                                                                lon: i.long || i.lon
                                                             },
                                                             s = n.id || "".concat(a.lat, ",").concat(a.long),
                                                             c = t.markersById ? t.markersById[s] : null,
                                                             u = Object(O.isFunction)(o) ? o(n) : o;
                                                             if (c)
-                                                                i[s] = new k.a(Object(O.extend)({}, c.data, n), c.style, c.renderable);
+                                                                r[s] = new k.a(Object(O.extend)({}, c.data, n), c.style, c.renderable);
                                                             else if (!1 === Object(O.isset)(u.spacing)) {
                                                                 var l = t.strategy.factory.marker(t.key, {
                                                                     lat: a.lat,
                                                                     lon: a.lon
                                                                 }, u);
-                                                                i[s] = new k.a(Object.assign(Object.assign({}, n), {
+                                                                r[s] = new k.a(Object.assign(Object.assign({}, n), {
                                                                             awxjs_source: t.key
                                                                         }), u, l)
                                                             }
                                                         })),
-                                                    e(i)
+                                                    e(r)
                                                 })).catch((function (t) {
+                                                    console.error("Error requesting animation data for TextSource", t),
                                                     n(t)
                                                 }))
                                         }))
@@ -12973,64 +12970,64 @@
                             }, {
                                 key: "animationData",
                                 value: function (t) {
-                                    return Z(this, void 0, void 0, W.a.mark((function t() {
+                                    return Z(this, void 0, void 0, q.a.mark((function t() {
                                                 var e,
                                                 n,
-                                                i,
-                                                r = this;
-                                                return W.a.wrap((function (t) {
+                                                r,
+                                                i = this;
+                                                return q.a.wrap((function (t) {
                                                         for (; ; )
                                                             switch (t.prev = t.next) {
                                                             case 0:
                                                                 return e = this.source,
                                                                 n = function () {
-                                                                    var t = r._animationMarkers,
+                                                                    var t = i._animationMarkers,
                                                                     n = (Object(O.get)(e.opts, "data.properties.timestamp") || "").replace(/^periods\./, ""),
-                                                                    i = Object(O.get)(e.opts, "data.properties.value");
-                                                                    return Object(O.isFunction)(i) || (i = (i || "").replace(/^periods\./, "")),
-                                                                    Object.keys(t).reduce((function (r, a) {
+                                                                    r = Object(O.get)(e.opts, "data.properties.value");
+                                                                    return Object(O.isFunction)(r) || (r = (r || "").replace(/^periods\./, "")),
+                                                                    Object.keys(t).reduce((function (i, a) {
                                                                             var o = t[a],
                                                                             s = o.data,
                                                                             c = o.renderable;
                                                                             if (s && s.periods) {
                                                                                 var u,
                                                                                 l = s.periods.reduce((function (t, e) {
-                                                                                            var r = 1e3 * Object(O.get)(e, n),
+                                                                                            var i = 1e3 * Object(O.get)(e, n),
                                                                                             a = "";
-                                                                                            return (a = Object(O.isFunction)(i) ? i(e) : Object(O.get)(e, i)) !== u && (t[r] = a, u = a),
+                                                                                            return (a = Object(O.isFunction)(r) ? r(e) : Object(O.get)(e, r)) !== u && (t[i] = a, u = a),
                                                                                             t
                                                                                         }), {});
-                                                                                return r[a] = {
+                                                                                return i[a] = {
                                                                                     data: l,
                                                                                     renderable: c,
                                                                                     style: e.style
                                                                                 },
-                                                                                r
+                                                                                i
                                                                             }
                                                                             return null
                                                                         }), {})
                                                                 },
-                                                                i = function () {
+                                                                r = function () {
                                                                     return new Promise((function (t, e) {
-                                                                            r._loadAnimationData().then((function (e) {
-                                                                                    r._animationMarkers = e,
+                                                                            i._loadAnimationData().then((function (e) {
+                                                                                    i._animationMarkers = e,
                                                                                     t(e)
                                                                                 }))
                                                                         }))
                                                                 },
                                                                 t.abrupt("return", new Promise((function (t, a) {
-                                                                            if (r._animationMarkers) {
+                                                                            if (i._animationMarkers) {
                                                                                 var o = n();
                                                                                 t(o)
                                                                             } else
                                                                                 e.isLoading ? e.once("data:load", (function () {
-                                                                                        i().then((function (e) {
-                                                                                                var i = n();
-                                                                                                t(i)
+                                                                                        r().then((function (e) {
+                                                                                                var r = n();
+                                                                                                t(r)
                                                                                             }))
-                                                                                    })) : i().then((function (e) {
-                                                                                        var i = n();
-                                                                                        t(i)
+                                                                                    })) : r().then((function (e) {
+                                                                                        var r = n();
+                                                                                        t(r)
                                                                                     }))
                                                                         })));
                                                             case 4:
@@ -13045,7 +13042,7 @@
                     t
                 }
                 ();
-                function J(t) {
+                function H(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
                             return !1;
@@ -13063,23 +13060,23 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
-                var H = function (t) {
+                var U = function (t) {
                     l()(n, t);
-                    var e = J(n);
-                    function n(t, i) {
+                    var e = H(n);
+                    function n(t, r) {
                         var a,
                         o;
-                        return r()(this, n),
-                        (null === (o = (a = e.call(this, t, i)).opts.animation) || void 0 === o ? void 0 : o.enabled) && (a._animator = new $(c()(a), a.opts.animation)),
+                        return i()(this, n),
+                        (null === (o = (a = e.call(this, t, r)).opts.animation) || void 0 === o ? void 0 : o.enabled) && (a._animator = new $(c()(a), a.opts.animation)),
                         a
                     }
                     return o()(n, [{
@@ -13096,7 +13093,7 @@
                     n
                 }
                 (B),
-                U = n("dJbZ");
+                J = n("dJbZ");
                 function G(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -13115,12 +13112,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -13128,7 +13125,7 @@
                     l()(n, t);
                     var e = G(n);
                     function n() {
-                        return r()(this, n),
+                        return i()(this, n),
                         e.apply(this, arguments)
                     }
                     return o()(n, [{
@@ -13138,9 +13135,9 @@
                                     if (!this.strategy)
                                         throw new Error("No map strategy defined for VectorSource but one is required.");
                                     t = t || {};
-                                    var i = Object(O.get)(this.opts, "data.formatter");
-                                    i && (t = i(t));
-                                    var r = {},
+                                    var r = Object(O.get)(this.opts, "data.formatter");
+                                    r && (t = r(t));
+                                    var i = {},
                                     a = {},
                                     o = {};
                                     if (Object(O.isArray)(t) && (t = t[0] && "FeatureCollection" === t[0].type ? t[0] : {
@@ -13159,69 +13156,69 @@
                                                         }
                                                     }))
                                             }), !Object(O.isset)(t.type))
-                                        return "Invalid data provided for GeoJsonSource with key ".concat(this.key, ", not a valid GeoJSON format"), null;
+                                        return console.warn("Invalid data provided for GeoJsonSource with key ".concat(this.key, ", not a valid GeoJSON format")), null;
                                     var s = this.strategy.factory,
-                                    c = new U.a(t),
+                                    c = new J.a(t),
                                     u = this.style,
                                     l = u.marker,
                                     h = u.polygon,
                                     f = u.polyline;
                                     return (c.features || []).forEach((function (t, e) {
-                                            var i,
+                                            var r,
                                             c = t.geometry,
                                             u = t.properties || {},
                                             d = Object(O.get)(n.opts, "data.properties.id"),
                                             p = Object(O.get)(n.opts, "data.properties.category");
                                             if (Object(O.isset)(d) && (t.id = Object(O.get)(u, d)), Object(O.isset)(p)) {
-                                                i = Object(O.get)(u, p);
-                                                var y = Object(O.set)({}, p, i);
-                                                a[i] || (a[i] = {
-                                                        data: Object.assign(Object.assign({}, y), {
+                                                r = Object(O.get)(u, p);
+                                                var v = Object(O.set)({}, p, r);
+                                                a[r] || (a[r] = {
+                                                        data: Object.assign(Object.assign({}, v), {
                                                             awxjs_source: n.key
                                                         }),
                                                         elements: []
                                                     }),
-                                                o[i] || (o[i] = {
-                                                        data: Object.assign(Object.assign({}, y), {
+                                                o[r] || (o[r] = {
+                                                        data: Object.assign(Object.assign({}, v), {
                                                             awxjs_source: n.key
                                                         }),
                                                         elements: []
                                                     })
                                             }
                                             if (u.id = "".concat(n.key), t.id ? u.id = "".concat(u.id, "-").concat(t.id) : u.id = "".concat(u.id, "-").concat(e), c instanceof _.e) {
-                                                var v = Object(O.isFunction)(l) ? l(u) : l,
-                                                m = w(n.key, u, c.coordinates, v, s);
-                                                r[u.id] = m
+                                                var y = Object(O.isFunction)(l) ? l(u) : l,
+                                                m = w(n.key, u, c.coordinates, y, s);
+                                                i[u.id] = m
                                             } else if (c instanceof _.c)
-                                                c.coordinates.forEach((function (t, e) {
-                                                        var i = Object.assign(Object.assign({}, u), {
-                                                            id: "".concat(u.id, "-").concat(e)
-                                                        }),
-                                                        a = Object(O.isFunction)(l) ? l(i) : l,
-                                                        o = w(n.key, i, t, a, s);
-                                                        r[u.id] = o
-                                                    }));
-                                            else if (c instanceof _.a) {
-                                                var g = j(n.key, u, c.coordinates, f, s);
-                                                i ? o[i].elements.push(g) : o[u.id] = g
-                                            } else if (c instanceof _.b)
                                                 c.coordinates.forEach((function (t, e) {
                                                         var r = Object.assign(Object.assign({}, u), {
                                                             id: "".concat(u.id, "-").concat(e)
                                                         }),
-                                                        a = j(n.key, r, t, f, s);
-                                                        i ? o[i].elements.push(a) : o[u.id] = a
+                                                        a = Object(O.isFunction)(l) ? l(r) : l,
+                                                        o = w(n.key, r, t, a, s);
+                                                        i[u.id] = o
+                                                    }));
+                                            else if (c instanceof _.a) {
+                                                var g = j(n.key, u, c.coordinates, f, s);
+                                                r ? o[r].elements.push(g) : o[u.id] = g
+                                            } else if (c instanceof _.b)
+                                                c.coordinates.forEach((function (t, e) {
+                                                        var i = Object.assign(Object.assign({}, u), {
+                                                            id: "".concat(u.id, "-").concat(e)
+                                                        }),
+                                                        a = j(n.key, i, t, f, s);
+                                                        r ? o[r].elements.push(a) : o[u.id] = a
                                                     }));
                                             else if (c instanceof _.f) {
                                                 var k = x(n.key, u, c, h, s);
-                                                i ? o[i].elements.push(k) : a[u.id] = k
+                                                r ? o[r].elements.push(k) : a[u.id] = k
                                             } else if (c instanceof _.d) {
                                                 var b = x(n.key, u, c, h, s);
-                                                i ? o[i].elements.push(b) : a[u.id] = b
+                                                r ? o[r].elements.push(b) : a[u.id] = b
                                             }
                                         })), {
-                                        markers: Object.keys(r).map((function (t) {
-                                                return r[t]
+                                        markers: Object.keys(i).map((function (t) {
+                                                return i[t]
                                             })),
                                         polygons: Object.keys(a).map((function (t) {
                                                 return a[t]
@@ -13244,19 +13241,17 @@
                 n("yXV3"),
                 n("2B1R"),
                 n("+2oP"),
-                n("ToJy"),
                 n("pDQq"),
                 n("tkto"),
                 n("07d7"),
-                n("4l63"),
                 n("SuFq"),
                 n("JfAA"),
                 n("FZtP");
-                var i = n("lwsE"),
-                r = n.n(i),
-                a = n("W8MJ"),
+                var r = n("lwsE"),
+                i = n.n(r),
+                a = n("iWIM"),
                 o = n.n(a),
-                s = n("iWIM"),
+                s = n("W8MJ"),
                 c = n.n(s),
                 u = n("7W2i"),
                 l = n.n(u),
@@ -13264,8 +13259,8 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = n("dB9R"),
-                v = n("0lfv");
+                v = n("dB9R"),
+                y = n("0lfv");
                 function m(t) {
                     var e = function () {
                         if ("undefined" == typeof Reflect || !Reflect.construct)
@@ -13284,12 +13279,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -13298,26 +13293,42 @@
                     var e = m(n);
                     function n() {
                         var t,
-                        i = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
-                        return r()(this, n),
-                        i = Object(v.extend)({}, {
+                        r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null;
+                        return i()(this, n),
+                        r = Object(y.extend)({}, {
                             refresh: 0,
                             showWhenLoading: !0,
                             showLoadingIntervals: !1,
                             bufferIntervals: -1,
                             reverseLoadOrder: !1,
                             times: void 0
-                        }, i),
-                        (t = e.call(this, i))._layersByTime = null,
+                        }, r),
+                        (t = e.call(this, r))._layersByTime = null,
                         t._isReset = !1,
                         t._loading = !1,
                         t._hasLoaded = !1,
                         t._visible = !0,
-                        Object(v.isset)(t.opts.times) && t.setTimes(t.opts.times),
+                        Object(y.isset)(t.opts.times) && t.setTimes(t.opts.times),
                         t._startup(),
                         t
                     }
-                    return o()(n, [{
+                    return c()(n, [{
+                                key: "showWhenLoading",
+                                get: function () {
+                                    return this.opts.showWhenLoading
+                                },
+                                set: function (t) {
+                                    this.opts.showWhenLoading = t
+                                }
+                            }, {
+                                key: "bufferCount",
+                                get: function () {
+                                    var t = this.opts.bufferIntervals;
+                                    return -1 === t ? this.totalIntervals : (this.isFuture() && this.containsPast() && (t = this.opts.bufferIntervals - (this.opts.intervals - this.totalIntervals)), Math.max(0, Math.min(t, this.totalIntervals)))
+                                }
+                            }
+                        ]),
+                    c()(n, [{
                                 key: "dataByTime",
                                 value: function () {
                                     return this._layersByTime || {}
@@ -13336,13 +13347,13 @@
                                     if (!this.isAnimating()) {
                                         var t = this.totalIntervals,
                                         e = this.bufferCount;
-                                        (e > 0 || 0 === this.bufferCount) && (!this._hasImages() && t > 0 || this._totalImages() < e) ? this._load() : (this.show(), c()(p()(n.prototype), "play", this).call(this))
+                                        (e > 0 || 0 === this.bufferCount) && (!this._hasImages() && t > 0 || this._totalImages() < e) ? this._load() : (this.show(), o()(p()(n.prototype), "play", this).call(this))
                                     }
                                 }
                             }, {
                                 key: "stop",
                                 value: function () {
-                                    c()(p()(n.prototype), "stop", this).call(this),
+                                    o()(p()(n.prototype), "stop", this).call(this),
                                     this._loading && this.reset()
                                 }
                             }, {
@@ -13350,7 +13361,7 @@
                                 value: function () {
                                     var t = this,
                                     e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
-                                    c()(p()(n.prototype), "reset", this).call(this, e),
+                                    o()(p()(n.prototype), "reset", this).call(this, e),
                                     this.hide(),
                                     this._reloadTimer && window.clearTimeout(this._reloadTimer),
                                     this._isReset = !0,
@@ -13384,7 +13395,7 @@
                             }, {
                                 key: "canAnimate",
                                 value: function () {
-                                    var t = c()(p()(n.prototype), "canAnimate", this).call(this);
+                                    var t = o()(p()(n.prototype), "canAnimate", this).call(this);
                                     return t && this._hasLoaded && this.needsData() && (t = !1),
                                     t
                                 }
@@ -13414,7 +13425,7 @@
                                 key: "setOpacity",
                                 value: function (t) {
                                     this.dataItems().forEach((function (e) {
-                                            Object(v.has)(e, "setOpacity") && e.setOpacity(t, !0)
+                                            Object(y.has)(e, "setOpacity") && e.setOpacity(t, !0)
                                         }))
                                 }
                             }, {
@@ -13434,14 +13445,14 @@
                                                 return parseInt(t, 10)
                                             })),
                                     n = null,
-                                    i = e[e.length - 1],
-                                    r = Math.abs(t - i);
+                                    r = e[e.length - 1],
+                                    i = Math.abs(t - r);
                                     return e.forEach((function (e) {
                                             var n = Math.abs(t - e);
-                                            n < r && (r = n, i = e)
+                                            n < i && (i = n, r = e)
                                         })),
-                                    i !== this._lastImageTime && this._layersByTime[i] && (n = this._layersByTime[i], i = Math.round(i), this._lastImageTime = i, this.trigger("advance:image", {
-                                            time: i,
+                                    r !== this._lastImageTime && this._layersByTime[r] && (n = this._layersByTime[r], r = Math.round(r), this._lastImageTime = r, this.trigger("advance:image", {
+                                            time: r,
                                             layer: n
                                         })),
                                     n
@@ -13469,10 +13480,10 @@
                                         var n = this.bufferCount;
                                         this._layersByTime && Object.keys(this._layersByTime).forEach((function (t) {
                                                 var n = parseInt(t, 10),
-                                                i = e.indexOf(n);
-                                                -1 !== i && e.splice(i, 1)
+                                                r = e.indexOf(n);
+                                                -1 !== r && e.splice(r, 1)
                                             }));
-                                        var i = function () {
+                                        var r = function () {
                                             t._loading = !1,
                                             t._hasLoaded = !0,
                                             t.trigger("load:done"),
@@ -13484,96 +13495,84 @@
                                             this.trigger("load:start", {
                                                 times: e
                                             });
-                                            var r = function (r) {
+                                            var i = function (i) {
                                                 var a = !1 === t.opts.showLoadingIntervals && 0 !== n;
-                                                r.forEach((function (n) {
+                                                i.forEach((function (n) {
                                                         t._loadInterval(n, !0, a, (function () {
-                                                                t._totalImages() === e.length && i()
+                                                                t._totalImages() === e.length && r()
                                                             }))
                                                     }))
                                             },
                                             a = 0;
-                                            0 === n ? (this.trigger("ready"), r(e)) : function o() {
+                                            0 === n ? (this.trigger("ready"), i(e)) : function o() {
                                                 var s = !1 === t.opts.showLoadingIntervals || 0 !== n && a <= t._totalImages();
                                                 t._loadInterval(e[a], !0, s, (function () {
                                                         a += 1,
-                                                        t._isReset || (a >= e.length ? (i(), t.opts.refresh > 0 && (t._reloadTimer && window.clearTimeout(t._reloadTimer), t._reloadTimer = setTimeout((function () {
+                                                        t._isReset || (a >= e.length ? (r(), t.opts.refresh > 0 && (t._reloadTimer && window.clearTimeout(t._reloadTimer), t._reloadTimer = setTimeout((function () {
                                                                                 t.reset(),
                                                                                 t._load()
-                                                                            }), 1e3 * t.opts.refresh))) : n > 0 && t._totalImages() === n ? (t.trigger("ready"), t.opts.showLoadingIntervals ? r(e.slice(a)) : o()) : o())
+                                                                            }), 1e3 * t.opts.refresh))) : n > 0 && t._totalImages() === n ? (t.trigger("ready"), t.opts.showLoadingIntervals ? i(e.slice(a)) : o()) : o())
                                                     }))
                                             }
                                             ()
                                         } else
-                                            i()
+                                            r()
                                     }
                                 }
                             }, {
                                 key: "_loadInterval",
                                 value: function (t, e, n) {
-                                    var i = this,
-                                    r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
+                                    var r = this,
+                                    i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
                                     if (t = Math.round(t), this._layersByTime) {
                                         if (this._layersByTime[t])
-                                            return void(r && r())
+                                            return void(i && i())
                                     } else
                                         this._layersByTime = {};
                                     var a = new Date(t);
                                     this.provider && this.provider.animationLayerForDate(this, a, n).then((function (e) {
-                                            i._isReset ? e.remove() : (i.showWhenLoading && i._totalImages() < i.bufferCount && (i._currentLayer && i._currentLayer.hide(), e.show(), i._currentLayer = e), i._layersByTime[t] = e, i.trigger("load:image", {
+                                            r._isReset ? e.remove() : (r.showWhenLoading && r._totalImages() < r.bufferCount && (r._currentLayer && r._currentLayer.hide(), e.show(), r._currentLayer = e), r._layersByTime[t] = e, r.trigger("load:image", {
                                                     date: new Date(t),
                                                     layer: e
-                                                }), i.trigger("load:progress", {
+                                                }), r.trigger("load:progress", {
                                                     time: t,
-                                                    loaded: Object.keys(i._layersByTime).length,
-                                                    total: i.totalIntervals
-                                                }), r && r())
-                                        })).catch((function (t) {}))
-                                }
-                            }, {
-                                key: "showWhenLoading",
-                                get: function () {
-                                    return this.opts.showWhenLoading
-                                },
-                                set: function (t) {
-                                    this.opts.showWhenLoading = t
-                                }
-                            }, {
-                                key: "bufferCount",
-                                get: function () {
-                                    var t = this.opts.bufferIntervals;
-                                    return -1 === t ? this.totalIntervals : (this.isFuture() && this.containsPast() && (t = this.opts.bufferIntervals - (this.opts.intervals - this.totalIntervals)), Math.max(0, Math.min(t, this.totalIntervals)))
+                                                    loaded: Object.keys(r._layersByTime).length,
+                                                    total: r.totalIntervals
+                                                }), i && i())
+                                        })).catch((function (t) {
+                                            console.error("Failed to load tile animation interval", t)
+                                        }))
                                 }
                             }
                         ]),
                     n
                 }
-                (y.a);
+                (v.a);
                 e.a = g
             },
             hXpO: function (t, e, n) {
-                var i = n("HYAF"),
-                r = /"/g;
+                var r = n("HYAF"),
+                i = /"/g;
                 t.exports = function (t, e, n, a) {
-                    var o = String(i(t)),
+                    var o = String(r(t)),
                     s = "<" + e;
-                    return "" !== n && (s += " " + n + '="' + String(a).replace(r, "&quot;") + '"'),
+                    return "" !== n && (s += " " + n + '="' + String(a).replace(i, "&quot;") + '"'),
                     s + ">" + o + "</" + e + ">"
                 }
             },
             iWIM: function (t, e, n) {
-                var i = n("n3AX");
-                function r(e, n, a) {
-                    return "undefined" != typeof Reflect && Reflect.get ? t.exports = r = Reflect.get : t.exports = r = function (t, e, n) {
-                        var r = i(t, e);
-                        if (r) {
-                            var a = Object.getOwnPropertyDescriptor(r, e);
+                var r = n("n3AX");
+                function i(e, n, a) {
+                    return "undefined" != typeof Reflect && Reflect.get ? t.exports = i = Reflect.get : t.exports = i = function (t, e, n) {
+                        var i = r(t, e);
+                        if (i) {
+                            var a = Object.getOwnPropertyDescriptor(i, e);
                             return a.get ? a.get.call(n) : a.value
                         }
                     },
-                    r(e, n, a || e)
+                    i(e, n, a || e)
                 }
-                t.exports = r
+                t.exports = i
             },
             l1hk: function (t, e, n) {
                 "use strict";
@@ -13583,8 +13582,8 @@
                 n("ma9I"),
                 n("QWBl"),
                 n("FZtP");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = (n("sMBO"), n("07d7"), n("SuFq"), n("JfAA"), n("7W2i")),
@@ -13612,29 +13611,29 @@
                     ();
                     return function () {
                         var n,
-                        i = f()(t);
+                        r = f()(t);
                         if (e) {
-                            var r = f()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = f()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return l()(this, n)
                     }
                 }
-                var y = function (t) {
+                var v = function (t) {
                     c()(n, t);
                     var e = p(n);
                     function n(t) {
-                        var i;
-                        return r()(this, n),
-                        (i = e.call(this, t)).name = i.constructor.name,
-                        i.stack = (new Error).stack,
-                        i
+                        var r;
+                        return i()(this, n),
+                        (r = e.call(this, t)).name = r.constructor.name,
+                        r.stack = (new Error).stack,
+                        r
                     }
                     return n
                 }
                 (n.n(d)()(Error)),
-                v = n("0lfv"),
+                y = n("0lfv"),
                 m = function (t) {
                     var e = Math.ceil(Math.abs(t.lat) / 180);
                     return t.lat > 90 ? t.lat -= 180 * e : t.lat < -90 && (t.lat += 180 * e),
@@ -13644,12 +13643,12 @@
                 },
                 g = function () {
                     function t(e, n) {
-                        if (r()(this, t), this.north = 0, this.south = 0, this.west = 0, this.east = 0, e = m(e), n = m(n), void 0 === e || !Object(v.isObject)(e))
-                            throw new y("CoordinateBounds - northwest coordinate value is required");
-                        if (void 0 === n || !Object(v.isObject)(n))
-                            throw new y("CoordinateBounds - southeast coordinate value is required");
+                        if (i()(this, t), this.north = 0, this.south = 0, this.west = 0, this.east = 0, e = m(e), n = m(n), void 0 === e || !Object(y.isObject)(e))
+                            throw new v("CoordinateBounds - northwest coordinate value is required");
+                        if (void 0 === n || !Object(y.isObject)(n))
+                            throw new v("CoordinateBounds - southeast coordinate value is required");
                         if (e.lat < n.lat)
-                            throw new y("CoordinateBounds - northern latitude must be greater than southern latitude");
+                            throw new v("CoordinateBounds - northern latitude must be greater than southern latitude");
                         this.north = e.lat,
                         this.south = n.lat,
                         this.west = e.lon,
@@ -13712,19 +13711,19 @@
                                         return !1;
                                     var e = t.north,
                                     n = t.south,
-                                    i = t.east,
-                                    r = t.west;
-                                    return (e <= this.north && e >= this.south || n >= this.south && n <= this.north) && (r >= this.west && r <= this.east || i <= this.east && i >= this.west)
+                                    r = t.east,
+                                    i = t.west;
+                                    return (e <= this.north && e >= this.south || n >= this.south && n <= this.north) && (i >= this.west && i <= this.east || r <= this.east && r >= this.west)
                                 }
                             }, {
                                 key: "contains",
                                 value: function (e) {
                                     if (e instanceof t) {
                                         var n = e.north,
-                                        i = e.south,
-                                        r = e.east,
+                                        r = e.south,
+                                        i = e.east,
                                         a = e.west;
-                                        return n < this.north && i > this.south && a > this.west && r < this.east
+                                        return n < this.north && r > this.south && a > this.west && i < this.east
                                     }
                                     var o = e.lat,
                                     s = e.lon;
@@ -13757,7 +13756,7 @@
                                         east: null
                                     };
                                     return e.forEach((function (t, e) {
-                                            0 === e ? (n.north = t.lat, n.south = t.lat, n.west = t.lon, n.east = t.lon) : Object(v.isset)(t.lat) && Object(v.isset)(t.lon) && (n.north = Math.max(n.north, t.lat), n.south = Math.min(n.south, t.lat), n.west = Math.min(n.west, t.lon), n.east = Math.max(n.east, t.lon))
+                                            0 === e ? (n.north = t.lat, n.south = t.lat, n.west = t.lon, n.east = t.lon) : Object(y.isset)(t.lat) && Object(y.isset)(t.lon) && (n.north = Math.max(n.north, t.lat), n.south = Math.min(n.south, t.lat), n.west = Math.min(n.west, t.lon), n.east = Math.max(n.east, t.lon))
                                         })),
                                     t.fromBounds(n)
                                 }
@@ -13806,9 +13805,9 @@
                 n("UxlC"),
                 n("EnZy"),
                 n("FZtP");
-                var i,
-                r = n("lwsE"),
-                a = n.n(r),
+                var r,
+                i = n("lwsE"),
+                a = n.n(i),
                 o = n("W8MJ"),
                 s = n.n(o),
                 c = n("7W2i"),
@@ -13818,8 +13817,8 @@
                 f = n("Nsbk"),
                 d = n.n(f),
                 p = n("m0x2"),
-                y = n("qV3b"),
-                v = n("0lfv"),
+                v = n("qV3b"),
+                y = n("0lfv"),
                 m = (n("TeQF"), function () {
                     function t(e) {
                         a()(this, t),
@@ -13830,13 +13829,13 @@
                                 value: function (t) {
                                     var e = this,
                                     n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 20;
-                                    return new Promise((function (i, r) {
+                                    return new Promise((function (r, i) {
                                             var a = "https://maps.aerisapi.com/".concat(e.account.id, "_").concat(e.account.secret, "/").concat(t, ".json?limit=").concat(n);
-                                            y.b.request(a).then((function (t) {
+                                            v.b.request(a).then((function (t) {
                                                     var e = [];
                                                     if (t.data) {
                                                         var n = t.data;
-                                                        Object(v.isset)(n.files) && (e = n.files.map((function (t) {
+                                                        Object(y.isset)(n.files) && (e = n.files.map((function (t) {
                                                                         return {
                                                                             time: new Date(1e3 * t.timestamp),
                                                                             min: new Date(1e3 * t.minTimestamp),
@@ -13845,17 +13844,17 @@
                                                                         }
                                                                     })))
                                                     }
-                                                    i(e)
+                                                    r(e)
                                                 })).catch((function (t) {
-                                                    r(t)
+                                                    i(t)
                                                 }))
                                         }))
                                 }
                             }, {
                                 key: "timesInRange",
                                 value: function (t, e, n) {
-                                    var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 20;
-                                    return this.times(t, i).then((function (t) {
+                                    var r = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 20;
+                                    return this.times(t, r).then((function (t) {
                                             return t.filter((function (t) {
                                                     return t.time.getTime() >= e.getTime() && t.time.getTime() <= n.getTime()
                                                 }))
@@ -13884,12 +13883,12 @@
                     ();
                     return function () {
                         var n,
-                        i = d()(t);
+                        r = d()(t);
                         if (e) {
-                            var r = d()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = d()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return h()(this, n)
                     }
                 }
@@ -13908,22 +13907,22 @@
                     return !w(t) && !x(t)
                 },
                 S = function (t) {
-                    if (!Object(v.isset)(t) || !Object(v.isString)(t))
+                    if (!Object(y.isset)(t) || !Object(y.isString)(t))
                         return [];
                     t = t.replace(/\:.+$/, "");
-                    var e = (i || []).map((function (t) {
+                    var e = (r || []).map((function (t) {
                             return t.id
                         })),
                     n = (t || "").split(","),
-                    r = [];
+                    i = [];
                     n.forEach((function (t) {
                             -1 === e.indexOf(t) && k.forEach((function (e) {
                                     t = t.replace(new RegExp("-".concat(e)), "")
                                 })),
-                            r.push(t)
+                            i.push(t)
                         }));
                     var a = [];
-                    return r.forEach((function (t) {
+                    return i.forEach((function (t) {
                             t = t.replace(/\:.*$/, ""),
                             -1 !== e.indexOf(t) || w(t) || x(t) || a.push(t)
                         })),
@@ -13933,32 +13932,32 @@
                     u()(n, t);
                     var e = g(n);
                     function n(t) {
-                        var r;
+                        var i;
                         return a()(this, n),
-                        (r = e.call(this))._groups = {},
-                        r._loading = !1,
-                        r._validTimes = new m(t),
-                        Object(v.isset)(i) ? r._process(i) : r.fetch(),
-                        r
+                        (i = e.call(this))._groups = {},
+                        i._loading = !1,
+                        i._validTimes = new m(t),
+                        Object(y.isset)(r) ? i._process(r) : i.fetch(),
+                        i
                     }
                     return s()(n, [{
                                 key: "fetch",
                                 value: function () {
                                     var t = this;
                                     return new Promise((function (e, n) {
-                                            i ? e(Object(v.cloneDeep)(i)) : t._loading ? t.on("load:done", (function (t) {
-                                                    e(Object(v.cloneDeep)(i))
+                                            r ? e(Object(y.cloneDeep)(r)) : t._loading ? t.on("load:done", (function (t) {
+                                                    e(Object(y.cloneDeep)(r))
                                                 })) : t._fetchLayerMetadata().then((function (t) {
-                                                    e(Object(v.cloneDeep)(i))
+                                                    e(Object(y.cloneDeep)(r))
                                                 }))
                                         })).catch((function (t) {
-                                            "[Aeris] Failed to load map layer metadata - ".concat(t)
+                                            console.error("[Aeris] Failed to load map layer metadata - ".concat(t))
                                         }))
                                 }
                             }, {
                                 key: "cached",
                                 value: function () {
-                                    return void 0 !== i
+                                    return void 0 !== r
                                 }
                             }, {
                                 key: "loading",
@@ -13974,16 +13973,16 @@
                                 key: "inGroup",
                                 value: function (t, e) {
                                     var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-                                    i = this._groups[e];
-                                    if (t = t.replace(/:.*$/, ""), i) {
+                                    r = this._groups[e];
+                                    if (t = t.replace(/:.*$/, ""), r) {
                                         if (n)
-                                            return -1 !== i.indexOf(t);
-                                        var r = !1;
-                                        return i.forEach((function (e) {
+                                            return -1 !== r.indexOf(t);
+                                        var i = !1;
+                                        return r.forEach((function (e) {
                                                 var n = new RegExp("^".concat(e, "-"));
-                                                (e === t || n.test(t)) && (r = !0)
+                                                (e === t || n.test(t)) && (i = !0)
                                             })),
-                                        r
+                                        i
                                     }
                                     return !1
                                 }
@@ -13999,42 +13998,42 @@
                                 key: "find",
                                 value: function (t, e) {
                                     var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-                                    i = this.findAll(t, [e], n);
-                                    if (i.length > 0)
-                                        return i[0]
+                                    r = this.findAll(t, [e], n);
+                                    if (r.length > 0)
+                                        return r[0]
                                 }
                             }, {
                                 key: "findAll",
                                 value: function (t, e) {
                                     var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-                                    r = i,
+                                    i = r,
                                     a = [];
                                     return e = e || [],
-                                    r && e.forEach((function (e) {
-                                            r.forEach((function (i, r) {
-                                                    var o = i[t],
+                                    i && e.forEach((function (e) {
+                                            i.forEach((function (r, i) {
+                                                    var o = r[t],
                                                     s = o === e;
                                                     if (!s) {
                                                         var c = new RegExp("^".concat(o, "-")),
-                                                        u = (i.modifiers || []).map((function (t) {
+                                                        u = (r.modifiers || []).map((function (t) {
                                                                 return [].concat((t.options || []).map((function (t) {
-                                                                            return "".concat(i.id, "-").concat(t.id)
+                                                                            return "".concat(r.id, "-").concat(t.id)
                                                                         })))
                                                             }));
                                                         u = u.length > 0 ? u[0] : u,
                                                         "id" === t && (s = n ? -1 !== u.indexOf(e) : c.test(e))
                                                     }
-                                                    s && ("id" === t && (i = Object(v.extend)(Object(v.cloneDeep)(i), {
+                                                    s && ("id" === t && (r = Object(y.extend)(Object(y.cloneDeep)(r), {
                                                                 id: e
-                                                            })), a.push(i))
+                                                            })), a.push(r))
                                                 }))
                                         })),
-                                    Object(v.cloneDeep)(a)
+                                    Object(y.cloneDeep)(a)
                                 }
                             }, {
                                 key: "findInvalidIds",
                                 value: function (t) {
-                                    var e = Object(v.isArray)(t) ? t.join(",") : t;
+                                    var e = Object(y.isArray)(t) ? t.join(",") : t;
                                     return S(e)
                                 }
                             }, {
@@ -14064,9 +14063,9 @@
                                         return this._checkCombined(t, (function (t) {
                                                 return e.isFuture(t)
                                             }));
-                                    var i = this.futureCodes(),
-                                    r = t.replace(/:.*$/, "");
-                                    return (n = -1 !== i.indexOf(r)) || (r = r.replace(/\-\w+$/, ""), n = -1 !== i.indexOf(r)),
+                                    var r = this.futureCodes(),
+                                    i = t.replace(/:.*$/, "");
+                                    return (n = -1 !== r.indexOf(i)) || (i = i.replace(/\-\w+$/, ""), n = -1 !== r.indexOf(i)),
                                     n
                                 }
                             }, {
@@ -14107,7 +14106,7 @@
                                                 void 0 === e[n] && (e[n] = []),
                                                 e[n].push(t.id),
                                                 /-text$/.test(t.id) && (void 0 === e.text && (e.text = []), e.text.push(t.id)),
-                                                t.modifiers && Object(v.isArray)(t.modifiers) && t.modifiers.forEach((function (t) {
+                                                t.modifiers && Object(y.isArray)(t.modifiers) && t.modifiers.forEach((function (t) {
                                                         t.options && t.options.forEach((function (t) {
                                                                 -1 === k.indexOf(t.id) && k.push(t.id)
                                                             }))
@@ -14124,13 +14123,13 @@
                                     return this._loading = !0,
                                     this.trigger("load:start"),
                                     new Promise((function (e, n) {
-                                            y.b.request("https://cdn.aerisjs.com/layers.json").then((function (n) {
-                                                    n.data && (i = n.data, t._process(n.data), t._loading = !1, t.trigger("load:done"), e(i))
+                                            v.b.request("https://cdn.aerisjs.com/layers.json").then((function (n) {
+                                                    n.data && (r = n.data, t._process(n.data), t._loading = !1, t.trigger("load:done"), e(r))
                                                 })).catch((function (t) {
                                                     n(t)
                                                 }))
                                         })).catch((function (t) {
-                                            "Layers: Failed to load layers metadata - ".concat(t)
+                                            console.error("Layers: Failed to load layers metadata - ".concat(t))
                                         }))
                                 }
                             }, {
@@ -14146,21 +14145,21 @@
                 e.a = M
             },
             m92n: function (t, e, n) {
-                var i = n("glrk"),
-                r = n("KmKo");
+                var r = n("glrk"),
+                i = n("KmKo");
                 t.exports = function (t, e, n, a) {
                     try {
-                        return a ? e(i(n)[0], n[1]) : e(n)
+                        return a ? e(r(n)[0], n[1]) : e(n)
                     } catch (e) {
-                        throw r(t),
+                        throw i(t),
                         e
                     }
                 }
             },
             n3AX: function (t, e, n) {
-                var i = n("Nsbk");
+                var r = n("Nsbk");
                 t.exports = function (t, e) {
-                    for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = i(t)); );
+                    for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = r(t)); );
                     return t
                 }
             },
@@ -14171,8 +14170,8 @@
                     }));
                 n("rB9j"),
                 n("UxlC");
-                var i = n("0lfv"),
-                r = function () {
+                var r = n("0lfv"),
+                i = function () {
                     var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
                     switch (t = t.toLowerCase().replace(/\s/, "-")) {
                     case "good":
@@ -14203,12 +14202,12 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "periods.0");
+                            var e = Object(r.get)(t, "periods.0");
                             if (!e)
                                 return {
                                     skip: !0
                                 };
-                            var n = Object(i.get)(e, "category");
+                            var n = Object(r.get)(e, "category");
                             if (!n)
                                 return {
                                     skip: !0
@@ -14237,7 +14236,7 @@
                                     shape: {
                                         type: "circle",
                                         fill: {
-                                            color: r(n)
+                                            color: i(n)
                                         },
                                         stroke: {
                                             color: "#ffffff",
@@ -14281,7 +14280,7 @@
                     },
                     style: {
                         polygon: function (t) {
-                            var e = Object(i.get)(t, "details.risk.type");
+                            var e = Object(r.get)(t, "details.risk.type");
                             return {
                                 fill: {
                                     color: o[e] || o.default,
@@ -14329,7 +14328,7 @@
                     },
                     style: {
                         polygon: function (t) {
-                            var e = Object(i.get)(t, "details.category");
+                            var e = Object(r.get)(t, "details.category");
                             return {
                                 fill: {
                                     color: c(e),
@@ -14374,8 +14373,8 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "report.type");
-                            Object(i.get)(t, "report.mag") >= 9 && (e = "catastrophic");
+                            var e = Object(r.get)(t, "report.type");
+                            Object(r.get)(t, "report.mag") >= 9 && (e = "catastrophic");
                             var n = function () {
                                 var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
                                 switch (t = t.toLowerCase().replace(/\s/, "-")) {
@@ -14488,7 +14487,7 @@
                     },
                     style: {
                         polygon: function (t) {
-                            var e = Object(i.get)(t, "details.risk.type");
+                            var e = Object(r.get)(t, "details.risk.type");
                             return {
                                 fill: {
                                     color: d(e),
@@ -14498,10 +14497,10 @@
                         }
                     }
                 },
-                y = function (t) {
+                v = function (t) {
                     return t < 1 ? "#f5f5f5" : t < 5 ? "#dddddd" : t < 10 ? "#bbbbbb" : t < 15 ? "#888888" : "#545454"
                 },
-                v = {
+                y = {
                     data: {
                         request: {
                             endpoint: "lightning"
@@ -14513,7 +14512,7 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "ob.timestamp");
+                            var e = Object(r.get)(t, "ob.timestamp");
                             if (!e)
                                 return null;
                             var n = ((new Date).getTime() - 1e3 * e) / 6e4;
@@ -14523,7 +14522,7 @@
                                     shape: {
                                         type: "circle",
                                         fill: {
-                                            color: y(n)
+                                            color: v(n)
                                         },
                                         stroke: {
                                             color: "#ffffff",
@@ -14572,7 +14571,7 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "report.type");
+                            var e = Object(r.get)(t, "report.type");
                             return {
                                 className: "marker-record",
                                 svg: {
@@ -14632,7 +14631,7 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "ob.status");
+                            var e = Object(r.get)(t, "ob.status");
                             return {
                                 className: "marker-river",
                                 svg: {
@@ -14682,7 +14681,7 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "traits.type");
+                            var e = Object(r.get)(t, "traits.type");
                             return {
                                 className: "marker-stormcell",
                                 svg: {
@@ -14701,7 +14700,7 @@
                             }
                         },
                         polygon: function (t) {
-                            var e = Object(i.get)(t, "traits.type");
+                            var e = Object(r.get)(t, "traits.type");
                             return {
                                 fill: {
                                     color: _(e),
@@ -14756,7 +14755,7 @@
                     },
                     style: {
                         marker: function (t) {
-                            var e = Object(i.get)(t, "report.cat");
+                            var e = Object(r.get)(t, "report.cat");
                             return {
                                 className: "marker-stormreport",
                                 svg: {
@@ -14807,7 +14806,7 @@
                     earthquakes: h,
                     fires: f,
                     "fire-outlook": p,
-                    "lightning-strikes": v,
+                    "lightning-strikes": y,
                     records: g,
                     "river-observations": b,
                     stormcells: O,
@@ -14824,7 +14823,7 @@
                     earthquakes: h,
                     fires: f,
                     fireOutlook: p,
-                    lightningStrikes: v,
+                    lightningStrikes: y,
                     records: g,
                     rivers: b,
                     stormcells: O,
@@ -14833,8 +14832,8 @@
                 }
             },
             oShl: function (t, e, n) {
-                var i = n("Nsbk"),
-                r = n("SksO"),
+                var r = n("Nsbk"),
+                i = n("SksO"),
                 a = n("xfeJ"),
                 o = n("sXyB");
                 function s(e) {
@@ -14850,7 +14849,7 @@
                             n.set(t, e)
                         }
                         function e() {
-                            return o(t, arguments, i(this).constructor)
+                            return o(t, arguments, r(this).constructor)
                         }
                         return e.prototype = Object.create(t.prototype, {
                             constructor: {
@@ -14860,29 +14859,29 @@
                                 configurable: !0
                             }
                         }),
-                        r(e, t)
+                        i(e, t)
                     },
                     s(e)
                 }
                 t.exports = s
             },
             pjDv: function (t, e, n) {
-                var i = n("I+eb"),
-                r = n("TfTi");
-                i({
+                var r = n("I+eb"),
+                i = n("TfTi");
+                r({
                     target: "Array",
                     stat: !0,
                     forced: !n("HH4o")((function (t) {
                             Array.from(t)
                         }))
                 }, {
-                    from: r
+                    from: i
                 })
             },
             rwPt: function (t, e, n) {
-                var i = n("0Dky");
+                var r = n("0Dky");
                 t.exports = function (t) {
-                    return i((function () {
+                    return r((function () {
                             var e = ""[t]('"');
                             return e !== e.toLowerCase() || e.split('"').length > 3
                         }))
@@ -14898,15 +14897,14 @@
                 n("pDQq"),
                 n("tkto"),
                 n("07d7"),
-                n("4l63"),
                 n("SuFq"),
                 n("JfAA"),
                 n("FZtP");
-                var i = n("lwsE"),
-                r = n.n(i),
-                a = n("W8MJ"),
+                var r = n("lwsE"),
+                i = n.n(r),
+                a = n("iWIM"),
                 o = n.n(a),
-                s = n("iWIM"),
+                s = n("W8MJ"),
                 c = n.n(s),
                 u = n("7W2i"),
                 l = n.n(u),
@@ -14914,8 +14912,8 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = n("dB9R"),
-                v = n("3j3Q"),
+                v = n("dB9R"),
+                y = n("3j3Q"),
                 m = n("0lfv");
                 function g(t) {
                     var e = function () {
@@ -14935,12 +14933,12 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
@@ -14948,28 +14946,38 @@
                     l()(n, t);
                     var e = g(n);
                     function n(t) {
-                        var i,
+                        var r,
                         a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0;
-                        return r()(this, n),
+                        return i()(this, n),
                         a = Object(m.extend)({}, {
                             refresh: 0,
                             showWhenStopped: !0,
                             showWhenLoading: !0
                         }, a),
-                        (i = e.call(this, a)).element = t ? Object(v.a)(t) : void 0,
-                        i._images = {},
-                        i._targets = {},
-                        i._idPrefix = "awxb-map-layer-",
-                        i._isReset = !1,
-                        i._loading = !1,
-                        i._visible = !0,
-                        i._hasLoaded = !1,
-                        Object(m.isEmpty)(a.key) || (i._idPrefix += "".concat(a.key, "-")),
-                        i.element && i.element.addClass("amp-map"),
-                        i._startup(),
-                        i
+                        (r = e.call(this, a)).element = t ? Object(y.a)(t) : void 0,
+                        r._images = {},
+                        r._targets = {},
+                        r._idPrefix = "awxb-map-layer-",
+                        r._isReset = !1,
+                        r._loading = !1,
+                        r._visible = !0,
+                        r._hasLoaded = !1,
+                        Object(m.isEmpty)(a.key) || (r._idPrefix += "".concat(a.key, "-")),
+                        r.element && r.element.addClass("amp-map"),
+                        r._startup(),
+                        r
                     }
-                    return o()(n, [{
+                    return c()(n, [{
+                                key: "showWhenLoading",
+                                get: function () {
+                                    return this.opts.showWhenLoading
+                                },
+                                set: function (t) {
+                                    this.opts.showWhenLoading = t
+                                }
+                            }
+                        ]),
+                    c()(n, [{
                                 key: "dataByTime",
                                 value: function () {
                                     return this._images
@@ -14985,12 +14993,12 @@
                             }, {
                                 key: "play",
                                 value: function () {
-                                    this.isAnimating() || this.canAnimate() && (!this._hasImages() || this._totalImages() < this.totalIntervals ? this._load() : c()(p()(n.prototype), "play", this).call(this))
+                                    this.isAnimating() || this.canAnimate() && (!this._hasImages() || this._totalImages() < this.totalIntervals ? this._load() : o()(p()(n.prototype), "play", this).call(this))
                                 }
                             }, {
                                 key: "stop",
                                 value: function () {
-                                    c()(p()(n.prototype), "stop", this).call(this),
+                                    o()(p()(n.prototype), "stop", this).call(this),
                                     this._loading && this.reset()
                                 }
                             }, {
@@ -15008,7 +15016,7 @@
                                     this._images = {},
                                     this._loaders = {},
                                     this.element && this.element.empty(),
-                                    c()(p()(n.prototype), "reset", this).call(this, e)
+                                    o()(p()(n.prototype), "reset", this).call(this, e)
                                 }
                             }, {
                                 key: "isReady",
@@ -15020,7 +15028,7 @@
                             }, {
                                 key: "canAnimate",
                                 value: function () {
-                                    var t = c()(p()(n.prototype), "canAnimate", this).call(this);
+                                    var t = o()(p()(n.prototype), "canAnimate", this).call(this);
                                     return (t && this._hasLoaded && !this._hasImages() || t && !this.isFuture() && !this.containsPast() || this.isFuture() && !this.containsFuture()) && (t = !1),
                                     t
                                 }
@@ -15033,14 +15041,14 @@
                                 key: "show",
                                 value: function () {
                                     this._visible = !0,
-                                    this.element ? this.element.show() : this._currentImage && Object(v.a)(this._currentImage).show(),
+                                    this.element ? this.element.show() : this._currentImage && Object(y.a)(this._currentImage).show(),
                                     this.trigger("show")
                                 }
                             }, {
                                 key: "hide",
                                 value: function () {
                                     this._visible = !1,
-                                    this.element ? this.element.hide() : this._currentImage && Object(v.a)(this._currentImage).hide(),
+                                    this.element ? this.element.hide() : this._currentImage && Object(y.a)(this._currentImage).hide(),
                                     this.trigger("hide")
                                 }
                             }, {
@@ -15068,14 +15076,14 @@
                             }, {
                                 key: "_setImageVisible",
                                 value: function (t) {
-                                    t ? Object(v.a)(this._currentImage).show() : Object(v.a)(this._currentImage).hide()
+                                    t ? Object(y.a)(this._currentImage).show() : Object(y.a)(this._currentImage).hide()
                                 }
                             }, {
                                 key: "_updateForTime",
                                 value: function (t) {
                                     if (this.canShow(this.currentTime) ? this.show() : this.hide(), !1 !== this._visible) {
                                         var e = this._imageClosestToTime(t);
-                                        e ? e !== this._currentImage && (Object(v.a)(e).show(), this._setImageVisible(!1), this._currentImage = e) : this.isAnimating() || !0 !== this.opt("showWhenStopped") || (t = this._intervalClosestToTime(t), this.canShow(t) && (this._isReset = !1, this._loadInterval(t, !0, null)))
+                                        e ? e !== this._currentImage && (Object(y.a)(e).show(), this._setImageVisible(!1), this._currentImage = e) : this.isAnimating() || !0 !== this.opt("showWhenStopped") || (t = this._intervalClosestToTime(t), this.canShow(t) && (this._isReset = !1, this._loadInterval(t, !0, null)))
                                     }
                                 }
                             }, {
@@ -15083,10 +15091,10 @@
                                 value: function (t) {
                                     var e = null,
                                     n = this.from,
-                                    i = Math.abs(t - n);
+                                    r = Math.abs(t - n);
                                     return this._images ? (Object.keys(this._images).forEach((function (e) {
-                                                var r = Math.abs(t - +e);
-                                                r < i && (i = r, n = +e)
+                                                var i = Math.abs(t - +e);
+                                                i < r && (r = i, n = +e)
                                             })), n !== this._lastImageTime && this._images[n] && (e = this._images[n], n = Math.round(n), this._lastImageTime = n, this.trigger("advance:image", {
                                                 time: n,
                                                 img: e
@@ -15114,8 +15122,8 @@
                                     var e = this.neededIntervals() || [];
                                     Object.keys(this._images).forEach((function (t) {
                                             var n = parseInt(t, 10),
-                                            i = e.indexOf(n);
-                                            -1 !== i && e.splice(i, 1)
+                                            r = e.indexOf(n);
+                                            -1 !== r && e.splice(r, 1)
                                         }));
                                     var n = function () {
                                         t._loading = !1,
@@ -15126,23 +15134,23 @@
                                     };
                                     if (0 !== e.length) {
                                         if (this.element && !0 === this.opts.autosize && this.provider) {
-                                            var i = this.provider.animationSizeForImage(this);
+                                            var r = this.provider.animationSizeForImage(this);
                                             this.element.css({
-                                                width: "".concat(i.width, "px"),
-                                                height: "".concat(i.height, "px")
+                                                width: "".concat(r.width, "px"),
+                                                height: "".concat(r.height, "px")
                                             })
                                         }
                                         this.trigger("load:start", {
                                             times: e
                                         });
-                                        var r = 0;
-                                        !function i() {
-                                            t._loadInterval(e[r], !0, (function () {
-                                                    r += 1,
-                                                    t._isReset || (r >= e.length ? (n(), t.opts.refresh > 0 && (t._reloadTimer && window.clearTimeout(t._reloadTimer), t._reloadTimer = setTimeout((function () {
+                                        var i = 0;
+                                        !function r() {
+                                            t._loadInterval(e[i], !0, (function () {
+                                                    i += 1,
+                                                    t._isReset || (i >= e.length ? (n(), t.opts.refresh > 0 && (t._reloadTimer && window.clearTimeout(t._reloadTimer), t._reloadTimer = setTimeout((function () {
                                                                             t.reset(),
                                                                             t._load()
-                                                                        }), 1e3 * t.opts.refresh))) : i())
+                                                                        }), 1e3 * t.opts.refresh))) : r())
                                                 }))
                                         }
                                         ()
@@ -15152,11 +15160,11 @@
                             }, {
                                 key: "_loadInterval",
                                 value: function (t, e, n) {
-                                    var i = this;
+                                    var r = this;
                                     t = Math.round(t);
-                                    var r = document.getElementById("".concat(this._idPrefix).concat(t));
-                                    if (r) {
-                                        var a = Object(v.a)(r);
+                                    var i = document.getElementById("".concat(this._idPrefix).concat(t));
+                                    if (i) {
+                                        var a = Object(y.a)(i);
                                         return a.show(),
                                         this._setImageVisible(!1),
                                         this._currentImage = a,
@@ -15170,10 +15178,10 @@
                                         s = new Date(t);
                                         this.provider && (o = this.provider.animationUrlForDate(this, s));
                                         var c = function (t) {
-                                            i._images[t] = new Image,
-                                            i.trigger("load:error", {
+                                            r._images[t] = new Image,
+                                            r.trigger("load:error", {
                                                 date: s,
-                                                interval: Object.keys(i._images).length - 1
+                                                interval: Object.keys(r._images).length - 1
                                             }),
                                             n && n()
                                         };
@@ -15181,31 +15189,31 @@
                                             var u = new Image;
                                             this._loaders[t] = u,
                                             u.onload = function () {
-                                                if (!i._isReset) {
-                                                    i._loaders[t] && delete i._loaders[t];
-                                                    var r = "".concat(i._idPrefix).concat(t),
+                                                if (!r._isReset) {
+                                                    r._loaders[t] && delete r._loaders[t];
+                                                    var i = "".concat(r._idPrefix).concat(t),
                                                     a = {
                                                         width: u.width,
                                                         height: u.height
                                                     };
-                                                    i.provider && (a = i.provider.animationSizeForImage(i));
-                                                    var o = '<img id="'.concat(r, '" src="').concat(u.src, '" width="').concat(a.width, '" height="').concat(a.height, '" style="position:absolute;">');
-                                                    i.element && i.element.append(o),
-                                                    e && (i._images[t] = i._hasDOMTarget() ? Object(v.a)("#".concat(r)) : u),
-                                                    i._setImageVisible(!1),
-                                                    i._currentImage = i._hasDOMTarget() ? Object(v.a)("#".concat(r)) : u,
+                                                    r.provider && (a = r.provider.animationSizeForImage(r));
+                                                    var o = '<img id="'.concat(i, '" src="').concat(u.src, '" width="').concat(a.width, '" height="').concat(a.height, '" style="position:absolute;">');
+                                                    r.element && r.element.append(o),
+                                                    e && (r._images[t] = r._hasDOMTarget() ? Object(y.a)("#".concat(i)) : u),
+                                                    r._setImageVisible(!1),
+                                                    r._currentImage = r._hasDOMTarget() ? Object(y.a)("#".concat(i)) : u,
                                                     n && n();
-                                                    var s = Object.keys(i._images).length;
-                                                    i.trigger("load:image", {
+                                                    var s = Object.keys(r._images).length;
+                                                    r.trigger("load:image", {
                                                         date: new Date(t),
                                                         src: u.src,
                                                         img: u
                                                     }),
-                                                    i.trigger("load:progress", {
+                                                    r.trigger("load:progress", {
                                                         time: t,
                                                         interval: s - 1,
                                                         loaded: s,
-                                                        total: i.totalIntervals
+                                                        total: r.totalIntervals
                                                     })
                                                 }
                                             },
@@ -15222,30 +15230,22 @@
                                 value: function () {
                                     return this.element && this.element.length > 0
                                 }
-                            }, {
-                                key: "showWhenLoading",
-                                get: function () {
-                                    return this.opts.showWhenLoading
-                                },
-                                set: function (t) {
-                                    this.opts.showWhenLoading = t
-                                }
                             }
                         ]),
                     n
                 }
-                (y.a);
+                (v.a);
                 e.a = k
             },
             sXyB: function (t, e, n) {
-                var i = n("SksO"),
-                r = n("b48C");
+                var r = n("SksO"),
+                i = n("b48C");
                 function a(e, n, o) {
-                    return r() ? t.exports = a = Reflect.construct : t.exports = a = function (t, e, n) {
-                        var r = [null];
-                        r.push.apply(r, e);
-                        var a = new(Function.bind.apply(t, r));
-                        return n && i(a, n.prototype),
+                    return i() ? t.exports = a = Reflect.construct : t.exports = a = function (t, e, n) {
+                        var i = [null];
+                        i.push.apply(i, e);
+                        var a = new(Function.bind.apply(t, i));
+                        return n && r(a, n.prototype),
                         a
                     },
                     a.apply(null, arguments)
@@ -15259,8 +15259,8 @@
                 n("rB9j"),
                 n("JfAA"),
                 n("UxlC");
-                var i = n("lwsE"),
-                r = n.n(i),
+                var r = n("lwsE"),
+                i = n.n(r),
                 a = n("W8MJ"),
                 o = n.n(a),
                 s = n("PJYZ"),
@@ -15271,15 +15271,15 @@
                 f = n.n(h),
                 d = n("Nsbk"),
                 p = n.n(d),
-                y = n("m0x2"),
-                v = n("ry37"),
+                v = n("m0x2"),
+                y = n("ry37"),
                 m = n("hWIy"),
                 g = function () {
                     function t(e, n) {
-                        var i = this;
-                        r()(this, t),
+                        var r = this;
+                        i()(this, t),
                         this.source = e;
-                        var a = "image" === n.type ? new v.a(null, n) : new m.a(n);
+                        var a = "image" === n.type ? new y.a(null, n) : new m.a(n);
                         a.provider = this,
                         a.on("stop reset", (function (t) {
                                 a.hide(),
@@ -15292,7 +15292,7 @@
                                 })), a.on("advance:image", (function () {}))),
                         this.animation = a,
                         e.on("overlay:ready", (function () {
-                                (a instanceof v.a || a instanceof m.a) && (a.provider = i)
+                                (a instanceof y.a || a instanceof m.a) && (a.provider = r)
                             }))
                     }
                     return o()(t, [{
@@ -15325,22 +15325,22 @@
                     ();
                     return function () {
                         var n,
-                        i = p()(t);
+                        r = p()(t);
                         if (e) {
-                            var r = p()(this).constructor;
-                            n = Reflect.construct(i, arguments, r)
+                            var i = p()(this).constructor;
+                            n = Reflect.construct(r, arguments, i)
                         } else
-                            n = i.apply(this, arguments);
+                            n = r.apply(this, arguments);
                         return f()(this, n)
                     }
                 }
                 var _ = function (t) {
                     l()(n, t);
                     var e = b(n);
-                    function n(t, i, a) {
+                    function n(t, r, a) {
                         var o,
                         s;
-                        r()(this, n),
+                        i()(this, n),
                         (o = e.call(this)).isAnimationFrame = !1,
                         o._hidden = !1,
                         o.key = t,
@@ -15360,9 +15360,9 @@
                                 }
                             }, a)).time && !Object(k.isDate)(a.time) && Object(k.isNumber)(a.time) && (a.time = new Date((new Date).getTime() + a.time)),
                         Object(k.isset)(a.offset) && (a.animation.enabled = !1),
-                        Object(k.isset)(i) && i.offset(0),
+                        Object(k.isset)(r) && r.offset(0),
                         o.key = t,
-                        o._service = i,
+                        o._service = r,
                         o._opts = a;
                         var u = a.style || {};
                         if (o._opacity = u.opacity || 1, !0 === (null === (s = a.animation) || void 0 === s ? void 0 : s.enabled)) {
@@ -15379,7 +15379,7 @@
                         return o.on("overlay:ready", (function () {
                                 o.timestamp = o._opts.time
                             })),
-                        o._overlay = o.createOverlay(i, a),
+                        o._overlay = o.createOverlay(r, a),
                         o.trigger("overlay:ready"),
                         o
                     }
@@ -15509,12 +15509,12 @@
                         ]),
                     n
                 }
-                (y.a);
+                (v.a);
                 e.a = _
             },
             uy83: function (t, e, n) {
-                var i = n("0Dky");
-                t.exports = !i((function () {
+                var r = n("0Dky");
+                t.exports = !r((function () {
                             return Object.isExtensible(Object.preventExtensions({}))
                         }))
             },
@@ -15524,14 +15524,14 @@
                 }
             },
             yyme: function (t, e, n) {
-                var i = n("I+eb"),
-                r = n("gdVl"),
+                var r = n("I+eb"),
+                i = n("gdVl"),
                 a = n("RNIs");
-                i({
+                r({
                     target: "Array",
                     proto: !0
                 }, {
-                    fill: r
+                    fill: i
                 }),
                 a("fill")
             }
