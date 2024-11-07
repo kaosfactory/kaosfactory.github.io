@@ -1820,7 +1820,7 @@
                                         this.map.createPane("base"),
                                         this.map.getPane("base").style.zIndex = "199";
                                         var a = Object(O.get)(this.opts, "style");
-                                        Object(O.isEmpty)(a) ? this._baseLayer = L.tileLayer("https://api.mapbox.com/styles/v1/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw", {
+                                        Object(O.isEmpty)(a) ? this._baseLayer = L.tileLayer("https://maps.api.xweather.com/wgE96YE3scTQLKjnqiMsv_SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY/flat-dk,states-outlines-dk:invert(),counties-dk:30:invert()/{z}/{x}/{y}/current.png", {
                                             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 											tileSize: 512,
 											zoomOffset: -1,
@@ -1831,7 +1831,7 @@
                                         this._baseLayer.addTo(this.map)
                                     }
                                     this.map.createPane("admin"),
-                                    this.map.getPane("admin").style.zIndex = "2010",
+                                    this.map.getPane("admin").style.zIndex = "20000",
                                     setTimeout((function () {
                                             e.trigger("map:ready")
                                         }), 250)
@@ -2177,7 +2177,7 @@
                                 value: function (t) {
                                     if (this.exists()) {
                                         var e = this.map.getStyle().layers,
-                                        n = 0;
+                                        n = 20000;
                                         e.forEach((function (t, e) {
                                                 "line" === t.type && /^admin-/.test(t.id) && 0 === n && (n = e)
                                             }));
