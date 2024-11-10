@@ -7903,8 +7903,8 @@
                                         }
                                     }
                                     this._resumeOnBoundsChange && this.timeline.isPaused() && (this._resumeAnimationTimer = setTimeout((function () {
-                                                    t.timeline.play()
-                                                }), 500))
+                                                    t.timeline.pause()
+                                                }), 5000))
                                 }
                             }, {
                                 key: "_setupEvents",
