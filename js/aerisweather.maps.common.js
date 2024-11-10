@@ -7903,7 +7903,7 @@
                                         }
                                     }
                                     this._resumeOnBoundsChange && this.timeline.isPaused() && (this._resumeAnimationTimer = setTimeout((function () {
-                                                    t.timeline.resume()
+                                                    t.timeline.stop()
                                                 }), 500))
                                 }
                             }, {
