@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
-	<script src="https://cdn.aerisapi.com/sdk/js/1.8.4/aerisweather.min.js"></script>
+	<script src="/js/1.8.4/aerisweather.min.js"></script>
 	<link rel="stylesheet" href="css/aerisweather2.css">
 	<link rel="stylesheet" href="css/attrib.css">
 	<title>KAOS WX</title>
@@ -30,7 +30,7 @@
 
 	  font-family: "Helvetica", "Arial", sans-serif;
 	  font-size: 11px;
-	  color:black;
+	  color: black;
 	  font-weight: 400;
 	}
 
@@ -149,6 +149,12 @@
     </div>
 	
 
+
+
+
+
+
+
 <script>
 
 
@@ -190,10 +196,13 @@
                 strategy: "mapbox",
                 accessToken: "pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw",
                 zoom: 5,
+
 				style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+
+				layers: 'fqpf-accum, radar, temperatures-24hr-change',
+				//reloadOnBoundsChange: false,
 				
-				layers: 'radar, temperatures-24hr-change',
-				
+				//refresh: 300,
                 center: {
                     lat: 38.8,
                     lon: -95.47
@@ -201,16 +210,24 @@
                     //lat: lat,
                     //lon: lng
                 },
+				
+					
+				
 ////////////////////////////////////////////////////////////
 				
                 timeline: {
-            //bufferIntervals: 3,
-            showLoadingIntervals: false,
+            //bufferIntervals: 2,
+            //showLoadingIntervals: false,
 					duration: 3,
 					endDelay: 3,
-					intervals: 12,
+					intervals: 20,
                     //from: -7200,
                     //to: 43200
+					resetOnBoundsChange: true,
+					showLoading: false,
+					alwaysShowPast: false,
+					//alwaysShowFuture: true,
+					//showLoadingIntervals: false,
                 }
             },
 
@@ -218,128 +235,368 @@
                 layers: {
                     buttons: [
 					
-						{
-                            title: "◄12-HOUR FORECAST►",
-                            value: "12hr",
-							options: {
-								style: {
-									opacity: 1
-								}
-							},
 
-						},
 			
 					
-					
+	
 					
 
 		
 					{
-                        title: 'Forecast',
+                        title: 'Raster Layers',
                         multiselect: true,
                         buttons: [						
 						
+						{
+                        title: "Surface",
+                        value: "fsurface-analysis",
+						options: {
+							style: {
+								opacity: 1,
+								belowLayer: 'national_park',
+							}
+						},
+						
+						},						
+
+
+                     { title: 'Precip Accum', value: 'accum', segments: [
+					 
+						{
+                        title: "GFS",
+                        value: "fqpf-accum"
+						},
 						
 						{
-                            title: "Radar",
-                            value: "fradar",
+                        title: "HRRR",
+                        value: "fqpf-accum-hrrr"
+						},
+						
+						{
+                        title: "NAM",
+                        value: "fqpf-accum-nam"
+						},			
+						
+				
+						
+					
+
+						],
+
 							options: {
+								
+
 								style: {
-									opacity: .85
+									opacity: .85,
+								
 								}
 							},
 							controls: {
 								settings: [{
 									type: 'opacity'
+									
+								}]
+							}
+						},
+						
+
+	                     { title: 'Snow Accum', value: 'snow', segments: [
+					 
+						{
+                        title: "GFS",
+                        value: "fqsf-accum"
+						},
+						
+						{
+                        title: "HRRR",
+                        value: "fqsf-accum-hrrr"
+						},
+						
+						{
+                        title: "NAM",
+                        value: "fqsf-accum-nam"
+						},			
+						
+							
+						
+						],
+
+							options: {
+								
+
+							
+								style: {
+									opacity: 1,
+									
+								}
+							},
+							controls: {
+								settings: [{
+									type: 'opacity'
+									
+								}]
+							}
+						},
+
+	                     { title: 'Radar', value: 'radar', segments: [
+					 
+						{
+						id: "radar",
+                        title: "GFS",
+                        value: "fradar-gfs"
+						},
+						
+						{
+                        title: "HRRR",
+                        value: "fradar-hrrr"
+						},
+						
+						{
+                        title: "NAM",
+                        value: "fradar-nam"
+						},			
+						
+								
+						
+						],
+
+							options: {
+								
+
+							
+								style: {
+									opacity: 1,
+									
+								}
+							},
+							controls: {
+								settings: [{
+									type: 'opacity'
+									
 								}]
 							}
 						},
 
 
+
+
+
+	                     { title: 'Satellite', value: 'Sat', segments: [
+					 
 						{
-                            title: "QPF Accum",
-                            value: "fqpf-accum",
+                        title: "GFS",
+                        value: "fsatellite-gfs"
+						},
+						
+						{
+                        title: "HRRR",
+                        value: "fsatellite-hrrr"
+						},
+						
+						{
+                        title: "NAM",
+                        value: "fsatellite-nam"
+						},
+
+							
+						
+						],
+
 							options: {
+								
+
+							
 								style: {
-									opacity: .55
+									opacity: .80,
+									
 								}
 							},
 							controls: {
 								settings: [{
 									type: 'opacity'
+									
 								}]
 							}
 						},
-						
-						
+
+
 
 						
+
+
+
+
+						
+	                     { title: 'Models', value: 'snow depth', segments: [
+
+						{
+                        title: "GFS - Pressure",
+                        value: "fpressure-msl-isobars"
+						},		
+
+					 
+						{
+                        title: "GFS - Snow Depth",
+                        value: "fsnow-depth"
+						},
+						
+						
+			
+						
+					
+
+
+						{
+                        title: "GFS - Jet Stream",
+                        value: "fjet-stream-gfs"
+						},
+
+
+							{
+                        title: "GFS - Precip 1hr",
+                        value: "fqpf-1h-gfs"
+						},
+
+						{
+                        title: "GFS - Snow 1hr",
+                        value: "fqsf-1h-gfs"
+						},
+
+						{
+                        title: "NAM - Snow Depth",
+                        value: "fsnow-depth-nam"
+						},		
+
+
+						{
+                        title: "NAM - Pressure",
+                        value: "fpressure-msl-isobars-nam"
+						},	
+
+
+	
+
+
+
+
+						{
+                        title: "NAM - Jet Stream",
+                        value: "fjet-stream-nam"
+						},			
+					
+
+						{
+                        title: "NAM - Precip 1hr",
+                        value: "fqpf-1h-nam"
+						},		
+
+
+						{
+                        title: "NAM - Snow 1hr",
+                        value: "fqsf-1h-nam"
+						},	
+
+
 						
 						{
-                            title: "QPF (1hr)",
-                            value: "fqpf-1h",
-							options: {
-								style: {
-									opacity: .55
-								}
-							},
-							controls: {
-								settings: [{
-									type: 'opacity'
-								}]
-							}
+                        title: "HRRR - Snow Depth",
+                        value: "fsnow-depth-hrrr"
 						},
 						
 
 
 						
-{
-                            title: "Ice Accum",
-                            value: "fice-accum",
-							options: {
-								style: {
-									opacity: 1
-								}
-							},
-							controls: {
-								settings: [{
-									type: 'opacity'
-								}]
-							}
-						},					
+						{
+                        title: "HRRR - Pressure",
+                        value: "fpressure-msl-isobars-hrrr"
+						},
+
 						
-						,{
-                            title: "Snow Accum",
-                            value: "fqsf-accum",
-							options: {
-								style: {
-									opacity: .50
-								}
-							},
-							controls: {
-								settings: [{
-									type: 'opacity'
-								}]
-							}
+
+						
+
+						
+
+						
+						
+						{
+                        title: "HRRR - Jet Stream",
+                        value: "fjet-stream-hrrr"
+						},
+						
+
+						
+						{
+                        title: "HRRR - Precip 1hr",
+                        value: "fqpf-1h-hrrr"
+						},
+
+						
+						{
+                        title: "HRRR - Snow 1hr",
+                        value: "fqsf-1h-hrrr"
+						},						
+						
+
+
+
+						
+						
+		
+						
+			
+
+
+
+
+						
+						{
+                            title: "Max Temps",
+                            value: "ftemperatures-max-text",
+
 						},						
 						
 						
+						
 						{
-                            title: "Snow (1hr)",
-                            value: "fqsf-1h",
+                            title: "Min Temps",
+                            value: "ftemperatures-min-text",
+	
+						},									
+						
+						
+
+
+
+						
+
+						
+
+
+
+
+
+
+					
+						
+						],
+
 							options: {
+								
+
+							
 								style: {
-									opacity: .50
+									opacity: .65,
+									
 								}
 							},
 							controls: {
 								settings: [{
 									type: 'opacity'
+									
 								}]
 							}
-						},
-						
-
+						},	
 
 
 						
@@ -383,12 +640,12 @@
 						
 						
                             // set the initial timeline offset range value
-                            value: [-2, 12],
+                            value: [-2, 18],
 
                             // set the min and max time offsets for the timeline range
                             range: {
                                 min: -2,
-                                max: 12
+                                max: 18
                             },
 
                             // define the tick labels that should be rendered along the slider
@@ -462,17 +719,78 @@
 		app.on('ready', () => {
 		
 
+					
+		
+		
+		
+
 			aeris.mapsgl(app, {
 
 			
 				version: '1.5.0', //*************************************************
 				layers: [
 
+                   { title: 'Vector Layers', value: 'obs', buttons: [
+
 	
+						{ title: 'Winds', value: 'winds', segments: [
+
+
+                            { title: 'Barbs', value: 'wind-barbs' },						
+                            { title: 'Arrows', value: 'wind-dir' },		
+		
+						], 
+					
+							options: {
+								paint: {
+									opacity: 1,
+									
+									
+								grid: {
+									spacing: 25,
+									
+									
+								},									
+									
+									
+									
+									
+									
+								}
+							},
+							
+							
+							
+							
+
+	
+						},
+
+
+
+
+
+						],
+
+
+	
+						},
 				],
 
 				})
 				
+
+
+
+
+
+
+
+
+
+
+
+
 			
 							.then(({controller, mapsgl }) => {
 	
@@ -487,9 +805,8 @@
 		
 			// load in MapsGL sdk and set up relevant layer controls
 			aeris.mapsgl(app, {
-				version: '1.5.2', //***********************************  
+				version: '1.6.1', //***********************************  
 				layers: [
-                    { title: 'Observations', value: 'obs', buttons: [
 
 
 								{
@@ -501,6 +818,44 @@
 								}
 							}			
 						},
+
+								{
+                        title: "Precip (QPF)",
+                        value: "precip-accum",
+
+						options: 
+						
+						
+						
+						{
+
+						
+						
+							paint: {
+								opacity: .85,
+
+								},
+								
+							},
+								
+						},
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 						{
@@ -560,13 +915,6 @@
 						},
 
 						
-                        { title: 'Winds', value: 'winds', segments: [
-						
-						
-                            { title: 'Barbs', value: 'wind-barbs' },						
-                            { title: 'Arrows', value: 'wind-dir' },						
-
-                        ] },
 
 
 
@@ -581,21 +929,62 @@
 						},
 						
 
-                        { title: 'Particles', value: 'winds', segments: [
 
+
+
+
+
+
+
+
+                     { title: 'Particles', value: 'winds', segments: [
+
+						{
+                        title: "Wind Particles",
+                        value: "wind-particles",
+		
+						},
+
+
+
+					 
 						{
                         title: "Ocean Particles",
                         value: "ocean-currents-particles"
 						},
 
-						{
-                        title: "Wind Particles",
-                        value: "wind-particles"
+
+					
+
+						],
+
+							options: {
+								paint: {
+									opacity: 1,
+									
+									
+								particle: {
+									size: 3,
+									trailsFadeFactor: .98,
+									
+								},									
+									
+									
+									
+									
+									
+								}
+							},
+							
+							
+							
+							
+
+	
 						},
 
 
-											
-						] },		
+						
 
 	
 						{ title: 'Oceanic Data', value: 'ocean-currents', segments: [
@@ -631,11 +1020,6 @@
 
 
 
-						],
-
-
-	
-						},
 
 
 
@@ -651,6 +1035,14 @@
 
 
 			.then(({controller, mapsgl }) => {
+
+
+
+
+
+
+
+
 
 
 
@@ -684,29 +1076,62 @@
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
 						
 						
-						app.getPanel('layers').select(['heat-index', 'wind-chill', '12hr']);
+						app.getPanel('layers').select(['heat-index', 'wind-chill', 'fpressure-msl-isobars', 'fsurface-analysis']);
 						
+
+
+
+
+
+
+
+
+
+
+
+					controller.addWeatherLayer('wind-gusts', 
+					
+					    {
+						
+						
+						
+
+							data:   {
+										quality: aerisweather.mapsgl.DataQuality.minimal,
+
+										
+										
+										
+									},
+
+								paint :   {
+												opacity : 0
+											},
+					    },
+						
+						    'aeroway-line'			
+						
+					);	
+
+
+
 
 							
 						//controller.addWeatherLayer('heat-index');
 		
 
-						controller.addWeatherLayer('wind-gusts', {
-							data: {
-								quality: aerisweather.mapsgl.DataQuality.minimal
-							},
-							"paint" : {
-								"opacity" : 0
-							},
-						},
-						 "aeroway-line"			
-						
-						);		
-						
+
 
 
 						
 						controller.addWeatherLayer('wind-speeds-contour', {
+													data:   {
+										quality: aerisweather.mapsgl.DataQuality.minimal,
+
+										
+										
+										
+									},
 							"paint" : {
 								"opacity" : 0
 							},
@@ -715,17 +1140,21 @@
 					
 						);						
 
+						//controller.addWeatherLayer('humidity', {"paint" : {"opacity" : 0 }, }, "aeroway-line"	);
 
-						controller.addWeatherLayer('humidity', {
-							"paint" : {
-								"opacity" : 0
-							},
-						},
-						 "aeroway-line"			
-
-						);
 
 						controller.addWeatherLayer('dew-points', {
+						
+																			data:   {
+										quality: aerisweather.mapsgl.DataQuality.minimal,
+
+										
+										
+										
+									},
+						
+						
+						
 							"paint" : {
 								"opacity" : 0
 							},
@@ -735,14 +1164,7 @@
 						);
 
 
-						controller.addWeatherLayer('feels-like', {
-							"paint" : {
-								"opacity" : 0
-							},
-						},
-						 "aeroway-line"			
-						
-						);			
+						//controller.addWeatherLayer('feels-like', {"paint" : {"opacity" : 0 }, }, "aeroway-line"	);			
 
 						
 						controller.addWeatherLayer('temperatures-24hr-change', {
@@ -756,6 +1178,14 @@
 						
 						
 						controller.addWeatherLayer('temperatures-contour', {
+													data:   {
+										quality: aerisweather.mapsgl.DataQuality.minimal,
+
+										
+										
+										
+									},
+						
 							"paint" : {
 								"opacity" : 0
 							},
@@ -766,6 +1196,16 @@
 
 
 						controller.addWeatherLayer('pressure-msl-contour', {
+																			data:   {
+										quality: aerisweather.mapsgl.DataQuality.minimal,
+
+										
+										
+										
+									},
+						
+						
+						
 							"paint" : {
 								"opacity" : 0
 							},
@@ -798,8 +1238,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+					
 						
-						app.map.addLayers(['fqpf-accum', 'fradar:75', 'fpressure-msl-isobars']);
+					app.map.addLayer('fpressure-msl-isobars', {
+						type: 'vector',
+						minzoom: 4,
+						maxzoom: 8,						
+					});				
+						
+						
+			
 
 						//app.map.addLayers(['alerts:52']);
 
@@ -843,7 +1300,10 @@
 
 						
 						//app.map.timeline.play();
+						//controller.timeline.play();
 
+
+ 
 
 
 				});
