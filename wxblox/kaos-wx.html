@@ -308,7 +308,7 @@ min-height: 80px !important;
 	</div>
 
 
-
+		<div id="wxblox2a" style="margin-bottom: 60px; margin-top: 30px; margin-left: 15px; width: 100%;"></div> 
 		
 		<div id="wxblox2" style="margin-bottom: 60px; margin-left: 15px; width: 100%;"></div> 	
 
@@ -492,9 +492,25 @@ aeris.on('ready', () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
 	
-
+	const view2a = new aeris.wxblox.views.Advisories('#wxblox2a', {
+		fullDetails: true
+	});
 
 
     const view3 = new aeris.wxblox.views.Forecast('#wxblox3', {
@@ -578,7 +594,9 @@ var lat = (getParameter("lat"))
 	  //p: 'lake shore,md'
     });
 
-
+	view2a.load({
+      p: lat,
+	});
 
     view1.load({
 	p: lat,
