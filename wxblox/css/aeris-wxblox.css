@@ -390,14 +390,16 @@
 	background: white;
 }
 
+
+
+
+
 .awxjs__legend {
-	color: #fff;
-	display: block;
-
+    color: #fff;
+    display: block;
+    max-height: 70px !important;
+	max-width: 500px !important;
 }
-
-
-
 
 
 
@@ -583,9 +585,10 @@
 
 .awxjs__mapview .awxjs__map__overlays .awxjs__map-overlay__timestamp {
 	bottom: 5px;
-	color: #222;
+	color: #fff;
 	font-size: 14px;
-	left: 7px;
+	font-weight: bold;
+	right: 15px;
 	position: absolute;
 }
 
@@ -2391,7 +2394,7 @@
 }
 
 .awxb-view.awxb-view ol,.awxb-view.awxb-view ul,.awxb-view.awxb-view dl,.awxb-component.awxb-component ol,.awxb-component.awxb-component ul,.awxb-component.awxb-component dl {
-	margin-top: 0;
+	margin-top: -10px;
 	margin-bottom: 1rem
 }
 
@@ -9423,7 +9426,7 @@
 
 .awxb-view.awxb-view .u-switcher,.awxb-component.awxb-component .u-switcher {
 	position: absolute;
-	top: 40px;
+	top: 25px;
 	right: 0
 }
 
@@ -10010,7 +10013,7 @@
 }
 
 .awxb-view.awxb-view .local-header .meta,.awxb-component.awxb-component .local-header .meta {
-	margin: 3px 0 0;
+	margin: 20px 0 10px;
 	font-size: .85rem;
 	color: #777
 }
@@ -10049,7 +10052,7 @@
 	padding: 0;
 	margin: 0 0 0 50px;
 	margin-left:35px;
-	margin-top: 71.5px;
+	margin-top: 61.5px;
 	list-style: none;
 	min-width: 900px;
 	
