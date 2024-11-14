@@ -14264,7 +14264,7 @@
                             account: null,
                             map: {
                                 layers: {
-                                    base: ["flat-dk,water-depth,admin-cities-dk,"],
+                                    base: ["flat-dk"],
                                     overlays: ["admin-cities-dk"]
                                 },
                                 center: {
