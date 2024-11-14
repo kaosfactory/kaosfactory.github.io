@@ -196,7 +196,7 @@ var lat = (getParameter("lat"))
 			autoplay: false,
 			alwaysShowPast: false,
 			alwaysShowFuture: true,
-			duration: 2,
+			duration: 3,
 			endDelay: 1,
 			intervals: 48,
 		
@@ -217,7 +217,6 @@ var lat = (getParameter("lat"))
 			
                 map: {
 					layers: {
-						data: 'radar,alerts',
 						base: 'flat-dk,water-depth,admin-cities-dk,',
 						overlays: 'admin-cities-dk',
 
@@ -229,7 +228,7 @@ var lat = (getParameter("lat"))
 					
                     size: {
                         width: 1030,
-                        height: 710
+                        height: 675
                     },
 					
 					
@@ -250,17 +249,14 @@ var lat = (getParameter("lat"))
                     layers: [
 					
 					{
-                        value: 'fqpf-accum,fqsf-accum,fice-accum,fpressure-msl-isobars,radar',
-                        title: 'Combined'
+                        value: 'fqpf-accum-gfs:90,fqsf-accum,fice-accum,fpressure-msl-isobars,fradar-gfs',
+                        title: 'QPF Radar'
                     },
 					
 					
 					
 					
-					{
-                        value: 'radar',
-                        title: 'Radar'
-                    },
+
 					
 					{
 	                    value: 'satellite',
