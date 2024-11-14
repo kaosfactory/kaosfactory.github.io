@@ -509,7 +509,10 @@ aeris.on('ready', () => {
     const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
 	
 	const view2a = new aeris.wxblox.views.Advisories('#wxblox2a', {
-		fullDetails: true
+		fullDetails: true,
+		renderNoData: true
+		
+		
 	});
 
 
