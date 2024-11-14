@@ -352,10 +352,10 @@ aeris.on('ready', () => {
   const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
     obs: {
       advisories: {
-        enabled: true
+        enabled: false
       },
       threats: {
-        enabled: true
+        enabled: false
       }
     },
     nearby: {
@@ -427,9 +427,30 @@ aeris.on('ready', () => {
 		{
           value: "temperatures",
           title: "Temps"
-        }
+        },
+		
+		{
+          value: "surface-analysis",
+          title: "Surface"
+        },		
 		
 		
+		
+		{
+          value: "stormcells",
+          title: "Storm Cells"
+        },
+
+
+		{
+          value: "stormreports",
+          title: "Storm Reports"
+        },
+
+		{
+          value: "snow-depth",
+          title: "Snow"
+        },		
 		
 		],
 		
