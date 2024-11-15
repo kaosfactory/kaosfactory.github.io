@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+   	<link rel="stylesheet" type="text/css" href="css/attrib.css">
+	<link href="css/aeris-wxblox.css" rel="stylesheet"/>
+	<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+	
+	<title>KAOS WX Advisories</title>
+	
+
+
+
+<style>
+
+
+
+
+body {
+  font-family: Arial;
+  min-width: 1200px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 0px;
+
+
+}
+
+
+    body, html {
+
+button:focus { outline: none; }
+  margin-top: 10px;
+  margin-bottom: 100px;
+  margin-right: 80px;
+  margin-left: 80px;
+  min-width: 1200px;
+	max-width: 1200px;
+margin: auto;
+
+    }
+    #wxblox {
+
+		button:focus { outline: none; }
+    }
+
+
+    .awxjs__legend-view > .awxjs__legend {
+        padding-top: 5px;
+        padding-bottom: 0px;
+		button:focus { outline: none; }
+		
+		
+		
+		
+	        width: 505.297px !important;		   
+		overflow: scroll;
+    }
+	
+	.awxjs__legend-title{
+	button:focus { outline: none; }
+	 margin-top: -5px;
+	}
+
+button:focus { outline: none; }
+
+hr.new1 {
+  border-top: 3px solid #17a8e1;
+  margin-top: 59px;
+  max-width: 1200px;
+  margin-left: 30px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+
+  <p style= "margin-left: 28px; margin-top: 20px; font-weight: 900px; font-size: 28px;">Tropical Systems</p>
+
+
+	<section role="content">
+	    <div class="row"  ></div>
+ 	       <div class="awxb-view">
+		 <section class="local"><div class="row local-header" style= "margin-left: 0px; margin-top: -80px;">
+
+					<ul class="info" ><li><ul class="nav" >
+									 <li><a href="/desktopX1.html"  style= "margin-left: -9px;">IntelliSTAR</a></li>
+									 <li><a href="/wxblox/geo.html"  >Forecast</a></li>
+									 <li><a href="/wxblox/geo3.html">Forecast Map</a></li>
+									 <li><a href="/WX_APP_standalone.html">MapsGL</a></li>
+									 <li><a href="/wxblox/map.html">Global Map</a></li>
+									 <li><a href="/nwsalerts.html">NWS Map</a></li>
+									 
+
+
+									<li><a href="/wxblox/chatbot.htm" 
+									  target="popup" 
+									  onclick="window.open('/wxblox/chatbot.htm','popup','width=1356,height=758'); return false;">WX Stations
+									</a></li>		
+
+
+									<li><a href="/wxblox/nimbus.html" 
+									  target="popup" 
+									  onclick="window.open('/wxblox/nimbus.html','popup','width=440,height=628'); return false;">AI Chatbot
+									</a></li>								
+
+
+
+									 <li class="selected" ><a href="/wxblox/tropical.html">Tropical</a></li></ul></li></ul>
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		</div>
+	</div>
+
+<hr class="new1">
+
+
+</div>
+<!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
+
+
+<div id="wxblox" style="margin-top: 40px; margin-left: 30px; max-width:1200px">
+
+
+
+
+
+<script>
+ 
+// Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+ 
+// Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
+aeris.on('ready', () => {
+ 
+    // Step 5: Within your "ready" event handler, setup your desired components:
+
+
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+ 
+ 
+ 
+
+var lat = (getParameter("lat"))
+
+
+
+
+
+	const view = new aeris.wxblox.views.Tropical('#wxblox', {
+		
+		  show: {
+		
+				 //tabbed: true,
+				 
+				 links: true,
+					 
+					 
+					 
+				} 
+		
+	});
+	
+	
+view.load({
+     //p: 81082
+	 //p: lat
+});
+
+
+
+
+
+
+
+ 
+});
+ 
+</script>
+
+</body>
+</html>
