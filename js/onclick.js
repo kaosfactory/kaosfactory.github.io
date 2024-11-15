@@ -107,7 +107,12 @@ function fullscreenNWS() {
   location.href = "nwsalerts.html";
 }
 
+function fullscreenNWS2() {
 
+  localStorage.setItem('loop', 'y');
+  CONFIG.loop = true;
+  location.href = "nwsalerts2.html";
+}
 
 
 function mapbox() {
