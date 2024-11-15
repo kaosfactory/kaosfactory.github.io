@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+    <title>KAOS WX - Raster Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="css/aeris-wxblox.js"></script>
+    <link href="css/aeris-wxblox-map.css" rel="stylesheet"/>
+    <script src="css/aeris-wxblox.min.js"></script>
+    <script defer src="https://cdn.aerisapi.com/sdk/js/1.7.1/aerisweather.min.js"></script>
+    <link rel="stylesheet" href="css/aerisweather2.css">
+
+<style>
+.map{
+
+      		width: auto;
+      		height: auto;
+			
+
+}
+
+
+		#map-canvas {
+      		width: auto;
+      		height: auto;
+    	}
+
+
+body {
+background: #f8fcfd;
+  font-family: Arial;
+  padding-top: 25px;
+  padding-left: 55px;
+      		width: auto;
+			max-width: 1096px;
+			margin: auto;
+			
+
+}
+
+
+
+
+
+.awxb-component.awxb-component .map-related .nav-map-layers, .awxb-view.awxb-view .map-related .nav-map-layer
+
+{
+
+margin-right: -80px;
+
+
+}
+
+.awxb-component.awxb-component .local-header ul.info,.awxb-view.awxb-view .local-header ul.info {
+    margin-left: -5px;
+	z-index: 10000;
+    list-style: none;
+    border-bottom: 4px solid #15a8e1;
+	min-width: 1040px;
+
+}
+
+
+.section-title {
+
+padding-bottom:10px;
+
+}
+
+.awxb-view.awxb-view h6 {
+  margin-top: 65px !important;
+  margin-bottom: .5rem;
+}
+
+
+	.awxjs__map-overlay__timestamp{
+	
+		z-index: 10000 !important;
+	
+	}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+	<section role="content">
+	    <div class="row"  ></div>
+ 	       <div class="awxb-view" >
+		 <section class="local"><div class="row local-header" style= " padding-top:-50px; margin-left: 0px; margin-top: -5px; margin-bottom: -40px; max-width:0px !important;">
+
+					<ul class="info" ><li><ul class="nav" >					
+									<li ><a href="/wxblox/geo.html" style= "margin-left: -5px; font-size: 21px; padding-right:20px; color: #000;"  >48-Hour Forecast</a></li>
+									
+									<li><a href="/wxblox/geo.html">Forecast</a></li>
+
+									<li><a href="/wxblox/geo3.html">Forecast Map - GFS</a></li>
+									<li><a href="/wxblox/geo4.html">Forecast Map - NAM</a></li>
+									<li class="selected"><a href="/wxblox/geo5.html">Forecast Map - HRRR</a></li>
+									<li><a href="/WX_APP_standalone.html">MapsGL</a></li>
+									<li><a href="/wxblox/map.html">Global Map</a></li>
+									 
+									<li><a href="/nwsalerts.html">NWS Map</a></li></ul></li></ul>
+
+
+
+				
+				
+	
+		</div>
+	</div>
+
+
+
+<div id="map" style="margin-bottom: 40px; margin-top: 60px;">
+
+
+
+	
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+ 
+    window.onload = () => {
+
+
+
+
+	
+	getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+ 
+ 
+ 
+
+var lat = (getParameter("lat"))
+	
+	
+	
+	
+	
+ 	const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');	
+	const utils = aeris.utils;
+
+
+ 
+        aeris.views().then(views => {
+            const map = new views.Map(document.getElementById('map'), {
+
+
+
+			
+			animation: {
+			
+			enabled: true,
+			autoplay: false,
+			alwaysShowPast: false,
+			alwaysShowFuture: true,
+			duration: 3,
+			endDelay: 1,
+			intervals: 48,
+		
+			
+			
+			
+			
+			
+			
+			
+			from: -.009 * 3600,
+			to: 48 * 3600
+			},		
+			
+	
+			
+			
+			
+                map: {
+					layers: {
+						base: 'flat-dk,water-depth,admin-cities-dk,',
+						overlays: 'admin-cities-dk',
+
+					},
+					
+                    center: lat,
+					
+                    zoom: 6,
+					
+                    size: {
+                        width: 1030,
+                        height: 675
+                    },
+					
+					
+					
+					combine: false,
+					
+                },
+                controls: {
+
+
+
+
+
+
+
+
+
+                    layers: [
+					
+					{
+						value: 'fqpf-accum-hrrr:80,fqsf-accum-hrrr,fice-accum,fpressure-msl-isobars-hrrr,fradar-hrrr',
+                        title: 'QPF Radar'
+                    },
+					
+					
+					
+					
+
+					
+					{
+	                    value: 'satellite',
+
+                        title: 'Satellite',
+                    },
+					
+		
+					
+					
+					
+					{
+                        value: 'temperatures-hrrr,water-flat',
+                        title: 'Temps'
+                    },					
+					
+					{
+                        value: 'alerts',
+                        title: 'Alerts'
+                    },					
+					
+					{
+                        value: 'stormreports',
+                        title: 'Storm Reports'
+                    },							
+					
+					
+					
+					{
+                        value: 'stormcells',
+                        title: 'Storm Cells'
+                    },		
+					
+					{
+	                    value: 'fsurface-analysis',
+
+                        title: 'Surface',
+                    },	
+
+					
+					{
+                        value: 'fpressure-msl-isobars-hrrr',
+                        title: 'Pressure'
+                    },				
+					
+					{
+                        value: 'fqpf-accum-hrrr',
+                        title: 'Precip'
+                    },	
+
+
+					{
+                        value: 'fqsf-accum-hrrr',
+
+                        title: 'Snow'
+                    },
+					
+					{
+	                    value: 'fice-accum',
+
+                        title: 'Ice',
+                    },					
+					
+					
+					{
+	                    value: 'snow-depth-hrrr',
+
+                        title: 'Snow Depth',
+                    },							
+
+
+
+
+					{
+	                    value: 'fjet-stream-hrrr',
+
+                        title: 'Jet Stream',
+                    },			
+
+
+					{
+	                    value: 'tropical-cyclones',
+
+                        title: 'Cyclones',
+                    },	
+					
+					
+					
+					{
+		                value: 'tropical-cyclones',
+
+                        title: 'Invests',
+                    },
+
+					
+
+
+					
+			
+					],	
+
+					
+					
+				 regions: [
+
+				{
+					zoom: 5,
+					title: 'Regional'
+				},
+				
+				{
+					zoom: 7,
+					title: 'Local'
+				},
+				
+				{
+					zoom: 9,
+					title: 'Zoom'
+				},
+
+				 
+				{
+					region: 'us',
+					title: 'National'
+				},
+				
+				{
+					zoom: 2,
+					title: 'Global'
+				},	
+				 
+
+				
+
+				
+				],
+
+					
+					
+                },
+
+
+			overlays: {
+
+
+
+					 timestamp: {
+					 format: 'MM/dd/yyyy hh:mm',
+					 continuous: true,
+					 
+					 
+					 },
+
+
+			},
+
+				
+			
+				
+				
+				
+				
+				
+				
+				
+				
+            });
+        });
+    };
+ 
+
+		
+		
+</script>
+
+	
+
+
+		
+</body>
+</html>

@@ -21,6 +21,7 @@ body {
   min-width: 1200px;
   max-width: 1200px;
   margin: auto;
+  background: #fbfcff;
 }
 
 .title{
@@ -30,30 +31,32 @@ padding-left: 0px;
 
 
 }
-    #wxblox {
-
-		button:focus { outline: none; }
-    }
 
 
-    .awxjs__legend-view > .awxjs__legend {
-        padding-top: 5px;
-        padding-bottom: 0px;
-		button:focus { outline: none; }
-		 margin-left: -7px;
+#wxblox {
 
-		
-		
+	button:focus { outline: none; }
+}
 
-		width: 505.297px !important;		   
-		overflow: scroll;
-    }
+
+.awxjs__legend-view > .awxjs__legend {
+	padding-top: 5px;
+	padding-bottom: 0px;
+	button:focus { outline: none; }
+	 margin-left: -7px;
+
 	
-	.awxjs__legend-title{
-	 button:focus { outline: none; }
-	 margin-top:5px;
-	 
-	}
+	
+
+	width: 505.297px !important;		   
+	overflow: scroll;
+}
+
+.awxjs__legend-title{
+ button:focus { outline: none; }
+ margin-top:5px;
+ 
+}
 	
 	
 
@@ -187,25 +190,27 @@ min-height: 80px !important;
 }
 
 
-
-
 </style>
 
+
+
 <style>
-    .nimbus-settings-modal-content {
-        min-width: 80%;
-    }
-    form.nimbus-form {
-        padding: 5px;
-    }
-    form.nimbus-form textarea {
-        font-size: 14px;
-    }
+
+
+.nimbus-settings-modal-content {
+	min-width: 80%;
+}
+form.nimbus-form {
+	padding: 5px;
+}
+form.nimbus-form textarea {
+	font-size: 14px;
+}
 	
 
 .container {
   width: 1190px;
-  height: 660px;
+  height: 635px;
   position: relative;
   margin: -30px;
 
@@ -213,7 +218,7 @@ min-height: 80px !important;
 
 .box {
   width: 100%;
-  height: 100%;
+  height: 20%;
   position: absolute;
   top: 0;
   left: 0;
@@ -226,20 +231,19 @@ min-height: 80px !important;
   margin: 30px;
 
 }	
-	
+
+.alerts{
+
+	z-index: 30000 !important;
+
+
+}	
 	
 </style>
-
-
 
 </head>
 
 <body>
-
-
-
-
-
 
 
 	<section role="content">
@@ -270,52 +274,41 @@ min-height: 80px !important;
 
 
 
-									 <li><a href="/wxblox/geo2.html">Advisories</a></li></ul></li></ul>
+									 <li><a href="/wxblox/tropical.html">Tropical</a></li></ul></li></ul>
 				
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 		</div>
 	</div>
 	
-
-
 </div>
+
+
 <!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
 
 
+</div>
     <div class="container">
-		<div id="wxblox" class="box overlay" style="margin-bottom: 40px;"></div>
-		<div class="box awxb-view-outlook" style="margin-bottom: 20px; margin-top: 365px; margin-left: 45px; max-width: 635px;"></div>
+		<div id="wxblox" class="box overlay" style="margin-bottom: 0px;"></div>
+		<div class="box awxb-view-outlook" style="margin-bottom: 0px; margin-top: 365px; margin-left: 45px; max-width: 635px;"></div>
 		<div class="loader" id="loader" style="display: none;"></div>
 	</div>
 
 
-		<div id="wxblox2a" style="margin-bottom: 60px; margin-top: 20px; margin-left: 15px; width: 100%;"></div> 
+
+	<div id="wxblox2a" class="alerts" style="margin-bottom: 60px; margin-top: 0px; margin-left: 15px; width: 100%;"></div> 	
+
+
+
 		
 		<div id="wxblox2" style="margin-bottom: 60px; margin-left: 15px; width: 100%;"></div> 	
 
 
 
+
+
+
 		<div style="width: 100%; display: table;">
-		
+	
 			<div style="display: table-row">
 			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 45px; "></div>	
 			<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 45px;"></div>
@@ -324,29 +317,34 @@ min-height: 80px !important;
 		</div>
 
 
+	
+
+
 <div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div>
 
- <div id="wxblox3a" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+
+
+<div id="wxblox3a" style="margin-bottom: 60px; margin-left: 10px;"></div> 
 
 <div id="wxblox4" style="margin-bottom: 60px; margin-left: 10px;"></div> 
 
-<div id="wxblox5" style="margin-bottom: 260px; margin-left: 10px;"></div> 
+
+
+
+
+
 
 <script>
  
 // Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
 const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+
  
 // Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
 aeris.on('ready', () => {
+
  
-    // Step 5: Within your "ready" event handler, setup your desired components:
-
-
-
-
-
-
+// Step 5: Within your "ready" event handler, setup your desired components:
 
 
   const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
@@ -363,36 +361,33 @@ aeris.on('ready', () => {
 	links: false
     },
 	
-	
 	outlook:{
-	
+
 	enabled: false,
-	
-	
 	
 	},
 	
     shortterm: {
 
-
-
 	enabled: false
+	
     },
 	
 	
     forecast: {
 	enabled: false
+	
     },
 
     almanac: {
+	
 	enabled: false
+	
     },
 
 
     maps: {
 	
-
-
       animation: {
         enabled: true,
         autoplay: true,
@@ -405,114 +400,100 @@ aeris.on('ready', () => {
         intervals: 10,
 
       },
+	  
+	  
       controls: {
-        layers: [
-                                    
-								
-		{
-          value: "radar",
-          title: "Radar"
-        },
+			layers: [
+													
+												
+						{
+						  value: "radar",
+						  title: "Radar"
+						},
 
-		{
-          value: "satellite",
-          title: "Satellite"
-        },
+						{
+						  value: "satellite",
+						  title: "Satellite"
+						},
 
-		{
-          value: "alerts",
-          title: "Advisories"
-        }, 
-		
-		{
-          value: "temperatures",
-          title: "Temps"
-        },
-		
-		{
-          value: "surface-analysis",
-          title: "Surface"
-        },		
-		
-		
-		
-		{
-          value: "stormcells",
-          title: "Storm Cells"
-        },
+						{
+						  value: "alerts",
+						  title: "Advisories"
+						}, 
+						
+						{
+						  value: "temperatures",
+						  title: "Temps"
+						},
+						
+						{
+						  value: "surface-analysis",
+						  title: "Surface"
+						},		
+						
+						
+						
+						{
+						  value: "stormcells",
+						  title: "Storm Cells"
+						},
 
 
-		{
-          value: "stormreports",
-          title: "Storm Reports"
-        },
+						{
+						  value: "stormreports",
+						  title: "Storm Reports"
+						},
 
-		{
-          value: "snow-depth",
-          title: "Snow"
-        },		
-		
-		],
-		
-		
-		
-        regions: [
-		
-		{
-          zoom: 5,
-          title: "Regional"
-        }, 
+						{
+						  value: "snow-depth",
+						  title: "Snow"
+						},		
+			
+					],
 		
 		
-		{
-          zoom: 7,
-          title: "Local"
-        },
+		
+			regions: [
+			
+			{
+			  zoom: 5,
+			  title: "Regional"
+			}, 
+			
+			
+			{
+			  zoom: 7,
+			  title: "Local"
+			},
+			
+			
+			]
+		}
 		
 		
-		]
-      }
     }
+	
   });
-
-
-
 
 
     const view0 = new aeris.wxblox.views.Almanac('#wxblox0');
 
+
     const view1 = new aeris.wxblox.views.NearbyObservations('#wxblox1', {
-	
-	
+
     links: false
-	
-	
+
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
     const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
 	
 	const view2a = new aeris.wxblox.views.Advisories('#wxblox2a', {
-		fullDetails: true,
-		renderNoData: true
-		
-		
+		modal: true,
+		//fullDetails: true,
+		//renderNoData: true,
+		enabled: true,
 	});
 
 
@@ -520,8 +501,6 @@ aeris.on('ready', () => {
  
 	});
 	
-
-
 	
 	const view3a = new aeris.wxblox.views.Forecast('#wxblox3a', {
     type: 'hourly'
@@ -531,18 +510,15 @@ aeris.on('ready', () => {
 	const view4 = new aeris.wxblox.views.ArchiveObservations('#wxblox4', {
 
 		 range: {
-                    from: 'today'
-                  }
-		
+		 
+                 from: 'today'
+				  
+                }
 
 	});
 	
 	
-	const view5 = new aeris.wxblox.views.Tropical('#wxblox5', {
-		show: {
-			tabbed: true
-		} 
-	});
+
 
  
 getParameter = (key) => { 
@@ -562,54 +538,47 @@ getParameter = (key) => {
 
 console.log(getParameter("lat"))
 
-
- 
- 
- 
-
 var lat = (getParameter("lat"))
 
+
  
- 
- 
-	view5.load();
 
 
 	view4.load({
-		p: lat,
+		 p: lat,
 	});
 	
     view3.load({
-	 p: lat,
-	 limit: 24
+		 p: lat,
+		 limit: 24
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
     });
 
     view3a.load({
-	 p: lat,
-	 limit: 24
+		 p: lat,
+		 limit: 24
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
     });
 	
     view2.load({
-      p: lat,
-	  limit: 3
+		  p: lat,
+		  limit: 3
 	  //p: 'lake shore,md'
     });
 
 	view2a.load({
-      p: lat,
+		  p: lat,
 	});
 
     view1.load({
-	p: lat,
+		  p: lat,
 	links: false
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
 
     view0.load({
-	p: lat
+		  p: lat
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
@@ -619,24 +588,13 @@ var lat = (getParameter("lat"))
 
     view.load({
 	//p:  81082
-	p: lat	
+		  p: lat	
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
 
 
 	 //window.location.href = "https://api.weatherphrase.com/stream/summary/" + pos.coords.latitude + "," + pos.coords.longitude + "?client_id=wgE96YE3scTQLKjnqiMsv&client_secret=SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY&metric=false&limit=3"; 
-
-
-	
-
-
-	
-	
-
-
-
-
 
 
 
@@ -648,18 +606,10 @@ var lat = (getParameter("lat"))
  
  
  
-
- 
- 
- 
- 
- 
- 
  
 </script>
 
-
-	<div id="myP" class="awxb-view" data-name="" data-lat="45.10705" data-lon="-79.48496"></div>
+	<div id="myP" class="awxb-view" data-name="" data-lat="No location selected" data-lon=" please enter your location."></div>
 
 
 	<script charset="utf-8" src="ai-css/aeris-wxblox.modules.common.js"></script>
@@ -669,13 +619,7 @@ var lat = (getParameter("lat"))
 	<script  src="ai-css/local-wx-ai-summary-2.4.2.js" type="text/javascript"></script>
 
 
-
-
 <script>
-
-
-
-
 
 
 		var _wxbloxIsServer = true;
@@ -685,29 +629,9 @@ var lat = (getParameter("lat"))
 		};
 		
 
-
-
-
-
-
-
-
-		
-		
 		
 </script>
-
-	
-	
-	
-
-
-
-
-
-
-
-
 		
 </body>
+
 </html>

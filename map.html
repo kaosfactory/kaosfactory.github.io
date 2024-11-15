@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+    <title>KAOS WX - Raster Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="css/aeris-wxblox.js"></script>
+    <link href="css/aeris-wxblox-map.css" rel="stylesheet"/>
+    <script src="css/aeris-wxblox.min.js"></script>
+
+
+<style>
+.map{
+
+      		width: auto;
+      		height: auto;
+			
+
+}
+
+
+		#map-canvas {
+      		width: auto;
+      		height: auto;
+    	}
+
+
+body {
+  font-family: Arial;
+  padding-top: 25px;
+      		width: auto;
+			max-width: 1096px;
+			margin: auto;
+			
+
+}
+
+
+
+
+
+.awxb-component.awxb-component .map-related .nav-map-layers, .awxb-view.awxb-view .map-related .nav-map-layer
+
+{
+
+margin-right: -80px;
+
+
+}
+
+.awxb-component.awxb-component .local-header ul.info,.awxb-view.awxb-view .local-header ul.info {
+    margin-left: -5px;
+	z-index: 10000;
+    list-style: none;
+    border-bottom: 4px solid #15a8e1;
+	min-width: 1070px;
+
+}
+
+
+.section-title {
+
+padding-bottom:10px;
+
+}
+
+.awxb-view.awxb-view h6 {
+  margin-top: 65px !important;
+  margin-bottom: .5rem;
+}
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+
+<div id="wxblox" style="margin-bottom: 40px; margin-top: 0px;">
+
+
+	<section role="content">
+	    <div class="row"  ></div>
+ 	       <div class="awxb-view" >
+		 <section class="local"><div class="row local-header" style= " padding-top:20px; margin-left: 18px; margin-top: 5px; margin-bottom: -55px; min-width:1200px !important;">
+
+					<ul class="info" ><li><ul class="nav" >
+									 <li><a href="/desktopX1.html"  style= "margin-left: -9px;">IntelliSTAR</a></li>
+									 <li><a href="/wxblox/geo.html"  >Forecast</a></li>
+									 <li><a href="/wxblox/geo3.html">Forecast Map</a></li>
+									 <li><a href="/WX_APP_standalone.html">MapsGL</a></li>
+									 <li class="selected"><a href="/wxblox/map.html">Global Map</a></li>
+									 <li><a href="/nwsalerts.html">NWS Map</a></li>
+									 
+
+
+									<li><a href="/wxblox/chatbot.htm" 
+									  target="popup" 
+									  onclick="window.open('/wxblox/chatbot.htm','popup','width=1356,height=758'); return false;">WX Stations
+									</a></li>		
+
+
+									<li><a href="/wxblox/nimbus.html" 
+									  target="popup" 
+									  onclick="window.open('/wxblox/nimbus.html','popup','width=440,height=628'); return false;">AI Chatbot
+									</a></li>								
+
+
+
+									 <li><a href="/wxblox/tropical.html">Tropical</a></li></ul></li></ul>
+				
+				
+	
+		</div>
+	</div>
+	
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+ 
+// Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+ 
+// Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
+aeris.on('ready', () => {
+ 
+    // Step 5: Within your "ready" event handler, setup your desired components:
+
+
+
+
+
+
+Aeris.wxblox.setAccess('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+//var view = new Aeris.wxblox.views.MapViewer('#wxblox', {
+var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
+			init:{
+			
+			
+			
+				
+					
+					layers:{
+						//title: 'alerts'
+						code: 'radar',
+
+					},
+					
+					
+
+
+			},
+
+
+ 
+			controller: {
+						
+
+			   
+					    viewer: { 
+									animation: {
+										enabled: true,
+										autoplay: true,
+										alwaysShowPast: false,
+										alwaysShowFuture: false,
+										duration: 5,
+										//from: 0, // hours
+										//to: 2,
+										
+										intervals:48,
+										endDelay: 1,
+									
+										
+									},
+									
+									
+									map: {
+										layers:{
+											base: 'flat-dk,water-depth,admin-cities-dk',
+											overlays: 'admin-cities-dk',
+										},
+										
+										size:{
+											
+											width: 700,
+											height: 'auto',
+											factor: .75,
+										
+										},
+									},
+
+									
+						},	
+				
+
+						range: {
+						
+								intervals: '-48, -12, -6, -2, 0, 2, 6, 12, 48',
+							
+								init:{
+									from: 0,
+									to: 48,
+							
+								},
+
+			
+						},
+
+
+
+
+				
+			},
+
+
+ 
+    layers: {
+        categories: [],
+       
+		codes: ['fradar', 'fsurface-analysis', 'surface-analysis', 'fqsf-accum', 'fqpf-accum', 'radar', 'alerts', 'temperatures'],
+    },
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////			
+
+   map: {
+	
+	
+	
+		loc: '39.0444,-76.3672',
+        layers: {
+        	base: "flat-dk",
+        	data: "fradar",
+        	overlays: "water-depth,admin-cities-dk"
+        },
+
+		
+		
+		
+		
+        zoom: 8
+    },
+	
+	
+	
+
+	
+	
+	
+	
+	animation: {
+        enabled: true,
+        autoplay: true,
+        alwaysShowPast: false,
+        alwaysShowFuture: false,
+        from: 1, // hours
+        to: 48
+    }
+	
+	
+	
+});
+
+
+
+
+
+
+
+ 
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+ 
+ 
+ 
+
+var lat = (getParameter("lat"))
+
+ 
+ 
+ 
+
+
+
+
+
+
+    view.load({
+	//p:  81082
+	//p: lat	
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
+
+
+
+ 
+});
+ 
+ 
+
+		
+		
+</script>
+
+	
+
+
+		
+</body>
+</html>
