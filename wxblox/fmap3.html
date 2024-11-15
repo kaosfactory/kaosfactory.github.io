@@ -99,9 +99,9 @@ padding-bottom:10px;
 									
 									<li><a href="/wxblox/geo.html">Forecast</a></li>
 
-									<li class="selected"><a href="/wxblox/geo3.html">Forecast Map - GFS</a></li>
+									<li><a href="/wxblox/geo3.html">Forecast Map - GFS</a></li>
 									<li><a href="/wxblox/geo4.html">Forecast Map - NAM</a></li>
-									<li><a href="/wxblox/geo5.html">Forecast Map - HRRR</a></li>
+									<li class="selected"><a href="/wxblox/geo5.html">Forecast Map - HRRR</a></li>
 									<li><a href="/WX_APP_standalone.html">MapsGL</a></li>
 									<li><a href="/wxblox/map.html">Global Map</a></li>
 									 
@@ -114,6 +114,7 @@ padding-bottom:10px;
 	
 		</div>
 	</div>
+
 
 
 <div id="map" style="margin-bottom: 40px; margin-top: 60px;">
@@ -238,7 +239,7 @@ var lat = (getParameter("lat"))
                     layers: [
 					
 					{
-						value: 'fqpf-accum-gfs:80,fqsf-accum-gfs,fice-accum,fpressure-msl-isobars-gfs,fradar-gfs',
+						value: 'fqpf-accum-hrrr:80,fqsf-accum-hrrr,fice-accum,fpressure-msl-isobars-hrrr,fradar-hrrr',
                         title: 'QPF Radar'
                     },
 					
@@ -258,7 +259,7 @@ var lat = (getParameter("lat"))
 					
 					
 					{
-                        value: 'temperatures-gfs,water-flat',
+                        value: 'temperatures-hrrr,water-flat',
                         title: 'Temps'
                     },					
 					
@@ -287,18 +288,18 @@ var lat = (getParameter("lat"))
 
 					
 					{
-                        value: 'fpressure-msl-isobars-gfs',
+                        value: 'fpressure-msl-isobars-hrrr',
                         title: 'Pressure'
                     },				
 					
 					{
-                        value: 'fqpf-accum-gfs',
+                        value: 'fqpf-accum-hrrr',
                         title: 'Precip'
                     },	
 
 
 					{
-                        value: 'fqsf-accum-gfs',
+                        value: 'fqsf-accum-hrrr',
 
                         title: 'Snow'
                     },
@@ -311,7 +312,7 @@ var lat = (getParameter("lat"))
 					
 					
 					{
-	                    value: 'snow-depth-gfs',
+	                    value: 'snow-depth-hrrr',
 
                         title: 'Snow Depth',
                     },							
@@ -320,7 +321,7 @@ var lat = (getParameter("lat"))
 
 
 					{
-	                    value: 'fjet-stream-gfs',
+	                    value: 'fjet-stream-hrrr',
 
                         title: 'Jet Stream',
                     },			
