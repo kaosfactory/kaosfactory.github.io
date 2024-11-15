@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+    <title>KAOS WX - Geolocation</title>
+
+
+<style>
+      body {
+        background-color: black;
+      }
+</style>
+
+
+
+
+
+</head>
+
+<body >
+
+
+
+
+
+<video width="100%" height="100%" autoplay loop muted>
+  <source src="kaos.mp4" type="video/mp4" />
+
+  Your browser does not support the video tag.
+</video>
+
+
+
+</video>
+
+
+
+
+<script>
+ 
+ 
+
+
+function geo() {
+
+  console.log("Getting Geolocation");
+  // load data and render the view for a specific location
+  navigator.geolocation.getCurrentPosition(pos => {
+    console.log(`Showing weather for lat ${pos.coords.latitude}, long ${pos.coords.longitude}`);
+
+	
+
+
+	 window.location.href = "/wxblox/kaos-wx.html?lat=" + pos.coords.latitude + "," + pos.coords.longitude; 
+
+
+	
+  }, err => console.log(`Geolocation error: ${err.message}`));
+
+	
+	
+}
+
+geo();
+
+
+
+</script>
+
+
+ 
+
+ 
+ 
+
+	
+	
+	
+
+
+
+
+
+
+
+
+		
+</body>
+</html>
