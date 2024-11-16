@@ -8097,7 +8097,7 @@
 	content: "";
 	position: absolute;
 	height: 3px;
-	bottom: -6px;
+	bottom: -4px;
 	left: 0;
 	right: 0;
 	background-color: #15a8e1;
@@ -8125,7 +8125,7 @@
 .awxb-component.awxb-component .local-header ul.nav>li>a:before,.awxb-view.awxb-view .local-header ul.nav>li>a:before {
 	content: "";
 	position: absolute;
-	bottom: -8px;
+	bottom: -5px;
 	left: 50%;
 	margin-left: -8px;
 	border-width: 8px 8px 0;
