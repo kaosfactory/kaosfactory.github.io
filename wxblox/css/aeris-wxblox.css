@@ -10098,7 +10098,7 @@
 .awxb-view.awxb-view .local-header ul.nav>li>a:before,.awxb-component.awxb-component .local-header ul.nav>li>a:before {
 	content: "";
 	position: absolute;
-	bottom: -10px;
+	bottom: -6px;
 	left: 50%;
 	margin-left: -8px;
 	border-width: 8px 8px 0;

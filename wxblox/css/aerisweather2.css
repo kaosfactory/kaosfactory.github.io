@@ -421,7 +421,7 @@
 .awxjs__mapview .awxjs__map-nav>li {
 	display: inline-block;
 	font-size: 12px;
-	margin-left: 10px;
+	margin-left: 9.75px;
 	position: relative
 }
 
@@ -436,7 +436,7 @@
 	color: #666;
 	cursor: pointer;
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 11px;
 	margin: 0;
 	padding: 0 0 3px 0;
 	text-decoration: none
