@@ -88,12 +88,13 @@ button:focus { outline: none; }
 
 
 .aw-ai-summary {
-    min-height: 50px;
+    min-height: 140px;
     white-space: pre-wrap;
     font-size: .75em;
 
     background-color: #ebf8ff;
-    padding: 10px 10px 5px;
+    padding: 10px 10px 11px 5px;
+
 
 }
 
@@ -123,27 +124,27 @@ button:focus { outline: none; }
     background-color: #ebf8ff;
     text-align: center;
     padding-bottom: 10px;
-
+	padding-top: 5px;
 }
 
 #chatbotTrigger {
-    background-color: #007bff; /* Bootstrap blue */
+    background-color: #17A8E1; /* Bootstrap blue */
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 6px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 13px;
     transition: background-color 0.3s;
 }
 
 #chatbotTrigger:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #1386AF; /* Darker blue on hover */
 }
 
 #chatbotTrigger:focus {
     outline: none; /* Removes the default focus outline */
-    box-shadow: 0 0 0 3px rgba(0,123,255,0.5); /* Accessibility focus ring */
+    box-shadow: 0 0 0 3px #17A8E1; /* Accessibility focus ring */
 }
 
 #chatbot {
@@ -633,7 +634,7 @@ var lat = (getParameter("lat"))
     });
 
     view0.load({
-		  p: lat
+		  p: lat,
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
