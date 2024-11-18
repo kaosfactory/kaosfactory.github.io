@@ -10,7 +10,7 @@
 	<link href="css/aeris-wxblox.css" rel="stylesheet"/>
 	<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
 	
-	<title>KAOS WX Advisories</title>
+	<title>KAOS WX Tropical</title>
 	
 
 
@@ -94,11 +94,43 @@ margin-top: 12px;
 
 }
 
+.content2 {
+    height: 50px
+}
+
+.footer {
+    background: #061C28;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+}    
+
+.content3 {
+    height: 10px
+	z-index: 30000;
+}
+
+.footer2 {
+    background: #061C28;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 5px;
+	z-index: 30000;
+}   
+
+
 </style>
 
 </head>
 
 <body>
+
+<div class="content3"></div>
+<div class="footer2"></div>
 
 <hr class="header2"></hr>
   <p style= "margin-left: 0px; margin-top: 20px; font-weight: 900px; font-size: 28px;">Tropical Systems</p>
@@ -164,9 +196,10 @@ margin-top: 12px;
 <!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
 
 
-<div id="wxblox" style="margin-top: 40px; margin-left: -1px; max-width:1200px">
+<div id="wxblox" style="margin-top: 40px; margin-left: -1px; max-width:1200px"></div>
 
-
+<div class="content2"></div>
+<div class="footer"></div>
 
 
 
