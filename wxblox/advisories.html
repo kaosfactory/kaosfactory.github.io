@@ -82,7 +82,7 @@ button:focus { outline: none; }
 
 
 <div id="wxblox" style="margin-bottom: 40px;">
-
+<div id="wxblox2" style="margin-bottom: 40px;">
 
 	<section role="content">
 	    <div class="row"  ></div>
@@ -206,10 +206,13 @@ const view = new aeris.wxblox.layouts.local.Advisories('#wxblox', {
 });
 view.load({
      //p: 81082
-	 p: lat
+	 p: 32202
 });
 
-
+const view2 = new aeris.wxblox.views.Advisories('#wxblox2');
+view2.load({
+    p: 32202
+});
 
 
 

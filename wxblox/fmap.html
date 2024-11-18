@@ -9,37 +9,28 @@
     <script src="css/aeris-wxblox.js"></script>
     <link href="css/aeris-wxblox-map.css" rel="stylesheet"/>
     <script src="css/aeris-wxblox.min.js"></script>
-    <script defer src="https://cdn.aerisapi.com/sdk/js/1.7.1/aerisweather.min.js"></script>
+    <script src="https://cdn.aerisapi.com/sdk/js/1.7.1/aerisweather.min.js"></script>
     <link rel="stylesheet" href="css/aerisweather2.css">
 
 <style>
-.map{
-
-      		width: auto;
-      		height: auto;
-			
-
-}
-
-
-		#map-canvas {
-      		width: auto;
-      		height: auto;
-    	}
 
 
 body {
-background: #f8fcfd;
   font-family: Arial;
-  padding-top: 25px;
-  padding-left: 55px;
-      		width: auto;
-			max-width: 1096px;
-			margin: auto;
-			
+  min-width: 1200px;
+  max-width: 1200px;
+  margin: auto;
 
+  background-image: url("2.png");
+  background-size:contain;
+  background-position:center;
 }
 
+html
+{
+   min-width: 1500px;
+   width: 100%;
+}
 
 
 
@@ -48,7 +39,7 @@ background: #f8fcfd;
 
 {
 
-margin-right: -80px;
+margin-right: -0px;
 
 
 }
@@ -65,7 +56,7 @@ margin-right: -80px;
 
 .section-title {
 
-padding-bottom:10px;
+padding-bottom:40px;
 
 }
 
@@ -81,6 +72,24 @@ padding-bottom:10px;
 	
 	}
 
+
+.header{
+
+border-top: 1px solid #ccc;
+ width: 1050px;
+margin-left: 69px;
+margin-bottom: 8px;
+margin-top: 14px;
+
+}
+
+.awxjs__legend-group .awxjs__legend {
+
+	min-width: 310px !important;
+
+}
+
+
 </style>
 
 
@@ -88,14 +97,14 @@ padding-bottom:10px;
 </head>
 
 <body>
-
+<hr class="header"></hr>
 	<section role="content">
 	    <div class="row"  ></div>
  	       <div class="awxb-view" >
-		 <section class="local"><div class="row local-header" style= " padding-top:-50px; margin-left: 0px; margin-top: -5px; margin-bottom: -40px; max-width:0px !important;">
+		 <section class="local"><div class="row local-header" style= " padding-top:-50px; margin-left: 79px; margin-top: -5px; margin-bottom: -40px;">
 
 					<ul class="info" ><li><ul class="nav" >					
-									<li ><a href="/wxblox/geo.html" style= "margin-left: -5px; font-size: 21px; padding-right:20px; color: #000;"  >48-Hour Forecast</a></li>
+									<li ><a href="/wxblox/geo.html" style= "margin-left: -5px; font-size: 24px; padding-right:10px; color: #000;"  >48-Hour Forecast</a></li>
 									
 									<li><a href="/wxblox/geo.html">Forecast</a></li>
 
@@ -116,7 +125,7 @@ padding-bottom:10px;
 	</div>
 
 
-<div id="map" style="margin-bottom: 40px; margin-top: 60px;">
+<div id="map" style="margin-bottom: 40px; margin-left: 80px !important; margin-top: 60px;">
 
 
 
@@ -217,7 +226,7 @@ var lat = (getParameter("lat"))
 					
                     size: {
                         width: 1030,
-                        height: 675
+                        height: 695
                     },
 					
 					
@@ -239,12 +248,19 @@ var lat = (getParameter("lat"))
 					
 					{
 						value: 'fqpf-accum-gfs:80,fqsf-accum-gfs,fice-accum,fpressure-msl-isobars-gfs,fradar-gfs',
-                        title: 'QPF Radar'
+                        title: 'Combined'
                     },
 					
+					{
+                        value: 'temperatures-gfs,water-flat',
+                        title: 'Temperatures'
+                    },								
 					
-					
-					
+					{
+	                    value: 'radar',
+
+                        title: 'Radar',
+                    },					
 
 					
 					{
@@ -253,77 +269,92 @@ var lat = (getParameter("lat"))
                         title: 'Satellite',
                     },
 					
-		
-					
-					
+					{
+                        value: 'fpressure-msl-isobars-gfs',
+                        title: 'MSLP'
+                    },			
+							
 					
 					{
-                        value: 'temperatures-gfs,water-flat',
-                        title: 'Temps'
-                    },					
-					
+                        value: 'fqpf-accum-gfs',
+                        title: 'QPF'
+                    },	
+
 					{
-                        value: 'alerts',
-                        title: 'Alerts'
-                    },					
-					
-					{
-                        value: 'stormreports',
-                        title: 'Storm Reports'
-                    },							
-					
-					
-					
-					{
-                        value: 'stormcells',
-                        title: 'Storm Cells'
+	                    value: 'fice-accum',
+
+                        title: 'QIF',
                     },		
 					
+					{
+                        value: 'fqsf-accum-kuchera-gfs',
+
+                        title: 'QSF (Kuchera)'
+                    },
+
+						{
+                        value: 'fqsf-accum-10to1-gfs',
+
+                        title: 'QSF (10:1)'
+                    },				
+					
+					{
+	                    value: 'snow-depth-gfs',
+
+                        title: 'Snow Depth',
+                    },					
+
+
 					{
 	                    value: 'fsurface-analysis',
 
                         title: 'Surface',
                     },	
 
-					
-					{
-                        value: 'fpressure-msl-isobars-gfs',
-                        title: 'Pressure'
-                    },				
-					
-					{
-                        value: 'fqpf-accum-gfs',
-                        title: 'Precip'
-                    },	
-
-
-					{
-                        value: 'fqsf-accum-gfs',
-
-                        title: 'Snow'
-                    },
-					
-					{
-	                    value: 'fice-accum',
-
-                        title: 'Ice',
-                    },					
-					
-					
-					{
-	                    value: 'snow-depth-gfs',
-
-                        title: 'Snow Depth',
-                    },							
-
-
-
 
 					{
 	                    value: 'fjet-stream-gfs',
 
                         title: 'Jet Stream',
-                    },			
+                    },		
+
+
+					{
+                        value: 'stormcells',
+                        title: 'Storm Cells'
+                    },
+
+					
+					{
+                        value: 'stormreports',
+                        title: 'Storm Reports'
+                    },		
+
+					
+					{
+                        value: 'alerts',
+                        title: 'Alerts'
+                    },					
+					
+					
+					
+					
+					
+
+
+
+					
+			
+					
+			
+					
+					
+						
+
+
+
+
+	
 
 
 					{
@@ -335,7 +366,7 @@ var lat = (getParameter("lat"))
 					
 					
 					{
-		                value: 'tropical-cyclones',
+		                value: 'tropical-cyclones-invests',
 
                         title: 'Invests',
                     },

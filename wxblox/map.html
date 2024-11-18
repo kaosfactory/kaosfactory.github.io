@@ -27,15 +27,28 @@
     	}
 
 
+
+
+
+
 body {
+width: auto;
   font-family: Arial;
   padding-top: 25px;
-      		width: auto;
-			max-width: 1096px;
-			margin: auto;
-			
+  max-width: 1096px;
+  margin: auto;
 
+  background-image: url("2.png");
+  background-size:contain;
+  background-position:center;
 }
+
+html
+{
+   min-width: 1500px;
+   width: 100%;
+}
+
 
 
 
@@ -55,7 +68,9 @@ margin-right: -80px;
 	z-index: 10000;
     list-style: none;
     border-bottom: 4px solid #15a8e1;
-	min-width: 1070px;
+	min-width: 1050px;
+
+
 
 }
 
@@ -67,9 +82,37 @@ padding-bottom:10px;
 }
 
 .awxb-view.awxb-view h6 {
-  margin-top: 65px !important;
+  margin-top: 75px !important;
   margin-bottom: .5rem;
 }
+
+.header{
+
+border-top: 1px solid #ccc;
+ width: 1055px;
+margin-left: 28px;
+margin-bottom: -7px;
+margin-top: -11px;
+
+}
+
+
+.awxb-component.awxb-component .local-header ul.nav > li > a::before, .awxb-view.awxb-view .local-header ul.nav > li > a::before {
+	content: "";
+	position: absolute;
+	bottom: -6px !important;
+	left: 50%;
+	margin-left: -8px;
+	border-width: 8px 8px 0;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-top-color: #15a8e1;
+	visibility: hidden;
+}
+
+
 
 
 
@@ -83,15 +126,15 @@ padding-bottom:10px;
 <body>
 
 
+<hr class="header"></hr>
 
-
-<div id="wxblox" style="margin-bottom: 40px; margin-top: 0px;">
+<div id="wxblox" style="margin-bottom: 40px; margin-top: 30px; margin-left: 20px;">
 
 
 	<section role="content">
-	    <div class="row"  ></div>
- 	       <div class="awxb-view" >
-		 <section class="local"><div class="row local-header" style= " padding-top:20px; margin-left: 18px; margin-top: 5px; margin-bottom: -55px; min-width:1200px !important;">
+	    <div class="row" ></div>
+ 	       <div class="awxb-view " >
+		 <section class="local"><div class="row local-header" style= " padding-top:20px; margin-left: 18px; margin-top: 18px; margin-bottom: -55px; min-width:1200px !important;">
 
 					<ul class="info" ><li><ul class="nav" >
 									 <li><a href="/desktopX1.html"  style= "margin-left: -9px;">IntelliSTAR</a></li>

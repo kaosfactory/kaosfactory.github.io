@@ -36,18 +36,22 @@ padding-left: 0px;
 }
 
 
-    body, html {
-
-button:focus { outline: none; }
-  margin-top: 10px;
-  margin-bottom: 100px;
-  margin-right: 80px;
-  margin-left: 80px;
+body {
+  font-family: Arial;
   min-width: 1200px;
-	max-width: 1200px;
-margin: auto;
+  max-width: 1200px;
+  margin: auto;
 
-    }
+  background-image: url("2.png");
+  background-size:contain;
+  background-position:center;
+}
+
+html
+{
+   min-width: 1500px;
+   width: 100%;
+}
     #wxblox {
 
 		button:focus { outline: none; }
@@ -77,9 +81,18 @@ hr.new1 {
   border-top: 3px solid #17a8e1;
   margin-top: 58px;
   max-width: 1200px;
-  margin-left: 30px;
+  margin-left: 0px;
 }
 
+.header{
+
+border-top: 1px solid #ccc;
+ width: 1200px;
+margin-left: -3px;
+margin-bottom: -7px;
+margin-top: 12px;
+
+}
 
 </style>
 
@@ -87,17 +100,17 @@ hr.new1 {
 
 <body>
 
-
-  <p style= "margin-left: 28px; margin-top: 20px; font-weight: 900px; font-size: 28px;">Tropical Systems</p>
+<hr class="header"></hr>
+  <p style= "margin-left: 0px; margin-top: 20px; font-weight: 900px; font-size: 28px;">Tropical Systems</p>
 
 
 	<section role="content">
 	    <div class="row"  ></div>
  	       <div class="awxb-view">
-		 <section class="local"><div class="row local-header" style= "margin-left: 0px; margin-top: -80px;">
+		 <section class="local"><div class="row local-header" style= "margin-left: -20px; margin-top: -80px;">
 
 					<ul class="info" ><li><ul class="nav" >
-									 <li><a href="/desktopX1.html"  style= "margin-left: -9px;">IntelliSTAR</a></li>
+									 <li><a href="/desktopX1.html"  style= "margin-left: -19px;">IntelliSTAR</a></li>
 									 <li><a href="/wxblox/geo.html"  >Forecast</a></li>
 									 <li><a href="/wxblox/geo3.html">Forecast Map</a></li>
 									 <li><a href="/WX_APP_standalone.html">MapsGL</a></li>
@@ -151,7 +164,7 @@ hr.new1 {
 <!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
 
 
-<div id="wxblox" style="margin-top: 40px; margin-left: 30px; max-width:1200px">
+<div id="wxblox" style="margin-top: 40px; margin-left: -1px; max-width:1200px">
 
 
 

@@ -16,13 +16,28 @@
 
 <style>
 
+
+
+
 body {
   font-family: Arial;
   min-width: 1200px;
   max-width: 1200px;
   margin: auto;
-  background: #fbfcff;
+
+  background-image: url("1.png");
+  background-size:contain;
+  background-position:center;
 }
+
+html
+{
+   min-width: 1500px;
+   width: 100%;
+}
+
+
+
 
 .title{
 font-size: 25px !important;
@@ -213,6 +228,10 @@ form.nimbus-form textarea {
   height: 635px;
   position: relative;
   margin: -30px;
+  
+  
+
+  
 
 }
 
@@ -237,22 +256,47 @@ form.nimbus-form textarea {
 	z-index: 30000 !important;
 
 
-}	
+}
+
+
+
+
+
+
+
+
+
+
+
+.header{
+
+border-top: 1px solid #ccc;
+ width: 1200px;
+margin-left: 1px;
+margin-bottom: -7px;
+margin-top: 12px;
+
+}
+
 	
 </style>
+
 
 </head>
 
 <body>
 
 
+
+
+<hr class="header"></hr>
 	<section role="content">
 	    <div class="row"  ></div>
  	       <div class="awxb-view">
 		 <section class="local"><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" >
-									 <li><a href="/desktopX1.html"  style= "margin-left: -9px;">IntelliSTAR</a></li>
+									 <li><a href="/desktopX1.html"  style= "margin-left: -21px;">IntelliSTAR</a></li>
 									 <li class="selected"><a href="/wxblox/geo.html"  >Forecast</a></li>
 									 <li><a href="/wxblox/geo3.html">Forecast Map</a></li>
 									 <li><a href="/WX_APP_standalone.html">MapsGL</a></li>
@@ -283,24 +327,26 @@ form.nimbus-form textarea {
 </div>
 
 
+
 <!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
 
 
 </div>
-    <div class="container">
-		<div id="wxblox" class="box overlay" style="margin-bottom: 0px;"></div>
-		<div class="box awxb-view-outlook" style="margin-bottom: 0px; margin-top: 365px; margin-left: 45px; max-width: 635px;"></div>
+    <div class="container">  
+
+		<div id="wxblox" class="box overlay" style="margin-left: 18px; margin-bottom: 0px;"></div>
+		<div class="box awxb-view-outlook" style="margin-bottom: 0px; margin-top: 365px; margin-left: 35px; max-width: 635px;"></div>
 		<div class="loader" id="loader" style="display: none;"></div>
 	</div>
 
 
 
-	<div id="wxblox2a" class="alerts" style="margin-bottom: 60px; margin-top: 0px; margin-left: 15px; width: 100%;"></div> 	
+	<div id="wxblox2a" class="alerts" style="max-width: 1192px; margin-bottom: 50px; margin-top: 0px; margin-left: 4px; width: 100%;"></div> 	
 
 
 
 		
-		<div id="wxblox2" style="margin-bottom: 60px; margin-left: 15px; width: 100%;"></div> 	
+		<div id="wxblox2" style="margin-bottom: 60px; margin-left: 5px; width: 100%;"></div> 	
 
 
 
@@ -310,7 +356,7 @@ form.nimbus-form textarea {
 		<div style="width: 100%; display: table;">
 	
 			<div style="display: table-row">
-			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 15px; padding-bottom: 45px; "></div>	
+			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 5px; padding-bottom: 45px; "></div>	
 			<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 45px;"></div>
 			
 			</div>
@@ -320,13 +366,13 @@ form.nimbus-form textarea {
 	
 
 
-<div id="wxblox3" style="margin-bottom: 60px; margin-left: 10px;"></div>
+<div id="wxblox3" style="margin-bottom: 60px; margin-left: 5px;"></div>
 
 
 
-<div id="wxblox3a" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+<div id="wxblox3a" style="margin-bottom: 60px; margin-left: 5px;"></div> 
 
-<div id="wxblox4" style="margin-bottom: 60px; margin-left: 10px;"></div> 
+<div id="wxblox4" style="margin-bottom: 60px; margin-left: 5px;"></div> 
 
 
 
@@ -387,6 +433,8 @@ aeris.on('ready', () => {
 
 
     maps: {
+
+
 	
       animation: {
         enabled: true,
@@ -407,8 +455,15 @@ aeris.on('ready', () => {
 													
 												
 						{
-						  value: "radar",
-						  title: "Radar"
+						  value: "radar:50",
+						  title: "Radar",
+						  
+						    style: {
+							opacity: 0.1,
+							blur: 2
+							},
+
+						  
 						},
 
 						{
@@ -567,7 +622,7 @@ var lat = (getParameter("lat"))
     });
 
 	view2a.load({
-		  p: lat,
+		  p: 32202
 	});
 
     view1.load({
@@ -588,7 +643,7 @@ var lat = (getParameter("lat"))
 
     view.load({
 	//p:  81082
-		  p: lat	
+		  p: 32202
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
