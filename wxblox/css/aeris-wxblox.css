@@ -8953,7 +8953,7 @@
 
 .awxb-view.awxb-view .block-title,.awxb-component.awxb-component .block-title {
 	display: inline-block;
-	margin: 0 0 1rem 0;
+	margin: 0 0 .5rem 0;
 	background: #17a8e1;
 	color: #fff;
 	padding: .1875rem 2.5rem .25rem .3125rem;
@@ -9426,7 +9426,7 @@
 
 .awxb-view.awxb-view .u-switcher,.awxb-component.awxb-component .u-switcher {
 	position: absolute;
-	top: 25px;
+	top: -4px;
 	right: 0
 }
 
@@ -10067,7 +10067,7 @@
 .awxb-view.awxb-view .local-header ul.nav>li:before,.awxb-component.awxb-component .local-header ul.nav>li:before {
 	content: "";
 	position: absolute;
-	height: 3px;
+	height: 0px;
 	bottom: -4px;
 	left: 0;
 	right: 0;
