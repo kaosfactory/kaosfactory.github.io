@@ -313,6 +313,20 @@ margin-top: 12px;
 	z-index: 30000;
 }    
 
+
+#wxblox-search1
+
+{
+
+
+max-width: 500px;
+z-index: 1000000;
+margin-bottom: -5px;
+margin-top: 10px;
+margin-left: 350px;
+
+}
+
 	
 </style>
 
@@ -325,6 +339,13 @@ margin-top: 12px;
 <div class="footer2"></div>
 
 
+
+
+
+
+
+
+<div id="wxblox-search1"></div>
 <hr class="header"></hr>
 	<section role="content">
 	    <div class="row"  ></div>
@@ -383,16 +404,18 @@ margin-top: 12px;
 
 
 </div>
+
     <div class="container">  
 
 		<div id="wxblox" class="box overlay" style="margin-left: 18px; margin-bottom: 0px;"></div>
-		<div class="box awxb-view-outlook" style="margin-bottom: 0px; margin-top: 365px; margin-left: 35px; max-width: 635px;"></div>
+		<div class="box awxb-view-outlook" style="margin-bottom: 5px; margin-top: 365px; margin-left: 35px; max-width: 635px;"></div>
 		<div class="loader" id="loader" style="display: none;"></div>
 	</div>
 
 
-
-	<div id="wxblox2a" class="alerts" style="max-width: 1192px; margin-bottom: 50px; margin-top: 0px; margin-left: 4px; width: 100%;"></div> 	
+	<div id="wxblox5" style="margin-bottom: 0px; margin-left: 5px; max-width: 1187px;"></div> 
+	
+	<div id="wxblox2a" class="alerts" style="max-width: 1192px; margin-bottom: 40px; margin-top: 0px; margin-left: 4px; width: 100%;"></div> 	
 
 
 
@@ -426,6 +449,8 @@ margin-top: 12px;
 <div id="wxblox4" style="margin-bottom: 60px; margin-left: 5px;"></div> 
 
 
+
+	
 <div class="content2"></div>
 <div class="footer"></div>
 
@@ -576,6 +601,48 @@ aeris.on('ready', () => {
     }
 	
   });
+  
+  
+(function (window, document, Aeris) {
+
+    var $ = Aeris.utils.$;
+
+
+
+
+    // add a search bloc
+    var searchTarget = $('#wxblox-search1');
+    if (searchTarget.length > 0) {
+        var search = new Aeris.wxblox.views.PlaceSearch(searchTarget, {});
+        search.on('select', function (e) {
+            var p = e.data.place;
+            var url = linkPrefix + '/kaos-wx.html?lat=';
+            url += p.place.name.toLowerCase() + ',';
+            if (p.place.state) {
+                url += p.place.state.toLowerCase() + ',';
+            }
+            url += p.place.country.toLowerCase();
+
+            window.location.href = url;
+        });
+
+
+        $('#wxblox-search form').on('submit', function (e) {
+            e.preventDefault();
+            return false;
+        });
+
+
+    }
+
+
+
+
+
+}(window, document, aeris));  
+  
+  
+  
 
 
     const view0 = new aeris.wxblox.views.Almanac('#wxblox0');
@@ -619,7 +686,7 @@ aeris.on('ready', () => {
 
 	});
 	
-	
+	const view5 = new aeris.wxblox.views.Threats('#wxblox5');
 
 
  
@@ -644,7 +711,9 @@ var lat = (getParameter("lat"))
 
 
  
-
+	view5.load({
+		 p: lat,
+	});
 
 	view4.load({
 		 p: lat,
@@ -733,6 +802,12 @@ var lat = (getParameter("lat"))
 
 		
 </script>
+
+<script> var linkPrefix = '/wxblox'; </script>
+
+<script src="city,state/aw-wxblox-search.js" type="text/javascript"></script>
+
+
 		
 </body>
 
