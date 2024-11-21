@@ -9,7 +9,7 @@
    	<link rel="stylesheet" type="text/css" href="css/attrib.css">
 	<link href="css/aeris-wxblox.css" rel="stylesheet"/>
 	<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
-	
+	<script src="css/onclick.js"></script>
 	<title>KAOS WX Calendar</title>
 	
 
@@ -127,6 +127,11 @@ margin-top: 12px;
   cursor: pointer;
 }
 
+
+li:hover {
+    cursor: pointer;
+}
+
 </style>
 
 </head>
@@ -147,11 +152,11 @@ margin-top: 12px;
 
 					<ul class="info" ><li><ul class="nav" >
 									 <li><a href="/desktopX1.html"  style= "margin-left: -22px;">IntelliSTAR</a></li>
-									 <li><a href="/wxblox/geo.html"  >Forecast</a></li>
+									 <li><a onclick="location5();">Forecast</a></li>
 									 <li class="selected" ><a href="/wxblox/geo6.html"  >Calendar</a></li>
-									 <li><a href="/wxblox/geo3.html">Forecast Map</a></li>
+									 <li><a onclick="location0();">Forecast Map</a></li>
 									 <li><a href="/WX_APP_standalone.html">MapsGL</a></li>
-									 <li><a href="/wxblox/map.html">Global Map</a></li>
+									 <li><a onclick="location6();">Global Map</a></li>
 									 <li><a href="/nwsalerts.html">NWS Map</a></li>
 									 
 
@@ -168,7 +173,7 @@ margin-top: 12px;
 									</a></li>								
 
 
-									 <li><a href="/wxblox/geo2.html">Air Quality</a></li>
+									 <li><a onclick="location2();">Air Quality</a></li>
 									 <li><a href="/wxblox/tropical.html">Tropical</a></li></ul></li></ul>
 				
 

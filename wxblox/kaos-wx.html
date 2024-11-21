@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
     <link href="ai-css/xweather-nimbus-chatbot-1.2.5.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/attrib.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/aeris-wxblox.css" rel="stylesheet"/>
     <script src="css/aeris-wxblox.js"></script>
+	    <script src="css/onclick.js"></script>
     <title>KAOS WX</title>
 
 
@@ -327,6 +328,10 @@ margin-left: 350px;
 
 }
 
+li:hover {
+    cursor: pointer;
+}
+
 	
 </style>
 
@@ -347,6 +352,12 @@ margin-left: 350px;
 
 <div id="wxblox-search1"></div>
 <hr class="header"></hr>
+
+
+
+
+
+
 	<section role="content">
 	    <div class="row"  ></div>
  	       <div class="awxb-view">
@@ -369,10 +380,10 @@ margin-left: 350px;
 									 
 									 
 									 <li class="selected"><a href="/wxblox/geo.html"  >Forecast</a></li>
-									 <li><a href="/wxblox/geo6.html"  >Calendar</a></li>
-									 <li><a href="/wxblox/geo3.html">Forecast Map</a></li>
+									 <li><a onclick="location1();">Calendar</a></li>
+									 <li><a onclick="location0();">Forecast Map</a></li>
 									 <li><a href="/WX_APP_standalone.html">MapsGL</a></li>
-									 <li><a href="/wxblox/map.html">Global Map</a></li>
+									 <li><a onclick="location6();">Global Map</a></li>
 									 <li><a href="/nwsalerts.html">NWS Map</a></li>
 									 
 
@@ -388,7 +399,7 @@ margin-left: 350px;
 									  onclick="window.open('/wxblox/nimbus.html','popup','width=440,height=628'); return false;">AI Chatbot
 									</a></li>								
 
-									 <li><a href="/wxblox/geo2.html">Air Quality</a></li>
+									 <li><a onclick="location2();">Air Quality</a></li>
 
 									 <li><a href="/wxblox/tropical.html">Tropical</a></li></ul></li></ul>
 				
