@@ -9,7 +9,7 @@
     <script src="css/aeris-wxblox.js"></script>
     <link href="css/aeris-wxblox-map.css" rel="stylesheet"/>
     <script src="css/aeris-wxblox.min.js"></script>
-    <script src="https://cdn.aerisapi.com/sdk/js/1.7.1/aerisweather.min.js"></script>
+    <script src="css/aerisweather.min.js"></script>
     <link rel="stylesheet" href="css/aerisweather2.css">
     <script src="css/onclick.js"></script>
 
@@ -122,6 +122,9 @@ margin-top: 14px;
 li:hover {
     cursor: pointer;
 }
+
+
+
 
 
 
@@ -242,7 +245,10 @@ var lat = (getParameter("lat"))
             const map = new views.Map(document.getElementById('map'), {
 
 
+    legend: {
+        enabled: true,
 
+    },
 			
 			animation: {
 			
@@ -282,7 +288,7 @@ var lat = (getParameter("lat"))
 					
                     size: {
                         width: 1030,
-                        height: 695
+                        height: 675
                     },
 					
 					
@@ -308,7 +314,7 @@ var lat = (getParameter("lat"))
                     },
 					
 					{
-                        value: 'temperatures-gfs,water-flat',
+                        value: 'temperatures,water-flat',
                         title: 'Temperatures'
                     },								
 					
@@ -355,7 +361,7 @@ var lat = (getParameter("lat"))
                     },				
 					
 					{
-	                    value: 'snow-depth-gfs',
+	                    value: 'snow-depth',
 
                         title: 'Snow Depth',
                     },					
@@ -504,7 +510,6 @@ var lat = (getParameter("lat"))
     };
  
 
-		
 		
 </script>
 
