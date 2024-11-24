@@ -10,7 +10,7 @@
 		"config": {
 			"interval": 1,
 			"cell_width": 3,
-			"label_interval": 20
+			"label_interval": 2
 		}
 	},
 	"dewpt": {
@@ -125,9 +125,10 @@
 			"metric": "mm"
 		},
 		"config": {
-			"interval": "10:0.1,0.2",
+			"interval": "24:0.2,30:0.2,8",
 			"cell_width": 2,
-			"label_interval": "10:1,5"
+			"cell_size": 1,
+			"label_interval": "1:1,5"
 		}
 	},
 	"fsnow": {
@@ -139,9 +140,11 @@
 			"metric": "cm"
 		},
 		"config": {
-			"interval": "24:0.2,60:0.5,1",
+			"interval": "24:0.2,30:0.2,8",
 			"cell_width": 3,
-			"label_interval": "24:3,6"
+			"cell_size": 1,
+			
+			"label_interval": "1:1,50"
 		}
 	},
 	"fice": {
@@ -154,7 +157,8 @@
 		"config": {
 			"interval": 0.1,
 			"cell_width": 10,
-			"label_interval": 0.5
+			"cell_size": 1,
+			"label_interval": 0.1
 		}
 	},
 	"1hr-rain": {
@@ -179,6 +183,7 @@
 		"config": {
 			"interval": 1,
 			"cell_width": 4,
+			"cell_size": 1,
 			"label_interval": 5,
 			"labels_custom": "l:Light,c:Moderate,r:Heavy"
 		}
@@ -188,6 +193,7 @@
 		"config": {
 			"interval": 1,
 			"cell_width": 5,
+			"cell_size": 1,
 			"label_interval": 5,
 			"labels_custom": "l:Light,c:Moderate,r:Heavy"
 		}
@@ -197,6 +203,8 @@
 		"config": {
 			"interval": 1,
 			"cell_width": 5,
+			"cell_size": 1,
+			
 			"label_interval": 5,
 			"labels_custom": "l:Light,c:Moderate,r:Heavy"
 		}
@@ -207,13 +215,13 @@
 		"layers": ["radar", "radar-2m", "radar-global"],
 		"items": [{
 			"key": "radar-rain",
-			"factor": 0.4
+			"factor": 0.35
 		}, {
 			"key": "radar-ice",
-			"factor": 0.3
+			"factor": 0.35
 		},{
 			"key": "radar-snow",
-			"factor": 0.3
+			"factor": 0.35
 		}],
 		"enabled": true
 	},
