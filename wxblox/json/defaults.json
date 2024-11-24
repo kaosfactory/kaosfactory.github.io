@@ -10,7 +10,8 @@
 		"config": {
 			"interval": 1,
 			"cell_width": 3,
-			"label_interval": 2
+			"cell_size": 1,
+			"label_interval": 4
 		}
 	},
 	"dewpt": {
@@ -114,6 +115,7 @@
 		"config": {
 			"interval": "",
 			"cell_width": 30,
+			"cell_size": 1,
 			"label_interval": ""
 		}
 	},
@@ -182,7 +184,7 @@
 		"title": "Radar - Rain (dbz)",
 		"config": {
 			"interval": 1,
-			"cell_width": 4,
+			"cell_width": 3,
 			"cell_size": 1,
 			"label_interval": 5,
 			"labels_custom": "l:Light,c:Moderate,r:Heavy"
@@ -192,7 +194,7 @@
 		"title": "Radar - Ice (dbz)",
 		"config": {
 			"interval": 1,
-			"cell_width": 5,
+			"cell_width": 6,
 			"cell_size": 1,
 			"label_interval": 5,
 			"labels_custom": "l:Light,c:Moderate,r:Heavy"
@@ -202,7 +204,7 @@
 		"title": "Radar - Snow (dbz)",
 		"config": {
 			"interval": 1,
-			"cell_width": 5,
+			"cell_width": 3,
 			"cell_size": 1,
 			
 			"label_interval": 5,
@@ -215,10 +217,10 @@
 		"layers": ["radar", "radar-2m", "radar-global"],
 		"items": [{
 			"key": "radar-rain",
-			"factor": 0.35
+			"factor": 0.33
 		}, {
 			"key": "radar-ice",
-			"factor": 0.35
+			"factor": 0.34
 		},{
 			"key": "radar-snow",
 			"factor": 0.35
