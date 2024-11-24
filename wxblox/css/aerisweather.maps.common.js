@@ -9927,7 +9927,7 @@
                                                                         return e(this._configs),
                                                                         t.abrupt("return");
                                                                     case 3:
-                                                                        V.b.request("/json/defaults.json").then((function (t) {
+                                                                        V.b.request("wxblox/json/defaults.json").then((function (t) {
                                                                                 if (t.data) {
                                                                                     var i = t.data;
                                                                                     Object.keys(i).forEach((function (t) {
