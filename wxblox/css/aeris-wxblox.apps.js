@@ -9150,7 +9150,7 @@
                     loadStyles() {
                         return this._loading = !0,
                         new Promise((t, e) => d(this, void 0, void 0, (function  * () {
-                                    this._configs ? t(this._configs) : r.default.request("https://legends.aerisapi.com/defaults.json").then(e => {
+                                    this._configs ? t(this._configs) : r.default.request("json/defaults.json").then(e => {
                                         if (e.data) {
                                             const s = e.data;
                                             Object.keys(s).forEach(t => {
