@@ -1,0 +1,818 @@
+{
+	"temps": {
+		"title": "Temperature (F, C)",
+		"range": [-60, 130],
+		"layers": ["^f?temperatures(-min|-max)?$", "feels-like$", "sst"],
+		"units": {
+			"imperial": "f",
+			"metric": "c"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 3,
+			"cell_size": 1,
+			"label_interval": 4
+		}
+	},
+	"dewpt": {
+		"title": "Dew Point (F, C)",
+		"range": [-60, 90],
+		"layers": ["dew-points$"],
+		"units": {
+			"imperial": "f",
+			"metric": "c"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 3,
+			"label_interval": 10
+		}
+	},
+	"windchill": {
+		"title": "Wind Chill (F, C)",
+		"layers": ["wind-chill$"],
+		"units": {
+			"imperial": "f",
+			"metric": "c"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 4,
+			"label_interval": 10
+		}
+	},
+	"heatindex": {
+		"title": "Heat Index (F, C)",
+		"layers": ["heat-index$"],
+		"units": {
+			"imperial": "f",
+			"metric": "c"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 5,
+			"label_interval": 10
+		}
+	},
+	"winds": {
+		"title": "Winds (mph, kmh)",
+		"layers": ["winds$", "wind-gusts$", "wind-speeds$"],
+		"units": {
+			"imperial": "mph",
+			"metric": "kmh"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 5,
+			"label_interval": 10
+		}
+	},
+	"humidity": {
+		"title": "Humidity (%)",
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 5,
+			"label_interval": 20
+		}
+	},
+	"visibility": {
+		"title": "Visibility (mi, km)",
+		"units": {
+			"imperial": "mi",
+			"metric": "km"
+		},
+		"range": [0,16.0934],
+		"config": {
+			"interval": 1,
+			"cell_width": 4,
+			"label_interval": 1
+		}
+	},
+	"mslp": {
+		"title": "Surface Pressure (in, mb)",
+		"layers": ["^f?pressure-msl$"],
+		"units": {
+			"imperial": "in",
+			"metric": "mb"
+		},
+		"config": {
+			"interval": 0.5,
+			"cell_width": 2,
+			"label_interval": 10
+		}
+	},
+	"snowdepth": {
+		"title": "Snow Depth (in, cm)",
+		"layers": ["snow-depth$"],
+		"units": {
+			"imperial": "in",
+			"metric": "cm"
+		},
+		"config": {
+			"interval": "",
+			"cell_width": 30,
+			"cell_size": 1,
+			"label_interval": ""
+		}
+	},
+	"fqpf": {
+		"title": "Future Precip (QPF)",
+		"layers": ["^fqpf-?"],
+		"units": {
+			"imperial": "in",
+			"metric": "mm"
+		},
+		"config": {
+			"interval": "24:0.2,30:0.2,8",
+			"cell_width": 2,
+			"cell_size": 1,
+			"label_interval": "1:1,5"
+		}
+	},
+	"fsnow": {
+		"title": "Future Snow (in, cm)",
+		"layers": ["^fqsf-?"],
+		"range": [72],
+		"units": {
+			"imperial": "in",
+			"metric": "cm"
+		},
+		"config": {
+			"interval": "24:0.2,30:0.2,8",
+			"cell_width": 3,
+			"cell_size": 1,
+			
+			"label_interval": "1:1,50"
+		}
+	},
+	"fice": {
+		"title": "Future Ice (in, mm)",
+		"layers": ["^fice-?"],
+		"units": {
+			"imperial": "in",
+			"metric": "mm"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 10,
+			"cell_size": 1,
+			"label_interval": 0.1
+		}
+	},
+	"1hr-rain": {
+		"title": "1-Hour Rain (in, mm)",
+		"config": {
+			"interval": 0.1,
+			"cell_width": 15,
+			"label_interval": 0.5
+		},
+		"enabled": false
+	},
+	"1hr-precip": {
+		"title": "1-Hour Precip (in, mm)",
+		"config": {
+			"interval": 0.25,
+			"cell_width": 10,
+			"label_interval": 1
+		}
+	},
+	"radar-rain": {
+		"title": "Radar - Rain (dbz)",
+		"config": {
+			"interval": 1,
+			"cell_width": 3,
+			"cell_size": 1,
+			"label_interval": 5,
+			"labels_custom": "l:Light,c:Moderate,r:Heavy"
+		}
+	},
+	"radar-ice": {
+		"title": "Radar - Ice (dbz)",
+		"config": {
+			"interval": 1,
+			"cell_width": 6,
+			"cell_size": 1,
+			"label_interval": 5,
+			"labels_custom": "l:Light,c:Moderate,r:Heavy"
+		}
+	},
+	"radar-snow": {
+		"title": "Radar - Snow (dbz)",
+		"config": {
+			"interval": 1,
+			"cell_width": 3,
+			"cell_size": 1,
+			
+			"label_interval": 5,
+			"labels_custom": "l:Light,c:Moderate,r:Heavy"
+		}
+	},
+	"radar": {
+		"grouped": true,
+		"title": "Radar",
+		"layers": ["radar", "radar-2m", "radar-global"],
+		"items": [{
+			"key": "radar-rain",
+			"factor": 0.34
+		}, {
+			"key": "radar-ice",
+			"factor": 0.33
+		},{
+			"key": "radar-snow",
+			"factor": 0.33
+		}],
+		"enabled": true
+	},
+	"sat-ir": {
+		"title": "Infrared Satellite (Color)",
+		"layers": ["satellite-infrared-color"],
+		"config": {
+			"interval": 1,
+			"cell_width": 3,
+			"label_interval": 10,
+			"labels_custom": "l:Warm,c:Cold,r:Coldest"
+		}
+	},
+	"sat-wv": {
+		"title": "Water Vapor Satellite",
+		"layers": ["satellite-water-vapor"],
+		"config": {
+			"interval": 1,
+			"cell_width": 4,
+			"label_interval": 10,
+			"labels_custom": "l:Dry,c:Moist,r:Very Moist"
+		}
+	},
+	"lightning-strike-density": {
+		"title": "Lightning Strike Density ((strikes/km^2/min)*1000)",
+		"config": {
+			"cell_width": 1,
+			"label_interval": "~50"
+		}
+	},
+	"rci": {
+		"title": "Road Conditions Index (RCI)",
+		"layers": ["road-conditions-index"],
+		"config": {
+			"cell_width": 80,
+			"gutter": 8,
+			"labels_custom": "1:Wet,2:Icy,3:Wet/Snow"
+		}
+	},
+	"rc-rain": {
+		"title": "Road Conditions - Rain",
+		"use": "radar-rain",
+		"config": {
+			"interval": 1,
+			"cell_width": 5,
+			"label_interval": 5,
+			"labels_custom": "l:Wet,r:Standing Water"
+		}
+	},
+	"rc-ice": {
+		"title": "Road Conditions - Ice",
+		"use": "radar-ice",
+		"config": {
+			"interval": 1,
+			"cell_width": 5,
+			"label_interval": 5,
+			"labels_custom": "l:Wet/Slick,r:Accum Ice"
+		}
+	},
+	"rc-snow": {
+		"title": "Road Conditions - Snow",
+		"use": "radar-snow",
+		"config": {
+			"interval": 1,
+			"cell_width": 5,
+			"label_interval": 5,
+			"labels_custom": "l:Wet/Slick,r:Accum Snow"
+		}
+	},
+	"road-conditions": {
+		"grouped": true,
+		"title": "Road Conditions",
+		"layers": ["road-conditions"],
+		"items": [{
+			"key": "rc-rain",
+			"factor": 0.4
+		}, {
+			"key": "rc-ice",
+			"factor": 0.3
+		},{
+			"key": "rc-snow",
+			"factor": 0.3
+		}],
+		"enabled": true
+	},
+	"jetstream": {
+		"title": "Jet Stream - 250 mb (m/s, mph)",
+		"layers": ["^jet-?stream$"],
+		"config": {
+			"cell_width": 3,
+			"cell_height": 20,
+			"label_interval": "~10"
+		},
+		"units": {
+			"imperial": "mph",
+			"metric": "m/s"
+		}
+	},
+	"accum-precip": {
+		"title": "Accumulated Precip - 1-30 days (in, mm)",
+		"layers": ["(precip(-normals)?-(1|7|14|30)d|precip-mtd)$"],
+		"config": {
+			"interval": "10:0.1,0.2",
+			"cell_width": 2,
+			"cell_height": 20,
+			"label_interval": "10:1,5"
+		}
+	},
+	"accum-precip-180d": {
+		"title": "Accumulated Precip - 30+ days (in, mm)",
+		"layers": ["precip(-normals)?-(60|90|180)d$"],
+		"config": {
+			"interval": "60:0.5,1",
+			"cell_width": 2,
+			"cell_height": 20,
+			"label_interval": "60:10,20"
+		}
+	},
+	"accum-precip-year": {
+		"title": "Accumulated Precip - Yearly (in, mm)",
+		"layers": ["precip(-normals)?-w?ytd$"],
+		"config": {
+			"interval": "60:0.5,1",
+			"cell_width": 2,
+			"cell_height": 20,
+			"label_interval": "60:10,20"
+		}
+	},
+	"accum-depart": {
+		"title": "Precip Departure from Normal (%)",
+		"layers": ["precip-depart-percent$"],
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"interval": "200:1,10",
+			"cell_width": 2,
+			"cell_height": 20,
+			"label_interval": "200:20,100"
+		}
+	},
+	"accum-depart-amount": {
+		"title": "Precip Departure from Normal - 1-30 days (in, mm)",
+		"layers": ["(precip-depart-(1|7|14|30)d|precip-mtd)$"],
+		"config": {
+			"interval": "0.5",
+			"cell_width": 5,
+			"cell_height": 20,
+			"label_interval": "5"
+		}
+	},
+	"accum-depart-amount-year": {
+		"title": "Precip Departure from Normal - 30+ days (in, mm)",
+		"layers": ["precip-depart-(60|90|180)d$"],
+		"config": {
+			"interval": "1",
+			"cell_width": 4,
+			"cell_height": 20,
+			"label_interval": "10"
+		}
+	},
+	"temp-outlook": {
+		"title": "Temperature Outlook (%)",
+		"layers": ["^temperatures-outlook"],
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"cell_width": 30,
+			"label_interval": 10,
+			"labels_custom": "-100:-100%,-80:-80,-60:-60,-40:-40,0:Equal,40:40,60:60,80:80,100:100%"
+		}
+	},
+	"precip-outlook": {
+		"title": "Precip Outlook (%)",
+		"layers": ["^precip-outlook"],
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"cell_width": 30,
+			"label_interval": 10,
+			"labels_custom": "-100:-100%,-80:-80,-60:-60,-40:-40,0:Equal,40:40,60:60,80:80,100:100%"
+		}
+	},
+	"chlorophyll": {
+		"title": "Chlorophyll (mg/m^3)",
+		"layers": ["chlo-modis$"],
+		"config": {
+			"cell_width": 2,
+			"label_interval": "~20"
+		}
+	},
+	"wave-heights": {
+		"title": "Wave/Swell Heights (ft, m)",
+		"layers": ["^(wave|swell)-heights?"],
+		"units": {
+			"imperial": "ft",
+			"metric": "m"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 1
+		},
+		"enabled": false
+	},
+	"wave-periods": {
+		"title": "Wave/Swell Periods (sec)",
+		"layers": ["^(wave|swell)-periods?"],
+		"units": {
+			"imperial": "sec",
+			"metric": "sec"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 1,
+			"label_interval": 2
+		},
+		"enabled": false
+	},
+	"storm-surge": {
+		"title": "Storm Surge (ft, m)",
+		"layers": ["^storm-surge"],
+		"units": {
+			"imperial": "ft",
+			"metric": "m"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 2
+		},
+		"enabled": false
+	},
+	"tide-height": {
+		"title": "Tide Heights (ft, m)",
+		"layers": ["^tide-height"],
+		"units": {
+			"imperial": "ft",
+			"metric": "m"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 2
+		},
+		"enabled": false
+	},
+	"ocean-current": {
+		"title": "Ocean Currents (mph, kph)",
+		"layers": ["^ocean-current"],
+		"units": {
+			"imperial": "mph",
+			"metric": "kph"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 1
+		},
+		"enabled": false
+	},
+	"stormcells": {
+		"title": "Storm Cells",
+		"type": "point",
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"stormreports": {
+		"title": "Storm Reports",
+		"type": "point",
+		"config": {
+			"columns": 5,
+			"gutter": "15,5"
+		}
+	},
+	"advisories": {
+		"title": "Alerts / Advisories",
+		"type": "point",
+		"layers": ["alerts"],
+		"config": {
+			"columns": 5,
+			"gutter": "15,5"
+		}
+	},
+	"convective": {
+		"title": "Convective Outlook",
+		"type": "point",
+		"layers": ["convective(-outlook)?"],
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"convective-torn": {
+		"title": "Tornado Probabilities (%)",
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 60,
+			"cell_height": 15,
+			"label_interval": 1,
+			"labels_custom": "2,5,10,15,30,45,60,80:Significant"
+		}
+	},
+	"convective-hail": {
+		"title": "Hail Probabilities (%)",
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 60,
+			"cell_height": 15,
+			"label_interval": 1,
+			"labels_custom": "2,5,10,15,30,45,60,80:Significant"
+		}
+	},
+	"convective-wind": {
+		"title": "Damaging Wind Probabilities (%)",
+		"units": {
+			"imperial": "%",
+			"metric": "%"
+		},
+		"config": {
+			"interval": 1,
+			"cell_width": 60,
+			"cell_height": 15,
+			"label_interval": 1,
+			"labels_custom": "2,5,10,15,30,45,60,80:Significant"
+		}
+	},
+	"drought-monitor": {
+		"title": "Drought Monitor",
+		"type": "point",
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"fires": {
+		"title": "Wildfires",
+		"type": "point",
+		"config": {
+			"columns": 3,
+			"gutter": "15,5"
+		},
+		"enabled": false
+	},
+	"fires-outlook": {
+		"title": "Fire Outlook",
+		"layers": ["fires-outlook", "fires-dryltg-outlook"],
+		"type": "point",
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"earthquakes": {
+		"title": "Earthquakes",
+		"type": "point",
+		"config": {
+			"columns": 3,
+			"gutter": "15,5"
+		},
+		"enabled": true
+	},
+	"records": {
+		"title": "Climate Records",
+		"type": "point",
+		"config": {
+			"gutter": "15,5"
+		},
+		"enabled": false
+	},
+	"rivers": {
+		"title": "Rivers",
+		"type": "point",
+		"layers": ["river-observations"],
+		"config": {
+			"columns": 3,
+			"gutter": "15,5"
+		}
+	},
+	"tropical": {
+		"title": "Tropical",
+		"type": "point",
+		"layers": ["^tropical(-cyclones)?$"],
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"tropical-icons": {
+		"title": "Tropical (Icons)",
+		"use": "tropical",
+		"type": "point",
+		"config": {
+			"point": "icon"
+		}
+	},
+	"tropical-breakpoints": {
+		"title": "Tropical Breakpoints",
+		"type": "point",
+		"layers": ["^tropical-cyclones-break-?points$"],
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"tropical-windfields": {
+		"title": "Tropical Windfields",
+		"type": "point",
+		"layers": ["^tropical-windfields$"],
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"tropical-outlook": {
+		"title": "Tropical Outlook",
+		"type": "point",
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"lightning": {
+		"title": "Lightning",
+		"type": "point",
+		"layers": ["^lightning-strikes$"],
+		"config": {
+			"gutter": "15,5"
+		},
+		"enabled": false
+	},
+	"lightning-icons": {
+		"title": "Lightning (Icons)",
+		"use": "lightning",
+		"type": "point",
+		"config": {
+			"point": "icon"
+		},
+		"enabled": false
+	},
+	"lightning-15m": {
+		"title": "Lightning",
+		"type": "point",
+		"layers": ["lightning-strikes(-(5|15)m)?"],
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"lightning-15m-icons": {
+		"title": "Lightning (Icons)",
+		"use": "lightning-15m",
+		"type": "point",
+		"config": {
+			"point": "icon"
+		}
+	},
+	"airquality": {
+		"title": "Air Quality",
+		"type": "point",
+		"layers": ["air-?quality", "aqi"],
+		"config": {
+			"gutter": "15,5"
+		}
+	},
+	"aq-index": {
+		"title": "Air Quality Index (AQI)",
+		"layers": ["^air-quality-index(-categories)?"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 25
+		},
+		"enabled": false
+	},
+	"aq-pm2p5": {
+		"title": "Particle Pollution - PM2.5 (ug/m^3)",
+		"layers": ["^air-quality-pm2p5"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 25
+		},
+		"enabled": false
+	},
+	"aq-pm10": {
+		"title": "Particle Pollution - PM10 (ug/m^3)",
+		"layers": ["^air-quality-pm10"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 50
+		},
+		"enabled": false
+	},
+	"aq-co": {
+		"title": "Particle Pollution - CO (ug/m^3)",
+		"layers": ["^air-quality-co"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 50
+		},
+		"enabled": false
+	},
+	"aq-no": {
+		"title": "Particle Pollution - NO (ug/m^3)",
+		"layers": ["^air-quality-no"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 10
+		},
+		"enabled": false
+	},
+	"aq-no2": {
+		"title": "Particle Pollution - NO2 (ug/m^3)",
+		"layers": ["^air-quality-no2"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 10
+		},
+		"enabled": false
+	},
+	"aq-o3": {
+		"title": "Particle Pollution - O3 (ug/m^3)",
+		"layers": ["^air-quality-o3"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 25
+		},
+		"enabled": false
+	},
+	"aq-so2": {
+		"title": "Particle Pollution - SO2 (ug/m^3)",
+		"layers": ["^air-quality-so2"],
+		"units": {
+			"imperial": "ug/m^3",
+			"metric": "ug/m^3"
+		},
+		"config": {
+			"interval": 0.1,
+			"cell_width": 1,
+			"label_interval": 10
+		},
+		"enabled": false
+	},
+	"weather": {
+		"title": "Weather",
+		"type": "point",
+		"layers": ["weather"],
+		"config": {
+			"gutter": "15,5"
+		}
+	}
+}
