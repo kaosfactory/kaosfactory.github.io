@@ -124,7 +124,29 @@ var lat = (getParameter("lat"))
 	
 }	
 
+function location7() {
+	
+	
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
 
+console.log(getParameter("lat"))
+
+var lat = (getParameter("lat"))
+
+ window.location.href = "/wxblox/tropical.html?lat=" + lat; 
+	
+}	
 
 
 function location1() {
