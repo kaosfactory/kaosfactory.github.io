@@ -10,7 +10,7 @@
 	<link href="css/aeris-wxblox3.css" rel="stylesheet"/>
 	<script src="css/aeris-wxblox.js"></script>
 	<script src="css/onclick.js"></script>	
-	<title>KAOS Forecast - NAM</title>
+	<title>KAOS Forecast - GFS</title>
 	
 
 
@@ -76,15 +76,7 @@ padding-left: 0px;
 button:focus { outline: none; }
 
 
-.header{
 
-border-top: 1px solid #ccc;
-min-width: 1000px;
-margin-left: -12px;
-margin-bottom: -95px;
-margin-top: 12px;
-
-}
 
 
 
@@ -175,6 +167,46 @@ margin-top: 75px;
 margin-left: 575px;
 
 }
+
+
+
+.image_wrapper {
+  position: relative;
+
+}
+
+.overlay2 {
+  position: relative; 
+  left: -8px;
+  top: 21px;
+
+}
+	
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 50px;
+
+
+}
+
+
+
+.header{
+  position: relative; 
+border-top: 1px solid #ccc;
+min-width: 1000px;
+margin-left: -12px;
+margin-bottom: -95px;
+margin-top: -16px;
+
+}
+
+
+
+
+
+
 </style>
 
 </head>
@@ -183,7 +215,7 @@ margin-left: 575px;
 
 <div class="content3"></div>
 <div class="footer2"></div>
-
+  <img src="/assets/logos/wxapp3.png"  class="overlay2"  width="25" height="25" />
 <hr class="header"></hr>
 
 
@@ -194,7 +226,7 @@ margin-left: 575px;
 		 <section class="local"><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" >					
-									<li ><a href="/wxblox/geo.html" style= "margin-left: -5px; font-size: 24px; padding-right:10px; color: #000;"  >48-Hour Forecast</a></li>
+									<li ><a href="/wxblox/geo.html" style= "margin-left: 33px; font-size: 24px; padding-right:10px; color: #000;"  >48-Hour Forecast</a></li>
 									
 									<li><a style= "margin-left: 15px;" onclick="location5();">Forecast</a></li>
 									<li><a onclick="location0();">Forecast Map - GFS</a></li>
@@ -394,7 +426,6 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
                 controls: {
 
 
-
                     layers: [
 					
 					{
@@ -569,8 +600,6 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 					
                 },
 
-
-
 					
 			animation: {
 			
@@ -581,7 +610,8 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 			duration: 6,
 			endDelay: 1,
 			intervals: 48,
-		
+			refresh: 300,
+			autoplay: false,
 			
 			
 			
@@ -601,7 +631,7 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 									
 						
 						range: {
-							intervals: [ -1, 0, 2, 4, 6, 8, 12, 24, 48],
+							intervals: [ -1, 0, 2, 4, 6, 8, 12, 24, 48, 72],
 							init: {
 								from: -.01,
 								to: 48
