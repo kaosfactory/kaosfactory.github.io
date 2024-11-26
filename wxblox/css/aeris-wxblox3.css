@@ -609,16 +609,16 @@
 }
 
 .awxjs__mapview .awxjs__map__overlays .awxjs__map-overlay__branding {
-	bottom: 7px;
+	bottom: 47px;
 	color: #666;
 	font-size: 22px;
 	font-weight: bold;
 	position: absolute;
-	right: 10px;
+	right: 15px;
 }
 
 .awxjs__mapview .awxjs__map-legend {
-	margin-top: 0px;
+	margin-top: 50px;
 }
 
 .awxjs__app__ui-panel {
@@ -8951,7 +8951,7 @@
 }
 
 .awxb-view.awxb-view .info,.awxb-component.awxb-component .info {
-	font-size: .8rem
+	font-size: .95rem
 }
 
 .awxb-view.awxb-view .block-title,.awxb-component.awxb-component .block-title {
