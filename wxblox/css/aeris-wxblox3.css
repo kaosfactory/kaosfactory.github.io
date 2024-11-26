@@ -10084,7 +10084,7 @@
 
 .awxb-view.awxb-view .local-header ul.nav>li>a,.awxb-component.awxb-component .local-header ul.nav>li>a {
 	position: relative;
-	padding: 0 8px 8px;
+	padding: 8px 8px 8px 6px;
 	border-bottom: 3px solid rgba(0,0,0,0);
 	color: #777;
 	font-weight: 600;
