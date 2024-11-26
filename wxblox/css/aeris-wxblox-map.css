@@ -7465,8 +7465,8 @@
 
 .awxb-component.awxb-component .u-switcher,.awxb-view.awxb-view .u-switcher {
 	position: absolute;
-	top: 30px;
-	right: 0
+	top: 4px;
+	right: -1px;
 }
 
 .awxb-component.awxb-component .u-switcher .btn,.awxb-view.awxb-view .u-switcher .btn {
