@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+
+	<link href="css/aeris-wxblox3.css" rel="stylesheet"/>
+	<script src="css/aeris-wxblox.js"></script>
+	<script src="css/onclick.js"></script>	
+	<title>KAOS Forecast - GFS</title>
+	
+
+
+
+<style>
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial;
+  min-width: 1050px;
+  max-width: 1050px;
+  margin: auto;
+
+  background-image: url("3.png");
+  background-size:contain;
+  background-position:center;
+}
+
+html
+{
+   min-width: 1050px;
+   width: 100%;
+   
+}
+
+
+
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 0px;
+
+
+}
+
+
+
+    #wxblox {
+
+		button:focus { outline: none; }
+		  
+}
+    }
+
+
+    .awxjs__legend-view > .awxjs__legend {
+        padding-top: 65px;
+        padding-bottom: 0px;
+		button:focus { outline: none; }
+		
+		
+		
+		
+	        width: 1070px !important;		   
+
+    }
+	
+	.awxjs__legend-title{
+	button:focus { outline: none; }
+	 margin-top: -5px;
+	}
+
+button:focus { outline: none; }
+
+
+
+
+
+
+
+.content2 {
+    height: 50px
+}
+
+.footer {
+    background: #061C28;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+	z-index: 30000;
+}    
+
+.content3 {
+    height: 10px
+	z-index: 30000;
+}
+
+.footer2 {
+    background: #061C28;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 5px;
+	z-index: 30000;
+}    
+
+
+li:hover {
+    cursor: pointer;
+}
+
+hr.new1 {
+  border: 2px solid #17a8e1;
+  margin-top: 81px;
+  max-width: 100px;
+  margin-left: -11px;
+  margin-bottom: -65px;
+}
+
+
+
+.container {
+  width: 1060px;
+  height: 1335px;
+  position: relative;
+  margin: -26px;
+
+  
+  
+
+  
+
+}
+
+.box {
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+
+}
+
+.overlay {
+
+  margin: 30px;
+
+}
+
+
+	#wxblox-search1
+
+{
+
+
+max-width: 500px;
+
+margin-bottom: -5px;
+margin-top: 75px;
+margin-left: 575px;
+
+}
+
+
+
+.image_wrapper {
+  position: relative;
+
+}
+
+.overlay2 {
+  position: relative; 
+  left: -10px;
+  top: 21px;
+
+}
+	
+.title{
+font-size: 25px !important;
+padding-bottom: 30px;
+padding-left: 50px;
+
+
+}
+
+
+
+.header{
+  position: relative; 
+border-top: 1px solid #ccc;
+min-width: 1000px;
+margin-left: -12px;
+margin-bottom: -95px;
+margin-top: -16px;
+
+}
+
+
+.awxjs__legend awxjs__legend-group {
+
+width: 1275px !important;
+
+
+
+
+}
+
+
+.awxjs__legend-radar {
+
+width: 1275px !important;
+
+
+
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="content3"></div>
+<div class="footer2"></div>
+  <img src="/assets/logos/wxapp3.png"  class="overlay2"  width="25" height="25" />
+<hr class="header"></hr>
+
+
+
+	<section role="content">
+	    <div class="row"  ></div>
+ 	       <div class="awxb-view">
+		 <section class="local"><div class="row local-header">
+
+					<ul class="info" ><li><ul class="nav" >					
+									<li ><a href="/wxblox/geo.html" style= "margin-left: 29px; font-size: 24px; padding-right:10px; color: #000;"  >48-Hour Forecast</a></li>
+									
+									<li><a style= "margin-left: 4px;" onclick="location5();">Forecast</a></li>
+									<li class="selected"><a onclick="location0();">Forecast Map - GFS</a></li>
+									<li><a onclick="location3();">Forecast Map - NAM</a></li>
+									<li><a onclick="location4();">Forecast Map - HRRR</a></li>
+
+
+
+									 
+									<li><a href="/WX_APP_standalone.html" 
+									  target="popup2" 
+									  onclick="window.open('/WX_APP_standalone.html','popup2','width=1356,height=758'); return false;">MapsGL
+									</a></li>											 
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+									 
+									 <li><a onclick="location6();">Global Map</a></li>
+									 
+									 
+									 
+									 									 
+									 
+									 
+									<li><a href="/nwsalerts.html" 
+									  target="popup3" 
+									  onclick="window.open('/nwsalerts.html','popup3','width=1356,height=758'); return false;">NWS Map
+									</a></li>
+
+
+
+		</div>
+	</div>
+	
+<hr class="new1">
+
+</div>
+
+
+
+    <div class="container">  
+
+		<div id="wxblox" class="box overlay" style="margin-left: 18px; "></div>
+		<div id="wxblox-search1" class="box awxb-view-outlook" ></div>
+
+	</div>
+
+
+<div class="content2"></div>
+<div class="footer"></div>
+<!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
+
+
+
+
+
+
+
+<script>
+ 
+// Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+ 
+// Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
+aeris.on('ready', () => {
+ 
+    // Step 5: Within your "ready" event handler, setup your desired components:
+
+
+
+
+(function (window, document, Aeris) {
+
+    var $ = Aeris.utils.$;
+
+
+
+
+    // add a search bloc
+    var searchTarget = $('#wxblox-search1');
+    if (searchTarget.length > 0) {
+        var search = new Aeris.wxblox.views.PlaceSearch(searchTarget, {});
+        search.on('select', function (e) {
+            var p = e.data.place;
+            var url = linkPrefix + '/mapview.html?lat=';
+            url += p.place.name.toLowerCase() + ',';
+            if (p.place.state) {
+                url += p.place.state.toLowerCase() + ',';
+            }
+            url += p.place.country.toLowerCase();
+
+            window.location.href = url;
+        });
+
+
+        $('#wxblox-search form').on('submit', function (e) {
+            e.preventDefault();
+            return false;
+        });
+
+
+    }
+
+
+
+
+
+}(window, document, aeris));  
+  
+  
+
+
+
+
+
+
+
+
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+var lat = (getParameter("lat"))
+
+
+
+
+const view = new aeris.wxblox.views.MapController('#wxblox', {
+
+
+
+	legend: {
+		enabled: true,
+		
+
+	},		
+
+
+
+
+        viewer: {
+
+			map: {
+
+
+	
+			   layers: {
+
+
+					//data: ['radar,alerts'],
+					//base: 'flat-dk,water-depth,admin-cities-dk',
+					//overlays: 'admin-cities-dk',
+					
+					
+				},										
+			
+
+				center: lat,											
+				zoom: 1,
+				
+				size: {
+					width: 1090,
+					height: 725,
+				},
+				
+
+			},
+			
+//				overlays: {
+//					title: 'Current Temps',
+//					branding: {
+//						img: '/assets/logos/kaosmod2.png'
+//						//html: '<div class="mapview-branding">My Company</div>'
+//					},
+//				},	
+
+
+                controls: {
+
+
+                    layers: [
+					
+					{
+						value: 'fqpf-accum-gfs:80,fqsf-accum-gfs,fice-accum,fpressure-msl-isobars-gfs,fradar-gfs',
+                        title: 'Combined'
+                    },
+					
+					{
+                        value: 'temperatures,water-flat',
+                        title: 'Temperatures'
+                    },								
+					
+					{
+	                    value: 'radar',
+
+                        title: 'Radar',
+                    },					
+
+					
+					{
+	                    value: 'satellite',
+
+                        title: 'Satellite',
+                    },
+					
+					{
+                        value: 'fpressure-msl-isobars-gfs',
+                        title: 'MSLP'
+                    },			
+							
+					
+					{
+                        value: 'fqpf-accum-gfs',
+                        title: 'QPF'
+                    },	
+
+					{
+	                    value: 'fice-accum',
+
+                        title: 'QIF',
+                    },		
+					
+					{
+                        value: 'fqsf-accum-kuchera-gfs',
+
+                        title: 'QSF (Kuchera)'
+                    },
+
+						{
+                        value: 'fqsf-accum-10to1-gfs',
+
+                        title: 'QSF (10:1)'
+                    },				
+					
+					{
+	                    value: 'snow-depth',
+
+                        title: 'Snow Depth',
+                    },					
+
+
+					{
+	                    value: 'fsurface-analysis',
+
+                        title: 'Surface',
+                    },	
+
+
+					{
+	                    value: 'fjet-stream-gfs',
+
+                        title: 'Jet Stream',
+                    },		
+
+
+					{
+                        value: 'stormcells',
+                        title: 'Storm Cells'
+                    },
+
+					
+					{
+                        value: 'stormreports',
+                        title: 'Storm Reports'
+                    },		
+
+					
+					{
+                        value: 'alerts',
+                        title: 'Alerts'
+                    },					
+					
+
+					{
+	                    value: 'tropical-cyclones',
+
+                        title: 'Cyclones',
+                    },	
+					
+					
+					
+					{
+		                value: 'tropical-cyclones-invests',
+
+                        title: 'Invests',
+                    },
+
+
+					
+			
+					],	
+
+					
+					
+				 regions: [
+
+				{
+					zoom: 6,
+					title: 'Regional'
+				},
+				
+				{
+					zoom: 7,
+					title: 'Local'
+				},
+				
+				{
+					zoom: 9,
+					title: 'Zoom'
+				},
+
+				 
+				{
+					region: 'us',
+					title: 'National'
+				},
+				
+				{
+					zoom: 2,
+					title: 'Global'
+				},	
+				 
+
+
+				],
+
+					
+					
+                },
+
+
+					
+			animation: {
+			
+			enabled: true,
+			autoplay: false,
+			alwaysShowPast: false,
+			alwaysShowFuture: true,
+			duration: 6,
+			endDelay: 1,
+			intervals: 48,
+			refresh: 300,
+			autoplay: false,
+			
+			
+			
+			
+			
+			
+			
+
+			},		
+			
+	  
+
+				
+									
+
+        },
+									
+						
+						range: {
+							intervals: [ -1, 0, 2, 4, 6, 8, 12, 24, 48, 72],
+							init: {
+								from: -.01,
+								to: 48
+							}
+						},								
+									
+
+
+					
+
+
+
+	});
+
+
+
+
+
+
+
+    view.load({
+	//p:  21122,
+	//p: lat	
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+
+    });
+
+
+
+
+
+ 
+});
+ 
+</script>
+
+
+<script> var linkPrefix = '/wxblox'; </script>
+
+<script src="city,state/aw-wxblox-search.js" type="text/javascript"></script>
+
+
+
+</body>
+</html>
