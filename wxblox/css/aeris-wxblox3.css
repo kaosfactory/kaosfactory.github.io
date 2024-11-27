@@ -1785,7 +1785,7 @@
 
 .awxjs__ui-slider .awxjs__ui-slider-indicator:before {
 	border-color: transparent;
-	border-bottom-color: #bbb;
+	border-bottom-color: #939393;
 	border-style: solid;
 	border-width: 0 12px 12px;
 	bottom: 0;
@@ -12078,8 +12078,8 @@
 	background: #ccc
 }
 
-.awxb-view.awxb-view .awxjs__ui-timeline .awxjs__ui-slider-indicator:before,.awxb-component.awxb-component .awxjs__ui-timeline .awxjs__ui-slider-indicator:before {
-	border-bottom-color: #fff
+.awxb-view.awxb-view .awxjs__ui-timeline .awxjs__ui-slider-indicator:before,.awxb-component.awxb-component .awxjs__ui-timeline .awxjs__ui-slider-indicator:before .awxjs__ui-slider-indicator:hover:before {
+	border-bottom-color: #807e7e
 }
 
 .awxb-view.awxb-view .map-nav,.awxb-component.awxb-component .map-nav {
