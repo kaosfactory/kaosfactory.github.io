@@ -10497,7 +10497,8 @@
 
 .awxb-component.awxb-component .map-related h6,.awxb-view.awxb-view .map-related h6 {
 	font-weight: 600;
-	text-transform: uppercase
+	text-transform: uppercase;
+	margin-left: 2px;
 }
 
 .awxb-component.awxb-component .map-related .nav-map-layers,.awxb-view.awxb-view .map-related .nav-map-layers {
