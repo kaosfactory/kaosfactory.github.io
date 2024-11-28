@@ -180,14 +180,6 @@ margin-top: -37px;
 
 
 
-
-
-
-
-
-
-
-
 </head>
 
 <body>
@@ -223,20 +215,11 @@ margin-top: -37px;
 									  target="popup2" 
 									  onclick="window.open('/WX_APP_standalone.html','popup2','width=1356,height=758'); return false;">MapsGL
 									</a></li>											 
-									 
-									 
-									 
-									 
-									 
-									 
-									 
+
 									 
 									 <li class="selected"><a onclick="location6();">Global Map</a></li>
 									 
-									 
-									 
-									 									 
-									 
+	 
 									 
 									<li><a href="/nwsalerts.html" 
 									  target="popup3" 
@@ -290,59 +273,38 @@ aeris.on('ready', () => {
 
 
 
-
-
 Aeris.wxblox.setAccess('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
 //var view = new Aeris.wxblox.views.MapViewer('#wxblox', {
-var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
-
-
+	var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
 
 
 
 
 			init:{
 			
-		
-			categories: ['radar/sat'],
-
-				
-					
 					layers:{
-						//title: 'alerts'
-						code: 'radar',
+						
+						value: 'surface-analysis',
 
 					},
-					
-					
-
 
 			},
 
 
  
 			controller: {
-						
-
 			   
 					    viewer: {
-
-
-
-
 
 						
 									animation: {
 										enabled: true,
-										autoplay: true,
+										//autoplay: true,
 										alwaysShowPast: false,
 										alwaysShowFuture: false,
-										duration: 5,
-										//from: 0, // hours
-										//to: 2,
-										
+										duration: 1,
 										intervals:48,
-										endDelay: 1,
+										endDelay: 2,
 									
 										
 									},
@@ -350,16 +312,11 @@ var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
 									
 									map: {
 									
-												
-															
-										
-									
 									
 										layers:{
 											base: 'flat-dk,water-depth,admin-cities-dk',
 											overlays: 'admin-cities-dk',
-											 type: "list",
-											
+										
 											
 										},
 										
@@ -367,7 +324,7 @@ var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
 											
 											width: 700,
 											height: 'auto',
-											factor: .75,
+											//factor: .75,
 										
 										},
 									},
@@ -378,11 +335,14 @@ var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
 
 						range: {
 						
-								intervals: '-48, -12, -6, -2, 0, 2, 6, 12, 48',
+						
+						
+						
+								intervals: '-48, -12, -6, -2, -1, 0, 2, 6, 12, 48',
 							
 								init:{
-									from: 0,
-									to: 48,
+									from: -1,
+									to: 0,
 							
 								},
 
@@ -397,62 +357,28 @@ var view = new Aeris.wxblox.layouts.Maps('#wxblox', {
 
 
 
-    layers: {
+						layers: {
 	
-	 //type: "list",
+						//type: "list",
 			
-	
-	
-        	categories: ['radar/sat','forecasts'],
-       
-		//codes: ['fradar', 'fsurface-analysis', 'surface-analysis', 'fqsf-accum', 'fqpf-accum', 'radar', 'alerts', 'temperatures'],
-    },
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////			
-
-   map: {
-	
-	
-	
-		loc: '39.0444,-76.3672',
-        layers: {
-        	base: "flat-dk",
-        	data: "fradar",
-        	overlays: "water-depth,admin-cities-dk"
-        },
-
-		
-		
-		
-		
-        zoom: 8
-    },
-	
-	
-	
+                        codes: ['surface-analysis' ,'radar', 'alerts', 'stormcells', 'stormreports', 'lightning-all', 'satellite', 'satellite-infrared-color', 'satellite-water-vapor', 'temperatures', 'maritime-currents', 'temperatures-text', 'sst', 'dew-points-text', 'precip', 'snow-depth', 'wind-dir',  'fqpf-accum', 'fqsf-accum', 'fice-accum', 'fqpf-1h', 'fqpf-6h', 'fpressure-msl-isobars', 'fsnow-depth', 'fdew-points', 'fjet-stream', 'ftemperatures-max-text', 'ftemperatures-min-text'],
 
 	
 	
-	
-	
-	animation: {
-        enabled: true,
-        autoplay: true,
-        alwaysShowPast: false,
-        alwaysShowFuture: false,
-        from: 1, // hours
-        to: 48
-    }
-	
-	
-	
-});
+						//categories: ['radar/sat','forecasts'],
+						   
+
+						
+						},
 
 
 
 
+	
+	});
 
 
 
@@ -475,40 +401,21 @@ getParameter = (key) => {
 console.log(getParameter("lat"))
 
 
- 
- 
- 
 
 var lat = (getParameter("lat"))
-
- 
- 
- 
-
-
-
 
 
 
     view.load({
-	//p:  81082
-	//p: lat	
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-	  //p: 'lake shore,md'
+
     });
 
 
-
- 
 });
  
- 
 
-		
 		
 </script>
-
-	
 
 
 		
