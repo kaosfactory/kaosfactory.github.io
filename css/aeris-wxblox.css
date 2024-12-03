@@ -2690,7 +2690,7 @@
 
 .awxb-view.awxb-view .row,.awxb-component.awxb-component .row {
 	display: flex;
-	flex-wrap: wrap;
+
 	margin-right: -15px;
 	margin-left: -15px
 }
@@ -2711,6 +2711,7 @@
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px
+	
 }
 
 .awxb-view.awxb-view .col,.awxb-component.awxb-component .col {
@@ -8953,7 +8954,7 @@
 
 .awxb-view.awxb-view .block-title,.awxb-component.awxb-component .block-title {
 	display: inline-block;
-	margin: 0 0 1rem 0;
+	margin: 0 0 .5rem 0;
 	background: #17a8e1;
 	color: #fff;
 	padding: .1875rem 2.5rem .25rem .3125rem;
@@ -10047,7 +10048,7 @@
 
 
 .awxb-view.awxb-view .local-header ul.nav,.awxb-component.awxb-component .local-header ul.nav {
-	z-index: 10000;
+	z-index: 100;
 	position: absolute;
 	padding: 0;
 	margin: 0 0 0 50px;
@@ -10122,7 +10123,7 @@
 	visibility: visible
 }
 
-@media(max-width: 768px) {
+@media(max-width: 68px) {
 	.awxb-view.awxb-view .local-header ul.info>li,.awxb-component.awxb-component .local-header ul.info>li {
 		display: block
 	}
