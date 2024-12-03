@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+	    <script src="css/aeris-wxblox.js"></script>
+
+	<link href="wxblox_v2/styles.css" rel="stylesheet" type="text/css">
+
+
+
+<link href="wxblox_v2/leaflet.css" rel="stylesheet">
+<link href="wxblox_v2/aeris-wxblox.css" rel="stylesheet">
+<link href="wxblox_v2/aw-wxblox-site.css" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="wxblox_v2/aeris-wxblox.modules.common.css">
+<script charset="utf-8" src="wxblox_v2/aeris-wxblox.modules.common.js"></script>
+<script charset="utf-8" src="wxblox_v2/aeris-wxblox.apps.js"></script>
+
+	<style>
+	
+	
+	
+	
+	
+	
+	
+/*.wx-content .nav-main ul li a {*/
+/*    height: auto;*/
+/*}*/
+/*.wx-content .nav-secondary ul li a {*/
+/*    height: auto;*/
+/*    padding-top:15px;*/
+/*}*/
+
+/*.awxb-view.awxb-view .local-header {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+.aw-ai-summary {
+    min-height: 50px;
+    white-space: pre-wrap;
+    font-size: .75em;
+
+    background-color: #ebf8ff;
+    padding: 10px 10px 5px;
+
+}
+
+
+.loader {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+    text-align: center;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.xw-ai-chatbot {
+    margin-bottom: 5px;
+    background-color: #ebf8ff;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
+#chatbotTrigger {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+#chatbotTrigger:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#chatbotTrigger:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.5); /* Accessibility focus ring */
+}
+
+#chatbot {
+    position: fixed;
+    left: 50%;  /* Center horizontally */
+    top: 50%;   /* Center vertically */
+    transform: translate(-50%, -50%); /* Shift the modal back by half its width and height */
+
+    width: 100vw;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+
+    max-width: 800px;
+    max-height: 90%;
+    margin: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 10000;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: block;
+    text-align: left;
+}
+
+#chatbot.chatbot-hide {
+    display: none;
+}
+
+#nimbus-chatbot {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.chatbot-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    cursor: move; /* Cursor indicates that this area is draggable */
+}
+
+.chatbot-content {
+    padding: 10px;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 20px;
+}
+	
+	
+	
+	
+.nimbus-settings-modal-content {
+        min-width: 80%;
+    }
+    form.nimbus-form {
+        padding: 5px;
+    }
+    form.nimbus-form textarea {
+        font-size: 14px;
+    }
+	
+	
+	
+	
+.title{
+font-size: 25px !important;
+margin-top: -70px !important;;
+margin-bottom: -0px !important; ;
+padding-left: 0px;
+
+
+}	
+	
+.meta{
+visibility: hidden;
+
+
+}	
+	
+
+
+
+
+
+	
+	
+.block {
+			padding: 0;
+		}
+		
+		
+		
+body {
+  font-family: Arial;
+
+  max-width: 500px;
+  margin: auto;
+
+  background-image: url("1.png");
+  background-size:contain;
+  background-position:center;
+
+
+
+
+
+
+}
+
+html
+{
+
+  scroll-behavior: smooth;
+
+
+
+}
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</style>
+
+
+ </head>  
+
+
+
+
+		<button type="button" class="btn-menu" >
+			<span class="sr-only">Toggle navigation</span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</div>
+
+
+
+
+
+	<section role="content">
+		<div class="container"  style= "margin-top: 10px;">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						    <!-- start Hosted Weather Site content -->
+    <div class="row wx-header">
+    <div class="col-sm-6">
+        <div id="wxblox-search">
+		<div class="awxb-search">
+			
+		<svg height="0" width="0" style="position:absolute;margin-left:-100%;">
+			<title>Search</title>
+			<g id="icon-search">
+				<path d="M39.8850575,38.3908046 C39.8845187,37.9481561 39.7235991,37.5650144 39.4022989,37.2413793 L27.5862069,25.3333333 C29.8855364,22.5814775 31.0349617,19.347761 31.0344828,15.6321839 C31.0344229,11.3716475 29.5248443,7.73180077 26.5057471,4.71264368 C23.5181394,1.72509579 19.8936183,0.230842912 15.6321839,0.229885057 C11.371887,0.231441571 7.73204023,1.72569444 4.71264368,4.71264368 C1.72569444,7.73204023 0.231441571,11.371887 0.229885057,15.6321839 C0.230842912,19.8936183 1.72509579,23.5181394 4.71264368,26.5057471 C7.73180077,29.5248443 11.3716475,31.0344229 15.6321839,31.0344828 C19.3430316,31.0349617 22.5690852,29.8931992 25.3103448,27.6091954 L37.1264368,39.5172414 C37.4500718,39.8389607 37.8332136,39.9998803 38.2758621,40 C38.71875,40.0004191 39.0942289,39.8394995 39.4022989,39.5172414 C39.7242577,39.2099497 39.8851772,38.8344708 39.8850575,38.3908046 L39.8850575,38.3908046 Z M24.2298851,6.98850575 C26.6206897,9.37925048 27.816092,12.2604765 27.816092,15.6321839 C27.8154334,18.9887452 26.6353568,21.8469828 24.2758621,24.2068966 L24.2068966,24.2758621 C21.8470426,26.6353568 18.9888051,27.8154334 15.6321839,27.816092 C12.2604765,27.816092 9.37925048,26.6206897 6.98850575,24.2298851 C4.62733477,21.8687739 3.44725814,19.0028736 3.44827586,15.6321839 C3.44665948,12.2602371 4.62673611,9.37901102 6.98850575,6.98850575 C9.37901102,4.62673611 12.2602371,3.44665948 15.6321839,3.44827586 C19.0028736,3.44725814 21.8687739,4.62733477 24.2298851,6.98850575 L24.2298851,6.98850575 Z" id="Shape"></path>
+			</g>
+		</svg>
+	
+			<div class="search-form">
+
+					
+				
+				</form>
+			</div>
+			<div class="search-results" style="display: none;">
+				<ul></ul>
+			</div>
+		</div>
+	</div></div>
+    </div>
+    <div class="col-sm-6">
+            </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			<div class="awxb-view" >
+					
+
+			<section role="awxb-view-content"><div class="container-fluid">
+					<section class="local"><div class="row local-header">
+			<div class="col-sm-12">
+			
+			
+			
+			
+			
+			
+				<ul class="info" >
+				<li</li><li><ul id="nav" style=" position: absolute; margin-top: -20px; margin-bottom: -10px;" class="nav"><li class="selected"><a href="https://www.aerisweather.com/weather/local/us/md/annapolis">Forecast</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/forecast/2024/11/29">Hourly</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/advisories">Advisories</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/history/2024/11/29">Today</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/history/2024/11">History</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/calendar/2024/11">Calendar</a></li><li>
+
+
+				<a href="https://www.aerisweather.com/weather/local/us/md/annapolis/airquality">Air Quality</a></li></ul></li>
+				</ul>
+				
+				
+<div id="wxblox2"  style=" margin-top: 0px; margin-bottom: -10px; border-bottom: 4px solid #17a8e1;"></div>		
+	<div id="wxblox"  style=" margin-top: 20px;"></div>				
+
+	
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+								<div class="awxb-view-outlook">
+								<div class="awxb-view"><h5 class="block-title">AI Weather Summary (Beta)</h5><div class="aw-ai-summary">
+								<div class="loader" id="loader" style="display: none;"></div></div>
+								<div class="xw-ai-chatbot">
+								<button id="chatbotTrigger">AI Weather Chat</button>
+								<div id="chatbot" class="chatbot-hide">
+								</div>
+								</div></div></div>
+
+
+
+
+
+
+
+
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+</section>
+
+
+<script>
+ 
+// Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
+const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
+ 
+// Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
+aeris.on('ready', () => {
+ 
+    // Step 5: Within your "ready" event handler, setup your desired components:
+
+
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+
+ 
+ 
+ 
+
+var lat = (getParameter("lat"))
+
+
+
+
+
+const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
+    request: {
+        p: 21122,
+    }
+});
+view.load();
+
+
+
+
+
+ 
+});
+
+
+
+
+
+
+
+        const myChatBot = new Nimbus.ChatBot("chatbot", {
+            streamKey  : appKeys.nimbus,
+            streamUrl  : 'https://nimbus.weatherphrase.com/chatbot/weather',
+            feedbackUrl: 'https://nimbus.weatherphrase.com/chatbot/weather/feedback',
+            showMinimizeIcon: true,
+            icons: {
+                minimize: '<svg height="24px"   viewBox="0 0 512 512" width="24px" fill="currentColor"><path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"/></svg>',
+            },
+            chatSettings: {
+                defaultLocation: useLocation,
+            },
+            lastLocation: useLocation
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+</script>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
