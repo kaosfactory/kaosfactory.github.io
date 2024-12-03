@@ -2690,7 +2690,7 @@
 
 .awxb-view.awxb-view .row,.awxb-component.awxb-component .row {
 	display: flex;
-	flex-wrap: wrap;
+
 	margin-right: -15px;
 	margin-left: -15px
 }
@@ -2711,6 +2711,7 @@
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px
+	
 }
 
 .awxb-view.awxb-view .col,.awxb-component.awxb-component .col {
@@ -10122,7 +10123,7 @@
 	visibility: visible
 }
 
-@media(max-width: 768px) {
+@media(max-width: 68px) {
 	.awxb-view.awxb-view .local-header ul.info>li,.awxb-component.awxb-component .local-header ul.info>li {
 		display: block
 	}
