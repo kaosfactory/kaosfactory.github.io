@@ -434,13 +434,13 @@
 .awxjs__mapview .awxjs__map-container .awxjs__map {
   position: relative;
   width: 100%;
-  max-width: 90% !important;
+  max-width: 95% !important;
 }
 .awxjs__mapview .awxjs__map-container .awxjs__map img {
   top: 0;
   left: 0;
   max-width: 100% !important;
-  height: 90% !important;
+  height: 100% !important;
 }
 .awxjs__mapview .awxjs__map-container .awxjs__map .map-animated {
   position: absolute !important;
