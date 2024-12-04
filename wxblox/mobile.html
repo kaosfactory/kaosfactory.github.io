@@ -413,7 +413,7 @@ margin-left: 0px;
 	
 <div id="wxblox2"  style=" margin-top: 20px; margin-bottom: -0px;"></div>	
 
-	
+<div id="wxblox3"  style=" margin-top: 20px; margin-bottom: -0px;"></div>	
 	
 	
 	
@@ -691,8 +691,21 @@ var lat = (getParameter("lat"))
         }]
     }
 });
-view.load();
+
   
+
+
+    const view3 = new aeris.wxblox.views.NearbyObservations('#wxblox3', {
+
+    links: false
+
+	});
+
+
+
+
+
+
   
   
 (function (window, document, Aeris) {
@@ -788,6 +801,13 @@ var lat = (getParameter("lat"))
 	  //p: 'lake shore,md'
     });
 
+
+    view3.load({
+	//p:  81082
+		  p: 21122,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
 
  
 });
