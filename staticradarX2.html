@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="css/geosettings.css">
+  <link rel="stylesheet" type="text/css" href="css/geotext.css">
+  <link rel="stylesheet" type="text/css" href="css/geobuttons.css">
+
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+ 
+<link rel="shortcut icon" type="image/png" href="assets/logos/favicon.png"/>
+
+
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+	
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+  <title>Radar</title>
+
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100vh;
+        width: 100%;
+    }
+
+
+    #controls h3 {
+        margin: 0 0 0px;
+        font-size: 12px;
+    }
+    #controls a {
+        color: #333;
+        display: block;
+        margin: 0 0px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #controls a:hover {
+        text-decoration: underline;
+    }
+
+
+    #controls .time {
+        font-weight: normal;
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 50px;
+        right: 1px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        font-size: 12px;
+		font-weight: 600;
+		
+    }
+	
+	
+	
+    #controls .loader {
+        display: none;
+        height: 20px;
+
+    }
+    .loader .ring {
+        display: inline-block;
+        position: relative;
+
+
+        width: 20px;
+        height: 20px;
+    }
+    .loader .ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+
+	width: 18px;
+        height: 18px;
+        margin: 1px;
+        border: 2px solid #333;
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: #333 transparent transparent transparent;
+    }
+    .loader .ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+    .loader .ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+    .loader .ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+
+input[type="range" i] {
+    appearance: auto;
+    cursor: default;
+    color: light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+    padding: initial;
+    border: initial;
+    margin: 4px;
+	width: 155px;
+}
+
+
+
+	.btn-play {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+    }
+	.btn-pause {
+
+	  font-family: "Helvetica", "Arial", sans-serif;
+	  font-size: 11px;
+	  color:black;
+	  font-weight: 400;
+	}
+
+
+    #controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+
+    }
+	
+
+    #controls2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 8px;
+        position: absolute;
+        top: 6px;
+        left: 10px;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 6px;
+        border-radius: 5px;
+    }
+
+
+.mapboxgl-ctrl-geocoder--input {
+    font: inherit;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    height: 20px;
+
+
+    padding: 0px 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+
+.mapboxgl-ctrl-geocoder--icon-search {
+    position: absolute;
+    top: 13px;
+    left: 12px;
+    width: 0px;
+    height: 0px;
+}
+
+
+.mapboxgl-ctrl-geocoder {
+    font-size: 11px;
+	font-weight: bold;
+    line-height: 24px;
+    font-family: "Helvetica", "Arial", sans-serif;
+
+	font-weight: 400;
+    position: relative;
+    background-color: #EFEFEF;
+    width: 50%;
+    min-width: 200px;
+    z-index: 1;
+
+    transition: width .25s, min-width .25s;
+	border-radius: 5px;
+	border: 1.9px solid darkgrey;
+	
+}
+
+
+.mapboxgl-ctrl-geocoder--icon-close {
+    width: 13px;
+    height: 20px;
+    margin-top: -6px;
+    margin-right: -7px;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    float: right;
+    margin: 8px 8px 0 0;
+}
+
+
+    </style>
+
+
+</head>
+
+<body bgcolor="black">	
+
+    <div id="map"> 
+
+
+
+
+    </div>
+
+
+    <div id="controls2">
+	<button class="btn-play" onclick="location.href='wxblox/geo-mobile.html';">Home Page</button>
+        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR.html';">Radar Loop</button>
+        <button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR2.html';">NWS Alerts</button>		
+        <button class="btn-play" onclick="location.href='staticradarX2.html';">Reload</button>
+    </div>
+
+
+
+<script>
+
+
+
+
+
+
+      // set up API credentials
+      mapboxgl.accessToken = "pk.eyJ1IjoiYWNjdXdlYXRoZXItaW5jIiwiYSI6ImNqeGtxeDc4ZDAyY2czcnA0Ym9ubzh0MTAifQ.HjSuXwG2bI05yFYmc0c9lw";
+      const twcApiKey = "e1f10a1e78da46f5b10a1e78da96f525";
+
+      // set up a promise for The Weather Company product metadata
+      const timeSlices = fetch(
+        "https://api.weather.com/v3/TileServer/series/productSet/PPAcore?apiKey=" +
+          twcApiKey
+      );
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+} 
+  
+// Gets the value associated with the key "lng and lat" 
+console.log(getParameter("lng"))
+console.log(getParameter("lat"))
+console.log(getParameter("zm"))
+
+
+var lng = (getParameter("lng"))
+var lat = (getParameter("lat"))
+var zoom = (getParameter("zoom"))
+
+
+
+
+      // set up map
+      const map = new mapboxgl.Map({
+        container: "map", // container id
+        style:'mapbox://styles/accuweather-inc/cjknc24na2o5u2sqoy0t8ku8a',
+        center: [-76, 39], // starting position [lng, lat]
+        zoom: 9, // starting zoom
+		hash: true,
+      });
+
+
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+      });
+
+      map.addControl(geocoder);
+
+      // this function resolves the metadata promise,
+      // extracts the most recent publish time for radar data,
+      // and adds the radar layer to the map
+      const addRadarLayer = () => {
+        timeSlices
+          .then((res) => res.json())
+          .then((res) => {
+            const radarTimeSlices = res.seriesInfo.radar.series;
+            const latestTimeSlice = radarTimeSlices[0].ts;
+
+            // insert the latest time for radar into the source data URL
+            map.addSource("twcRadar", {
+              type: "raster",
+              tiles: [
+                "https://api.weather.com/v3/TileServer/tile/radar?ts=" +
+                  latestTimeSlice +
+                  "&xyz={x}:{y}:{z}&apiKey=" +
+                  twcApiKey,
+              ],
+              tileSize: 256,
+            });
+
+
+
+            // place the layer before the "aeroway-line" layer
+            map.addLayer(
+              {
+                id: "radar",
+                type: "raster",
+                source: "twcRadar",
+                paint: {
+                  "raster-opacity": 0.70,
+                },
+ 
+              },
+              "aeroway-line"
+
+            );
+          });
+      };
+
+      map.on("load", () => {
+        addRadarLayer();
+      });
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
