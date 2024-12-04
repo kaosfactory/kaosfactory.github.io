@@ -721,7 +721,7 @@ var lat = (getParameter("lat"))
         var search = new Aeris.wxblox.views.PlaceSearch(searchTarget, {});
         search.on('select', function (e) {
             var p = e.data.place;
-            var url = linkPrefix + '/kaos-wx.html?lat=';
+            var url = linkPrefix + '/geo-mobile.html?lat=';
             url += p.place.name.toLowerCase() + ',';
             if (p.place.state) {
                 url += p.place.state.toLowerCase() + ',';
