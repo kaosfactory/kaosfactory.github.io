@@ -198,7 +198,7 @@ margin-top: -70px !important;;
 margin-bottom: -0px !important; ;
 padding-left: 0px;
 
-        max-width: 21ch;
+        max-width: 20ch;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -425,10 +425,11 @@ margin-left: 0px;
 
 <div id="wxblox3"  style=" margin-top: 20px; margin-bottom: -0px;"></div>	
 	
+<div id="wxblox4"  style=" margin-top: 20px; margin-bottom: -0px;"></div>	
+
+<div id="wxblox5"  style=" margin-top: 20px; margin-bottom: -0px;"></div>		
 	
-	
-	
-	
+<div id="wxblox6"  style=" margin-top: 20px; margin-bottom: -0px;"></div>			
 
 
 
@@ -712,11 +713,14 @@ var lat = (getParameter("lat"))
 	});
 
 
+    const view4 = new aeris.wxblox.views.Almanac('#wxblox4');
 
+    const view5 = new aeris.wxblox.views.DayNightForecast('#wxblox5');
 
-
-
-  
+    const view6 = new aeris.wxblox.views.Forecast('#wxblox6', {
+ 
+	});
+	  
   
 (function (window, document, Aeris) {
 
@@ -818,6 +822,32 @@ var lat = (getParameter("lat"))
       //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
 	  //p: 'lake shore,md'
     });
+
+
+    view4.load({
+	//p:  81082
+		  p: lat,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
+
+    view5.load({
+	//p:  81082
+		  p: lat,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
+
+
+    view6.load({
+	//p:  81082
+		  p: lat,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
+
+
+
 
  
 });
