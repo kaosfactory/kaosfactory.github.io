@@ -1,208 +1,453 @@
+
 <!DOCTYPE html>
 <html>
+
+
+
+
+
+
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
+
+<script src="css/aeris-wxblox.js"></script>
+
+	<link href="wxblox_v2/styles.css" rel="stylesheet" type="text/css">
+
+
+
+<link href="wxblox_v2/leaflet.css" rel="stylesheet">
+<link href="wxblox_v2/aeris-wxblox.css" rel="stylesheet">
+<link href="wxblox_v2/aw-wxblox-site.css" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="wxblox_v2/aeris-wxblox.modules.common.css">
+<script charset="utf-8" src="wxblox_v2/aeris-wxblox.modules.common.js"></script>
+<script charset="utf-8" src="wxblox_v2/aeris-wxblox.apps.js"></script>
+
+
+
+
+
+
     <link href="ai-css/xweather-nimbus-chatbot-1.2.5.css" rel="stylesheet">
 
-	<meta name="viewport" content="width=device-width, user-scalable=no">
+
+
+	<style>
 	
 	
-<link href="wxblox_v3/styles.css" rel="stylesheet" />
-<link href="wxblox_v3/aeris-wxblox.css" rel="stylesheet" />
-<script src="wxblox_v3/aeris-wxblox.min.js"></script>
-	    <script src="css/onclick.js"></script>
-    <title>KAOS WX</title>
+	
+	
+	
+	
+	
+/*.wx-content .nav-main ul li a {*/
+/*    height: auto;*/
+/*}*/
+/*.wx-content .nav-secondary ul li a {*/
+/*    height: auto;*/
+/*    padding-top:15px;*/
+/*}*/
+
+/*.awxb-view.awxb-view .local-header {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+.aw-ai-summary {
+    min-height: 50px;
+    white-space: pre-wrap;
+    font-size: .75em;
+
+    background-color: #ebf8ff;
+    padding: 10px 10px 5px;
+
+}
+
+
+.loader {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+    text-align: center;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.xw-ai-chatbot {
+    margin-bottom: 5px;
+    background-color: #ebf8ff;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
+#chatbotTrigger {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s;
+
+
+}
+
+#chatbotTrigger:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+	
+}
+
+#chatbotTrigger:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.5); /* Accessibility focus ring */
+}
+
+#chatbot {
+    position: fixed;
+    left: 50%;  /* Center horizontally */
+    top: 50%;   /* Center vertically */
+    transform: translate(-50%, -50%); /* Shift the modal back by half its width and height */
+
+    width: 100vw;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+
+    max-width: 800px;
+    max-height: 90%;
+    margin: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 10000;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: block;
+    text-align: left;
+}
+
+#chatbot.chatbot-hide {
+    display: none;
+}
+
+#nimbus-chatbot {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.chatbot-title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    cursor: move; /* Cursor indicates that this area is draggable */
+}
+
+.chatbot-content {
+    padding: 10px;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 20px;
+}
+	
+	
+	
+	
+.nimbus-settings-modal-content {
+        min-width: 80%;
+    }
+    form.nimbus-form {
+        padding: 5px;
+    }
+    form.nimbus-form textarea {
+        font-size: 14px;
+    }
+	
+	
+	
+	
+.title{
+font-size: 25px !important;
+margin-top: -70px !important;;
+margin-bottom: -0px !important; ;
+padding-left: 0px;
+
+
+}	
+	
+.meta{
+visibility: hidden;
+
+
+}	
+	
 
 
 
-
-<style>
 
 
 	
-</style>
-
-
-
-
-</head>
-
-<body>
-
-
-
-  <img src="/assets/logos/wxapp3.png"  class="overlay2" width="33" height="33" />
-  
-  
-  
-<div class="content3"></div>
-<div class="footer2"></div>
-
-
-
-
-
-
-
-    
-  </div>
-</li>
-
-
-
-<div id="wxblox-search1"></div>
-<hr class="header"></hr>
-
-
-
-
-
-
-	<section role="content" >
-	    <div class="row"  ></div>
- 	       <div class="awxb-view"  style="min-width: 100%;">
-		 <section class="local"  ><div class="row local-header">
-
-					<ul class="info" ><li><ul class="nav" >
-					
-					
-					
-					
-					
-					
-
-									 
-									<li><a href="/desktopX1.html" style= "margin-left: -21px;"
-									  target="popup1" 
-									  onclick="window.open('/desktopX1.html','popup1','width=914,height=514'); return false;">IntelliSTAR
-									</a></li>	
-									 
-	 
-									 <li class="selected"><a href="/wxblox/geo.html"  >Forecast</a></li>
-									 <li><a onclick="location1();">Calendar</a></li>
-									 <li><a onclick="location0();">Forecast Map</a></li>
-
-									 
-									<li><a href="/WX_APP_standalone.html" 
-									  target="popup2" 
-									  onclick="window.open('/WX_APP_standalone.html','popup2','width=1356,height=758'); return false;">MapsGL
-									</a></li>											 
-									 
-									 
-									 
-									 
-									 
-									 
-									 
-									 
-									 <li><a onclick="location6();">Global Map</a></li>
-									 
-									 
-									 
-									 									 
-									 
-									 
-									<li><a href="/nwsalerts.html" 
-									  target="popup3" 
-									  onclick="window.open('/nwsalerts.html','popup3','width=1356,height=758'); return false;">NWS Map
-									</a></li>										 
 	
-									<li><a href="/wxblox/chatbot.htm" 
-									  target="popup4" 
-									  onclick="window.open('/wxblox/chatbot.htm','popup4','width=1356,height=758'); return false;">WX Stations
-									</a></li>		
+.block {
+			padding: 0;
+		}
+		
+		
+		
 
-
-									<li><a href="/wxblox/nimbus.html" 
-									  target="popup5" 
-									  onclick="window.open('/wxblox/nimbus.html','popup5','width=440,height=628'); return false;">AI Chatbot
-									</a></li>								
-
-
-
-									 <li><a onclick="location2();">Air Quality</a></li>
-
-									 <li><a onclick="location7();">Tropical</a></li></ul></li></ul>
-				
-
-		</div>
-	</div>
 	
-</div>
+		
+.awxb-credit {
+    border-top: 0px solid #ddd !important;
+    color: #aaa;
+    font-size: 0px !important;
+    margin: 20px 15px 30px;
+    padding-top: 5px;
+}		
+		
+		
+		
+		
+#wxblox-search1 {
+
+
+z-index: 1000000;
+margin-bottom: 56px;
+margin-top: -45px;
+margin-left: 0px;
+
+}		
+
+
+.awxb-view.awxb-view .awxb-view-push-top, .awxb-component.awxb-component .awxb-view-push-top {
+    padding-top: 0px !important;
+}
 
 
 
-<!-- Step 2: Create a DOM target where the WeatherBlox view will be rendered -->
-
-
-</div>
-
-    <div class="container" >  
-
-		<div id="wxblox" class="box overlay" style="margin-left: 18px; margin-bottom: 0px;"></div>
-		<div class="box awxb-view-outlook" style="margin-bottom: 5px; margin-top: 365px; margin-left: 35px; max-width: 635px;"></div>
-		<div class="loader" id="loader" style="display: none;"></div>
-	</div>
-
-
-	<div id="wxblox5" style="margin-bottom: 0px; margin-left: 5px; max-width: 1187px;"></div> 
-	
-	<div id="wxblox2a" class="alerts" style="max-width: 1192px; margin-bottom: 40px; margin-top: 0px; margin-left: 4px; width: 100%;"></div> 	
+.awxb-view.awxb-view .awxb-credit, .awxb-component.awxb-component .awxb-credit {
+    border-top: 0px solid #ddd;
+    color: #aaa;
+    font-size: 0px;
+    margin: 0px 0px -60px;
+    padding-top: 0px;
+}
 
 
 
 		
-		<div id="wxblox2" style="margin-bottom: 60px; margin-left: 5px; width: 100%;"></div> 	
+	</style>
+
+
+ </head>  
+
+
+
+
+		<button type="button" class="btn-menu" >
+			<span class="sr-only">Toggle navigation</span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</div>
 
 
 
 
 
-
-		<div style="width: 100%; display: table;">
-	
-			<div style="display: table-row">
-			<div id="wxblox1" style="display: table-cell; padding-right: 25px; padding-left: 5px; padding-bottom: 45px; "></div>	
-			<div id="wxblox0" style="width: 480px; display: table-cell; padding-bottom: 45px;"></div>
+	<section role="content">
+		<div class="container"  style= "margin-top: 10px;">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						    <!-- start Hosted Weather Site content -->
+    <div class="row wx-header">
+    <div class="col-sm-6">
+        <div id="wxblox-search1">
+		<div class="awxb-search">
 			
+		<svg height="0" width="0" style="position:absolute;margin-left:-100%;">
+			<title>Search</title>
+			<g id="icon-search">
+				<path d="M39.8850575,38.3908046 C39.8845187,37.9481561 39.7235991,37.5650144 39.4022989,37.2413793 L27.5862069,25.3333333 C29.8855364,22.5814775 31.0349617,19.347761 31.0344828,15.6321839 C31.0344229,11.3716475 29.5248443,7.73180077 26.5057471,4.71264368 C23.5181394,1.72509579 19.8936183,0.230842912 15.6321839,0.229885057 C11.371887,0.231441571 7.73204023,1.72569444 4.71264368,4.71264368 C1.72569444,7.73204023 0.231441571,11.371887 0.229885057,15.6321839 C0.230842912,19.8936183 1.72509579,23.5181394 4.71264368,26.5057471 C7.73180077,29.5248443 11.3716475,31.0344229 15.6321839,31.0344828 C19.3430316,31.0349617 22.5690852,29.8931992 25.3103448,27.6091954 L37.1264368,39.5172414 C37.4500718,39.8389607 37.8332136,39.9998803 38.2758621,40 C38.71875,40.0004191 39.0942289,39.8394995 39.4022989,39.5172414 C39.7242577,39.2099497 39.8851772,38.8344708 39.8850575,38.3908046 L39.8850575,38.3908046 Z M24.2298851,6.98850575 C26.6206897,9.37925048 27.816092,12.2604765 27.816092,15.6321839 C27.8154334,18.9887452 26.6353568,21.8469828 24.2758621,24.2068966 L24.2068966,24.2758621 C21.8470426,26.6353568 18.9888051,27.8154334 15.6321839,27.816092 C12.2604765,27.816092 9.37925048,26.6206897 6.98850575,24.2298851 C4.62733477,21.8687739 3.44725814,19.0028736 3.44827586,15.6321839 C3.44665948,12.2602371 4.62673611,9.37901102 6.98850575,6.98850575 C9.37901102,4.62673611 12.2602371,3.44665948 15.6321839,3.44827586 C19.0028736,3.44725814 21.8687739,4.62733477 24.2298851,6.98850575 L24.2298851,6.98850575 Z" id="Shape"></path>
+			</g>
+		</svg>
+	
+			<div class="search-form">
+
+					
+				
+				</form>
+			</div>
+			<div class="search-results" style="display: none;">
+				<ul></ul>
 			</div>
 		</div>
+	</div></div>
+    </div>
+    <div class="col-sm-6">
+            </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			<div class="awxb-view" >
+					
+
+			<section role="awxb-view-content"><div class="container-fluid">
+					<section class="local"><div class="row local-header">
+			<div class="col-sm-12">
+			
+			
+			
+			
+			
+			
+				<ul class="info" >
+				<li</li><li><ul id="nav" style=" position: absolute; margin-top: -20px; margin-bottom: -10px;" class="nav"><li class="selected"><a href="https://www.aerisweather.com/weather/local/us/md/annapolis">Forecast</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/forecast/2024/11/29">Hourly</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/advisories">Advisories</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/history/2024/11/29">Today</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/history/2024/11">History</a></li><li><a href="https://www.aerisweather.com/weather/local/us/md/annapolis/calendar/2024/11">Calendar</a></li><li>
+
+
+				<a href="https://www.aerisweather.com/weather/local/us/md/annapolis/airquality">Air Quality</a></li></ul></li>
+				</ul>
+				
+				
+				<div id="border"  style=" margin-top: 0px; margin-bottom: -10px; border-bottom: 4px solid #17a8e1;"></div>
+				
+				<div id="wxblox"  style=" margin-top: 20px; margin-bottom: -0px;"></div>				
+
+				
+
 
 
 	
+				</div>
+				</div>
 
 
-<div id="wxblox3" style="margin-bottom: 60px; margin-left: 5px;"></div>
 
 
 
-<div id="wxblox3a" style="margin-bottom: 60px; margin-left: 5px;"></div> 
 
-<div id="wxblox4" style="margin-bottom: 60px; margin-left: 5px;"></div> 
+
+
+
+								<div class="awxb-view-outlook" style="margin-top: -0px; margin-bottom: 0px;">
+								<div class="awxb-view"><h5 class="block-title">AI Weather Summary (Beta)</h5><div class="aw-ai-summary">
+								<div class="loader" id="loader" style="display: none;"></div></div>
+								<div class="xw-ai-chatbot">
+								<button id="chatbotTrigger" >AI Weather Chat</button>
+								<div id="chatbot" class="chatbot-hide">
+								</div>
+								</div></div></div>
+
+
+
+
 
 
 
 	
-<div class="content2"></div>
-<div class="footer"></div>
+	
+
+
+	
+	
+	
+	
+	
+	
 
 
 
+
+
+
+
+
+</section>
 
 
 <script>
  
 // Step 3: Within a <script> tag block, configure the AerisWeather client with your Weather API access keys and custom options
 const aeris = new AerisWeather('wgE96YE3scTQLKjnqiMsv', 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY');
-
  
 // Step 4: Set up an event handler to be notified when the WeatherBlox library has fully loaded and initialized:
 aeris.on('ready', () => {
+ 
+    // Step 5: Within your "ready" event handler, setup your desired components:
+
+
+
+getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
 
  
-// Step 5: Within your "ready" event handler, setup your desired components:
+ 
+ 
+
+var lat = (getParameter("lat"))
+
+
+
 
 
   const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
@@ -246,7 +491,35 @@ aeris.on('ready', () => {
 
     maps: {
 
+	enabled: true,
 
+
+
+    legend: {
+		
+        size: {
+            width: 500,
+            height: 40,
+        },
+		
+        enabled: true,
+    },
+
+
+
+
+			map: {
+
+
+					size: {
+
+							width: 50,
+							height: 250,
+
+					},
+
+
+			},
 	
       animation: {
         enabled: true,
@@ -338,6 +611,11 @@ aeris.on('ready', () => {
   });
   
   
+  
+  
+  
+  
+  
 (function (window, document, Aeris) {
 
     var $ = Aeris.utils.$;
@@ -374,58 +652,14 @@ aeris.on('ready', () => {
 
 
 
-}(window, document, aeris));  
+}(window, document, aeris));   
   
   
   
-
-
-    const view0 = new aeris.wxblox.views.Almanac('#wxblox0');
-
-
-    const view1 = new aeris.wxblox.views.NearbyObservations('#wxblox1', {
-
-    links: false
-
-	});
-
-
-
-    const view2 = new aeris.wxblox.views.DayNightForecast('#wxblox2');
-	
-	const view2a = new aeris.wxblox.views.Advisories('#wxblox2a', {
-		modal: true,
-		//fullDetails: true,
-		//renderNoData: true,
-		enabled: true,
-	});
-
-
-    const view3 = new aeris.wxblox.views.Forecast('#wxblox3', {
- 
-	});
-	
-	
-	const view3a = new aeris.wxblox.views.Forecast('#wxblox3a', {
-    type: 'hourly'
-	});
-	
-
-	const view4 = new aeris.wxblox.views.ArchiveObservations('#wxblox4', {
-
-		 range: {
-		 
-                 from: 'today'
-				  
-                }
-
-	});
-	
-	const view5 = new aeris.wxblox.views.Threats('#wxblox5');
-
-
- 
-getParameter = (key) => { 
+  
+  
+  
+ getParameter = (key) => { 
   
     // Address of the current window 
     address = window.location.search 
@@ -442,56 +676,24 @@ getParameter = (key) => {
 
 console.log(getParameter("lat"))
 
-var lat = (getParameter("lat"))
-
-
- 
-	view5.load({
-		 p: lat,
-	});
-
-	view4.load({
-		 p: lat,
-	});
-	
-    view3.load({
-		 p: lat,
-		 limit: 24
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-    });
-
-    view3a.load({
-		 p: lat,
-		 limit: 24
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-    });
-	
-    view2.load({
-		  p: lat,
-		  limit: 3
-	  //p: 'lake shore,md'
-    });
-
-	view2a.load({
-		  p: lat,
-	});
-
-    view1.load({
-		  p: lat,
-	links: false
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-	  //p: 'lake shore,md'
-    });
-
-    view0.load({
-		  p: lat,
-      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
-	  //p: 'lake shore,md'
-    });
-
-
-
-
+var lat = (getParameter("lat")) 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     view.load({
 	//p:  81082
 		  p: 21122,
@@ -500,19 +702,65 @@ var lat = (getParameter("lat"))
     });
 
 
-	 //window.location.href = "https://api.weatherphrase.com/stream/summary/" + pos.coords.latitude + "," + pos.coords.longitude + "?client_id=wgE96YE3scTQLKjnqiMsv&client_secret=SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY&metric=false&limit=3"; 
 
 
 
  
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
- 
-  //window.location.href = "https://api.weatherphrase.com/stream/summary/" + pos.coords.latitude + "," + pos.coords.longitude + "?client_id=wgE96YE3scTQLKjnqiMsv&client_secret=SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY&metric=false&limit=3"; 
- 
- 
- 
- 
+</script>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 	<div id="myP" class="awxb-view" data-name="" data-lat="No location selected" data-lon=" please enter your location."></div>
@@ -543,7 +791,18 @@ var lat = (getParameter("lat"))
 <script src="city,state/aw-wxblox-search.js" type="text/javascript"></script>
 
 
-		
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
