@@ -406,12 +406,154 @@ var lat = (getParameter("lat"))
 
 
 
-const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
-    request: {
-        p: 21122,
+  const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
+    obs: {
+      advisories: {
+        enabled: false
+      },
+      threats: {
+        enabled: false
+      }
+    },
+    nearby: {
+	enabled: false,
+	links: false
+    },
+	
+	outlook:{
+
+	enabled: false,
+	
+	},
+	
+    shortterm: {
+
+	enabled: false
+	
+    },
+	
+	
+    forecast: {
+	enabled: false
+	
+    },
+
+    almanac: {
+	
+	enabled: false
+	
+    },
+
+
+    maps: {
+
+			map: {
+
+
+					size: {
+
+							width: 500,
+							height: 200
+
+					},
+
+
+			},
+	
+      animation: {
+        enabled: true,
+        autoplay: true,
+        alwaysShowPast: false,
+        alwaysShowFuture: false,
+        //from: -2,
+        //to: 0,
+        duration: 2,
+        endDelay: 1,
+        intervals: 10,
+
+      },
+	  
+	  
+      controls: {
+			layers: [
+													
+												
+						{
+						  value: "radar",
+						  title: "Radar",
+						  
+					  
+						},
+
+						{
+						  value: "satellite",
+						  title: "Satellite"
+						},
+
+						{
+						  value: "alerts",
+						  title: "Advisories"
+						}, 
+						
+						{
+						  value: "temperatures",
+						  title: "Temps"
+						},
+						
+						{
+						  value: "surface-analysis",
+						  title: "Surface"
+						},		
+						
+						
+						
+						{
+						  value: "stormcells",
+						  title: "Storm Cells"
+						},
+
+
+						{
+						  value: "stormreports",
+						  title: "Storm Reports"
+						},
+
+						{
+						  value: "snow-depth",
+						  title: "Snow"
+						},		
+			
+					],
+		
+		
+		
+			regions: [
+			
+			{
+			  zoom: 5,
+			  title: "Regional"
+			}, 
+			
+			
+			{
+			  zoom: 7,
+			  title: "Local"
+			},
+			
+			
+			]
+		}
+		
+		
     }
-});
-view.load();
+	
+  });
+    view.load({
+	//p:  81082
+		  p: 21122,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
 
 
 
