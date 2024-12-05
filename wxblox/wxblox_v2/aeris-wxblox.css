@@ -956,6 +956,8 @@
 }
 .awxjs__app__ui-panel-legends .awxjs__legend-view .awxjs__legend {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  
+  
 }
 .awxjs__app__ui-panel-legends .awxjs__legend {
   padding: 6px 0 0;
@@ -2181,7 +2183,7 @@
 .awxb-component.awxb-component ul ul,
 .awxb-component.awxb-component ol ul,
 .awxb-component.awxb-component ul ol {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 .awxb-view.awxb-view dt,
 .awxb-component.awxb-component dt {
@@ -12056,7 +12058,7 @@
 .awxb-component.awxb-component .local-header ul.nav > li.selected > a:before {
   visibility: visible;
 }
-@media (max-width: 1768px) {
+@media (max-width: 2000px) {
   .awxb-view.awxb-view .local-header ul.info > li,
   .awxb-component.awxb-component .local-header ul.info > li {
     display: block;
