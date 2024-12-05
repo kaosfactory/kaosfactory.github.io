@@ -6,6 +6,16 @@ function wxapp() {
 
 }
 
+function wxapp2() {
+
+
+  
+  window.parent.location.href= '/wxblox/geo-mobile.html';
+
+}
+
+
+
 
 function airports() {
 
