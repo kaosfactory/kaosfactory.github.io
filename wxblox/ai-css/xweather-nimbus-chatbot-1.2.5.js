@@ -16834,7 +16834,7 @@
                     },
                     chatSettings: {
                         defaultLocation: null,
-                        useLastLocation: !0
+                        useLastLocation: !1
                     },
                     lastLocation: "",
                     suggestionBubbleOptions: {
@@ -18036,7 +18036,7 @@
                         const t = this.loadFromStorage(P);
                         t && j.isValidLocation(t) && (this.state.chatSettings.defaultLocation = t);
                         const n = this.loadFromStorage(k);
-                        null === n || "true" === n ? this.state.chatSettings.useLastLocation = !0 : "false" === n && (this.state.chatSettings.useLastLocation = !1)
+                        null === n || "true" === n ? this.state.chatSettings.useLastLocation = !1 : "false" === n && (this.state.chatSettings.useLastLocation = !1)
                     }
                     saveSettingsToState(e, t, n, a = "en") {
                         this.state.chatSettings.defaultLocation = e,
