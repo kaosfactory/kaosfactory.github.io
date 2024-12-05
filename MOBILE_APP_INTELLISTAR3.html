@@ -8,10 +8,6 @@
   <link rel="stylesheet" type="text/css" href="css/geosettings.css">
   <link rel="stylesheet" type="text/css" href="css/geotext.css">
   <link rel="stylesheet" type="text/css" href="css/geobuttons.css">
-  <script src="js/StaticConfig.js"></script>
-  <script src="js/StaticMainScript.js"></script>
-  <script src="js/MobileApp2.js"></script>
-  <script src="js/StaticConditions.js"></script>
 
 
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet" />
@@ -69,6 +65,36 @@
         border-radius: 5px;
     }
 
+.trimblemaps-ctrl-top-right {
+    top: -13px;
+    right: 0;
+}
+
+
+
+
+.trimblemaps-ctrl-accordion-header {
+    cursor: pointer;
+    padding: 6px 10px;
+    min-width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .4s;
+    background-color: #EFEFEF;
+}
+
+
+.trimblemaps-map {
+    container-name: trimble-maps;
+    container-type: size;
+    font: 12px / 20px Helvetica Neue, Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
     </style>
 
@@ -77,29 +103,42 @@
 	
 <body bgcolor="black">
 
+    <div id="map"> 
 
+
+
+    </div>
 
 <script>
 
-function loop() {
+            TrimbleMaps.APIKey = '17CA0885B03A6B4FADBDC3D1A51DC0BD';
+            const map = new TrimbleMaps.Map({
+                container: 'map', // container id
+                style: TrimbleMaps.Common.Style.BASIC, // hosted style id
+                center: [-96.33207, 37.40621], // starting position
+                zoom: 2 // starting zoom
+            });
+            const ctrlClick = new TrimbleMaps.WeatherAlertClickControl();
+            map.addControl(ctrlClick);
 
-  localStorage.setItem('loop', 'y');
-  CONFIG.loop = true;
 
-}
 
-loop();
+            const ctrlFilter = new TrimbleMaps.WeatherAlertFilterControl();
+            map.addControl(ctrlFilter, 'top-right');
+			
+			
+            map.on('load', function() {
+                map.setWeatherAlertVisibility(true);
+				map.setWeatherRadarVisibility(true);
+            });
+
 
 </script>
 
 
 
 
-    <div id="map"> 
 
-
-
-    </div>
 
 
     </div>
@@ -107,8 +146,8 @@ loop();
 
     <div id="controls2">
 		<button class="btn-play" onclick="location.href='wxblox/geo-mobile.html';">Home Page</button>
-		<button class="btn-play" onclick="location.href='staticradarX2.html';">TWC Radar</button>
-        	<button class="btn-play" onclick="location.href='MOBILE_APP2.html';">Radar Loop</button>
+		<button class="btn-play" onclick="location.href='wxblox/geo-mobile2.html';">TWC Radar</button>
+        	<button class="btn-play" onclick="location.href=wxblox/geo-mobile3.html';">Radar Loop</button>
         	<button class="btn-play" onclick="location.href='MOBILE_APP_INTELLISTAR3.html';">Reload</button>	
 
 
@@ -119,63 +158,7 @@ loop();
 
 
  
-  <div id="render-frame">
-    <div id="background-image" class="below-screen">  
-    </div>
-      <div id="infobar-container">
-      <div  class="infobar-item-container">
-        <div id="infobar-time-text"  ></div>
-      </div>
-    </div>
-      <div id="timeline">
-    </div>
-    <!-- Alert message -->
-    <div  class="regular-text"></div>
-  </div>
-
-  <!-- Settings Prompt -->
-
-  <div id="settings-container" style="display: none;">
-    <div id="settings-prompt">
-      <table style="width:350px">
-        <tbody>
-        
-          <!-- Locations won't be added programatically -->
-
-<img src="assets\logos\NWS.jpg" alt="NWS" width="350" height="38" onclick="nws();">
-
-          <tr>
-            <td style="text-align: left;">
-              <input type="radio" id="airport-code-button" name='location-type' checked="false"/>
-              <label for="airport-code-button" class="strong-text settings-item settings-text settings-padded">Airport</label>
-            </td>
-            <td colspan="2">
-              <input type="text" id="airport-code-text" style="font-size: 20px; width:180px" 
-              placeholder="BWI or KBWI" class="settings-item settings-text settings-input"/>
-            </td>
-          </tr>
-
-          <tr>
-            <td style="text-align: left;">
-              <input type="radio" id="zip-code-button" name='location-type' checked="true"/>
-              <label for="zip-code-button" class="strong-text settings-item settings-text settings-padded">Postal</label>
-            </td>
-            <td>
-              <input type="text" id="zip-code-text" style="font-size: 20px; width:100px" 
-              placeholder="00000" class="settings-item settings-text settings-input"/>
-            </td>
-            <td>
-              <input type="text" id="country-code-text" style="font-size: 20px; width:50px;" 
-              placeholder="US" value="US" maxlength="2" class="settings-item settings-text settings-input"/>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-      <div id="advanced-settings-options" class="settings-container hidden"></div>
  
-    </div>
-  </div>
 
 </body>
 
