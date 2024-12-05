@@ -12,6 +12,21 @@
  
     <link href="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.css" rel="stylesheet" />
     <script defer src="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.js"></script>
+	
+	
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+	
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+	
+	
+	
+	
+	
+	
 
 	<link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
 	<title>KAOS WX MOBILE</title>
@@ -170,6 +185,66 @@ input[type="range" i] {
         border-radius: 5px;
     }
 
+.mapboxgl-ctrl-geocoder--input {
+    font: inherit;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    height: 20px;
+
+
+    padding: 0px 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+
+.mapboxgl-ctrl-geocoder--icon-search {
+    position: absolute;
+    top: 13px;
+    left: 12px;
+    width: 0px;
+    height: 0px;
+}
+
+
+.mapboxgl-ctrl-geocoder {
+    font-size: 11px;
+	font-weight: bold;
+    line-height: 24px;
+    font-family: "Helvetica", "Arial", sans-serif;
+
+	font-weight: 400;
+    position: relative;
+    background-color: #EFEFEF;
+    width: 50%;
+    min-width: 200px;
+    z-index: 1;
+
+    transition: width .25s, min-width .25s;
+	border-radius: 5px;
+	border: 1.9px solid darkgrey;
+	
+}
+
+
+.mapboxgl-ctrl-geocoder--icon-close {
+    width: 13px;
+    height: 20px;
+    margin-top: -6px;
+    margin-right: -7px;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    float: right;
+    margin: 8px 8px 0 0;
+}
+
+
+
 
     </style>
  
@@ -244,8 +319,20 @@ var lat = (getParameter("lat"))
             center: [-96.33207, 37.40621],
             zoom: 3,
 	    hash: true
-			
+
+	
         });
+		
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+      });
+
+      map.addControl(geocoder);		
+		
+		
+		
+		
 
 			// disable map rotation using right click + drag
 			map.dragRotate.disable();
