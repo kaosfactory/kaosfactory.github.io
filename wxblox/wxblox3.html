@@ -15,7 +15,7 @@
 
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
 
 <script src="css/aeris-wxblox.js"></script>
 
@@ -31,6 +31,15 @@
 <link rel="stylesheet" type="text/css" href="wxblox_v2/aeris-wxblox.modules.common.css">
 <script charset="utf-8" src="wxblox_v2/aeris-wxblox.modules.common.js"></script>
 <script charset="utf-8" src="wxblox_v2/aeris-wxblox.apps.js"></script>
+
+
+
+
+
+
+    <link href="ai-css/xweather-nimbus-chatbot-1.2.5.css" rel="stylesheet">
+
+
 
 	<style>
 	
@@ -100,10 +109,13 @@
     cursor: pointer;
     font-size: 13px;
     transition: background-color 0.3s;
+
+
 }
 
 #chatbotTrigger:hover {
     background-color: #0056b3; /* Darker blue on hover */
+	
 }
 
 #chatbotTrigger:focus {
@@ -211,16 +223,44 @@ visibility: hidden;
 
 	
 		
+.awxb-credit {
+    border-top: 0px solid #ddd !important;
+    color: #aaa;
+    font-size: 0px !important;
+    margin: 20px 15px 30px;
+    padding-top: 5px;
+}		
 		
 		
 		
 		
-		
-		
-		
-		
-		
-		
+#wxblox-search1 {
+
+
+z-index: 1000000;
+margin-bottom: 56px;
+margin-top: -45px;
+margin-left: 0px;
+
+}		
+
+
+.awxb-view.awxb-view .awxb-view-push-top, .awxb-component.awxb-component .awxb-view-push-top {
+    padding-top: 0px !important;
+}
+
+
+
+.awxb-view.awxb-view .awxb-credit, .awxb-component.awxb-component .awxb-credit {
+    border-top: 0px solid #ddd;
+    color: #aaa;
+    font-size: 0px;
+    margin: 0px 0px -60px;
+    padding-top: 0px;
+}
+
+
+	
 		
 		
 	</style>
@@ -251,7 +291,7 @@ visibility: hidden;
 						    <!-- start Hosted Weather Site content -->
     <div class="row wx-header">
     <div class="col-sm-6">
-        <div id="wxblox-search">
+        <div id="wxblox-search1">
 		<div class="awxb-search">
 			
 		<svg height="0" width="0" style="position:absolute;margin-left:-100%;">
@@ -315,12 +355,17 @@ visibility: hidden;
 				</ul>
 				
 				
-<div id="wxblox2"  style=" margin-top: 0px; margin-bottom: -10px; border-bottom: 4px solid #17a8e1;"></div>		
-	<div id="wxblox"  style=" margin-top: 20px;"></div>				
+				<div id="border"  style=" margin-top: 0px; margin-bottom: -10px; border-bottom: 4px solid #17a8e1;"></div>
+				
+				<div id="wxblox"  style=" margin-top: 20px; margin-bottom: -0px;"></div>				
+
+				
+
+
 
 	
-			</div>
-		</div>
+				</div>
+				</div>
 
 
 
@@ -329,15 +374,15 @@ visibility: hidden;
 
 
 
-								<div class="awxb-view-outlook">
+
+								<div class="awxb-view-outlook" style="margin-top: -0px; margin-bottom: 0px;">
 								<div class="awxb-view"><h5 class="block-title">AI Weather Summary (Beta)</h5><div class="aw-ai-summary">
 								<div class="loader" id="loader" style="display: none;"></div></div>
 								<div class="xw-ai-chatbot">
-								<button id="chatbotTrigger">AI Weather Chat</button>
+								<button id="chatbotTrigger" >AI Weather Chat</button>
 								<div id="chatbot" class="chatbot-hide">
 								</div>
 								</div></div></div>
-
 
 
 
@@ -447,6 +492,8 @@ var lat = (getParameter("lat"))
 
     maps: {
 
+	enabled: true,
+
 			map: {
 
 
@@ -548,6 +595,91 @@ var lat = (getParameter("lat"))
     }
 	
   });
+  
+  
+  
+  
+  
+  
+  
+(function (window, document, Aeris) {
+
+    var $ = Aeris.utils.$;
+
+
+
+
+    // add a search bloc
+    var searchTarget = $('#wxblox-search1');
+    if (searchTarget.length > 0) {
+        var search = new Aeris.wxblox.views.PlaceSearch(searchTarget, {});
+        search.on('select', function (e) {
+            var p = e.data.place;
+            var url = linkPrefix + '/kaos-wx.html?lat=';
+            url += p.place.name.toLowerCase() + ',';
+            if (p.place.state) {
+                url += p.place.state.toLowerCase() + ',';
+            }
+            url += p.place.country.toLowerCase();
+
+            window.location.href = url;
+        });
+
+
+        $('#wxblox-search form').on('submit', function (e) {
+            e.preventDefault();
+            return false;
+        });
+
+
+    }
+
+
+
+
+
+}(window, document, aeris));   
+  
+  
+  
+  
+  
+  
+ getParameter = (key) => { 
+  
+    // Address of the current window 
+    address = window.location.search 
+  
+    // Returns a URLSearchParams object instance 
+    parameterList = new URLSearchParams(address) 
+  
+    // Returning the respected value associated 
+    // with the provided key 
+    return parameterList.get(key) 
+}  
+ 
+ 
+
+console.log(getParameter("lat"))
+
+var lat = (getParameter("lat")) 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     view.load({
 	//p:  81082
 		  p: 21122,
@@ -568,19 +700,6 @@ var lat = (getParameter("lat"))
 
 
 
-        const myChatBot = new Nimbus.ChatBot("chatbot", {
-            streamKey  : appKeys.nimbus,
-            streamUrl  : 'https://nimbus.weatherphrase.com/chatbot/weather',
-            feedbackUrl: 'https://nimbus.weatherphrase.com/chatbot/weather/feedback',
-            showMinimizeIcon: true,
-            icons: {
-                minimize: '<svg height="24px"   viewBox="0 0 512 512" width="24px" fill="currentColor"><path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"/></svg>',
-            },
-            chatSettings: {
-                defaultLocation: useLocation,
-            },
-            lastLocation: useLocation
-        });
 
 
 
@@ -628,6 +747,34 @@ var lat = (getParameter("lat"))
 
 
 
+</script>
+
+	<div id="myP" class="awxb-view" data-name="" data-lat="No location selected" data-lon=" please enter your location."></div>
+
+
+	<script charset="utf-8" src="ai-css/aeris-wxblox.modules.common.js"></script>
+	<script src="ai-css/keys.js" type="text/javascript"></script>
+	<script src="ai-css/xweather-nimbus-chatbot-1.2.5.js" type="text/javascript"></script>
+	<script src="ai-css/fetch-stream-response.js" type="text/javascript"></script>
+	<script  src="ai-css/local-wx-ai-summary-2.4.2.js" type="text/javascript"></script>
+
+
+<script>
+
+
+		var _wxbloxIsServer = true;
+		var _wxbloxAccess = {
+			id: 'wgE96YE3scTQLKjnqiMsv',
+			secret: 'SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY'
+		};
+		
+
+		
+</script>
+
+<script> var linkPrefix = '/wxblox'; </script>
+
+<script src="city,state/aw-wxblox-search.js" type="text/javascript"></script>
 
 
 
