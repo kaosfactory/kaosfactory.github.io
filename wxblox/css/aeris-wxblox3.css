@@ -10125,7 +10125,7 @@
 	visibility: visible
 }
 
-@media(max-width: 768px) {
+@media(max-width: 8px) {
 	.awxb-view.awxb-view .local-header ul.info>li,.awxb-component.awxb-component .local-header ul.info>li {
 		display: block
 	}
@@ -12213,7 +12213,7 @@
 	line-height: inherit
 }
 
-@media(max-width: 768px) {
+@media(max-width: 8px) {
 	.awxb-view.awxb-view .map-controls .btn-nav,.awxb-component.awxb-component .map-controls .btn-nav {
 		float: none
 	}
