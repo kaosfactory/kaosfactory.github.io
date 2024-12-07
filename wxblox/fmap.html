@@ -26,21 +26,31 @@
 
 body {
   font-family: Arial;
-  min-width: 1050px;
-  max-width: 1050px;
+  min-width: 1200px;
+  max-width: 1200px;
   margin: auto;
-
-  background-image: url("3.png");
+margin-top: -30px;
+  background-image: url("7.png");
   background-size:contain;
   background-position:center;
 
+
+
+
+
+
 }
+
 html
 {
-   min-width: 1500px;
+
+  scroll-behavior: smooth;
+
+
+   min-width: 1275px;
    width: 100%;
-   
 }
+
 
 
 
@@ -124,9 +134,9 @@ li:hover {
 hr.new1 {
   border: 2px solid #17a8e1;
   margin-top: 81px;
-  max-width: 1200px;
-  margin-left: -11px;
-  margin-bottom: -65px;
+  max-width: 1060px;
+  margin-left: 66px;
+  margin-bottom: -68px;
 }
 
 
@@ -135,7 +145,7 @@ hr.new1 {
   width: 1060px;
   height: 1335px;
   position: relative;
-  margin: -26px;
+  margin-left: 50px;
 
   
   
@@ -183,28 +193,32 @@ margin-left: 575px;
 
 .overlay2 {
   position: relative; 
-  left: -10px;
-  top: 21px;
+  left: 70px;
+  top: 46px;
 
 }
-	
-.title{
-font-size: 25px !important;
-padding-bottom: 30px;
-padding-left: 50px;
 
 
+.awxb-view.awxb-view .awxjs__ui-timeline, .awxb-component.awxb-component .awxjs__ui-timeline {
+    margin-top: .25rem;
+    margin-bottom: -20px;
 }
+
+
+
+
+
 
 
 
 .header{
   position: relative; 
 border-top: 1px solid #ccc;
-min-width: 1000px;
-margin-left: -12px;
-margin-bottom: -95px;
-margin-top: -16px;
+min-width: 900px;
+max-width: 1063px;
+margin-left: 66px;
+margin-bottom: -99px;
+margin-top: 12px;
 
 }
 
@@ -229,6 +243,65 @@ width: 1275px !important;
 }
 
 
+.awxb-view.awxb-view .local-header ul.nav, .awxb-component.awxb-component .local-header ul.nav {
+    z-index: 10000;
+    position: absolute;
+    padding: 0;
+    margin: 0 0 0 50px;
+    margin-left: 35px;
+    margin-top: 61.5px;
+    list-style: none;
+    min-width: 1200px;
+}
+
+
+@media(max-width: 8px) {
+	.awxb-view.awxb-view .local-header ul.info>li,.awxb-component.awxb-component .local-header ul.info>li {
+		display: block
+	}
+
+	.awxb-view.awxb-view .local-header ul.nav,.awxb-component.awxb-component .local-header ul.nav {
+		margin: 5px 0 0 0
+	}
+
+	.awxb-view.awxb-view .local-header ul.nav>li,.awxb-component.awxb-component .local-header ul.nav>li {
+		margin-left: 8px
+	}
+
+	.awxb-view.awxb-view .local-header ul.nav>li:first-child,.awxb-component.awxb-component .local-header ul.nav>li:first-child {
+		margin-left: 0
+	}
+
+	.awxb-view.awxb-view .local-header ul.nav>li:nth-child(4),.awxb-component.awxb-component .local-header ul.nav>li:nth-child(4) {
+		display: none
+	}
+
+	.awxb-view.awxb-view .local-header ul.nav>li a,.awxb-component.awxb-component .local-header ul.nav>li a {
+		padding-left: 0;
+		padding-right: 0
+	}
+
+	.awxb-view.awxb-view .local-header ul.nav>li a:before,.awxb-component.awxb-component .local-header ul.nav>li a:before {
+		bottom: -7px
+	}
+}
+
+
+
+
+
+
+.awxb-view.awxb-view .awxb-local.awxb-local>.row,.awxb-component.awxb-component .awxb-local.awxb-local>.row {
+	padding-bottom: 30px
+}
+
+
+
+
+
+
+
+
 
 
 </style>
@@ -250,9 +323,9 @@ width: 1275px !important;
 		 <section class="local"><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" >					
-									<li ><a href="/wxblox/geo.html" style= "margin-left: 29px; font-size: 24px; padding-right:10px; color: #000;"  >48-Hour Forecast</a></li>
+									<li ><a href="" style= "margin-left: 120px; font-size: 24px; padding-right:10px; color: #000;"  >48-Hour Forecast</a></li>
 									
-									<li><a style= "margin-left: 4px;" onclick="location5();">Forecast</a></li>
+									<li><a style= "margin-left: 10px;" onclick="location5();">Forecast</a></li>
 									<li class="selected"><a onclick="location0();">Forecast Map - GFS</a></li>
 									<li><a onclick="location3();">Forecast Map - NAM</a></li>
 									<li><a onclick="location4();">Forecast Map - HRRR</a></li>
@@ -301,7 +374,7 @@ width: 1275px !important;
 		<div id="wxblox-search1" class="box awxb-view-outlook" ></div>
 
 	</div>
-
+<div id="wxblox2" >
 
 <div class="content2"></div>
 <div class="footer"></div>
@@ -397,6 +470,18 @@ var lat = (getParameter("lat"))
 
 
 
+//const view2 = new aeris.wxblox.views.MapListing('#wxblox2', {
+//    type: 'thumbs',
+//    categories: ['radar/sat'],
+//    codes: ['alerts', 'stormcells', 'stormreports'],
+	//links: true,
+//});
+//view2.load();
+
+
+
+
+
 const view = new aeris.wxblox.views.MapController('#wxblox', {
 
 
@@ -432,7 +517,7 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 				
 				size: {
 					width: 1090,
-					height: 725,
+					height: 715,
 				},
 				
 

@@ -6,7 +6,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/logos/wxapp2.png"/>
     <link href="ai-css/xweather-nimbus-chatbot-1.2.5.css" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, user-scalable=no">
     <link href="css/aeris-wxblox.css" rel="stylesheet"/>
     <script src="css/aeris-wxblox.js"></script>
 	    <script src="css/onclick.js"></script>
@@ -26,9 +26,15 @@ body {
   max-width: 1200px;
   margin: auto;
 margin-top: -30px;
-  background-image: url("1.png");
+  background-image: url("7.png");
   background-size:contain;
   background-position:center;
+
+
+
+
+
+
 }
 
 html
@@ -37,7 +43,7 @@ html
   scroll-behavior: smooth;
 
 
-   min-width: 1500px;
+   min-width: 1275px;
    width: 100%;
 }
 
@@ -346,8 +352,7 @@ padding-left: 50px;
 
 }
 	
-	
-	
+
 	
 </style>
 
@@ -387,10 +392,10 @@ padding-left: 50px;
 
 
 
-	<section role="content">
+	<section role="content" >
 	    <div class="row"  ></div>
- 	       <div class="awxb-view">
-		 <section class="local"><div class="row local-header">
+ 	       <div class="awxb-view"  style="min-width: 100%;">
+		 <section class="local"  ><div class="row local-header">
 
 					<ul class="info" ><li><ul class="nav" >
 					
@@ -466,7 +471,7 @@ padding-left: 50px;
 
 </div>
 
-    <div class="container">  
+    <div class="container" >  
 
 		<div id="wxblox" class="box overlay" style="margin-left: 18px; margin-bottom: 0px;"></div>
 		<div class="box awxb-view-outlook" style="margin-bottom: 5px; margin-top: 365px; margin-left: 35px; max-width: 635px;"></div>
@@ -514,6 +519,7 @@ padding-left: 50px;
 	
 <div class="content2"></div>
 <div class="footer"></div>
+
 
 
 
@@ -572,7 +578,18 @@ aeris.on('ready', () => {
 
     maps: {
 
+			map: {
 
+
+					size: {
+
+							width: 500,
+							height: 300
+
+					},
+
+
+			},
 	
       animation: {
         enabled: true,
