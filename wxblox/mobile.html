@@ -545,9 +545,9 @@ align: center;
 	
 <div id="wxblox6"  style=" margin-top: 20px; margin-bottom: -0px;"></div>			
 
-
-
-
+<div id="wxblox7"  style=" margin-top: 20px; margin-bottom: -0px;"></div>			
+		
+<div id="wxblox8"  style=" margin-top: 20px; margin-bottom: -0px;"></div>		
 
 
 
@@ -597,11 +597,23 @@ var lat = (getParameter("lat"))
 
   const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
     obs: {
+	
+	
+	
+	
+	
       advisories: {
-        enabled: false
+        modal: true,
+		//fullDetails: true,
+		//renderNoData: true,
+		enabled: true,
       },
+	  
+	  
+	  
+	  
       threats: {
-        enabled: false
+        enabled: true,
       }
     },
     nearby: {
@@ -822,6 +834,26 @@ enabled: false,
     const view6 = new aeris.wxblox.views.Forecast('#wxblox6', {
  
 	});
+
+
+
+
+
+
+
+	const view7 = new aeris.wxblox.views.Forecast('#wxblox7', {
+    type: 'hourly'
+	});
+
+	const view8 = new aeris.wxblox.views.ArchiveObservations('#wxblox8', {
+
+		 range: {
+		 
+                 from: 'today'
+				  
+                }
+
+	});
 	  
   
 (function (window, document, Aeris) {
@@ -948,6 +980,21 @@ var lat = (getParameter("lat"))
 	  //p: 'lake shore,md'
     });
 
+    view7.load({
+	//p:  81082
+		  p: lat,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
+
+
+
+    view8.load({
+	//p:  81082
+		  p: lat,
+      //p: `${pos.coords.latitude}, ${pos.coords.longitude}`
+	  //p: 'lake shore,md'
+    });
 
 
 
