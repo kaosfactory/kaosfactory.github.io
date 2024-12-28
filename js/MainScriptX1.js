@@ -79,7 +79,7 @@ function setInformation(){
   setTimelineEvents();
   hideSettings();
   setTimeout(resizeWindow, 4500);
-  setTimeout(startAnimation, 5000);
+  setTimeout(startAnimation, 5500);
 }
 
 //function setMainBackground(){
