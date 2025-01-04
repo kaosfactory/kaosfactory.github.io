@@ -8916,7 +8916,8 @@
 }
 
 .awxb-view.awxb-view img,.awxb-component.awxb-component img {
-	margin: 0;
+	margin: 2px;
+	margin-bottom: 10px;
 	max-height: none;
 	max-width: none
 }
