@@ -303,7 +303,6 @@ width: 1275px !important;
 
 
 
-
 </style>
 
 </head>
@@ -517,7 +516,7 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 				
 				size: {
 					width: 1090,
-					height: 715,
+					height: 570,
 				},
 				
 
@@ -662,15 +661,31 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 				},
 				
 				{
-					zoom: 9,
+					
 					title: 'Zoom'
 				},
 
+
+
 				 
 				{
-					region: 'us',
+				
+					bounds: {
+					north: 50.26,
+					west: -131.39,
+					south: 17.45,
+					east: -61.17,
+					},	
+				
+					zoom: 4,
+					
 					title: 'National'
+					
 				},
+				
+				
+				
+				
 				
 				{
 					zoom: 2,
