@@ -221,22 +221,17 @@ margin-top: 12px;
 }
 
 
+
 .awxjs__legend awxjs__legend-group {
 
-width: 1275px !important;
-
-
-
+width: 1075px !important;
 
 }
 
 
 .awxjs__legend-radar {
 
-width: 1275px !important;
-
-
-
+width: 1075px !important;
 
 }
 
@@ -504,8 +499,9 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 				
 				size: {
 					width: 1090,
-					height: 715,
+					height: 550,
 				},
+				
 				
 
 			},
@@ -677,8 +673,18 @@ const view = new aeris.wxblox.views.MapController('#wxblox', {
 
 				 
 				{
-					region: 'us',
+				
+					bounds: {
+					north: 50.26,
+					west: -131.39,
+					south: 19.45,
+					east: -61.17,
+					},	
+				
+					zoom: 4,
+					
 					title: 'National'
+					
 				},
 				
 				{
