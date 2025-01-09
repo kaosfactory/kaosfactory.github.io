@@ -125,8 +125,8 @@
                             const contained = data.report?.perContained || 0;
                             const factor = (area * (contained === 100 ? 0.75 : 1)) / 10000;
                             const size = { 
-                                width: Math.min(20, Math.round(55 + 40 * factor)), 
-                                height: Math.min(32, Math.round(65 + 80 * factor))
+                                width: Math.min(80, Math.round(30 + 40 * factor)), 
+                                height: Math.min(130, Math.round(40 + 80 * factor))
                             };
                             return size;
                         },
