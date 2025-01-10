@@ -793,7 +793,83 @@
 
 
 
+												{
+														//id: "FiresObsCustom",
+														title: "Earthquakes",
+														value: "earthquakes",											
+														options: {
 
+														type: 'symbol',
+														source: 'earthquakes',
+														paint: {
+														symbol: {
+														shader: `
+														// https://www.shadertoy.com/view/ldycR3
+														#extension GL_OES_standard_derivatives : enable
+										 
+														precision mediump float;
+											 
+														uniform vec2 resolution;
+														uniform float dpr;
+														uniform float time;
+											 
+														varying vec2 vUv;
+														varying vec2 vPosition;
+														varying float vFactor;
+														varying float vRandom;
+										 
+													float saturate(float x) {
+													return clamp(x, 0.0, 1.0);
+													}
+										 
+													vec3 hsb2rgb(in vec3 c) {
+													vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,
+																0.0,
+																1.0);
+													rgb = rgb*rgb*(3.0-2.0*rgb);
+													return c.z * mix( vec3(1.0), rgb, c.y);
+													}
+										 
+													void main() {
+														vec2 pos = vUv;
+														float t = time;
+											 
+														float dist = length(2.0 * pos - 1.0) * 2.0;
+														vec2 p = vec2(dist);
+											 
+														float r = length(p) * 0.9;
+														vec3 color = hsb2rgb(vec3(0.03, 0.7, 0.6));
+											 
+														float a = pow(r, 3.0);
+														float b = sin(r * 1.8 - 1.6);
+														float c = sin(r - 0.010);
+														float s = sin(a - t * 2.0 + b) * c;
+											 
+														color *= abs(1.0 / (s * 1.8)) - 0.01;
+											 
+														float d = length(2.0 * pos - 1.0);
+														// float delta = fwidth(d);
+														float alpha = 1.0 - d;
+														// alpha *= min(1.0, 0.2 + vFactor);
+											 
+														gl_FragColor = vec4(color, alpha);
+														gl_FragColor.rgb *= gl_FragColor.a;
+													}
+													`,
+													animated: true,
+													pitchWithMap: true,
+													// blending: 2,
+													size: (data) => {
+														const mag = Math.max(data.report?.mag || 1);
+														const size = 1 + 115 * (mag / 10);
+														return { width: size, height: size };
+													}
+
+											}
+										}
+									}
+									
+								},
 
 
 
@@ -1074,7 +1150,7 @@
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
 						
 						
-						//app.getPanel('layers').select(['lightning-strikes']);
+						app.getPanel('layers').select(['earthquakes']);
 						
 
 							
@@ -1234,78 +1310,7 @@
 
 
 						
-						controller.addWeatherLayer('earthquakes', {
-							type: 'symbol',
-							source: 'earthquakes',
-							paint: {
-								symbol: {
-									shader: `
-						// https://www.shadertoy.com/view/ldycR3
-						#extension GL_OES_standard_derivatives : enable
-			 
-						precision mediump float;
-			 
-						uniform vec2 resolution;
-						uniform float dpr;
-						uniform float time;
-			 
-						varying vec2 vUv;
-						varying vec2 vPosition;
-						varying float vFactor;
-						varying float vRandom;
-			 
-						float saturate(float x) {
-						return clamp(x, 0.0, 1.0);
-						}
-			 
-						vec3 hsb2rgb(in vec3 c) {
-						vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,
-									0.0,
-									1.0);
-						rgb = rgb*rgb*(3.0-2.0*rgb);
-						return c.z * mix( vec3(1.0), rgb, c.y);
-						}
-			 
-						void main() {
-						vec2 pos = vUv;
-						float t = time;
-			 
-						float dist = length(2.0 * pos - 1.0) * 2.0;
-						vec2 p = vec2(dist);
-			 
-						float r = length(p) * 0.9;
-						vec3 color = hsb2rgb(vec3(0.03, 0.7, 0.6));
-			 
-						float a = pow(r, 3.0);
-						float b = sin(r * 1.8 - 1.6);
-						float c = sin(r - 0.010);
-						float s = sin(a - t * 2.0 + b) * c;
-			 
-						color *= abs(1.0 / (s * 1.8)) - 0.01;
-			 
-						float d = length(2.0 * pos - 1.0);
-						// float delta = fwidth(d);
-						float alpha = 1.0 - d;
-						// alpha *= min(1.0, 0.2 + vFactor);
-			 
-						gl_FragColor = vec4(color, alpha);
-						gl_FragColor.rgb *= gl_FragColor.a;
-						}
-									`,
-									animated: true,
-									pitchWithMap: true,
-									// blending: 2,
-									size: (data) => {
-										const mag = Math.max(data.report?.mag || 1);
-										const size = 1 + 115 * (mag / 10);
-										return { width: size, height: size };
-									}
-								}
-							}
-							
-						},
-//						"aeroway-line"
-						);
+
 
 
 						controller.addWeatherLayer('earthquakes-heat', {
