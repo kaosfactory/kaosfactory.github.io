@@ -904,7 +904,15 @@
 						{
                         title: "Fire Obs",
                         value: "fires-obs-heat",
-						},				
+						},
+
+						{
+                        title: "Earthquakes",
+                        value: "earthquakes-heat"
+						
+						},
+
+						
 
 						], 
 					
@@ -1150,7 +1158,7 @@
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
 						
 						
-						app.getPanel('layers').select(['earthquakes']);
+						app.getPanel('layers').select(['earthquakes','earthquakes-heat']);
 						
 
 							
@@ -1313,14 +1321,14 @@
 
 
 
-						controller.addWeatherLayer('earthquakes-heat', {
-							"paint" : {
-								"opacity" : .45
-							},
-						},
-						 //"aeroway-line"			
+//						controller.addWeatherLayer('earthquakes-heat', {
+//							"paint" : {
+//								"opacity" : .45
+//							},
+//						},
+//						 //"aeroway-line"			
 
-						);
+//						);
 						
 
 						controller.addWeatherLayer('convective-outline', {
