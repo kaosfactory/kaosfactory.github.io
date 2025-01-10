@@ -7,6 +7,20 @@
 	<link rel="stylesheet" href="css/aerisweather.css">
 	<link rel="stylesheet" href="css/attrib.css">
 	<title>KAOS WX</title>
+	
+	    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.0/mapbox-gl.css" rel="stylesheet" />
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v2.8.0/mapbox-gl.js"></script>
+ 
+    <link href="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.css" rel="stylesheet" />
+    <script defer src="https://cdn.aerisapi.com/sdk/js/mapsgl/latest/aerisweather.mapsgl.js"></script>
+    
+	
+	
+	
+	
+	
+	
+	
 
     <style>
     body, html {
@@ -518,7 +532,8 @@
 		
 			// load in MapsGL sdk and set up relevant layer controls
 			aeris.mapsgl(app, {
-				version: '1.5.2', //***********************************  
+				//version: '1.6.4', //*********************************** 
+				//version: '1.5.2',		ORIGINAL
 				layers: [
 				
 				
@@ -649,6 +664,146 @@
 
 									},				
 				
+
+
+
+
+
+
+
+									{
+										//id: "FiresObsCustom",
+										title: "Fires (Animated)",
+										value: "fires-obs",											
+										options: {
+										type: 'symbol',
+										paint: {
+										symbol: {
+										shader: `
+										// https://www.shadertoy.com/view/Xtf3DX
+										#extension GL_OES_standard_derivatives : enable
+								 
+										precision mediump float;
+								 
+										uniform vec2 resolution;
+										uniform float dpr;
+										uniform float time;
+										uniform sampler2D tDiffuse;
+										
+										varying vec2 vUv;
+										varying vec2 vPosition;
+										varying float vFactor;
+										varying float vRandom;
+										
+										#include <fbm>
+										
+
+
+										
+								 
+									float rand(const vec2 co) {
+										float t = dot(vec2(12.9898, 78.233), co);
+										return fract(sin(t) * (4375.85453 + t));
+									}
+							 
+									void main() {
+										vec2 uv = vec2(vUv.x, 1.0 - vUv.y);
+										//vec2 uv = vUv;
+										float t = (time + vRandom * 10.) * 0.5;
+							 
+										vec2 q = uv;
+										q.x *= 1.;
+										q.y *= 2.;
+										float strength = floor(q.x + 2.0);
+										float T3 = max(3., 1.25 * strength) * t;
+										q.x = mod(q.x, 1.) - 0.5;
+										q.y -= 0.25;
+							 
+										float n = fbm(strength * q - vec2(0, T3));
+										float c = 1. - 16. * pow(max(0., length(q * vec2(1.8 + q.y * 1.5, .75)) - n * max(0., q.y + .25)), 1.2);
+										float c1 = n * c * (1.5 - pow(1.25 * uv.y, 2.));
+										c1 = clamp(c1, 0., 1.);
+							 
+										// flame color
+										vec3 col = vec3(3.5*c1, 1.5*c1*c1*c1, c1*c1*c1*c1*c1*c1);
+										float alpha = 1.0;
+							 
+										// adjust color and alpha based on vFactor (percent contained)
+										if (vFactor == 1.) {
+											col *= vec3(0.);
+											alpha = 0.7;
+										}
+							 
+										// smoke intensity: lower number gives more smoke
+										float a = c * (1. - pow(uv.y, 1.0));
+										col = mix(vec3(0.3), col, a);
+							 
+										if (col.r == col.g && col.g == col.b) {
+											alpha *= 1.0 - col.r;
+										}
+							 
+										if (uv.y > 0.5) {
+											float dist = length(2.0 * uv - 1.0);
+											float delta = fwidth(dist);
+											alpha *= 1.0 - smoothstep(1.0 - delta - 0.5, 1.0, dist);
+										}
+							 
+										gl_FragColor = vec4(col, alpha);
+										gl_FragColor.a = alpha;
+										gl_FragColor.rgb *= gl_FragColor.a;
+									}
+									
+									
+									
+									
+														`,
+														animated: true,
+														anchor: 'bottom',
+														size: (data) => {
+															const area = Math.max(1, data.report?.areaAC);
+															const contained = data.report?.perContained || 0;
+															const factor = (area * (contained === 100 ? 0.75 : 1)) / 10000;
+															const size = { 
+																width: Math.min(80, Math.round(30 + 40 * factor)), 
+																height: Math.min(130, Math.round(40 + 80 * factor))
+															};
+															return size;
+														},
+														factor: (data) => {
+															const contained = data.report?.perContained || 0;
+															return contained / 100;
+														},
+														pitchWithMap: false,
+														rotateWithMap: false														
+																						
+														
+														
+														
+														
+													}
+												}
+										}	
+
+									},				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				
 				
 	
