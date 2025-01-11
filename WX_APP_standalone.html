@@ -421,31 +421,10 @@
 
 			aeris.mapsgl(app, {
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		
 				version: '1.3.5', //*************************************************
 				layers: [
 				
-
-
-
-
-
-
-
 
 
 
@@ -529,10 +508,63 @@
 							});
 
 
+
+
+
+
+
+
+
+
+
+
+
+			aeris.mapsgl(app, {
+			
 		
+				version: '1.6.4', //*************************************************
+				layers: [
+				
+
+
+
+
+					// ADD STUFF
+
+	
+				],
+
+				})
+				
+				
+				
+				
+				
+			
+							.then(({controller, mapsgl }) => {
+	
+
+							// ADD STUFF
+
+	
+
+							});
+
+
+
+
+
+
+
+
+
+
+
+
+
 			// load in MapsGL sdk and set up relevant layer controls
 			aeris.mapsgl(app, {
-				//version: '1.6.4', //*********************************** 
+				version: '1.6.4', //*********************************** 
 				//version: '1.5.2',		ORIGINAL
 				layers: [
 				
@@ -794,7 +826,7 @@
 
 
 												{
-														//id: "FiresObsCustom",
+														id: "EarthquakesCustom",
 														title: "Earthquakes",
 														value: "earthquakes",											
 														options: {
@@ -875,6 +907,64 @@
 
 
 
+	
+
+
+
+					]
+					
+				})
+				
+				
+				
+
+			
+
+				.then(({controller, mapsgl }) => {
+
+
+					
+			
+				
+
+
+
+
+
+
+
+				});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			// load in MapsGL sdk and set up relevant layer controls
+			aeris.mapsgl(app, {
+				//version: '1.6.4', //*********************************** 
+				//version: '1.5.2',		ORIGINAL
+				layers: [
+				
+
+
+
+
+
+
 
 
 
@@ -907,6 +997,7 @@
 						},
 
 						{
+						id: "earthquakes-heat",
                         title: "Earthquakes",
                         value: "earthquakes-heat"
 						
@@ -1159,12 +1250,19 @@
 						
 						
 						app.getPanel('layers').select(['earthquakes','earthquakes-heat']);
-						
+						//app.getPanel('layers').select(['earthquakes']);
 
 							
-						//controller.addWeatherLayer('heat-index');
+						//controller.addWeatherLayer('earthquakes-heat');
 		
+//						controller.addWeatherLayer('earthquakes-heat', {
+//							"paint" : {
+//								"opacity" : .45
+//							},
+//						},
+//						 //"aeroway-line"			
 
+//						);
 
 						
 						
