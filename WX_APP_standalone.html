@@ -426,6 +426,47 @@
 				layers: [
 				
 
+				{ title: 'Lightning Data', value: 'lightning', segments: [
+
+
+
+	
+
+					{
+						title: "Lightning Flash",
+						value: "lightning-flash"
+					},				
+				
+					{
+						title: "Lightning All",
+						value: "lightning-all"
+					},
+						
+						
+					],				
+
+					
+				},
+
+
+					{
+						title: 'Storm Reports', 
+						value: 'stormreports', 
+						options: {
+									paint: {
+										fill: {
+											opacity: 0.45
+										},
+										stroke: {
+											opacity: .25
+										}
+									},
+							},
+							
+					},			
+
+
+
 
 
 				
@@ -451,45 +492,11 @@
 
 					
 					
-					{
-						title: 'Storm Reports', 
-						value: 'stormreports', 
-						options: {
-									paint: {
-										fill: {
-											opacity: 0.45
-										},
-										stroke: {
-											opacity: .25
-										}
-									},
-							},
-							
-					},							
-					
-
-
-				{ title: 'Lightning Data', value: 'lightning', segments: [
-
-
-
-	
-
-					{
-						title: "Lightning Flash",
-						value: "lightning-flash"
-					},				
 				
-					{
-						title: "Lightning All",
-						value: "lightning-all"
-					},
-						
-						
-					],				
-
 					
-				},
+
+
+
 
 
 	
@@ -1487,7 +1494,6 @@
 
 
 
-
 //                controller.addSource('satellite-geocolor', {
 //                    type: 'raster',
 //                    url: 'https://maps{s}.aerisapi.com/wgE96YE3scTQLKjnqiMsv_SVG2gQFV8y9DjKR0BRY9wPoSLvrMrIqF9Lq2IYaY/satellite-geocolor/{z}/{x}/{y}/0@2x.png'
@@ -1521,7 +1527,7 @@
 						aeris.modules().then((modules) => {
 							const layerModules = [{
 								name: "groups.Tropical",
-								index: 19
+								index: 20
 							},
 
 
