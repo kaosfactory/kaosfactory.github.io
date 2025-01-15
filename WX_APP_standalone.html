@@ -898,7 +898,14 @@
 	
 app.getPanel('layers').select(['earthquakes']);
 
-
+						controller.addWeatherLayer('earthquakes', {
+							"paint" : {
+								"opacity" : 0
+							},
+						},
+						 "aeroway-line"			
+						
+						);		
 
 
 
@@ -925,8 +932,8 @@ app.getPanel('layers').select(['earthquakes']);
 		
 			// load in MapsGL sdk and set up relevant layer controls
 			aeris.mapsgl(app, {
-				//version: '1.6.4', //*********************************** 
-				//version: '1.5.2',		ORIGINAL
+				version: '1.6.4', //*********************************** 
+				//version: '1.5.2',		//ORIGINAL
 				layers: [
 				
 
@@ -1086,7 +1093,7 @@ app.getPanel('layers').select(['earthquakes']);
 
 
 						
-						
+				
 						
 						
 
@@ -1234,14 +1241,7 @@ app.getPanel('layers').select(['earthquakes']);
 
 //						);
 
-						controller.addWeatherLayer('earthquakes', {
-							"paint" : {
-								"opacity" : 0
-							},
-						},
-						 "aeroway-line"			
-						
-						);					
+			
 						
 				
 						//Alerts for data inspector
