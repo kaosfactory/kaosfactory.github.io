@@ -1254,9 +1254,24 @@
 
 						// add the MapsGL data inspector control*********************
 						controller.addDataInspectorControl({ event: 'move'}); //must be here
-						
-						
+
+function eqh() {
+
 						app.getPanel('layers').select(['earthquakes','earthquakes-heat']);
+						
+						
+						
+						
+				}
+
+
+setTimeout(eqh, 5000);
+
+
+
+						
+						
+
 						//app.getPanel('layers').select(['earthquakes']);
 
 							
@@ -1282,6 +1297,9 @@
 
 
 
+
+
+
 						controller.addWeatherLayer('earthquakes', {
 							"paint" : {
 								"opacity" : 0
@@ -1289,7 +1307,10 @@
 						},
 						 "aeroway-line"			
 						
-						);					
+						);		
+
+
+			
 						
 				
 						//Alerts for data inspector
