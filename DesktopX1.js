@@ -121,6 +121,17 @@ function fetchAlerts(){
 }
 
 // 4-slot forecast + 7-day outlook, from NWS
+// Calendar-date helpers: boxes are matched by date, not by list position
+function localDayKey(p) { return new Date(p.startTime).toDateString(); }
+function dateKeyOffset(days) { const d = new Date(); d.setDate(d.getDate() + days); return d.toDateString(); }
+function dayPeriodFor(periods, key) {
+  return periods.find(function (p) { return p.isDaytime && localDayKey(p) === key; }) || null;
+}
+function nightPeriodFor(periods, key) {
+  return periods.find(function (p) { return !p.isDaytime && localDayKey(p) === key; }) || null;
+}
+
+// 4-slot forecast + 7-day outlook, from NWS
 function fetchForecast(){
   nwsGet(nwsForecastUrl)
     .then(function (data) {
@@ -128,16 +139,31 @@ function fetchForecast(){
       const isMetric = CONFIG.units === 'm';
       // NWS forecast temperatures are Fahrenheit by default
       const disp = function (f) {
-        if (f == null) return null;
+        if (f == null) return '--';
         return isMetric ? Math.round((f - 32) * 5 / 9) : f;
       };
 
       isDay = periods[0].isDaytime;
 
-      // Short-range slots: today / tonight / tomorrow / tomorrow night
+      const todayKey = dateKeyOffset(0);
+      const tomorrowKey = dateKeyOffset(1);
+
+      // Today / Tonight / Tomorrow / Tomorrow night, matched by date
+      const slots = [
+        dayPeriodFor(periods, todayKey) || nightPeriodFor(periods, todayKey),
+        nightPeriodFor(periods, todayKey),
+        dayPeriodFor(periods, tomorrowKey),
+        nightPeriodFor(periods, tomorrowKey)
+      ];
       for (let i = 0; i <= 3; i++) {
-        const p = periods[i];
-        if (!p) continue;
+        const p = slots[i];
+        if (!p) {
+          forecastTemp[i] = '--';
+          forecastIcon[i] = 44;
+          forecastNarrative[i] = '';
+          forecastPrecip[i] = '';
+          continue;
+        }
         forecastTemp[i] = disp(p.temperature);
         forecastIcon[i] = nwsIconCode(p.shortForecast, p.isDaytime);
         forecastNarrative[i] = p.detailedForecast || p.shortForecast;
@@ -145,26 +171,17 @@ function fetchForecast(){
         forecastPrecip[i] = `${pop}% Chance<br/> of ${precipLabel(p.shortForecast)}`;
       }
 
-      // Group NWS periods into days: each daytime period plus the night after it
-      const days = [];
-      periods.forEach(function (p, idx) {
-        if (p.isDaytime) {
-          const next = periods[idx + 1];
-          days.push({ day: p, night: (next && !next.isDaytime) ? next : null });
-        }
-      });
-
-      // 7-day outlook starts tomorrow. If the first period is daytime, that's today, so skip it.
-      const offset = periods[0].isDaytime ? 1 : 0;
+      // 7-day outlook: tomorrow through six days after. Missing data shows "--".
       for (let i = 0; i < 7; i++) {
-        const d = days[offset + i];
-        if (!d) continue;
-        outlookHigh[i] = disp(d.day.temperature);
-        outlookLow[i] = d.night ? disp(d.night.temperature) : null;
-        outlookCondition[i] = d.day.shortForecast
-          .split(' ').join('<br/>')
-          .replace("Thunderstorm", "Thunder</br>storm");
-        outlookIcon[i] = nwsIconCode(d.day.shortForecast, true);
+        const key = dateKeyOffset(i + 1);
+        const day = dayPeriodFor(periods, key);
+        const night = nightPeriodFor(periods, key);
+        outlookHigh[i] = day ? disp(day.temperature) : '--';
+        outlookLow[i] = night ? disp(night.temperature) : '--';
+        outlookCondition[i] = day
+          ? day.shortForecast.split(' ').join('<br/>').replace("Thunderstorm", "Thunder</br>storm")
+          : '';
+        outlookIcon[i] = day ? nwsIconCode(day.shortForecast, true) : 44;
       }
 
       fetchRadarImages();
@@ -174,7 +191,6 @@ function fetchForecast(){
     });
 }
 
-// Current conditions and location, from NWS
 function fetchCurrentWeather(){
   if (CONFIG.locationMode == "AIRPORT") {
     alert("Airport mode is not supported on the NWS version yet. Use a postal code.");
