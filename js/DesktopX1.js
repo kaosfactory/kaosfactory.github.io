@@ -171,11 +171,16 @@ function fetchForecast(){
         forecastPrecip[i] = `${pop}% Chance<br/> of ${precipLabel(p.shortForecast)}`;
       }
 
-      // 7-day outlook: tomorrow through six days after. Missing data shows "--".
+      // 7-day outlook: today through six days after (matches the page's day labels).
+      // Each day's low is the night period that follows that day's high.
+      const nightAfter = function (day) {
+        const idx = periods.indexOf(day);
+        const next = periods[idx + 1];
+        return (next && !next.isDaytime) ? next : null;
+      };
       for (let i = 0; i < 7; i++) {
-        const key = dateKeyOffset(i + 1);
-        const day = dayPeriodFor(periods, key);
-        const night = nightPeriodFor(periods, key);
+        const day = dayPeriodFor(periods, dateKeyOffset(i));
+        const night = day ? nightAfter(day) : null;
         outlookHigh[i] = day ? disp(day.temperature) : '--';
         outlookLow[i] = night ? disp(night.temperature) : '--';
         outlookCondition[i] = day
